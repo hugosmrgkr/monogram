@@ -8,47 +8,47 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Data for benefits section
+        // Data untuk bagian Keuntungan
         $benefits = [
             [
-                'title' => 'Foto Soft Copy HD',
-                'description' => 'Dapatkan foto berkualitas tinggi',
-                'image' => 'assets/images/benefits/softcopy.jpg'
+                'title' => 'Pilihan Tata Letak Hasil Foto',
+                'description' => 'Pilih tata letak sesuai keinginanmu',
+                'image' => 'assets/images/keuntungan1.png'
             ],
             [
-                'title' => 'Make Makeup Langsung',
-                'description' => 'Layanan makeup profesional',
-                'image' => 'assets/images/benefits/makeup.jpg'
+                'title' => 'BEBAS WARNA LATAR FOTO',
+                'description' => 'Pilih warna latar sesuai keinginanmu',
+                'image' => 'assets/images/keuntungan2.png'
             ],
             [
-                'title' => 'Kostum lengkap untuk customer',
-                'description' => 'Pilihan kostum beragam',
-                'image' => 'assets/images/benefits/costume.jpg'
-            ]
+                'title' => 'Tersedia spotlight mode',
+                'description' => 'Pilih spotlight sesuai keinginanmu',
+                'image' => 'assets/images/keuntungan3.png'
+            ],
         ];
 
-        // Data for recommended photos
+        // Data untuk bagian Recommended Foto
         $recommendedPhotos = [
-            [
-                'title' => 'Pre Wedding',
-                'description' => 'John & Jane - October 21, 2023',
-                'image' => 'assets/images/portfolio/prewedding.jpg'
-            ],
             [
                 'title' => 'Family Album',
                 'description' => 'The Johnson Family',
-                'image' => 'assets/images/portfolio/family.jpg'
+                'image' => 'assets/images/rec1.png'
             ],
             [
-                'title' => 'Pre Wedding',
-                'description' => 'Mike & Sarah - December 2, 2023',
-                'image' => 'assets/images/portfolio/prewedding2.jpg'
+                'title' => 'Graduation Session',
+                'description' => 'Solo Photoshoot',
+                'image' => 'assets/images/rec2.png'
             ],
             [
-                'title' => 'Solo Photoshoot',
-                'description' => 'Graduation Session',
-                'image' => 'assets/images/portfolio/solo.jpg'
-            ]
+                'title' => 'Fashion Photography',
+                'description' => 'Studio Exclusive',
+                'image' => 'assets/images/rec3.png'
+            ],
+            [
+                'title' => 'Group Photoshoot',
+                'description' => 'Special Occasion',
+                'image' => 'assets/images/rec4.png'
+            ],
         ];
 
         return view('home', compact('benefits', 'recommendedPhotos'));
