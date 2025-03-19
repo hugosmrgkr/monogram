@@ -10,138 +10,140 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Styles -->
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            color: #000;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+     <style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #000;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
 
-        h2 {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
 
-        /* Navbar Styling */
-        .navbar {
-            padding: 15px 0;
-            transition: background 0.4s ease;
-        }
+/* Navbar Styling */
+.navbar {
+    padding: 15px 0;
+    transition: background 0.4s ease;
+    background-color: white !important;
+}
 
-        .navbar-brand {
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
 
-        .nav-link {
-            color: #000;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
+/* Modified nav-link and active state */
+.nav-link {
+    color: #000;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 10px 25px; /* Increased padding to match your example */
+    border-radius: 0;
+    margin: 0 5px;
+}
 
-        .nav-link:hover, .nav-link.active {
-            color: #007bff;
-            font-weight: bold;
-        }
+/* Create the black box effect for active/hover state */
+.nav-link:hover, .nav-link.active {
+    color: #fff;
+    background-color: #000;
+    font-weight: bold;
+}
+.nav-item{
+    position: relative;
+}
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-            color: white;
-            text-align: center;
-        }
 
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
 
-        .hero-text h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-            animation: fadeInUp 1s ease;
-        }
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    animation: fadeInUp 1s ease;
+}
 
-        /* Footer */
-        .footer {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 0;
-            font-size: 0.9rem;
-            text-align: center;
-        }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        /* Button Custom */
-        .btn-primary {
-            background-color: #000;
-            border: none;
-            transition: background 0.3s ease;
-            border-radius: 0;
-        }
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
 
-        .btn-primary:hover {
-            background-color: #333;
-        }
+/* Button Custom */
+.btn-primary {
+    background-color: #000;
+    border: none;
+    transition: background 0.3s ease;
+    border-radius: 0;
+}
 
-        /* Underline Effect */
-        .nav-item {
-            position: relative;
-        }
+.btn-primary:hover {
+    background-color: #333;
+}
 
-        .nav-item::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #007bff;
-            transition: width 0.3s ease;
-        }
+/* Remove the underline effect since we're using box effect now */
+.nav-item {
+    position: relative;
+    margin: 0 5px;
+}
 
-        .nav-item:hover::after {
-            width: 100%;
-        }
+/* Remove the previous after pseudo-element */
+.nav-item::after {
+    content: none;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2rem;
-            }
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
 
-            .nav-link {
-                padding: 10px;
-            }
-        }
+    .nav-link {
+        padding: 10px;
+    }
+}
 
-        @media (max-width: 576px) {
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
 
-            .footer p {
-                font-size: 0.8rem;
-            }
-        }
-    </style>
+    .footer p {
+        font-size: 0.8rem;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -158,20 +160,40 @@
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <!-- Link Beranda -->
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
                     </li>
+
+                    <!-- Link Profil Owner -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Tentang Kami</a>
+                        <a class="nav-link" href="#about">Profil Owner</a>
                     </li>
+
+                    <!-- Link Profil Lengkap Monogram -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Layanan</a>
+                        <a class="nav-link" href="#services">Profil Lengkap Monogram</a>
                     </li>
+
+                    <!-- Link Pilihan Layanan -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Galeri</a>
+                        <a class="nav-link" href="#gallery">Pilihan Layanan</a>
                     </li>
+
+                    <!-- Login/Logout Dinamis -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak</a>
+                        @auth
+                            <!-- Jika Sudah Login, Tampilkan Logout -->
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm logout-btn">
+                                    Logout
+                                </button>
+                            </form>
+                        @else
+                            <!-- Jika Belum Login, Tampilkan Login -->
+                            <a class="btn btn-dark btn-sm login-btn {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login</a>
+                        @endauth
                     </li>
                 </ul>
             </div>
@@ -190,7 +212,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
-
 </body>
+
 
 </html>

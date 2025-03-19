@@ -4,11 +4,18 @@
 
 @section('content')
     <!-- Hero Section - Full Width -->
+     <br>
+     <br>
+     <br>
+    <div class="container mb-4">
+        <h1 class="fw-bold">MONOGRAM TOBA</h1>
+        <p>Welcome to website Monogram Studio Balige</p>
+    </div>
     <div class="hero-section position-relative mb-4">
         <div class="container-fluid p-0">
             <img src="{{ asset('assets/images/home.png') }}" alt="Monogram Toba Studio" class="img-fluid w-100" style="max-height: 600px; object-fit: cover;">
             <div class="hero-text position-absolute top-50 start-50 translate-middle text-white text-center">
-                <h1 class="monogram-title">>monogram</h1>
+                <h1 class="monogram-title">>monogram_</h1>
             </div>
         </div>
     </div>
@@ -28,7 +35,7 @@
 
         @media (max-width: 992px) {
             .monogram-title {
-                font-size: 6rem;
+                font-size: 6rem ;   Q
             }
         }
 
@@ -40,10 +47,7 @@
     </style>
 
     <!-- Header Text -->
-    <div class="container mb-4">
-        <h1 class="fw-bold">MONOGRAM TOBA</h1>
-        <p>Welcome to website Monogram Studio Balige</p>
-    </div>
+   
 
     <!-- Benefits Section -->
     <div class="container mb-5">
