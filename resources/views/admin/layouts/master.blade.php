@@ -4,22 +4,22 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="assets-admin/er/feather.css">
-    <link rel="stylesheet" href="assets-admin/ons/css/themify-icons.css">
-    <link rel="stylesheet" href="assets-admin/endor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="assets-admin/ables.net-bs4/dataTables.bootstrap4.css">
-    <link rel="stylesheet" href="assets-admin/ons/css/themify-icons.css">
-    <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="css/vertical-layout-light/style.css">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="assets-admin/images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Skydash Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="assets-admin/vendors/feather/feather.css">
+  <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="assets-admin/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="assets-admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="assets-admin/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="assets-admin/images/favicon.png" />
 </head>
 
 <body>
@@ -27,9 +27,9 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.svg" class="mr-2"
+                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="assets-admin/images/logo.svg" class="mr-2"
                         alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg"
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets-admin/images/logo-mini.svg"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -102,7 +102,7 @@
                     </li>
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="images/faces/face28.jpg" alt="profile" />
+                            <img src="assets-admin/images/faces/face28.jpg" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -255,7 +255,7 @@
                         </div>
                         <ul class="chat-list">
                             <li class="list active">
-                                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span
+                                <div class="profile"><img src="assets-admin/images/faces/face1.jpg" alt="image"><span
                                         class="online"></span></div>
                                 <div class="info">
                                     <p>Thomas Douglas</p>
@@ -264,7 +264,7 @@
                                 <small class="text-muted my-auto">19 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span
+                                <div class="profile"><img src="assets-admin/images/faces/face2.jpg" alt="image"><span
                                         class="offline"></span></div>
                                 <div class="info">
                                     <div class="wrapper d-flex">
@@ -276,7 +276,7 @@
                                 <small class="text-muted my-auto">23 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span
+                                <div class="profile"><img src="assets-admin/images/faces/face3.jpg" alt="image"><span
                                         class="online"></span></div>
                                 <div class="info">
                                     <p>Daniel Russell</p>
@@ -285,7 +285,7 @@
                                 <small class="text-muted my-auto">14 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span
+                                <div class="profile"><img src="assets-admin/images/faces/face4.jpg" alt="image"><span
                                         class="offline"></span></div>
                                 <div class="info">
                                     <p>James Richardson</p>
@@ -294,7 +294,7 @@
                                 <small class="text-muted my-auto">2 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span
+                                <div class="profile"><img src="assets-admin/images/faces/face5.jpg" alt="image"><span
                                         class="online"></span></div>
                                 <div class="info">
                                     <p>Madeline Kennedy</p>
@@ -303,7 +303,7 @@
                                 <small class="text-muted my-auto">5 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span
+                                <div class="profile"><img src="assets-admin/images/faces/face6.jpg" alt="image"><span
                                         class="online"></span></div>
                                 <div class="info">
                                     <p>Sarah Graves</p>
@@ -477,7 +477,7 @@
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card tale-bg">
                                 <div class="card-people mt-auto">
-                                    <img src="images/dashboard/people.svg" alt="people">
+                                    <img src="assets-admin/images/dashboard/people.svg" alt="people">
                                     <div class="weather-info">
                                         <div class="d-flex">
                                             <div>

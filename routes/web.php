@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 
 
 // Halaman home (bisa diakses oleh tamu & admin)
-Route::get('/home', [PageController::class, 'home'])->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
 
 // Halaman Profil Owner
 Route::get('/owner', [PageController::class, 'owner'])->name('owner');
@@ -31,9 +32,9 @@ Route::get('/hasil/keluarga', [PageController::class, 'hasilKeluarga'])->name('h
 // Route::post('/login', [AuthController::class, 'login']);
 
 
-
+Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+    // Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 });
 
 Auth::routes();

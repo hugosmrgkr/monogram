@@ -1,1 +1,2 @@
-extends('admin.layout.master')
+@extends('admin.layouts.master')
+<h1>Hai</h1>
