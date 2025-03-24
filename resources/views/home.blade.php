@@ -82,8 +82,8 @@
             @endforeach
         </div>
         <div class="text-center mt-4">
-            <a href="#" class="btn btn-dark rounded-0 px-5 py-2">Hasil Foto</a>
-        </div>
+        <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
+    </div>
     </div>
 
     <!-- Studio Images -->

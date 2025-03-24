@@ -41,9 +41,11 @@ h2 {
     color: #000;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    padding: 10px 25px; /* Increased padding to match your example */
-    border-radius: 0;
-    margin: 0 5px;
+    padding: 8px 20px; /* Increased padding to match your example */
+    margin: 0 2px;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 /* Create the black box effect for active/hover state */
@@ -51,9 +53,14 @@ h2 {
     color: #fff;
     background-color: #000;
     font-weight: bold;
+    z-index: 10;
 }
 .nav-item{
     position: relative;
+    display: inline-block;
+}
+.nav-link.active{
+    clip-path: inset(0 0 0 0);
 }
 
 
@@ -167,31 +174,27 @@ h2 {
 
                     <!-- Link Profil Owner -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Profil Owner</a>
+                        <a class="nav-link {{ request()->routeIs('owner') ? 'active' : '' }}" href="{{ route('owner') }}">Profil Owner</a>
                     </li>
 
                     <!-- Link Profil Lengkap Monogram -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Profil Lengkap Monogram</a>
+                        <a class="nav-link {{ request()->routeIs('profil') ? 'active' : '' }}" href="{{ route('profil') }}">Profil Lengkap Monogram</a>
                     </li>
 
                     <!-- Link Pilihan Layanan -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Pilihan Layanan</a>
+                        <a class="nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
                     </li>
 
                     <!-- Login/Logout Dinamis -->
                     <li class="nav-item">
                         @auth
-                            <!-- Jika Sudah Login, Tampilkan Logout -->
                             <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm logout-btn">
-                                    Logout
-                                </button>
+                                <button type="submit" class="btn btn-danger btn-sm logout-btn">Logout</button>
                             </form>
                         @else
-                            <!-- Jika Belum Login, Tampilkan Login -->
                             <a class="btn btn-dark btn-sm login-btn {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login</a>
                         @endauth
                     </li>
@@ -201,11 +204,15 @@ h2 {
     </nav>
 
     <!-- Main Content -->
-    @yield('content')
+    <main class="py-4">
+        <div class="container">
+            @yield('content')
+        </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
+    <footer class="footer bg-light py-3 mt-4">
+        <div class="container text-center">
             <p>&copy; {{ date('Y') }} Monogram Toba. All rights reserved.</p>
         </div>
     </footer>
@@ -213,6 +220,7 @@ h2 {
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
+
 
 
 </html>
