@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\PageController;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 
@@ -32,9 +34,10 @@ Route::get('/hasil/keluarga', [PageController::class, 'hasilKeluarga'])->name('h
 // Route::post('/login', [AuthController::class, 'login']);
 
 
-Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 Route::middleware(['auth'])->group(function () {
-    // Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::resource('galleries', GalleryController::class);
+
 });
 
 Auth::routes();
