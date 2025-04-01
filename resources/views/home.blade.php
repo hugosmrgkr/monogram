@@ -24,13 +24,13 @@
         .monogram-title {
             font-family: 'Arial', sans-serif;
             font-weight: 900;
-            font-size: 8rem;
+            font-size: 5rem;
             color: white;
             text-transform: lowercase;
             letter-spacing: 3px;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 
                          0 0 35px rgba(255, 255, 255, 0.7);
-            filter: blur(0.8px);
+            filter: blur(0.4px);
         }
 
         @media (max-width: 992px) {

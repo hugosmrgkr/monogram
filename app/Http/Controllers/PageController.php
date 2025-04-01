@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+   
+    
     // Halaman Home
     public function home()
     {
