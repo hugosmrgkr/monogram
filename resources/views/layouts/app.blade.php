@@ -8,49 +8,76 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    
     <style>
-        .nav-link {
+        /* NAVIGATION STYLE */
+        .navbar {
+            height: 164px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            color: #000;
-            font-weight: normal;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+        }
+
+        .nav-link {
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-family: Inter, sans-serif;
+            font-weight: 500;
+            line-height: 30px;
+            text-align: center;
             text-decoration: none;
-            padding-bottom: 5px;
+            transition: background 0.3s ease;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0;
-            height: 2px;
-            background-color: orange;
-            transition: width 0.3s ease-in-out;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 100%;
-            height: 2px;
+        .nav-link.active {
             background-color: black;
+            color: white !important;
+        }
+
+        .nav-link:not(.active) {
+            background-color: white;
+            color: black;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* LOGO */
+        .logo-text {
+            position: absolute;
+            left: 16px;
+            top: 41px;
+            font-size: 20px;
+            font-family: Inter, sans-serif;
+            font-weight: 500;
+            line-height: 30px;
+            color: black;
+            filter: blur(2px);
         }
     </style>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
+    
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">Monogram Toba</a>
-
+            <a class="logo-text" href="{{ route('home') }}">>MONOGRAM_</a>
+            
             <!-- Toggle Button for Mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -87,21 +114,18 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="py-4">
+    <main class="py-4 flex-grow-1">
         <div class="container">
             @yield('content')
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="footer bg-light py-3 mt-4">
-        <div class="container text-center">
-            <p>&copy; {{ date('Y') }} Monogram Toba. All rights reserved.</p>
-        </div>
-    </footer>
+    @include('layouts.footer')
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+
 </body>
 
 </html>
