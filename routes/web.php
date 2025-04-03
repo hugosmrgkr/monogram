@@ -13,10 +13,10 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 Route::get('/', [PageController::class, 'home'])->name('home');
 
 // Halaman Profil Owner
-Route::get('/owner', [PageController::class, 'owner'])->name('owner');
+Route::get('/about', [PageController::class, 'about'])->name('about');
 
 // Halaman Profil Lengkap Monogram
-Route::get('/profil', [PageController::class, 'profil'])->name('profil');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
 // Halaman Pilihan Layanan
 Route::get('/service', [PageController::class, 'service'])->name('service');

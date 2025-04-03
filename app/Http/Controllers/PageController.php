@@ -15,15 +15,15 @@ class PageController extends Controller
     }
 
     // Halaman Profil Owner
-    public function owner()
+    public function about()
     {
-        return view('owner');
+        return view('about');
     }
 
     // Halaman Profil Lengkap Monogram
-    public function profil()
+    public function faq()
     {
-        return view('profil');
+        return view('faq');
     }
 
     // Halaman Pilihan Layanan

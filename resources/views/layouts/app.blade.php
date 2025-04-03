@@ -90,10 +90,10 @@
                         <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('owner') ? 'active' : '' }}" href="{{ route('owner') }}">Profil Owner</a>
+                        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('profil') ? 'active' : '' }}" href="{{ route('profil') }}">Profil Lengkap Monogram</a>
+                        <a class="nav-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
@@ -105,7 +105,7 @@
                                 <button type="submit" class="btn btn-danger btn-sm">Logout</button>
                             </form>
                         @else
-                            <a class="btn btn-dark btn-sm {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login</a>
+                            <a class="btn btn-dark btn-sm {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login Admin</a>
                         @endauth
                     </li>
                 </ul>
