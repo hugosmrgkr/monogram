@@ -8,11 +8,15 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Support\Facades\Auth;
 
-// Rute untuk User (Tamu & Admin)
+// Rute untuk User (Tamu)
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/owner', [PageController::class, 'owner'])->name('owner');
 Route::get('/profil', [PageController::class, 'profil'])->name('profil');
 Route::get('/service', [PageController::class, 'service'])->name('service');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
 
 // Rute Hasil Foto (Kategori)
 Route::prefix('hasil')->group(function () {
