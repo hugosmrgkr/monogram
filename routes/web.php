@@ -10,8 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 // Rute untuk User (Tamu & Admin)
 Route::get('/', [PageController::class, 'home'])->name('home');
+
+// Halaman Profil Owner
 Route::get('/owner', [PageController::class, 'owner'])->name('owner');
+
+// Halaman Profil Lengkap Monogram
 Route::get('/profil', [PageController::class, 'profil'])->name('profil');
+
+// Halaman Pilihan Layanan
 Route::get('/service', [PageController::class, 'service'])->name('service');
 
 // Rute Hasil Foto (Kategori)
