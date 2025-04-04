@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('galleries.index') }}">
+            <a class="nav-link" href="{{ route('gallery.index') }}">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Galeri</span>
             </a>

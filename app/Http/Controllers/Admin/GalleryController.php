@@ -2,70 +2,91 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class GalleryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    // Untuk user lihat galeri
+    public function userView()
+    {
+        $wisuda = Gallery::where('kategori', 'Wisuda')->get();
+        $keluarga = Gallery::where('kategori', 'Keluarga')->get();
+        $pasangan = Gallery::where('kategori', 'Pasangan')->get();
+        $pertemanan = Gallery::where('kategori', 'Pertemanan')->get();
+
+        return view('user.gallery', compact('wisuda', 'keluarga', 'pasangan', 'pertemanan'));
+    }
+
     public function index()
     {
         $galleries = Gallery::all();
-        return view("admin.galeri.index", [
-            'title' => 'Galeri',
-            'galleries' => $galleries
-        ]);
+        return view('admin.gallery.index', compact('galleries'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.gallery.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kategori' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
+        //Upload File Gambar
+        $imageName = time().'.'.$request->gambar->extension();
+        $request->gambar->move(public_path('uploads'), $imageName);
+
+        Gallery::create([
+            'kategori' => $request->kategori,
+            'gambar' => $imageName,
+        ]);
+
+        return redirect()->route('gallery.index')->with('success', 'Gambar berhasil ditambahkan!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(Gallery $gallery)
     {
-        //
+        return view('admin.gallery.edit', compact('gallery'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Gallery $gallery)
     {
-        //
+        $request->validate([
+            'title' => 'required'
+        ]);
+
+        if ($request->hasFile('gambar')) {
+            $request->validate([
+                'gambar' => 'image|mimes:jpeg,png,jpg|max:2048'
+            ]);
+
+            // Hapus gambar lama
+            Storage::delete('uploads/' . $gallery->gambar);
+
+            // Simpan gambar baru
+            $gambarName = time().'.'.$request->gambar->extension();
+            $request->gambar->move(public_path('uploads'), $gambarName);
+            $gallery->gambar = $gambarName;
+        }
+
+        $gallery->title = $request->title;
+        $gallery->save();
+
+        return redirect()->route('gallery.index')->with('success', 'Gambar berhasil diperbarui!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(Gallery $gallery)
     {
-        //
-    }
+        Storage::delete('uploads/' . $gallery->gambar);
+        $gallery->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('gallery.index')->with('success', 'Gambar berhasil dihapus!');
     }
 }
