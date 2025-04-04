@@ -1,0 +1,100 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HERO SECTION */
+.home-page .hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/images/home.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5vw;
+    color: white;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Text di atas gambar */
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+/* HIGHLIGHT & SECTION */
+.content-section {
+    margin-top: 40px;
+}
+
+.text-accent {
+    color: #00ffee;
+}
+
+/* Card Image Section */
+.card img {
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.03);
+}
+
+/* Recommended Photos */
+img.img-fluid {
+    border-radius: 4px;
+}
+
+/* Contact Form */
+form .form-control {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 15px;
+}
+
+form .btn {
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}

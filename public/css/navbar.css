@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+nav.navbar {
+  padding: 16px 0;
+  font-size: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #0d1b2a;
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 10px rgba(0, 255, 238, 0.1);
+}
+
+nav.navbar.scrolled {
+  padding: 10px 0;
+  background-color: #0d1b2a;
+  border-bottom: 1px solid #00ffee;
+  box-shadow: 0 4px 15px rgba(0, 255, 238, 0.15);
+}
+
+.logo-text {
+    font-family: "Raleway", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-text .highlight {
+    background-color: #ffffff;
+    color: #121212;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-right: 6px;
+    font-size: 24px;
+    font-weight: 800;
+    font-family: "Raleway", sans-serif;
+  }
+
+.navbar-link {
+  position: relative;
+  color: #fff !important;
+  padding: 8px 14px;
+  font-weight: 400;
+  font-size: 15px;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  opacity: 1;
+  color: #00ffee !important;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #00ffee;
+  transition: width 0.4s ease-in-out;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  width: 100%;
+}
+
+.btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 5px 12px;
+  transition: 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #00ffee;
+  color: #121212;
+  border-color: #00ffee;
+  font-weight: 600;
+}
+
+.navbar-nav {
+  text-align: center;
+}
+
+#mainContent {
+    padding-top: 100px !important;
+  }
+
+/* Responsiveness */
+@media (max-width: 991.98px) {
+  nav.navbar {
+    padding: 16px 0;
+  }
+
+  nav.navbar.scrolled {
+    padding: 10px 0;
+  }
+
+  .navbar-link {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  .logo-text .highlight {
+    font-size: 20px;
+    padding: 2px 6px;
+  }
+
+  .btn-outline-light {
+    margin-top: 13px;
+    padding: 5px 10px;
+  }
+}

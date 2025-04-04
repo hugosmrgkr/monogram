@@ -3,61 +3,32 @@
 @section('title', 'Beranda')
 
 @section('content')
-    <!-- Hero Section - Full Width -->
-     <br>
-     <br>
-     <br>
-    <div class="container mb-4">
-        <h1 class="fw-bold">MONOGRAM TOBA</h1>
-        <p>Welcome to website Monogram Studio Balige</p>
-    </div>
-    <div class="hero-section position-relative mb-4">
-        <div class="container-fluid p-0">
-            <img src="{{ asset('assets/images/home.png') }}" alt="Monogram Toba Studio" class="img-fluid w-100" style="max-height: 600px; object-fit: cover;">
-            <div class="hero-text position-absolute top-50 start-50 translate-middle text-white text-center">
-                <h1 class="monogram-title">>monogram_</h1>
-            </div>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>>monogram_</h1>
+            <p>Selamat datang di website resmi Monogram Studio Balige. Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.</p>
         </div>
     </div>
 
-    <style>
-        .monogram-title {
-            font-family: 'Arial', sans-serif;
-            font-weight: 900;
-            font-size: 5rem;
-            color: white;
-            text-transform: lowercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 
-                         0 0 35px rgba(255, 255, 255, 0.7);
-            filter: blur(0.4px);
-        }
-
-        @media (max-width: 992px) {
-            .monogram-title {
-                font-size: 6rem ;   Q
-            }
-        }
-
-        @media (max-width: 576px) {
-            .monogram-title {
-                font-size: 4rem;
-            }
-        }
-    </style>
-
-    <!-- Header Text -->
-   
+    <!-- Highlight Section -->
+    <section class="py-4">
+        <div class="container text-center">
+            <h2 class="fw-semibold mb-3">Kenapa Memilih <span class="text-accent">Monogram Studio?</span></h2>
+            <p class="text-muted mx-auto" style="max-width: 700px;">
+                Studio kami berlokasi di Balige dan dikenal dengan kualitas hasil foto yang tajam, pelayanan ramah, serta harga yang kompetitif.
+                Kami siap mengabadikan momen spesial Anda mulai dari pre-wedding, wisuda, keluarga, hingga foto produk.
+            </p>
+        </div>
+    </section>
 
     <!-- Benefits Section -->
     <div class="container mb-5">
         <h2 class="fw-bold mb-4">Keuntungan</h2>
-        <div class="row g-4">   
-            @foreach ([
-                ['image' => 'keuntungan1.png', 'title' => 'Pilihan Tata Letak Hasil Foto', 'desc' => 'Pilih tata letak sesuai keinginanmu'],
-                ['image' => 'keuntungan2.png', 'title' => 'BEBAS WARNA LATAR FOTO', 'desc' => 'Pilih warna latar sesuai keinginanmu'],
-                ['image' => 'keuntungan3.png', 'title' => 'Tersedia spotlight mode', 'desc' => 'Pilih spotlight sesuai keinginanmu']
-            ] as $benefit)
+        <div class="row g-4">
+            @foreach ([['image' => 'keuntungan1.png', 'title' => 'Pilihan Tata Letak Hasil Foto', 'desc' => 'Pilih tata letak sesuai keinginanmu'],
+                      ['image' => 'keuntungan2.png', 'title' => 'BEBAS WARNA LATAR FOTO', 'desc' => 'Pilih warna latar sesuai keinginanmu'],
+                      ['image' => 'keuntungan3.png', 'title' => 'Tersedia spotlight mode', 'desc' => 'Pilih spotlight sesuai keinginanmu']] as $benefit)
                 <div class="col-md-4">
                     <div class="card border-0">
                         <img src="{{ asset('assets/images/' . $benefit['image']) }}" class="card-img-top" alt="{{ $benefit['title'] }}">
@@ -82,8 +53,8 @@
             @endforeach
         </div>
         <div class="text-center mt-4">
-        <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
-    </div>
+            <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
+        </div>
     </div>
 
     <!-- Studio Images -->

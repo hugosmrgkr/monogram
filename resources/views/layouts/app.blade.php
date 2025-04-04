@@ -7,114 +7,63 @@
     <title>Monogram Toba - @yield('title', 'Photography Studio')</title>
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    
-    <style>
-        /* NAVIGATION STYLE */
-        .navbar {
-            height: 164px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .navbar-nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 48px;
-        }
-
-        .nav-link {
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-size: 20px;
-            font-family: Inter, sans-serif;
-            font-weight: 500;
-            line-height: 30px;
-            text-align: center;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .nav-link.active {
-            background-color: black;
-            color: white !important;
-        }
-
-        .nav-link:not(.active) {
-            background-color: white;
-            color: black;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-link:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        /* LOGO */
-        .logo-text {
-            position: absolute;
-            left: 16px;
-            top: 41px;
-            font-size: 20px;
-            font-family: Inter, sans-serif;
-            font-weight: 500;
-            line-height: 30px;
-            color: black;
-            filter: blur(2px);
-        }
-    </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-    
+<body class="home-page d-flex flex-column min-vh-100">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top">
         <div class="container">
-            <a class="logo-text" href="{{ route('home') }}">>MONOGRAM_</a>
-            
-            <!-- Toggle Button for Mobile -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Logo Brand -->
+            <a class="logo-text" href="{{ route('home') }}">
+                <span class="highlight">M</span>onogram Toba
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navbar Links -->
+            <!-- Menu Utama di Kanan -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <!-- Menu Utama di Tengah -->
+                <ul class="navbar-nav d-flex justify-content-center align-items-center mx-auto gap-3">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
+                        <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a>
+                        <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQ</a>
+                        <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
-                    </li>
-                    <li class="nav-item">
-                        @auth
-                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                @csrf
-                                <button type="submit" class="btn btn-danger btn-sm">Logout</button>
-                            </form>
-                        @else
-                            <a class="btn btn-dark btn-sm {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login Admin</a>
-                        @endauth
+                        <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Layanan</a>
                     </li>
                 </ul>
+
+                <!-- Tombol Login/Logout Tetap di Kanan -->
+                <div class="d-flex justify-content-center justify-content-lg-end ms-lg-3 mt-2 mt-lg-0">
+                    @auth
+                        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+                        </form>
+                    @else
+                        <a class="btn btn-outline-light btn-sm {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login Admin</a>
+                    @endauth
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="py-4 flex-grow-1">
+    <main class="flex-grow-1" id="mainContent">
         <div class="container">
             @yield('content')
         </div>
@@ -125,6 +74,47 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.querySelector("nav.navbar");
+            const mainContent = document.getElementById("mainContent");
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.getElementById('navbarNav');
+
+            function updatePadding() {
+                if (mainContent && navbar) {
+                    const navbarHeight = navbar.offsetHeight;
+                    mainContent.style.paddingTop = navbarHeight + 30 + "px"; // tambah jarak biar lega
+                }
+            }
+
+            // Update padding saat pertama kali dan resize layar
+            updatePadding();
+            window.addEventListener("resize", updatePadding);
+
+            // Update margin kalau toggle navbar (khusus mobile)
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function () {
+                    setTimeout(() => {
+                        if (navbarCollapse.classList.contains('show')) {
+                            mainContent.style.marginTop = '220px';
+                        } else {
+                            mainContent.style.marginTop = '';
+                        }
+                    }, 300);
+                });
+            }
+
+            // Tambahan: ubah gaya saat scroll
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+            });
+        });
+    </script>
 
 </body>
 
