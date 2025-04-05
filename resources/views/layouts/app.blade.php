@@ -63,8 +63,8 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow-1" id="mainContent">
-        <div class="container">
+    <main class="flex-grow-1">
+        <div class="w-100">
             @yield('content')
         </div>
     </main>
