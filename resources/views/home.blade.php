@@ -50,52 +50,52 @@
    
 
     <!-- Benefits Section -->
-    <div class="container mb-5">
-        <h2 class="fw-bold mb-4">Keuntungan</h2>
-        <div class="row g-4">   
-            @foreach ([
-                ['image' => 'keuntungan1.png', 'title' => 'Pilihan Tata Letak Hasil Foto', 'desc' => 'Pilih tata letak sesuai keinginanmu'],
-                ['image' => 'keuntungan2.png', 'title' => 'BEBAS WARNA LATAR FOTO', 'desc' => 'Pilih warna latar sesuai keinginanmu'],
-                ['image' => 'keuntungan3.png', 'title' => 'Tersedia spotlight mode', 'desc' => 'Pilih spotlight sesuai keinginanmu']
-            ] as $benefit)
-                <div class="col-md-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/images/' . $benefit['image']) }}" class="card-img-top" alt="{{ $benefit['title'] }}">
-                        <div class="card-body px-0">
-                            <h5 class="fw-bold mb-2">{{ $benefit['title'] }}</h5>
-                            <p class="text-muted">{{ $benefit['desc'] }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
+    <div style="width: 100%; padding: 80px; background: white">
+    <h2 style="font-family: Inter; font-size: 32px; font-weight: 700; color: black; margin-bottom: 40px">Keuntungan</h2>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap">
+        @foreach ([
+            ['image' => 'keuntungan1.png', 'title' => 'Pilihan Tata Letak Hasil Foto', 'desc' => 'Pilih Tata letak foto sesuai keinginanmu'],
+            ['image' => 'keuntungan2.png', 'title' => 'BEBAS WARNA LATAR FOTO', 'desc' => 'Pilih warna latar sesuai keinginanmu'],
+            ['image' => 'keuntungan3.png', 'title' => 'Tersedia spotlight mode', 'desc' => '']
+        ] as $benefit)
+            <div style="width: 300px">
+                <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}" style="width: 100%; border-radius: 10px; margin-bottom: 16px;">
+                <h5 style="font-family: Inter; font-size: 16px; font-weight: 700; color: black; margin-bottom: 8px;">{{ $benefit['title'] }}</h5>
+                <p style="font-family: Inter; font-size: 14px; color: #555;">{{ $benefit['desc'] }}</p>
+            </div>
+        @endforeach
     </div>
-
+</div>
     <!-- Recommended Photos Section -->
-    <div class="container mb-5">
-        <h2 class="fw-bold mb-4">Recomended Foto</h2>
-        <div class="row g-4">
-            @foreach (['rec1.png', 'rec2.png', 'rec3.png', 'rec4.png'] as $rec)
-                <div class="col-md-3 col-6">
-                    <img src="{{ asset('assets/images/' . $rec) }}" class="img-fluid" alt="Rekomendasi Foto">
-                </div>
-            @endforeach
+    <div style="width: 100%; padding: 80px; background: white">
+    <h2 style="font-family: Inter; font-size: 32px; font-weight: 700; color: black; margin-bottom: 40px">Rekomendasi Foto</h2>
+    <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+        <!-- Text Column -->
+        <div style="flex: 1; min-width: 300px">
+            <div style="margin-bottom: 32px;">
+                <h5 style="font-family: Inter; font-weight: 700; font-size: 18px; margin-bottom: 8px">Foto Sendiri</h5>
+                <p style="font-family: Inter; font-size: 14px;">Rekam moment mu melalui lensa kamera meskipun masih sendiri aja :)</p>
+            </div>
+            <div style="margin-bottom: 32px;">
+                <h5 style="font-family: Inter; font-weight: 700; font-size: 18px; margin-bottom: 8px">Foto Wisuda</h5>
+                <p style="font-family: Inter; font-size: 14px;">Rekam moment sukses mu bersama keluarga melalui lensa kamera</p>
+            </div>
+            <div style="margin-bottom: 32px;">
+                <h5 style="font-family: Inter; font-weight: 700; font-size: 18px; margin-bottom: 8px">Foto With Best Friends</h5>
+                <p style="font-family: Inter; font-size: 14px;">Rekam moment manis mu bersama best friend mu melalui lensa kamera</p>
+            </div>
+            <a href="{{ route('hasil') }}" style="padding: 12px 32px; font-family: Inter; font-weight: 500; background-color: black; color: white; border-radius: 6px; text-decoration: none;">GALERI</a>
         </div>
-        <div class="text-center mt-4">
-        <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
-    </div>
-    </div>
 
-    <!-- Studio Images -->
-    <div class="container mb-5">
-        <div class="row g-4">
-            @foreach (['Foot1.png', 'Foot2.png'] as $foot)
-                <div class="col-md-6">
-                    <img src="{{ asset('assets/images/' . $foot) }}" class="img-fluid rounded-0 w-100" alt="Monogram Studio">
-                </div>
+        <!-- Image Grid -->
+        <div style="flex: 1; min-width: 300px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+            @foreach (['rec1.png', 'rec2.png', 'rec3.png', 'rec4.png'] as $rec)
+                <img src="{{ asset('assets/images/' . $rec) }}" style="width: 100%; border-radius: 10px;" alt="Rekomendasi Foto">
             @endforeach
         </div>
     </div>
+</div>
+   
 
     <!-- Contact Form -->
     <div class="container mb-5">
