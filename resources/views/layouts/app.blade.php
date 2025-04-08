@@ -68,15 +68,39 @@
             color: black;
             filter: blur(2px);
         }
+
+.navbar-transparent {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: transparent !important;
+    box-shadow: none;
+    z-index: 999;
+}
+
+.navbar-transparent .nav-link,
+.navbar-transparent .logo-text {
+    color: white !important;
+}
+
+.navbar-transparent .nav-link.active {
+    background-color: transparent;
+    outline: 2px solid white;
+    color: white !important;
+}
+
+        }
     </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
+
         <div class="container">
-            <a class="logo-text" href="{{ route('home') }}">>MONOGRAM_</a>
+        <a class="logo-text {{ request()->routeIs('service') ? 'text-white' : '' }}" href="{{ route('home') }}">>MONOGRAM_</a>
+
             
             <!-- Toggle Button for Mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,6 +143,12 @@
             @yield('content')
         </div>
     </main>
+    {{-- Tombol WhatsApp Mengambang --}}
+<a href="https://wa.me/6282268691532" target="_blank" style="position: fixed; bottom: 24px; left: 24px; z-index: 999;">
+    <div style="width: 150px; height: 80px; background: #19CF1C; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 500;">
+        WhatsApp
+    </div>
+</a>
 
     <!-- Footer -->
     @include('layouts.footer')
