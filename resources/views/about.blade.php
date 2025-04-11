@@ -7,7 +7,7 @@
     <h1 style="font-size: 64px; font-family: Inter; font-weight: 700;">MONOGRAM TOBA</h1>
 
     {{-- Gambar Utama --}}
-    <img src="https://placehold.co/975x661" alt="Monogram Studio" style="width: 100%; max-width: 975px; height: auto; border-radius: 8px;" class="my-4">
+    <img src="{{ asset('assets/images/tentang1.png') }}" alt="Monogram Studio" style="width: 100%; max-width: 975px; height: auto; border-radius: 8px;" class="my-4">
 
     {{-- Paragraf Deskripsi --}}
     <div style="width: 100%; max-width: 842px; font-size: 14px; font-family: Inter; font-weight: 500; line-height: 21px; color: black;">
@@ -20,8 +20,8 @@
 
     {{-- Dua Gambar Horizontal --}}
     <div class="d-flex flex-wrap gap-3 my-4">
-        <img src="https://placehold.co/624x436" alt="Foto Studio 1" style="width: 100%; max-width: 624px; height: auto; border-radius: 8px;">
-        <img src="https://placehold.co/624x436" alt="Foto Studio 2" style="width: 100%; max-width: 624px; height: auto; border-radius: 8px;">
+        <img src="{{ asset('assets/images/tentang2.png') }}" alt="Foto Studio 1" style="width: 100%; max-width: 624px; height: auto; border-radius: 8px;">
+        <img src="{{ asset('assets/images/tentang3.png') }}" alt="Foto Studio 2" style="width: 100%; max-width: 624px; height: auto; border-radius: 8px;">
     </div>
 
     {{-- Paragraf Penutup --}}
@@ -31,9 +31,9 @@
 
     {{-- Galeri Tiga Foto --}}
 <div class="container py-5 d-flex flex-wrap gap-3 justify-content-center">
-    <img src="https://placehold.co/289x288" alt="Foto Owner 1" style="border-radius: 8px;">
-    <img src="https://placehold.co/305x290" alt="Foto Owner 2" style="border-radius: 8px;">
-    <img src="https://placehold.co/322x290" alt="Foto Owner 3" style="border-radius: 8px;">
+    <img src="{{ asset('assets/images/tentangCard1.png') }}" alt="Foto Owner 1" style="border-radius: 8px;">
+    <img src="{{ asset('assets/images/tentangCard2.png') }}" alt="Foto Owner 2" style="border-radius: 8px;">
+    <img src="{{ asset('assets/images/tentangCard3.png') }}" alt="Foto Owner 3" style="border-radius: 8px;">
 </div>
 
 {{-- Jam Operasional --}}
@@ -95,7 +95,8 @@
 
     {{-- Foto Owner --}}
     <div>
-        <img src="https://placehold.co/264x469" alt="Foto Owner" style="border-radius: 8px;">
+    <img src="{{ asset('assets/images/owner.png') }}" alt="Foto Owner" style="border-radius: 8px;">
+
     </div>
 </div>
 </div>
