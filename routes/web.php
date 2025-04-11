@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -12,24 +13,16 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 // Rute untuk User (Tamu)
 // ==========================
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/owner', [PageController::class, 'owner'])->name('owner');
-Route::get('/profil', [PageController::class, 'profil'])->name('profil');
+Route::get('/owner', [PageController::class, 'owner'])->name('owner');     // Pastikan ada method owner()
+Route::get('/profil', [PageController::class, 'profil'])->name('profil');  // Pastikan ada method profil()
 Route::get('/service', [PageController::class, 'service'])->name('service');
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/faq', function () {
-    return view('faq');
-})->name('faq');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
 // ==========================
-// Rute Hasil Foto (Kategori)
+// Rute Hasil Foto (Kategori Dinamis)
 // ==========================
-Route::prefix('hasil')->group(function () {
-    Route::get('/{kategori?}', [PageController::class, 'hasil'])->name('hasil');
-    Route::get('/wisuda', [PageController::class, 'hasilWisuda'])->name('hasil.wisuda');
-    Route::get('/pasangan', [PageController::class, 'hasilPasangan'])->name('hasil.pasangan');
-    Route::get('/pertemanan', [PageController::class, 'hasilPertemanan'])->name('hasil.pertemanan');
-    Route::get('/keluarga', [PageController::class, 'hasilKeluarga'])->name('hasil.keluarga');
-});
+Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil');
 
 // ==========================
 // Rute untuk Admin (Harus login)
@@ -42,5 +35,16 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(func
 // ==========================
 // Rute Otentikasi
 // ==========================
-Auth::routes();
-Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Auth::routes([
+    'register' => true, // true jika ingin tampilkan form register
+]);
+
+// Override logout bawaan Laravel
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// ==========================
+// Fallback untuk route yang tidak ditemukan
+// ==========================
+Route::fallback(function () {
+    return redirect()->route('home');
+});

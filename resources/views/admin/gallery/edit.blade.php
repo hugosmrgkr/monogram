@@ -10,8 +10,14 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label>Judul</label>
-                        <input type="text" name="title" class="form-control" value="{{ $gallery->title }}">
+                        <label>Pilih Galeri</label>
+                        <select name="kategori" class="form-control" value="{{ $gallery->kategori }}" required>
+                            <option value="">{{ $gallery->kategori }}</option>
+                            <option value="Wisuda">Wisuda</option>
+                            <option value="Keluarga">Keluarga</option>
+                            <option value="Pasangan">Pasangan</option>
+                            <option value="Pertemanan">Pertemanan</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Gambar Lama</label><br>

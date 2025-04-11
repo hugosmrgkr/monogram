@@ -59,7 +59,7 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $request->validate([
-            'title' => 'required'
+            'kategori' => 'required'
         ]);
 
         if ($request->hasFile('gambar')) {
@@ -76,7 +76,7 @@ class GalleryController extends Controller
             $gallery->gambar = $gambarName;
         }
 
-        $gallery->title = $request->title;
+        $gallery->kategori = $request->kategori;
         $gallery->save();
 
         return redirect()->route('gallery.index')->with('success', 'Gambar berhasil diperbarui!');

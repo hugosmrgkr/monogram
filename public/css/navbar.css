@@ -6,29 +6,29 @@ body {
 }
 
 nav.navbar {
-    padding: 16px 0;
-    font-size: 15px;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-    /* backdrop-filter: blur(6px); efek blur kaca */
+    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.08);
 }
 
 nav.navbar.scrolled {
-    padding: 10px 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-bottom: 1px solid #888888; /* abu terang sebagai pemisah */
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+    padding: 6px 0;
+    background-color: #000000;
+    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 3px 12px rgba(255, 255, 255, 0.15);
 }
 
 .logo-text {
     font-family: "Raleway", sans-serif;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
     text-transform: uppercase;
     color: #ffffff;
     letter-spacing: 1.5px;
@@ -40,10 +40,10 @@ nav.navbar.scrolled {
 .logo-text .highlight {
     background-color: #ffffff;
     color: #000000;
-    padding: 3px 10px;
+    padding: 2px 8px;
     border-radius: 4px;
-    margin-right: 6px;
-    font-size: 24px;
+    margin-right: 5px;
+    font-size: 20px;
     font-weight: 800;
     font-family: "Raleway", sans-serif;
 }
@@ -51,10 +51,10 @@ nav.navbar.scrolled {
 .navbar-link {
     position: relative;
     color: #ffffff !important;
-    padding: 8px 14px;
-    font-weight: 400;
+    padding: 7px 14px;
+    font-weight: 500;
     font-size: 15px;
-    opacity: 0.85;
+    opacity: 0.9;
     transition: all 0.3s ease;
 }
 
@@ -71,7 +71,7 @@ nav.navbar.scrolled {
     bottom: -3px;
     width: 0%;
     height: 2px;
-    background-color: #ffffff; /* underline putih */
+    background-color: #ffffff;
     transition: width 0.4s ease-in-out;
 }
 
@@ -83,9 +83,9 @@ nav.navbar.scrolled {
 .btn-outline-light {
     border: 1px solid #ffffff;
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
-    padding: 5px 12px;
+    padding: 6px 12px;
     transition: 0.3s ease;
 }
 
@@ -101,35 +101,36 @@ nav.navbar.scrolled {
 }
 
 #mainContent {
-    padding-top: 74px !important;
-  }
+    padding-top: 64px !important;
+}
 
-  @media (max-width: 991.98px) {
+@media (max-width: 991.98px) {
     nav.navbar {
-        padding: 16px 0;
-    }
-
-    nav.navbar.scrolled {
         padding: 10px 0;
     }
 
+    nav.navbar.scrolled {
+        padding: 6px 0;
+    }
+
     .navbar-link {
-        font-size: 14px;
-        padding: 6px 12px;
+        font-size: 12px;
+        padding: 5px 10px;
     }
 
     .logo-text {
-        font-size: 18px;
+        font-size: 16px;
         letter-spacing: 1px;
     }
 
     .logo-text .highlight {
-        font-size: 20px;
+        font-size: 18px;
         padding: 2px 6px;
     }
 
     .btn-outline-light {
-        margin-top: 13px;
-        padding: 5px 10px;
+        margin-top: 10px;
+        padding: 4px 8px;
+        font-size: 12px;
     }
 }

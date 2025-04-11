@@ -16,8 +16,8 @@ body {
 
 .logo {
     position: absolute;
-    left: 34px;
     top: 48px;
+    left: 34px;
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
@@ -29,17 +29,11 @@ body {
 
 .nav-menu {
     position: absolute;
-    right: 34px;
     top: 56px;
+    right: 34px;
     display: flex;
     align-items: center;
     gap: 48px;
-}
-
-.nav-item {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
 }
 
 .nav-button {
@@ -47,12 +41,15 @@ body {
     border-radius: 8px;
     font-size: 20px;
     font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     border: none;
     cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
+    background-color: white;
+    color: black;
+    transition: all 0.3s ease;
 }
 
 .nav-button.active {
@@ -60,12 +57,11 @@ body {
     color: white;
 }
 
-.nav-button:not(.active) {
-    background-color: white;
-    color: black;
-}
-
 .title-button {
+    position: absolute;
+    top: 92px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 186px;
     padding: 12px 24px;
     background: black;
@@ -73,10 +69,6 @@ body {
     font-size: 20px;
     font-weight: 500;
     border-radius: 8px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 92px;
     text-align: center;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
@@ -96,30 +88,32 @@ body {
     justify-content: center;
 }
 
+.gallery-item-large,
+.gallery-item-medium {
+    object-fit: cover;
+    border-radius: 4px;
+}
+
 .gallery-item-large {
     width: 360px;
     height: 360px;
-    object-fit: cover;
-    border-radius: 4px;
 }
 
 .gallery-item-medium {
     width: 270px;
     height: 360px;
-    object-fit: cover;
-    border-radius: 4px;
 }
 
 .gallery-footer {
     text-align: center;
     margin: 50px 0;
+    padding: 0 20px;
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
-    padding: 0 20px;
 }
 
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 1200px) {
     .gallery-row {
         justify-content: center;
@@ -127,6 +121,18 @@ body {
 }
 
 @media (max-width: 768px) {
+    .container-header {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .logo {
+        position: relative;
+        left: auto;
+        width: 100%;
+        text-align: center;
+    }
+
     .nav-menu {
         position: relative;
         right: auto;
@@ -135,14 +141,7 @@ body {
         flex-wrap: wrap;
         margin-top: 10px;
     }
-    
-    .logo {
-        position: relative;
-        left: auto;
-        text-align: center;
-        width: 100%;
-    }
-    
+
     .title-button {
         position: relative;
         left: auto;
@@ -150,13 +149,9 @@ body {
         margin: 15px auto;
         display: block;
     }
-    
-    .container-header {
-        height: auto;
-        padding: 20px 0;
-    }
-    
-    .gallery-item-large, .gallery-item-medium {
+
+    .gallery-item-large,
+    .gallery-item-medium {
         width: 100%;
         height: auto;
         aspect-ratio: 3/4;
@@ -181,7 +176,7 @@ body {
 .img-fluid.rounded {
     border-radius: 4px !important;
     margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -193,14 +188,14 @@ body {
     font-weight: 500 !important;
 }
 
-/* Tombol Kembali */
+/* Back Button Section */
 .text-center.mb-5 {
     margin-top: 30px;
 }
 
 .text-center.mb-5 a {
-    transition: background-color 0.3s ease;
     font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
 .text-center.mb-5 a:hover {

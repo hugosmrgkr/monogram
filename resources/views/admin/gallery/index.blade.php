@@ -16,7 +16,7 @@
                         <thead>
                             <tr>
                                 <th>Gambar</th>
-                                <th>Judul</th>
+                                <th>Kategori</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -24,7 +24,7 @@
                             @foreach($galleries as $gallery)
                                 <tr>
                                     <td><img src="{{ asset('uploads/' . $gallery->gambar) }}" width="100"></td>
-                                    <td>{{ $gallery->title }}</td>
+                                    <td>{{ $gallery->kategori }}</td>
                                     <td>
                                         <a href="{{ route('gallery.edit', $gallery->id) }}" class="btn btn-warning">Edit</a>
                                         <form action="{{ route('gallery.destroy', $gallery->id) }}" method="POST" style="display:inline;">

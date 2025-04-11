@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="home-page d-flex flex-column min-vh-100">
@@ -46,7 +48,6 @@
                         <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Layanan</a>
                     </li>
                 </ul>
-
                 <!-- Tombol Login/Logout Tetap di Kanan -->
                 <div class="d-flex justify-content-center justify-content-lg-end ms-lg-3 mt-2 mt-lg-0">
                     @auth
@@ -55,7 +56,7 @@
                             <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
                         </form>
                     @else
-                        <a class="btn btn-outline-light btn-sm {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login Admin</a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">Login Admin</a>
                     @endauth
                 </div>
             </div>
@@ -64,7 +65,7 @@
 
     <!-- Main Content -->
     <main class="flex-grow-1">
-        <div class="w-100">
+        <div class="w-100" id="mainContent">
             @yield('content')
         </div>
     </main>
@@ -74,6 +75,10 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const navbar = document.querySelector("nav.navbar");
@@ -84,15 +89,13 @@
             function updatePadding() {
                 if (mainContent && navbar) {
                     const navbarHeight = navbar.offsetHeight;
-                    mainContent.style.paddingTop = navbarHeight + 30 + "px"; // tambah jarak biar lega
+                    mainContent.style.paddingTop = navbarHeight + 30 + "px";
                 }
             }
 
-            // Update padding saat pertama kali dan resize layar
             updatePadding();
             window.addEventListener("resize", updatePadding);
 
-            // Update margin kalau toggle navbar (khusus mobile)
             if (navbarToggler && navbarCollapse) {
                 navbarToggler.addEventListener('click', function () {
                     setTimeout(() => {
@@ -105,7 +108,6 @@
                 });
             }
 
-            // Tambahan: ubah gaya saat scroll
             window.addEventListener("scroll", function () {
                 if (window.scrollY > 50) {
                     navbar.classList.add("scrolled");

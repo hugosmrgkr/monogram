@@ -1,78 +1,74 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container" style="min-height: 90vh;">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-dark text-white text-center" style="font-size: 1.3rem; font-weight: bold;">
-                    {{ __('Login Admin Monogram Studio') }}
-                </div>
+<div class="auth-container container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="auth-wrapper col-md-5 position-relative">
+        <div class="auth-card card border-0 shadow-sm">
 
-                <div class="card-body">
+            {{-- Tombol X --}}
+            <div class="auth-close position-absolute top-0 end-0 m-3">
+                <a href="{{ url('/') }}" class="btn-close" aria-label="Close"></a>
+            </div>
 
-                    @if(session('error'))
-                        <div class="alert alert-danger text-center">
-                            {{ session('error') }}
-                        </div>
-                    @endif
+            {{-- Header --}}
+            <div class="auth-header card-header bg-dark text-white text-center py-3">
+                <h4 class="mb-0 fw-bold">Login Admin Monogram Studio</h4>
+            </div>
 
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+            {{-- Body --}}
+            <div class="auth-body card-body px-4">
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">{{ __('Alamat Email') }}</label>
-                            <input id="email" type="email"
-                                class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            @error('email')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
+                {{-- Error Session --}}
+                @if(session('error'))
+                    <div class="alert alert-danger text-center">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
-                        <div class="mb-3">
-                            <label for="password" class="form-label">{{ __('Kata Sandi') }}</label>
-                            <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror"
-                                name="password" required autocomplete="current-password">
-                            @error('password')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
+                {{-- Error Validasi --}}
+                @if($errors->has('error'))
+                    <div class="alert alert-danger text-center">
+                        {{ $errors->first('error') }}
+                    </div>
+                @endif
 
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" name="remember" id="remember"
-                                {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label" for="remember">{{ __('Ingat Saya') }}</label>
-                        </div>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
 
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <button type="submit" class="btn btn-dark">
-                                {{ __('Login') }}
-                            </button>
+                    {{-- Email --}}
+                    <div class="auth-form-group form-floating mb-3">
+                        <input type="email" id="email" name="username"
+                            class="form-control @error('username') is-invalid @enderror"
+                            placeholder="name@example.com" value="{{ old('username') }}" required autofocus>
+                        <label for="email">Alamat Email</label>
+                        @error('username')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                            @if (Route::has('password.request'))
-                                <a class="text-decoration-none" href="{{ route('password.request') }}">
-                                    {{ __('Lupa Password?') }}
-                                </a>
-                            @endif
-                        </div>
+                    {{-- Password --}}
+                    <div class="auth-form-group form-floating mb-4">
+                        <input type="password" id="password" name="password"
+                            class="form-control @error('password') is-invalid @enderror"
+                            placeholder="Kata Sandi" required>
+                        <label for="password">Kata Sandi</label>
+                        @error('password')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                        <hr>
+                    {{-- Tombol Login --}}
+                    <div class="auth-button d-grid">
+                        <button type="submit" class="btn btn-dark btn-lg rounded-pill shadow-sm">
+                            Login
+                        </button>
+                    </div>
 
-                        <div class="text-center">
-                            <p class="mb-0">Belum punya akun admin?</p>
-                            <a href="{{ route('register') }}" class="btn btn-outline-dark mt-2">
-                                Daftar Admin Sekarang
-                            </a>
-                        </div>
-
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
