@@ -36,7 +36,7 @@ Route::get('/hasil/keluarga', [PageController::class, 'hasilKeluarga'])->name('h
 
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
     Route::resource('galleries', GalleryController::class);
     Route::resource('about', AboutController::class);
 });
