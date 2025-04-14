@@ -12,5 +12,11 @@
                 <span class="menu-title">Galeri</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('about.index') }}">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">About Monokkrom</span>
+            </a>
+        </li>
     </ul>
 </nav>

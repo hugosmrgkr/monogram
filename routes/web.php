@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -37,6 +38,7 @@ Route::get('/hasil/keluarga', [PageController::class, 'hasilKeluarga'])->name('h
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
     Route::resource('galleries', GalleryController::class);
+    Route::resource('about', AboutController::class);
 
 });
 
