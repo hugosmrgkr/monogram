@@ -12,5 +12,11 @@ class About extends Model
         'title',
         'description',
         'image',
+        'horizontal_images',
+        'closing_paragraph',
+        'gallery_images',
+        'weekday_hours',
+        'weekend_hours',
     ];
+    
 }
