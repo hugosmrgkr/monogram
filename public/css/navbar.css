@@ -1,136 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
-
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-nav.navbar {
-    padding: 10px 0;
-    font-size: 14px;
-    font-weight: 500;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.08);
-}
-
-nav.navbar.scrolled {
-    padding: 6px 0;
-    background-color: #000000;
-    border-bottom: 1px solid #ffffff;
-    box-shadow: 0 3px 12px rgba(255, 255, 255, 0.15);
-}
-
-.logo-text {
-    font-family: "Raleway", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #ffffff;
-    letter-spacing: 1.5px;
+ /* NAVIGATION STYLE */
+ .navbar {
+    height: 164px;
+    background-color:white;
     display: flex;
     align-items: center;
-    text-decoration: none;
-}
-
-.logo-text .highlight {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-right: 5px;
-    font-size: 20px;
-    font-weight: 800;
-    font-family: "Raleway", sans-serif;
-}
-
-.navbar-link {
+    justify-content: center;
     position: relative;
-    color: #ffffff !important;
-    padding: 7px 14px;
-    font-weight: 500;
-    font-size: 15px;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
-.navbar-link:hover,
-.navbar-link.active {
-    opacity: 1;
-    color: #ffffff !important;
-}
-
-.navbar-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #ffffff;
-    transition: width 0.4s ease-in-out;
-}
-
-.navbar-link:hover::after,
-.navbar-link.active::after {
-    width: 100%;
-}
-
-.btn-outline-light {
-    border: 1px solid #ffffff;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 6px 12px;
-    transition: 0.3s ease;
-}
-
-.btn-outline-light:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-    font-weight: 600;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+}
+
+.nav-link {
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    line-height: 30px;
     text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
 }
 
-#mainContent {
-    padding-top: 64px !important;
+.nav-link.active {
+    background-color: black;
+    color: white !important;
 }
 
-@media (max-width: 991.98px) {
-    nav.navbar {
-        padding: 10px 0;
-    }
+.nav-link:not(.active) {
+    color: black;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
 
-    nav.navbar.scrolled {
-        padding: 6px 0;
-    }
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
-    .navbar-link {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
+/* LOGO */
+.logo-text {
+    position: absolute;
+    left: 16px;
+    top: 41px;
+    font-size: 20px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    line-height: 30px;
+    color: black;
+    text-decoration: none;
 
-    .logo-text {
-        font-size: 16px;
-        letter-spacing: 1px;
-    }
+}
 
-    .logo-text .highlight {
-        font-size: 18px;
-        padding: 2px 6px;
-    }
 
-    .btn-outline-light {
-        margin-top: 10px;
-        padding: 4px 8px;
-        font-size: 12px;
-    }
+.navbar-transparent {
+position: absolute;
+top: 0;
+width: 100%;
+background: transparent !important;
+box-shadow: none;
+z-index: 999;
+}
+
+.navbar-transparent .nav-link,
+.navbar-transparent .logo-text {
+color:white !important;
+}
+
+.navbar-transparent .nav-link.active {
+background-color: transparent;
+outline: 2px solidwhite;
+color: white !important;
 }
