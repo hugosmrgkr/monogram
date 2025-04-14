@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class BeritaController extends Controller
 {
     public function index()
     {
-        $beritas = Berita::all();  // Ambil semua data berita
-        $title = 'Daftar Berita';  // Tentukan judul halaman
+        $beritas = Berita::all();
+        $title = 'Daftar Berita';
         return view('admin.pages.berita.index', compact('beritas', 'title'));
     }
 
