@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <base href="/public">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Skydash Admin</title>
     <link rel="stylesheet" href="{{ asset('assets-admin/vendors/feather/feather.css') }}">

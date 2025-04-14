@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 // ==========================
@@ -29,7 +31,18 @@ Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil'
 // ==========================
 Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
-    Route::resource('gallery', GalleryController::class);
+    Route::resource('gallery', GalleryController::class)->names([
+        'index' => 'gallery.index',
+        'create' => 'gallery.create',
+        'store' => 'gallery.store',
+        'show' => 'gallery.show',
+        'edit' => 'gallery.edit',
+        'update' => 'gallery.update',
+        'destroy' => 'gallery.destroy',
+    ]);
+    Route::resource('galleries', GalleryController::class);
+    Route::resource('about', AboutController::class);
+    Route::resource('berita', BeritaController::class);
 });
 
 // ==========================
