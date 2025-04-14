@@ -3,54 +3,68 @@
 @section('content')
     <div class="container py-5">
 
-        {{-- Judul --}}
-        <h1 style="font-size: 64px; font-family: Inter; font-weight: 700; text-align: center;">TENTANG MONOGRAM TOBA</h1>
+       
+    @forelse ($abouts as $about)
+    {{-- Judul --}}
+    <h1 style="font-size: 64px; font-family: Inter; font-weight: 700;">{{ $about->title }}</h1>
 
+    {{-- Gambar Utama --}}
+    <img src="{{ asset('storage/' . $about->image) }}" alt="Monogram Studio"
+        style="width: 100%; max-width: 975px; height: auto; border-radius: 8px; display: block; margin-left: auto; margin-right: auto;">
 
-        @forelse ($abouts as $about)
-            <img src="{{ asset('storage/' . $about->image) }}" alt="Monogram Studio"
-                style="width: 100%; max-width: 975px; height: auto; border-radius: 8px;" class="my-4">
-            <h1 style="font-size: 64px; font-family: Inter; font-weight: 700;">{{ $about->title }}</h1>
+    {{-- Paragraf Deskripsi --}}
+    <div style="width: 100%; max-width: 842px; font-size: 20px; font-family: Inter; font-weight: 500; line-height: 30px; color: black;">
+        <p>{{ $about->description }}</p>
+    </div>
 
-            {{-- Paragraf Deskripsi --}}
-            <div
-                style="width: 100%; max-width: 842px; font-size: 14px; font-family: Inter; font-weight: 500; line-height: 21px; color: black;">
-                <p>{{ $about->description }}</p>
-            </div>
-        @empty
-            <h1>Belum ada Data</h1>
-        @endforelse
-
-
-        {{-- Dua Gambar Horizontal --}}
+    {{-- Dua Gambar Horizontal --}}
+    @php
+        $horizontalImages = json_decode($about->horizontal_images, true);
+    @endphp
+    @if (!empty($horizontalImages))
         <div class="d-flex flex-wrap gap-3 my-4">
-            <img src="{{ asset('assets/images/tentang2.png') }}" alt="Foto Studio 1"
-                style="width: 100%; max-width: 624px; height: auto; border-radius: 8px;">
-            <img src="{{ asset('assets/images/tentang3.png') }}" alt="Foto Studio 2"
-                style="width: 100%; max-width: 624px; height: auto; border-radius: 8px;">
+            @foreach ($horizontalImages as $image)
+                <img src="{{ asset('storage/' . $image) }}" alt="Foto Studio"
+                    style="width: 100%; max-width: 624px; height: auto; border-radius: 8px;">
+            @endforeach
         </div>
+    @endif
 
-        {{-- Paragraf Penutup --}}
-        <div
-            style="width: 100%; max-width: 842px; font-size: 20px; font-family: Inter; font-weight: 500; line-height: 30px; color: black;">
-            Bagi Anda yang ingin merasakan pengalaman fotografi terbaik, Monogram Toba Studio siap membantu mengabadikan
-            momen berharga dengan sentuhan profesional. Datang dan nikmati layanan fotografi berkualitas di studio kami,
-            tempat setiap cerita menjadi kenangan yang tak terlupakan.
+    {{-- Paragraf Penutup --}}
+    @if (!empty($about->closing_paragraph))
+        <div style="width: 100%; max-width: 842px; font-size: 20px; font-family: Inter; font-weight: 500; line-height: 30px; color: black;">
+            {{ $about->closing_paragraph }}
         </div>
+    @endif
 
-        {{-- Galeri Tiga Foto --}}
+    {{-- Galeri Tiga Foto --}}
+    @php
+        $galleryImages = json_decode($about->gallery_images, true);
+    @endphp
+    @if (!empty($galleryImages))
         <div class="container py-5 d-flex flex-wrap gap-3 justify-content-center">
-            <img src="{{ asset('assets/images/tentangCard1.png') }}" alt="Foto Owner 1" style="border-radius: 8px;">
-            <img src="{{ asset('assets/images/tentangCard2.png') }}" alt="Foto Owner 2" style="border-radius: 8px;">
-            <img src="{{ asset('assets/images/tentangCard3.png') }}" alt="Foto Owner 3" style="border-radius: 8px;">
+            @foreach ($galleryImages as $image)
+                <img src="{{ asset('storage/' . $image) }}" alt="Foto Galeri" style="border-radius: 8px;">
+            @endforeach
         </div>
+    @endif
 
-        {{-- Jam Operasional --}}
+    {{-- Jam Operasional --}}
+    @if (!empty($about->weekday_hours) || !empty($about->weekend_hours))
         <div class="container text-center my-4">
             <h3 style="font-size: 24px; font-weight: 700;">JAM OPERASIONAL</h3>
-            <p style="font-size: 20px;">Senin - Sabtu : 11.00 - 20.00</p>
-            <p style="font-size: 20px;">Minggu : 15.00 - 21.00</p>
+            @if (!empty($about->weekday_hours))
+                <p style="font-size: 20px;">Senin - Sabtu : {{ $about->weekday_hours }}</p>
+            @endif
+            @if (!empty($about->weekend_hours))
+                <p style="font-size: 20px;">Minggu : {{ $about->weekend_hours }}</p>
+            @endif
         </div>
+    @endif
+@empty
+    <h1>Belum ada Data</h1>
+@endforelse
+
 
         {{-- Profil Owner --}}
         <div class="container d-flex flex-wrap justify-content-between align-items-start py-5" style="gap: 40px;">
