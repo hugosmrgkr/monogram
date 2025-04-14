@@ -35,11 +35,10 @@ Route::get('/hasil/keluarga', [PageController::class, 'hasilKeluarga'])->name('h
 // Route::post('/login', [AuthController::class, 'login']);
 
 
-Route::middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
     Route::resource('galleries', GalleryController::class);
     Route::resource('about', AboutController::class);
-
 });
 
 Auth::routes();
