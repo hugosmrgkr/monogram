@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-   
-    
+
+
     // Halaman Home
     public function home()
     {
@@ -17,7 +18,10 @@ class PageController extends Controller
     // Halaman Profil Owner
     public function about()
     {
-        return view('about');
+        $abouts = About::all();
+        return view('about',[
+            'abouts' => $abouts
+        ]);
     }
 
     // Halaman Profil Lengkap Monogram
