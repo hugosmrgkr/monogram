@@ -1,0 +1,94 @@
+.service-hero {
+    width: 100vw;
+    height: 886px;
+    position: relative;
+    background: #F7F7F7;
+    background-image: url('/assets/images/layanan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+    .service-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.24);
+        top: 0;
+        left: 0;
+    }
+
+    .service-text-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 844px;
+        width: 90%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        color: white;
+    }
+
+    .service-text-container h1 {
+        font-size: 64px;
+        font-family: Inter, sans-serif;
+        font-weight: 700;
+        line-height: 89.6px;
+    }
+
+    .service-text-container p {
+        font-size: 24px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        line-height: 33.6px;
+    }
+
+    .service-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        padding: 60px 100px;
+        background-color: #fff;
+        flex-wrap: wrap;
+    }
+
+    .service-image {
+        width: 535px;
+        height: 655px;
+        background: #F7F7F7;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .service-info {
+        max-width: 516px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .service-price {
+        padding: 14px 24px;
+        background: black;
+        color: white;
+        font-size: 36px;
+        font-weight: 500;
+        border-radius: 8px;
+        display: inline-block;
+    }
+
+    .service-description {
+        color: #828282;
+        font-size: 24px;
+        line-height: 40px;
+    }

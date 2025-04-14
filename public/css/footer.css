@@ -4,6 +4,10 @@
     padding: 40px 0;
     text-align: left;
 }
+.footer a{
+    color: white;
+    text-decoration: none;
+}
 
 .footer-title {
     font-size: 20px;

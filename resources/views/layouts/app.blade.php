@@ -9,88 +9,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/service.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+
     
-    <style>
-        /* NAVIGATION STYLE */
-        .navbar {
-            height: 164px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .navbar-nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 48px;
-        }
-
-        .nav-link {
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-size: 20px;
-            font-family: Inter, sans-serif;
-            font-weight: 500;
-            line-height: 30px;
-            text-align: center;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .nav-link.active {
-            background-color: black;
-            color: white !important;
-        }
-
-        .nav-link:not(.active) {
-            background-color: white;
-            color: black;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-link:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        /* LOGO */
-        .logo-text {
-            position: absolute;
-            left: 16px;
-            top: 41px;
-            font-size: 20px;
-            font-family: Inter, sans-serif;
-            font-weight: 500;
-            line-height: 30px;
-            color: black;
-            filter: blur(2px);
-        }
-
-.navbar-transparent {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background: transparent !important;
-    box-shadow: none;
-    z-index: 999;
-}
-
-.navbar-transparent .nav-link,
-.navbar-transparent .logo-text {
-    color: white !important;
-}
-
-.navbar-transparent .nav-link.active {
-    background-color: transparent;
-    outline: 2px solid white;
-    color: white !important;
-}
-
-        }
-    </style>
+   
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -144,11 +67,12 @@
         </div>
     </main>
     {{-- Tombol WhatsApp Mengambang --}}
-<a href="https://wa.me/6282268691532" target="_blank" style="position: fixed; bottom: 24px; left: 24px; z-index: 999;">
+    <a href="https://wa.me/6282268691532" target="_blank" style="position: fixed; bottom: 24px; left: 24px; z-index: 999; text-decoration: none;">
     <div style="width: 150px; height: 80px; background: #19CF1C; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 500;">
         WhatsApp
     </div>
 </a>
+
 
     <!-- Footer -->
     @include('layouts.footer')

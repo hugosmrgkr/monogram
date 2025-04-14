@@ -22,10 +22,11 @@
 
             <!-- Kolom Kontak -->
             <div class="col-md-2">
-                <h5 class="footer-title">KONTAK</h5>
-                <p>📞 +62 82268691532</p>
-                <p>📷 monogram.toba</p>
-            </div>
+    <h5 class="footer-title">KONTAK</h5>
+    <p>📞 +62 82268691532</p>
+    <p><a href="https://www.instagram.com/monogram.toba?igsh=MTAzdzloMW13NzVncw%3D%3D" target="_blank">📷 monogram.toba</a></p>
+</div>
+
 
             <!-- Kolom Layanan -->
             <div class="col-md-2">
