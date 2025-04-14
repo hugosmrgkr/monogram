@@ -21,7 +21,7 @@ Route::get('/owner', [PageController::class, 'owner'])->name('owner');
 Route::get('/profil', [PageController::class, 'profil'])->name('profil');
 Route::get('/service', [PageController::class, 'service'])->name('service');
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
 // ==========================
 // Rute Hasil Foto (Kategori Dinamis)
