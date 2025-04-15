@@ -25,7 +25,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout'); // Pastikan ini tetap ada
+        $this->middleware('guest')->except('logout');
     }
 
     /**
@@ -40,6 +40,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/home');
     }
 }

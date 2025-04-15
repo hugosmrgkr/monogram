@@ -14,8 +14,9 @@ class LayananController extends Controller
      */
     public function index()
     {
+        $title = 'Daftar Layanan';
         $layanans = Layanan::all();
-        return view('admin.pages.layanan.index', compact('layanans'));
+        return view('admin.pages.layanan.index', compact('layanans', 'title'));
     }
 
     public function create()

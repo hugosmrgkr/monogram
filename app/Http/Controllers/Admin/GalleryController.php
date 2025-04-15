@@ -24,7 +24,8 @@ class GalleryController extends Controller
     public function index()
     {
         $galleries = Gallery::all();
-        return view('admin.gallery.index', compact('galleries'));
+        $title = 'Gallery Page';
+        return view('admin.gallery.index', compact('galleries', 'title'));
     }
 
     public function create()

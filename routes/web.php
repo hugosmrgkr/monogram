@@ -32,8 +32,7 @@ Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil'
 // Rute untuk Admin (Harus login)
 // ==========================
 Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
-
+    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
     Route::resource('gallery', GalleryController::class);
     Route::resource('about', AboutController::class);
     Route::resource('berita', BeritaController::class);
