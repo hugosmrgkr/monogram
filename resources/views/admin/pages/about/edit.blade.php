@@ -43,14 +43,26 @@
                     </div>
 
                     {{-- Jam Operasional --}}
-                    <div class="form-group">
-                        <label>Jam Operasional (Senin - Sabtu)</label>
-                        <input type="time" name="weekday_hours" class="form-control" value="{{ old('weekday_hours', $about->weekday_hours) }}">
-                    </div>
-                    <div class="form-group">
-                        <label>Jam Operasional (Minggu)</label>
-                        <input type="time" name="weekend_hours" class="form-control" value="{{ old('weekend_hours', $about->weekend_hours) }}">
-                    </div>
+
+{{-- Jam Operasional (Senin - Sabtu) --}}
+<div class="form-group">
+    <label for="weekday_open">Jam Buka (Senin - Sabtu)</label>
+    <input type="time" class="form-control" name="weekday_open" required>
+</div>
+<div class="form-group">
+    <label for="weekday_close">Jam Tutup (Senin - Sabtu)</label>
+    <input type="time" class="form-control" name="weekday_close" required>
+</div>
+
+{{-- Jam Operasional (Minggu) --}}
+<div class="form-group">
+    <label for="weekend_open">Jam Buka (Minggu)</label>
+    <input type="time" class="form-control" name="weekend_open" required>
+</div>
+<div class="form-group">
+    <label for="weekend_close">Jam Tutup (Minggu)</label>
+    <input type="time" class="form-control" name="weekend_close" required>
+</div>
 
                     {{-- Gambar Horizontal --}}
                     <div class="form-group">

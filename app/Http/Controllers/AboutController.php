@@ -38,8 +38,10 @@ class AboutController extends Controller
             'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'closing_paragraph' => 'nullable|string',
-            'weekday_hours' => 'nullable|string',
-            'weekend_hours' => 'nullable|string',
+            'weekday_open' => 'nullable|date_format:H:i',
+            'weekday_close' => 'nullable|date_format:H:i',
+            'weekend_open' => 'nullable|date_format:H:i',
+            'weekend_close' => 'nullable|date_format:H:i',
             'horizontal_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'gallery_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -72,8 +74,10 @@ class AboutController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'closing_paragraph' => $request->closing_paragraph,
-            'weekday_hours' => $request->weekday_hours,
-            'weekend_hours' => $request->weekend_hours,
+            'weekday_open' => $request->weekday_open,
+            'weekday_close' => $request->weekday_close,
+            'weekend_open' => $request->weekend_open,
+            'weekend_close' => $request->weekend_close,
             'horizontal_images' => json_encode($horizontalImagePaths),
             'gallery_images' => json_encode($galleryImagePaths),
             'image' => $imagePath,
@@ -81,6 +85,7 @@ class AboutController extends Controller
     
         return redirect()->route('about.index')->with('success', 'Data berhasil disimpan!');
     }
+    
     
     /**
      * Display the specified resource.
@@ -109,21 +114,26 @@ class AboutController extends Controller
         $validated = $request->validate([
             'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'closing_paragraph' => 'nullable|string',
+            'weekday_open' => 'nullable|date_format:H:i',
+            'weekday_close' => 'nullable|date_format:H:i',
+            'weekend_open' => 'nullable|date_format:H:i',
+            'weekend_close' => 'nullable|date_format:H:i',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+    
         if ($request->hasFile('image')) {
             if ($about->image && Storage::disk('public')->exists($about->image)) {
                 Storage::disk('public')->delete($about->image);
             }
             $validated['image'] = $request->file('image')->store('abouts', 'public');
         }
+    
         $about->update($validated);
+    
         return redirect()->route('about.index')->with('success', 'Data berhasil diperbarui.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(About $about)
     {
         if ($about->image && Storage::disk('public')->exists($about->image)) {

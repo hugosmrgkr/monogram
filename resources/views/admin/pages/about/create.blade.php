@@ -32,15 +32,28 @@
                         <textarea class="form-control" name="closing_paragraph" rows="3" placeholder="Masukkan paragraf penutup"></textarea>
                     </div>
 
-                    {{-- Jam Operasional --}}
-                    <div class="form-group">
-                        <label for="weekday_hours">Jam Operasional (Senin - Sabtu)</label>
-                        <input type="time" class="form-control" name="weekday_hours" placeholder="Contoh: 11.00 - 20.00">
-                    </div>
-                    <div class="form-group">
-                        <label for="weekend_hours">Jam Operasional (Minggu)</label>
-                        <input type="time" class="form-control" name="weekend_hours" placeholder="Contoh: 15.00 - 21.00">
-                    </div>
+{{-- Jam Operasional --}}
+
+{{-- Jam Operasional (Senin - Sabtu) --}}
+<div class="form-group">
+    <label for="weekday_open">Jam Buka (Senin - Sabtu)</label>
+    <input type="time" class="form-control" name="weekday_open" required>
+</div>
+<div class="form-group">
+    <label for="weekday_close">Jam Tutup (Senin - Sabtu)</label>
+    <input type="time" class="form-control" name="weekday_close" required>
+</div>
+
+{{-- Jam Operasional (Minggu) --}}
+<div class="form-group">
+    <label for="weekend_open">Jam Buka (Minggu)</label>
+    <input type="time" class="form-control" name="weekend_open" required>
+</div>
+<div class="form-group">
+    <label for="weekend_close">Jam Tutup (Minggu)</label>
+    <input type="time" class="form-control" name="weekend_close" required>
+</div>
+
 
                     {{-- Gambar Horizontal (2 Foto) --}}
                     <div class="form-group">

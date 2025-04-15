@@ -50,17 +50,24 @@
     @endif
 
     {{-- Jam Operasional --}}
-    @if (!empty($about->weekday_hours) || !empty($about->weekend_hours))
-        <div class="container text-center my-4">
-            <h3 style="font-size: 24px; font-weight: 700;">JAM OPERASIONAL</h3>
-            @if (!empty($about->weekday_hours))
-                <p style="font-size: 20px;">Senin - Sabtu : {{ $about->weekday_hours }}</p>
-            @endif
-            @if (!empty($about->weekend_hours))
-                <p style="font-size: 20px;">Minggu : {{ $about->weekend_hours }}</p>
-            @endif
-        </div>
-    @endif
+    @if (!empty($about->weekday_open) || !empty($about->weekend_open))
+    <div class="container text-center my-4">
+        <h3 style="font-size: 24px; font-weight: 700;">JAM OPERASIONAL</h3>
+
+        @if (!empty($about->weekday_open) && !empty($about->weekday_close))
+            <p style="font-size: 20px;">
+                Senin - Sabtu : {{ \Carbon\Carbon::parse($about->weekday_open)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->weekday_close)->format('H:i') }}
+            </p>
+        @endif
+
+        @if (!empty($about->weekend_open) && !empty($about->weekend_close))
+            <p style="font-size: 20px;">
+                Minggu : {{ \Carbon\Carbon::parse($about->weekend_open)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->weekend_close)->format('H:i') }}
+            </p>
+        @endif
+    </div>
+@endif
+
 @empty
     <h1>Belum ada Data</h1>
 @endforelse

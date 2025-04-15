@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('weekend_hours')->nullable();
             $table->json('horizontal_images')->nullable();
             $table->json('gallery_images')->nullable();
+
+            $table->time('weekday_open')->nullable();
+            $table->time('weekday_close')->nullable();
+            $table->time('weekend_open')->nullable();
+            $table->time('weekend_close')->nullable();
         });
     }
     

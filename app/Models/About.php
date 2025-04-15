@@ -15,8 +15,10 @@ class About extends Model
         'horizontal_images',
         'closing_paragraph',
         'gallery_images',
-        'weekday_hours',
-        'weekend_hours',
+        'weekday_open',
+        'weekday_close',
+        'weekend_open',
+        'weekend_close',
     ];
 
 }
