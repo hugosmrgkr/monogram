@@ -35,11 +35,11 @@
                     {{-- Jam Operasional --}}
                     <div class="form-group">
                         <label for="weekday_hours">Jam Operasional (Senin - Sabtu)</label>
-                        <input type="date" class="form-control" name="weekday_hours" placeholder="Contoh: 11.00 - 20.00">
+                        <input type="time" class="form-control" name="weekday_hours" placeholder="Contoh: 11.00 - 20.00">
                     </div>
                     <div class="form-group">
                         <label for="weekend_hours">Jam Operasional (Minggu)</label>
-                        <input type="date" class="form-control" name="weekend_hours" placeholder="Contoh: 15.00 - 21.00">
+                        <input type="time" class="form-control" name="weekend_hours" placeholder="Contoh: 15.00 - 21.00">
                     </div>
 
                     {{-- Gambar Horizontal (2 Foto) --}}
