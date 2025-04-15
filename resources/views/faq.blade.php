@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container d-flex flex-column align-items-center" style="padding: 40px 0;">
-    
      <!-- Title -->
     <div style="color: black; font-size: 32px; font-family: Inter; font-weight: 700; margin: 24px 0;">
         Frequently Asked Questions

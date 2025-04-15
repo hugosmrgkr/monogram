@@ -28,7 +28,7 @@
             color: white;
             text-transform: lowercase;
             letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
                          0 0 35px rgba(255, 255, 255, 0.7);
             filter: blur(0.4px);
         }
@@ -47,7 +47,7 @@
     </style>
 
     <!-- Header Text -->
-   
+
 
     <!-- Benefits Section -->
     <div style="width: 100%; padding: 80px; background: white">
@@ -67,35 +67,28 @@
     </div>
 </div>
     <!-- Recommended Photos Section -->
-    <div style="width: 100%; padding: 80px; background: white">
-    <h2 style="font-family: Inter; font-size: 32px; font-weight: 700; color: black; margin-bottom: 40px">Rekomendasi Foto</h2>
-    <div style="display: flex; gap: 40px; flex-wrap: wrap;">
-        <!-- Text Column -->
-        <div style="flex: 1; min-width: 300px">
-            <div style="margin-bottom: 32px;">
-                <h5 style="font-family: Inter; font-weight: 700; font-size: 18px; margin-bottom: 8px">Foto Sendiri</h5>
-                <p style="font-family: Inter; font-size: 14px;">Rekam moment mu melalui lensa kamera meskipun masih sendiri aja :)</p>
-            </div>
-            <div style="margin-bottom: 32px;">
-                <h5 style="font-family: Inter; font-weight: 700; font-size: 18px; margin-bottom: 8px">Foto Wisuda</h5>
-                <p style="font-family: Inter; font-size: 14px;">Rekam moment sukses mu bersama keluarga melalui lensa kamera</p>
-            </div>
-            <div style="margin-bottom: 32px;">
-                <h5 style="font-family: Inter; font-weight: 700; font-size: 18px; margin-bottom: 8px">Foto With Best Friends</h5>
-                <p style="font-family: Inter; font-size: 14px;">Rekam moment manis mu bersama best friend mu melalui lensa kamera</p>
-            </div>
-            <a href="{{ route('hasil') }}" style="padding: 12px 32px; font-family: Inter; font-weight: 500; background-color: black; color: white; border-radius: 6px; text-decoration: none;">GALERI</a>
+    <div class="container mb-5">
+        <h2 class="fw-bold mb-4">Recommended Foto</h2>
+
+        <div class="row g-4 justify-content-center">
+            @forelse($galleries as $gallery)
+                <div class="col-md-3 col-6">
+                    <div class="card border-0 shadow-sm">
+                        <img src="{{ asset('uploads/' . $gallery->gambar) }}" class="card-img-top img-fluid" alt="Rekomendasi Foto">
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center">
+                    <p>Belum ada foto rekomendasi.</p>
+                </div>
+            @endforelse
         </div>
 
-        <!-- Image Grid -->
-        <div style="flex: 1; min-width: 300px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-            @foreach (['rec1.png', 'rec2.png', 'rec3.png', 'rec4.png'] as $rec)
-                <img src="{{ asset('assets/images/' . $rec) }}" style="width: 100%; border-radius: 10px;" alt="Rekomendasi Foto">
-            @endforeach
+        <div class="text-center mt-4">
+            <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
         </div>
     </div>
-</div>
-   
+
 
     <!-- Contact Form -->
     <div class="container mb-5">

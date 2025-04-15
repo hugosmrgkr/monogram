@@ -30,7 +30,7 @@ class AuthController extends Controller
             // Regenerate Session untuk Keamanan
             $request->session()->regenerate();
 
-            return redirect()->route('home')->with('success', 'Selamat datang di Monogram Toba!');
+            return redirect()->route('dashboard')->with('success', 'Selamat datang di Monogram Toba!');
         }
 
         // Jika Gagal Login

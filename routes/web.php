@@ -2,45 +2,58 @@
 
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\GalleryController;
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AuthController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\BeritaController;
+use App\Http\Controllers\Admin\LayananController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
-
-
-// Halaman home (bisa diakses oleh tamu & admin)
+// ==========================
+// Rute untuk User (Tamu)
+// ==========================
 Route::get('/', [PageController::class, 'home'])->name('home');
-
-// Halaman Profil Owner
+Route::get('/owner', [PageController::class, 'owner'])->name('owner');
+Route::get('/profil', [PageController::class, 'profil'])->name('profil');
+Route::get('/service', [PageController::class, 'service'])->name('service');
 Route::get('/about', [PageController::class, 'about'])->name('about');
-
-// Halaman Profil Lengkap Monogram
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
-// Halaman Pilihan Layanan
-Route::get('/service', [PageController::class, 'service'])->name('service');
-
-// Rute Hasil Foto
+// ==========================
+// Rute Hasil Foto (Kategori Dinamis)
+// ==========================
 Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil');
 
-Route::get('/hasil/wisuda', [PageController::class, 'hasilWisuda'])->name('hasil.wisuda');
-Route::get('/hasil/pasangan', [PageController::class, 'hasilPasangan'])->name('hasil.pasangan');
-Route::get('/hasil/pertemanan', [PageController::class, 'hasilPertemanan'])->name('hasil.pertemanan');
-Route::get('/hasil/keluarga', [PageController::class, 'hasilKeluarga'])->name('hasil.keluarga');
+// ==========================
+// Rute untuk Admin (Harus login)
+// ==========================
+Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 
-// Halaman login (khusus admin)
-// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [AuthController::class, 'login']);
-
-
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
-    Route::resource('galleries', GalleryController::class);
+    Route::resource('gallery', GalleryController::class);
     Route::resource('about', AboutController::class);
+    Route::resource('berita', BeritaController::class);
+    Route::resource('layanan', LayananController::class);
+    Route::resource('faq', FaqController::class);
 });
 
-Auth::routes();
+// ==========================
+// Rute Otentikasi
+// ==========================
+Auth::routes([
+    'register' => true,
+]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Override logout Laravel
+Route::middleware('auth')->post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// ==========================
+// Fallback untuk route yang tidak ditemukan
+// ==========================
+Route::fallback(function () {
+    return redirect()->route('home');
+});

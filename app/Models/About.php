@@ -18,5 +18,5 @@ class About extends Model
         'weekday_hours',
         'weekend_hours',
     ];
-    
+
 }
