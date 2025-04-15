@@ -1,0 +1,275 @@
+[33mcommit 5c69e23af632ec52a40ce8eb800aca4913efdfbf[m
+Merge: 06fa811 65bde67
+Author: hugosmrgkr <hugosimorangkir10@gmail.com>
+Date:   Fri Apr 11 16:00:20 2025 +0700
+
+    WIP on main: 06fa811 terlewat(gambar about)
+
+[1mdiff --cc resources/views/hasil.blade.php[m
+[1mindex 6644c87,6644c87..df2bfae[m
+[1m--- a/resources/views/hasil.blade.php[m
+[1m+++ b/resources/views/hasil.blade.php[m
+[36m@@@ -2,227 -2,227 +2,19 @@@[m
+  [m
+  @section('title', 'Foto Wisuda - Monogram Toba Studio')[m
+  [m
+[31m--@section('styles')[m
+[32m++[m
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">[m
+      <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">[m
+[31m--@endsection[m
+[32m++[m
+  [m
+  @section('content')[m
+      <!-- Header Section -->[m
+  [m
+[31m--    <style>[m
+[31m--        /* Global Styles */[m
+[31m--body {[m
+[31m--    font-family: 'Inter', sans-serif;[m
+[31m--    color: black;[m
+[31m--    background-color: white;[m
+[31m--}[m
+[31m--[m
+[31m--/* Header Styles */[m
+[31m--.container-header {[m
+[31m--    width: 100%;[m
+[31m--    height: 164px;[m
+[31m--    background: white;[m
+[31m--    position: relative;[m
+[31m--    overflow: hidden;[m
+[31m--}[m
+[31m--[m
+[31m--.logo {[m
+[31m--    position: absolute;[m
+[31m--    left: 34px;[m
+[31m--    top: 48px;[m
+[31m--    font-size: 20px;[m
+[31m--    font-weight: 500;[m
+[31m--    line-height: 30px;[m
+[31m--}[m
+[31m--[m
+[31m--.logo-text {[m
+[31m--    filter: blur(4px);[m
+[31m--}[m
+[31m--[m
+[31m--.nav-menu {[m
+[31m--    position: absolute;[m
+[31m--    right: 34px;[m
+[31m--    top: 56px;[m
+[31m--    display: flex;[m
+[31m--    align-items: center;[m
+[31m--    gap: 48px;[m
+[31m--}[m
+[31m--[m
+[31m--.nav-item {[m
+[31m--    font-size: 20px;[m
+[31m--    font-weight: 500;[m
+[31m--    line-height: 30px;[m
+[31m--}[m
+[31m--[m
+[31m--.nav-button {[m
+[31m--    padding: 14px 24px;[m
+[31m--    border-radius: 8px;[m
+[31m--    font-size: 20px;[m
+[31m--    font-weight: 500;[m
+[31m--    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);[m
+[31m--    border: none;[m
+[31m--    cursor: pointer;[m
+[31m--    text-decoration: none;[m
+[31m--    display: inline-block;[m
+[31m--    text-align: center;[m
+[31m--}[m
+[31m--[m
+[31m--.nav-button.active {[m
+[31m--    background-color: black;[m
+[31m--    color: white;[m
+[31m--}[m
+[31m--[m
+[31m--.nav-button:not(.active) {[m
+[31m--    background-color: white;[m
+[31m--    color: black;[m
+[31m--}[m
+[31m--[m
+[31m--.title-button {[m
+[31m--    width: 186px;[m
+[31m--    padding: 12px 24px;[m
+[31m--    background: black;[m
+[31m--    color: white;[m
+[31m--    font-size: 20px;[m
+[31m--    font-weight: 500;[m
+[31m--    border-radius: 8px;[m
+[31m--    position: absolute;[m
+[31m--    left: 50%;[m
+[31m--    transform: translateX(-50%);[m
+[31m--    top: 92px;[m
+[31m--    text-align: center;[m
+[31m--    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);[m
+[31m--}[m
+[31m--[m
+[31m--/* Gallery Styles */[m
+[31m--.gallery-container {[m
+[31m--    width: 100%;[m
+[31m--    padding: 0 34px;[m
+[31m--    margin-top: 25px;[m
+[31m--}[m
+[31m--[m
+[31m--.gallery-row {[m
+[31m--    display: flex;[m
+[31m--    flex-wrap: wrap;[m
+[31m--    gap: 20px;[m
+[31m--    margin-bottom: 25px;[m
+[31m--    justify-content: center;[m
+[31m--}[m
+[31m--[m
+[31m--.gallery-item-large {[m
+[31m--    width: 360px;[m
+[31m--    height: 360px;[m
+[31m--    object-fit: cover;[m
+[31m--    border-radius: 4px;[m
+[31m--}[m
+[31m--[m
+[31m--.gallery-item-medium {[m
+[31m--    width: 270px;[m
+[31m--    height: 360px;[m
+[31m--    object-fit: cover;[m
+[31m--    border-radius: 4px;[m
+[31m--}[m
+[31m--[m
+[31m--.gallery-footer {[m
+[31m--    text-align: center;[m
+[31m--    margin: 50px 0;[m
+[31m--    font-size: 20px;[m
+[31m--    font-weight: 500;[m
+[31m--    line-height: 30px;[m
+[31m--    padding: 0 20px;[m
+[31m--}[m
+[31m--[m
+[31m--/* Responsive Adjustments */[m
+[31m--@media (max-width: 1200px) {[m
+[31m--    .gallery-row {[m
+[31m--        justify-content: center;[m
+[31m--    }[m
+[31m--}[m
+[31m--[m
+[31m--@media (max-width: 768px) {[m
+[31m--    .nav-menu {[m
+[31m--        position: relative;[m
+[31m--        right: auto;[m
+[31m--        justify-content: center;[m
+[31m--        gap: 15px;[m
+[31m--        flex-wrap: wrap;[m
+[31m--        margin-top: 10px;[m
+[31m--    }[m
+[31m--    [m
+[31m--    .logo {[m
+[31m--        position: relative;[m
+[31m--        left: auto;[m
+[31m--        text-align: center;[m
+[31m--        width: 100%;[m
+[31m--    }[m
+[31m--    [m
+[31m--    .title-button {[m
+[31m--        position: relative;[m
+[31m--        left: auto;[m
+[31m--        transform: none;[m
+[31m--        margin: 15px auto;[m
+[31m--        display: block;[m
+[31m--    }[m
+[31m--    [m
+[31m--    .container-header {[m
+[31m--        height: auto;[m
+[31m--        padding: 20px 0;[m
+[31m--    }[m
+[31m--    [m
+[31m--    .gallery-item-large, .gallery-item-medium {[m
+[31m--        width: 100%;[m
+[31m--        height: auto;[m
+[31m--        aspect-ratio: 3/4;[m
+[31m--    }[m
+[31m--}[m
+[31m--[m
+[31m--/* Bootstrap Overrides */[m
+[31m--.rounded-0 {[m
+[31m--    border-radius: 0 !important;[m
+[31m--}[m
+[31m--[m
+[31m--.btn-dark {[m
+[31m--    background-color: black;[m
+[31m--    border-color: black;[m
+[31m--}[m
+[31m--[m
+[31m--.btn-dark:hover {[m
+[31m--    background-color: #333;[m
+[31m--}[m
+[31m--[m
+[31m--/* Additional Customizations */[m
+[31m--.img-fluid.rounded {[m
+[31m--    border-radius: 4px !important;[m
+[31m--    margin-bottom: 15px;[m
+[31m--    box-shadow: 0 2px 5px rgba(0,0,0,0.1);[m
+[31m--    transition: transform 0.3s ease;[m
+[31m--}[m
+[31m--[m
+[31m--.img-fluid.rounded:hover {[m
+[31m--    transform: scale(1.02);[m
+[31m--}[m
+[31m--[m
+[31m--.fw-bold {[m
+[31m--    font-weight: 500 !important;[m
+[31m--}[m
+[31m--[m
+[31m--/* Tombol Kembali */[m
+[31m--.text-center.mb-5 {[m
+[31m--    margin-top: 30px;[m
+[31m--}[m
+[31m--[m
+[31m--.text-center.mb-5 a {[m
+[31m--    transition: background-color 0.3s ease;[m
+[31m--    font-weight: 500;[m
+[31m--}[m
+[31m--[m
+[31m--.text-center.mb-5 a:hover {[m
+[31m--    background-color: #333;[m
+[31m--}[m
+[32m++   [m
+      </style>[m
+      <div class="container-header">[m
+          <div class="logo">[m
+[31m--            <span class="logo-text">MONOGRAM_</span>[m
+[32m++        <a class="logo-text" href="{{ route('home') }}">>MONOGRAM_</a>[m
+          </div>[m
+          <div class="nav-menu">[m
+              <a href="{{ route('hasil', ['kategori' => 'wisuda']) }}" class="nav-button {{ $kategori == 'wisuda' ? 'active' : '' }}">1</a>[m
+[1mdiff --cc resources/views/layouts/app.blade.php[m
+[1mindex c9d8d67,c9d8d67..cab52d7[m
+[1m--- a/resources/views/layouts/app.blade.php[m
+[1m+++ b/resources/views/layouts/app.blade.php[m
+[36m@@@ -9,98 -9,98 +9,16 @@@[m
+      <!-- Bootstrap CSS -->[m
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">[m
+      <link rel="stylesheet" href="{{ asset('css/footer.css') }}">[m
+[31m--    [m
+[31m--    <style>[m
+[31m--        /* NAVIGATION STYLE */[m
+[31m--        .navbar {[m
+[31m--            height: 164px;[m
+[31m--            background-color: white;[m
+[31m--            display: flex;[m
+[31m--            align-items: center;[m
+[31m--            justify-content: center;[m
+[31m--            position: relative;[m
+[31m--            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);[m
+[31m--        }[m
+[31m--[m
+[31m--        .navbar-nav {[m
+[31m--            display: flex;[m
+[31m--            align-items: center;[m
+[31m--            justify-content: center;[m
+[31m--            gap: 48px;[m
+[31m--        }[m
+[31m--[m
+[31m--        .nav-link {[m
+[31m--            padding: 14px 24px;[m
+[31m--            border-radius: 8px;[m
+[31m--            font-size: 20px;[m

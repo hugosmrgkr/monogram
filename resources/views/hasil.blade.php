@@ -13,7 +13,8 @@
     <!-- Header Section -->
     <div class="container-header">
         <div class="logo">
-            <span class="logo-text">MONOGRAM_</span>
+        <a href="{{ route('home') }}" class="logo-text">>MONOGRAM_</a>
+
         </div>
         <div class="nav-menu">
             <a href="{{ route('hasil', ['kategori' => 'wisuda']) }}" class="nav-button {{ $kategori == 'wisuda' ? 'active' : '' }}">Wisuda</a>

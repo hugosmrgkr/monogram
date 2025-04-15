@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\LayananController;

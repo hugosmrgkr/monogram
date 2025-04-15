@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <base href="/public">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets-admin/vendors/feather/feather.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-admin/vendors/ti-icons/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-admin/vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets-admin/js/select.dataTables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-admin/css/vertical-layout-light/style.css') }}">
-    <link rel="shortcut icon" href="{{ asset('assets-admin/images/favicon.png') }}" />
+    <title>{{ $title }}</title>
+    <link rel="stylesheet" href="assets-admin/vendors/feather/feather.css">
+    <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets-admin/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets-admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+    <link rel="stylesheet" href="assets-admin/css/vertical-layout-light/style.css">
+    <link rel="shortcut icon" href="assets-admin/images/favicon.png" />
 </head>
 
 <body>
