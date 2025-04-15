@@ -14,14 +14,18 @@ class LayananController extends Controller
      */
     public function index()
     {
-        $title = 'Daftar Layanan';
-        $layanans = Layanan::all();
-        return view('admin.pages.layanan.index', compact('layanans', 'title'));
+
+        return view('admin.pages.layanan.index', [
+            'layanans' =>  Layanan::all(),
+            'title' => 'Daftar Layanan'
+        ]);
     }
 
     public function create()
     {
-        return view('admin.pages.layanan.create');
+        return view('admin.pages.layanan.create',[
+            'title' => 'Buat Daftar Layanan'
+        ]);
     }
 
     public function store(Request $request)
@@ -45,7 +49,10 @@ class LayananController extends Controller
 
     public function edit(Layanan $layanan)
     {
-        return view('admin.pages.layanan.edit', compact('layanan'));
+        return view('admin.pages.layanan.edit', [
+            'layanan' => $layanan,
+            'title' => 'Edit data layanan'
+        ]);
     }
 
     public function update(Request $request, Layanan $layanan)

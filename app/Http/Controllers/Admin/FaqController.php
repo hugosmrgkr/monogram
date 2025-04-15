@@ -20,7 +20,9 @@ class FaqController extends Controller
 
     public function create()
     {
-        return view('admin.pages.faq.create');
+        return view('admin.pages.faq.create',[
+            'title' => 'Tambah FAQ'
+        ]);
     }
 
     public function store(Request $request)
@@ -37,7 +39,10 @@ class FaqController extends Controller
 
     public function edit(Faq $faq)
     {
-        return view('admin.pages.faq.edit', compact('faq'));
+        return view('admin.pages.faq.edit', [
+            'faq' => $faq,
+            'title' => 'Edit Faq'
+        ]);
     }
 
     public function update(Request $request, Faq $faq)
