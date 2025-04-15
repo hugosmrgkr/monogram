@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use App\Models\About;
 use Illuminate\Http\Request;
+use App\Models\Faq;
+
 
 class PageController extends Controller
 {
@@ -27,9 +29,10 @@ class PageController extends Controller
 
     // Halaman Profil Lengkap Monogram
     public function faq()
-    {
-        return view('faq');
-    }
+{
+    $faqs = Faq::all(); // ambil semua data dari tabel 'faqs'
+    return view('faq', compact('faqs')); // kirim data ke view
+}
 
     // Halaman Pilihan Layanan
     public function service()
