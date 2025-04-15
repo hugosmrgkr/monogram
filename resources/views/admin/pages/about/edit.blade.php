@@ -45,11 +45,11 @@
                     {{-- Jam Operasional --}}
                     <div class="form-group">
                         <label>Jam Operasional (Senin - Sabtu)</label>
-                        <input type="text" name="weekday_hours" class="form-control" value="{{ old('weekday_hours', $about->weekday_hours) }}">
+                        <input type="date" name="weekday_hours" class="form-control" value="{{ old('weekday_hours', $about->weekday_hours) }}">
                     </div>
                     <div class="form-group">
                         <label>Jam Operasional (Minggu)</label>
-                        <input type="text" name="weekend_hours" class="form-control" value="{{ old('weekend_hours', $about->weekend_hours) }}">
+                        <input type="date" name="weekend_hours" class="form-control" value="{{ old('weekend_hours', $about->weekend_hours) }}">
                     </div>
 
                     {{-- Gambar Horizontal --}}

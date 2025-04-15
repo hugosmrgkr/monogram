@@ -11,14 +11,18 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $beritas = Berita::all();
         $title = 'Daftar Berita';
-        return view('admin.pages.berita.index', compact('beritas', 'title'));
+        return view('admin.pages.berita.index', [
+            'beritas' => Berita::all(),
+            'title' => 'Daftar Berita'
+        ]);
     }
 
     public function create()
     {
-        return view('admin.pages.berita.create');
+        return view('admin.pages.berita.create', [
+            'title' => 'Buat Berita'
+        ]);
     }
 
     public function store(Request $request)
@@ -51,8 +55,10 @@ class BeritaController extends Controller
 
     public function edit($id)
     {
-        $berita = Berita::findOrFail($id);
-        return view('admin.pages.berita.edit', compact('berita'));
+        return view('admin.pages.berita.edit', [
+            'title' => 'Edit Berita',
+            'berita' => Berita::findOrFail($id)
+        ]);
     }
 
     public function update(Request $request, $id)
