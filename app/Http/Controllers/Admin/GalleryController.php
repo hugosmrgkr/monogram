@@ -30,7 +30,9 @@ class GalleryController extends Controller
 
     public function create()
     {
-        return view('admin.gallery.create');
+        return view('admin.gallery.create', [
+            'title' => 'Buat Galeri'
+        ]);
     }
 
     public function store(Request $request)
@@ -41,7 +43,7 @@ class GalleryController extends Controller
         ]);
 
         //Upload File Gambar
-        $imageName = time().'.'.$request->gambar->extension();
+        $imageName = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('uploads'), $imageName);
 
         Gallery::create([
@@ -54,7 +56,10 @@ class GalleryController extends Controller
 
     public function edit(Gallery $gallery)
     {
-        return view('admin.gallery.edit', compact('gallery'));
+        return view('admin.gallery.edit', [
+            'title' => 'Edit Galeri',
+            'gallery' => $gallery,
+        ]);
     }
 
     public function update(Request $request, Gallery $gallery)
@@ -72,7 +77,7 @@ class GalleryController extends Controller
             Storage::delete('uploads/' . $gallery->gambar);
 
             // Simpan gambar baru
-            $gambarName = time().'.'.$request->gambar->extension();
+            $gambarName = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('uploads'), $gambarName);
             $gallery->gambar = $gambarName;
         }
