@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
 
 
-    
-   
+
+
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    
+
     <!-- Navigation -->
     @unless(request()->routeIs('hasil'))
         <nav class="navbar navbar-expand-lg navbar-light {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
@@ -27,7 +27,7 @@
             <div class="container">
             <a class="logo-text {{ request()->routeIs('service') ? 'text-white' : '' }}" href="{{ route('home') }}">>MONOGRAM_</a>
 
-                
+
                 <!-- Toggle Button for Mobile -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

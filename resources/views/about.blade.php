@@ -3,7 +3,7 @@
 @section('content')
     <div class="container py-5">
 
-       
+
     @forelse ($abouts as $about)
     {{-- Judul --}}
     <h1 style="font-size: 64px; font-family: Inter; font-weight: 700;">{{ $about->title }}</h1>
