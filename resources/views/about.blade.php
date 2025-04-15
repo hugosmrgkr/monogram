@@ -5,17 +5,19 @@
 
        
     @forelse ($abouts as $about)
+    
     {{-- Judul --}}
-    <h1 style="font-size: 64px; font-family: Inter; font-weight: 700;">{{ $about->title }}</h1>
+    <h1 style="font-size: 64px; font-family: Inter; font-weight: 700; margin-bottom: 30px;">{{ $about->title }}</h1>
 
-    {{-- Gambar Utama --}}
-    <img src="{{ asset('storage/' . $about->image) }}" alt="Monogram Studio"
-        style="width: 100%; max-width: 975px; height: auto; border-radius: 8px; display: block; margin-left: auto; margin-right: auto;">
+<div class="text-center mb-4">
+    <img src="{{ asset('storage/' . $about->image) }}" alt="Monogram Toba Studio" 
+         style="max-width: 100%; height: auto; border-radius: 8px;">
+</div>
 
-    {{-- Paragraf Deskripsi --}}
-    <div style="width: 100%; max-width: 842px; font-size: 20px; font-family: Inter; font-weight: 500; line-height: 30px; color: black;">
-        <p>{{ $about->description }}</p>
-    </div>
+<!-- Deskripsi studio -->
+<div style="font-size: 20px; font-family: Inter; font-weight: 500; line-height: 30px; color: black; margin-bottom: 30px;">
+    <p>{{ $about->description }}</p>
+</div>
 
     {{-- Dua Gambar Horizontal --}}
     @php
