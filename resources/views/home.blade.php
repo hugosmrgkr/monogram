@@ -90,24 +90,68 @@
     </div>
 
 
-    <!-- Contact Form -->
-    <div class="container mb-5">
-        <h2 class="fw-bold mb-4">Hubungi Kami</h2>
-        <form action="#" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control rounded-0" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control rounded-0" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Pesan</label>
-                <textarea class="form-control rounded-0" id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-dark rounded-0 px-5 py-2">Kirim</button>
-        </form>
+   <!-- Contact Form Ulasan -->
+<div style="width: 100%; max-width: 1305px; padding: 24px; background: white; border-radius: 8px; outline: 1px solid #D9D9D9; outline-offset: -1px; display: flex; flex-direction: column; gap: 24px;">
+
+@if(session('success'))
+    <div style="padding: 12px 16px; background-color: #D1FAE5; color: #065F46; border-radius: 8px;">
+        {{ session('success') }}
     </div>
+@endif
+
+@if($errors->any())
+    <div style="padding: 12px 16px; background-color: #FEE2E2; color: #991B1B; border-radius: 8px;">
+        <ul style="margin: 0; padding-left: 20px;">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form action="{{ route('ulasan.store') }}" method="POST">
+    @csrf
+
+    {{-- Nama Pengguna (Opsional) --}}
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-family: Inter; font-size: 16px; color: #1E1E1E;">
+            Nama Pengguna
+        </label>
+        <input type="text" name="name" value="{{ old('name') }}"
+               style="padding: 12px 16px; font-family: Inter; font-size: 16px; color: #1E1E1E; background: white; border: 1px solid #D9D9D9; border-radius: 8px; outline: none; width: 100%; min-width: 240px;">
+    </div>
+
+    {{-- Ulasan (Wajib) --}}
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-family: Inter; font-size: 16px; color: #1E1E1E;">
+            Ulasan <span style="color: #FF1818;">*</span>
+        </label>
+        <textarea name="ulasan" rows="5" required>{{ old('ulasan') }}</textarea>
+    </div>
+
+    {{-- Tombol Kirim --}}
+    <div style="display: flex; justify-content: flex-start;">
+        <button type="submit"
+                style="padding: 12px; background-color: #2C2C2C; border: 1px solid #2C2C2C; border-radius: 8px; color: #F5F5F5; font-family: Inter; font-size: 16px; cursor: pointer; flex: 1;">
+            Kirim Ulasan
+        </button>
+    </div>
+</form>
+</div>
+{{-- Tampilkan Ulasan yang Disetujui --}}
+@if($ulasans->isNotEmpty())
+    <div class="mt-5">
+        <h3 class="mb-4" style="font-family: Inter; font-weight: 700;">Apa Kata Mereka?</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+            @foreach($ulasans as $ulasan)
+                <div style="background-color: #f8f9fa; padding: 16px; border-radius: 8px; width: 100%; max-width: 400px;">
+                    <p style="margin: 0; font-style: italic;">"{{ $ulasan->ulasan }}"</p>
+                    <p style="margin-top: 8px; font-weight: bold; text-align: right;">- {{ $ulasan->name ?? 'Anonim' }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
+@endif
+
+
 @endsection

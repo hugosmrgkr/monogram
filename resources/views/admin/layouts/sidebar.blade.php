@@ -7,35 +7,40 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('gallery.index') }}">
-                <i class="fa fa-image menu-icon"></i> <!-- Ikon untuk Galeri -->
+            <a class="nav-link" href="{{ route('admin.gallery.index') }}">
+                <i class="fa fa-image menu-icon"></i>
                 <span class="menu-title">Galeri</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('about.index') }}">
-                <i class="fa fa-info-circle menu-icon"></i> <!-- Ikon untuk About Monokkrom -->
+            <a class="nav-link" href="{{ route('admin.about.index') }}">
+                <i class="fa fa-info-circle menu-icon"></i>
                 <span class="menu-title">About Monokkrom</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('berita.index') }}">
-                <i class="fa fa-newspaper menu-icon"></i> <!-- Ikon untuk Berita Harian -->
+            <a class="nav-link" href="{{ route('admin.berita.index') }}">
+                <i class="fa fa-newspaper menu-icon"></i>
                 <span class="menu-title">Berita Harian</span>
             </a>
         </li>
-        <!-- Menu Layanan Baru -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('layanan.index') }}">
-                <i class="fa fa-cogs menu-icon"></i> <!-- Ikon untuk Layanan -->
+            <a class="nav-link" href="{{ route('admin.layanan.index') }}">
+                <i class="fa fa-cogs menu-icon"></i>
                 <span class="menu-title">Layanan</span>
             </a>
         </li>
-        <!-- Menu FAQ Baru -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('faq.index') }}">
-                <i class="fa fa-question-circle menu-icon"></i> <!-- Ikon untuk FAQ -->
+            <a class="nav-link" href="{{ route('admin.faq.index') }}">
+                <i class="fa fa-question-circle menu-icon"></i>
                 <span class="menu-title">FAQ</span>
+            </a>
+        </li>
+        <!-- Ulasan Baru -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.ulasan.index') }}">
+                <i class="fa fa-comments menu-icon"></i>
+                <span class="menu-title">Ulasan</span>
             </a>
         </li>
     </ul>

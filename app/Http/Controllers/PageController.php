@@ -1,38 +1,39 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Gallery;
 use App\Models\About;
 use Illuminate\Http\Request;
 use App\Models\Faq;
-
+use App\Models\Ulasan;
 
 class PageController extends Controller
 {
-
-
     // Halaman Home
     public function home()
     {
         $galleries = Gallery::take(4)->get();
-        return view('home', compact('galleries'));
+        $ulasans = Ulasan::where('is_approved', true)->latest()->get();
+
+        return view('home', compact('galleries', 'ulasans'));
     }
 
     // Halaman Profil Owner
     public function about()
     {
         $abouts = About::all();
-        return view('about',[
+        return view('about', [
             'abouts' => $abouts
         ]);
     }
 
     // Halaman Profil Lengkap Monogram
     public function faq()
-{
-    $faqs = Faq::all(); // ambil semua data dari tabel 'faqs'
-    return view('faq', compact('faqs')); // kirim data ke view
-}
+    {
+        $faqs = Faq::all(); // ambil semua data dari tabel 'faqs'
+        return view('faq', compact('faqs')); // kirim data ke view
+    }
 
     // Halaman Pilihan Layanan
     public function service()
