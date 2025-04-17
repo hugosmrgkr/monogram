@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h4 class="card-title">Tambah Data About</h4>
 
-                <form class="forms-sample" action="{{ route('about.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="forms-sample" action="{{ route('admin.about.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Judul --}}
@@ -69,7 +69,7 @@
 
                     {{-- Tombol --}}
                     <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-                    <a href="{{ route('about.index') }}" class="btn btn-light">Batal</a>
+                    <a href="{{ route('admin.about.index') }}" class="btn btn-light">Batal</a>
                 </form>
             </div>
         </div>

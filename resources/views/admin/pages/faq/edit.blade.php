@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h2 class="card-title text-center">Edit FAQ</h2>
 
-                <form action="{{ route('faq.update', $faq->id) }}" method="POST">
+                <form action="{{ route('admin.faq.update', $faq->id) }}" method="POST">
                     @csrf
                     @method('PUT') <!-- Menggunakan method PUT untuk update -->
 
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="form-group text-right">
-                        <a href="{{ route('faq.index') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ route('admin.faq.index') }}" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </form>

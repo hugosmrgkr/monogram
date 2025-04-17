@@ -6,7 +6,6 @@ use App\Models\Faq;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
 class FaqController extends Controller
 {
     public function index()
@@ -20,7 +19,7 @@ class FaqController extends Controller
 
     public function create()
     {
-        return view('admin.pages.faq.create',[
+        return view('admin.pages.faq.create', [
             'title' => 'Tambah FAQ'
         ]);
     }
@@ -34,14 +33,14 @@ class FaqController extends Controller
 
         Faq::create($request->all());
 
-        return redirect()->route('faq.index')->with('success', 'FAQ berhasil ditambahkan.');
+        return redirect()->route('admin.faq.index')->with('success', 'FAQ berhasil ditambahkan.');
     }
 
     public function edit(Faq $faq)
     {
         return view('admin.pages.faq.edit', [
             'faq' => $faq,
-            'title' => 'Edit Faq'
+            'title' => 'Edit FAQ'
         ]);
     }
 
@@ -54,13 +53,13 @@ class FaqController extends Controller
 
         $faq->update($request->all());
 
-        return redirect()->route('faq.index')->with('success', 'FAQ berhasil diperbarui.');
+        return redirect()->route('admin.faq.index')->with('success', 'FAQ berhasil diperbarui.');
     }
 
     public function destroy(Faq $faq)
     {
         $faq->delete();
 
-        return redirect()->route('faq.index')->with('success', 'FAQ berhasil dihapus.');
+        return redirect()->route('admin.faq.index')->with('success', 'FAQ berhasil dihapus.');
     }
 }

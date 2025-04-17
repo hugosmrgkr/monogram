@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{ $title }}</h4>
 
-                <form class="forms-sample" method="POST" action="{{ route('about.update', $about->id) }}" enctype="multipart/form-data">
+                <form class="forms-sample" method="POST" action="{{ route('admin.about.update', $about->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -98,7 +98,7 @@
 
                     {{-- Tombol --}}
                     <button type="submit" class="btn btn-primary mr-2">Update</button>
-                    <a href="{{ route('about.index') }}" class="btn btn-light">Cancel</a>
+                    <a href="{{ route('admin.about.index') }}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

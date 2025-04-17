@@ -52,7 +52,7 @@ class AboutController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect()->route('about.index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('admin.about.index')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
@@ -91,7 +91,7 @@ class AboutController extends Controller
             $validated['image'] = $request->file('image')->store('abouts', 'public');
         }
         $about->update($validated);
-        return redirect()->route('about.index')->with('success', 'Data berhasil diperbarui.');
+        return redirect()->route('admin.about.index')->with('success', 'Data berhasil diperbarui.');
     }
 
     /**
@@ -103,6 +103,6 @@ class AboutController extends Controller
             Storage::disk('public')->delete($about->image);
         }
         $about->delete();
-        return redirect()->route('about.index')->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('admin.about.index')->with('success', 'Data berhasil dihapus.');
     }
 }

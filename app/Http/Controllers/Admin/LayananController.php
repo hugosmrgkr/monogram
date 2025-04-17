@@ -44,7 +44,7 @@ class LayananController extends Controller
             'gambar' => $gambarPath
         ]);
 
-        return redirect()->route('layanan.index')->with('success', 'Layanan berhasil ditambahkan.');
+        return redirect()->route('admin.layanan.index')->with('success', 'Layanan berhasil ditambahkan.');
     }
 
     public function edit(Layanan $layanan)
@@ -74,7 +74,7 @@ class LayananController extends Controller
 
         $layanan->update($data);
 
-        return redirect()->route('layanan.index')->with('success', 'Layanan berhasil diperbarui.');
+        return redirect()->route('admin.layanan.index')->with('success', 'Layanan berhasil diperbarui.');
     }
 
     public function destroy(Layanan $layanan)
@@ -84,6 +84,6 @@ class LayananController extends Controller
         }
         $layanan->delete();
 
-        return redirect()->route('layanan.index')->with('success', 'Layanan berhasil dihapus.');
+        return redirect()->route('admin.layanan.index')->with('success', 'Layanan berhasil dihapus.');
     }
 }

@@ -51,7 +51,7 @@ class GalleryController extends Controller
             'gambar' => $imageName,
         ]);
 
-        return redirect()->route('gallery.index')->with('success', 'Gambar berhasil ditambahkan!');
+        return redirect()->route('admin.gallery.index')->with('success', 'Gambar berhasil ditambahkan!');
     }
 
     public function edit(Gallery $gallery)
@@ -85,7 +85,7 @@ class GalleryController extends Controller
         $gallery->kategori = $request->kategori;
         $gallery->save();
 
-        return redirect()->route('gallery.index')->with('success', 'Gambar berhasil diperbarui!');
+        return redirect()->route('admin.gallery.index')->with('success', 'Gambar berhasil diperbarui!');
     }
 
     public function destroy(Gallery $gallery)
@@ -93,6 +93,6 @@ class GalleryController extends Controller
         Storage::delete('uploads/' . $gallery->gambar);
         $gallery->delete();
 
-        return redirect()->route('gallery.index')->with('success', 'Gambar berhasil dihapus!');
+        return redirect()->route('admin.gallery.index')->with('success', 'Gambar berhasil dihapus!');
     }
 }

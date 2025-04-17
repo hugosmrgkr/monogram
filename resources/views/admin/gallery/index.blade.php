@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Galeri</h4>
-                <a href="{{ route('gallery.create') }}" class="btn btn-success mb-3">Tambah Gambar</a>
+                <a href="{{ route('admin.gallery.create') }}" class="btn btn-success mb-3">Tambah Gambar</a>
 
                 @if(session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
@@ -26,8 +26,8 @@
                                     <td><img src="{{ asset('uploads/' . $gallery->gambar) }}" width="100"></td>
                                     <td>{{ $gallery->kategori }}</td>
                                     <td>
-                                        <a href="{{ route('gallery.edit', $gallery->id) }}" class="btn btn-warning">Edit</a>
-                                        <form action="{{ route('gallery.destroy', $gallery->id) }}" method="POST" style="display:inline;">
+                                        <a href="{{ route('admin.gallery.edit', $gallery->id) }}" class="btn btn-warning">Edit</a>
+                                        <form action="{{ route('admin.gallery.destroy', $gallery->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>

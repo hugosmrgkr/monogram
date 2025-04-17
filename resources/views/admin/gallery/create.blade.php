@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h4 class="card-title">Tambah Gambar</h4>
 
-                <form action="{{ route('gallery.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.gallery.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Pilih Galeri</label>

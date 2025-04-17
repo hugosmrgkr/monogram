@@ -50,7 +50,7 @@ class BeritaController extends Controller
             'tanggal_habis' => $request->tanggal_habis,
         ]);
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil ditambahkan!');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -91,7 +91,7 @@ class BeritaController extends Controller
             'tanggal_habis' => $request->tanggal_habis,
         ]);
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui!');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diperbarui!');
     }
 
     public function destroy($id)
@@ -103,6 +103,6 @@ class BeritaController extends Controller
         }
         $berita->delete();
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil dihapus!');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus!');
     }
 }

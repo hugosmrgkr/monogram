@@ -18,7 +18,7 @@ class UlasanController extends Controller
         Ulasan::create([
             'name' => $request->name,
             'ulasan' => $request->ulasan,
-            'is_approved' => null, // ⏳ pending
+            'is_approved' => null, 
         ]);
     
         return back()->with('success', 'Ulasan berhasil dikirim dan sedang menunggu persetujuan admin.');

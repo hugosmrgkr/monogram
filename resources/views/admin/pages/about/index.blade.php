@@ -7,7 +7,7 @@
 
                 {{-- Tombol Tambah --}}
                 <div class="mb-3 text-right">
-                    <a href="{{ route('about.create') }}" class="btn btn-primary">Tambah Data</a>
+                    <a href="{{ route('admin.about.create') }}" class="btn btn-primary">Tambah Data</a>
                 </div>
 
                 @if ($abouts->isEmpty())
@@ -42,7 +42,7 @@
                                         <td>
                                             <a href="{{ route('about.edit', $about->id) }}"
                                                 class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('about.destroy', $about->id) }}" method="POST"
+                                            <form action="{{ route('admin.about.destroy', $about->id) }}" method="POST"
                                                 style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')

@@ -7,7 +7,7 @@
 
                 {{-- Tombol Tambah FAQ --}}
                 <div class="mb-3 text-right">
-                    <a href="{{ route('faq.create') }}" class="btn btn-primary">Tambah FAQ</a>
+                    <a href="{{ route('admin.faq.create') }}" class="btn btn-primary">Tambah FAQ</a>
                 </div>
 
                 @if ($faqs->isEmpty())
@@ -32,8 +32,8 @@
                                         <td>{{ $faq->pertanyaan }}</td>
                                         <td>{{ Str::limit($faq->jawaban, 50) }}</td>
                                         <td>
-                                            <a href="{{ route('faq.edit', $faq->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('faq.destroy', $faq->id) }}" method="POST" style="display:inline;">
+                                            <a href="{{ route('admin.faq.edit', $faq->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"

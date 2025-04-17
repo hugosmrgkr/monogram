@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h2 class="card-title text-center">Tambah FAQ</h2>
 
-                <form action="{{ route('faq.store') }}" method="POST">
+                <form action="{{ route('admin.faq.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="pertanyaan">Pertanyaan</label>
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="form-group text-right">
-                        <a href="{{ route('faq.index') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ route('admin.faq.index') }}" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
