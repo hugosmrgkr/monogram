@@ -14,7 +14,7 @@
       {{-- Form --}}
       <div class="login-form">
         <div class="logo-container">
-          <img src="{{ asset('images/logo-monogram.png') }}" alt="Monogram Logo">
+          <img src="{{ asset('assets/images/logo.png') }}" alt="Monogram Logo">
           <h4 class="title">Monogram Admin Login</h4>
         </div>
 
