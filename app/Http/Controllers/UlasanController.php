@@ -6,27 +6,25 @@ use Illuminate\Http\Request;
 use App\Models\Ulasan;
 use Illuminate\Support\Facades\Log;
 
-
 class UlasanController extends Controller
 {
     // Menyimpan ulasan dari user
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required|string|max:255', // sekarang wajib
             'ulasan' => 'required|string',
-            'name' => 'nullable|string|max:255',
         ]);
-
+    
         Ulasan::create([
-            'name' => $request->name,
-            'ulasan' => $request->ulasan,
-            'is_approved' => null, // ⏳ pending
+            'name' => $request->input('name'),
+            'ulasan' => $request->input('ulasan'),
+            'is_approved' => true, // langsung tampil
         ]);
-
-        return back()->with('success', 'Ulasan berhasil dikirim dan sedang menunggu persetujuan admin.');
+    
+        return back()->with('success', 'Ulasan berhasil dikirim dan telah ditampilkan.');
     }
-
-
+    
     // Menampilkan semua ulasan untuk admin
     public function index()
     {
@@ -35,28 +33,13 @@ class UlasanController extends Controller
         return view('admin.ulasan.index', compact('ulasans', 'title'));
     }
 
+    // Toggle status ulasan (tampilkan/sembunyikan)
+    public function toggle($id)
+    {
+        $ulasan = Ulasan::findOrFail($id);
+        $ulasan->is_approved = !$ulasan->is_approved;
+        $ulasan->save();
 
-    // Menyetujui ulasan
-   // Approve
-public function approve($id)
-{
-    Log::info('Approve dipanggil via method: ' . request()->method());
-
-    $ulasan = Ulasan::findOrFail($id);
-    $ulasan->is_approved = true;
-    $ulasan->save();
-
-    return redirect()->route('admin.ulasan.index')->with('success', 'Ulasan disetujui.');
-}
-
-// Reject
-public function reject($id)
-{
-    $ulasan = Ulasan::findOrFail($id);
-    $ulasan->is_approved = false;
-    $ulasan->save();
-
-    return redirect()->route('admin.ulasan.index')->with('error', 'Ulasan ditolak.');
-}
-
+        return redirect()->route('admin.ulasan.index')->with('success', 'Status ulasan berhasil diperbarui.');
+    }
 }

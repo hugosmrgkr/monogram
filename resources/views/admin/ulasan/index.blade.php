@@ -17,29 +17,19 @@
             <p><strong>Nama:</strong> {{ $ulasan->name ?? 'Anonim' }}</p>
             <p><strong>Ulasan:</strong> {{ $ulasan->ulasan }}</p>
             <p><strong>Status:</strong>
-                @switch($ulasan->is_approved)
-                    @case(true)
-                        <span class="text-success">Disetujui</span>
-                        @break
-                    @case(false)
-                        <span class="text-danger">Ditolak</span>
-                        @break
-                    @default
-                        <span class="text-warning">Menunggu</span>
-                @endswitch
+                @if($ulasan->is_approved)
+                    <span class="text-success">Tampil</span>
+                @else
+                    <span class="text-danger">Disembunyikan</span>
+                @endif
             </p>
 
-            @if(is_null($ulasan->is_approved))
-                <form action="{{ route('admin.ulasan.approve', $ulasan->id) }}" method="POST" style="display:inline-block;">
-                    @csrf
-                    <button class="btn btn-success btn-sm">Setujui</button>
-                </form>
-
-                <form action="{{ route('admin.ulasan.reject', $ulasan->id) }}" method="POST" style="display:inline-block;">
-                    @csrf
-                    <button class="btn btn-danger btn-sm">Tolak</button>
-                </form>
-            @endif
+            <form action="{{ route('admin.ulasan.toggle', $ulasan->id) }}" method="POST" style="display:inline-block;">
+                @csrf
+                <button class="btn btn-sm {{ $ulasan->is_approved ? 'btn-warning' : 'btn-success' }}">
+                    {{ $ulasan->is_approved ? 'Sembunyikan' : 'Tampilkan' }}
+                </button>
+            </form>
         </div>
     @empty
         <div class="alert alert-info">Tidak ada ulasan yang masuk.</div>
