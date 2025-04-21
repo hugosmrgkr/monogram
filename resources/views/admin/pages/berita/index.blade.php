@@ -8,7 +8,7 @@
 
                 {{-- Tombol Tambah --}}
                 <div class="mb-3 text-right">
-                    <a href="{{ route('berita.create') }}" class="btn btn-primary">Tambah Berita</a>
+                    <a href="{{ route('admin.berita.create') }}" class="btn btn-primary">Tambah Berita</a>
                 </div>
 
                 @if ($beritas->isEmpty())
@@ -45,8 +45,8 @@
                                         <td>{{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($berita->tanggal_habis)->format('d M Y') }}</td>
                                         <td>
-                                            <a href="{{ route('berita.edit', $berita->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" style="display:inline;">
+                                            <a href="{{ route('admin.berita.edit', $berita->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('admin.berita.destroy', $berita->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"

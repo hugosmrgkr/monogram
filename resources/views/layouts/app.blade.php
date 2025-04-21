@@ -8,60 +8,61 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/service.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
-
-
-
-
+    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
     <!-- Navigation -->
     @unless(request()->routeIs('hasil'))
-        <nav class="navbar navbar-expand-lg navbar-light {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
+        <div class="container">
+            <a class="logo-text" href="{{ route('home') }}">
+                <span class="highlight">M</span>ONOGRAM_
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
 
-            <div class="container">
-            <a class="logo-text {{ request()->routeIs('service') ? 'text-white' : '' }}" href="{{ route('home') }}">>MONOGRAM_</a>
+                {{-- Menu di Tengah --}}
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
+                    </li>
+                </ul>
 
-
-                <!-- Toggle Button for Mobile -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navbar Links -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
-                        </li>
-                        <li class="nav-item">
-                            @auth
-                                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger btn-sm">Logout</button>
-                                </form>
-                            @else
-                                <a class="btn btn-dark btn-sm {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login Admin</a>
-                            @endauth
-                        </li>
-                    </ul>
+                {{-- Login / Logout di Kanan --}}
+                <div class="navbar-login-wrapper">
+                    @auth
+                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+                        </form>
+                    @else
+                        <a href="login" class="btn-admin">
+                            <i class="bi bi-shield-lock"></i> Admin
+                        </a>
+                    @endauth
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
     @endunless
 
     <!-- Main Content -->
@@ -82,7 +83,16 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
-
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('nav.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>

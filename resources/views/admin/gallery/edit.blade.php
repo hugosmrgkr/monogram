@@ -28,6 +28,7 @@
                         <input type="file" name="gambar" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-warning">Update</button>
+                    <a href="{{ route('admin.gallery.index') }}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

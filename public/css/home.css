@@ -1,14 +1,21 @@
 /* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
+/* Reset & General Styles */
+* {
     margin: 0;
-    background-color: #000000; /* hitam */
-    color: #ffffff; /* putih */
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000; /* Hitam */
+    color: #ffffff; /* Putih */
+    overflow-x: hidden;
+}
+
+/* Container override */
 .container {
     max-width: 1200px;
     margin: auto;
@@ -17,65 +24,91 @@ body {
 
 /* HERO SECTION */
 .hero-section {
-    position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('../assets/images/home.png');
+    background-image: url('../assets/images/home.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding-left: 5vw;
-    color: white;
+    justify-content: center;
+    padding: 0;
 }
 
 .hero-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* efek gelap */
     z-index: 1;
 }
 
 .hero-text {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+    text-align: center;
 }
 
-.hero-title {
+.hero-text h1.monogram-title {
     font-size: 4rem;
     font-weight: 700;
     letter-spacing: 2px;
     color: #ffffff;
-    margin-bottom: 1.2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
-.hero-description {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: #dddddd;
+/* KEUNTUNGAN SECTION */
+.keuntungan-section {
+    width: 100%;
+    padding: 80px 5%;
+    background-color: #ffffff;
+    color: #000000;
 }
 
-/* Highlight Section */
-.text-accent {
-    color: #ffffff;
-    font-weight: bold;
+.keuntungan-section h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
 }
 
-/* Cards & Images */
+.keuntungan-cards {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keuntungan-card {
+    width: 300px;
+}
+
+.keuntungan-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.keuntungan-card h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.keuntungan-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* REKOMENDASI FOTO */
 .card {
-    background: #111111;
+    background-color: #111111;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
     color: #ffffff;
+    border: none;
 }
 
 .card img {
@@ -90,21 +123,18 @@ body {
     transform: scale(1.03);
 }
 
-/* Recommended Photos */
-.img-fluid {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-/* Contact Form */
-form .form-control {
+/* CONTACT FORM / ULASAN */
+form .form-control,
+form textarea {
     border: 1px solid #444;
-    padding: 10px;
-    font-size: 15px;
+    padding: 12px 16px;
+    font-size: 16px;
     background: #1c1c1c;
     color: #ffffff;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+    width: 100%;
 }
 
 form .btn {
@@ -112,20 +142,36 @@ form .btn {
     background: #ffffff;
     color: #000000;
     border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
     cursor: pointer;
+}
+
+/* Ulasan Box */
+.ulasan-box {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    max-width: 400px;
+    color: #000;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero-title {
+    .hero-text h1.monogram-title {
         font-size: 2.5rem;
     }
 
-    .hero-description {
-        font-size: 1rem;
+    .card img {
+        height: 200px;
     }
 
-    .card img, .img-fluid {
-        height: 200px;
+    .keuntungan-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .keuntungan-card {
+        width: 90%;
     }
 }

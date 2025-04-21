@@ -1,53 +1,48 @@
 @extends('layouts.app')
 
+@section('title', 'FAQ')
+
 @section('content')
-<div class="container d-flex flex-column align-items-center" style="padding: 40px 0;">
-    <!-- Title -->
-    <div style="color: black; font-size: 32px; font-family: Inter; font-weight: 700; margin: 24px 0;">
+<div class="py-5">
+    <h2 class="mb-4 text-center fw-bold" style="font-family: Inter, sans-serif; color: #1E1E1E;">
         Frequently Asked Questions
-    </div>
+    </h2>
 
-    <!-- FAQ Accordion -->
-    <div style="width: 640px; display: flex; flex-direction: column; gap: 16px;" id="faq-container">
-
-        <!-- Loop dari Database -->
+    <div class="mx-auto" style="max-width: 700px;" id="faq-container">
         @forelse ($faqs as $faq)
-        <div class="faq-item" style="padding: 16px; background: #F5F5F5; border-radius: 8px; border: 1px solid #D9D9D9; cursor: pointer;">
-            <div class="faq-question d-flex justify-content-between align-items-center">
-                <div style="color: #1E1E1E; font-size: 16px; font-family: Inter; font-weight: 600;">
-                    {{ $faq->pertanyaan }}
+            <div class="faq-item mb-3 p-3 rounded border bg-light shadow-sm">
+                <div class="faq-question d-flex justify-content-between align-items-center">
+                    <div class="faq-text fw-semibold">
+                        {{ $faq->pertanyaan }}
+                    </div>
+                    <button class="faq-toggle-btn btn p-0 ms-3" aria-label="Toggle Answer">
+                        <div class="arrow"></div>
+                    </button>
                 </div>
-                <div class="faq-icon" style="width: 20px; height: 20px; position: relative;">
-                    <div class="arrow" style="width: 10px; height: 5px; position: absolute; top: 7.5px; left: 5px; border: 2px solid #1E1E1E; transform: rotate(0deg); transition: transform 0.3s;"></div>
+                <div class="faq-answer">
+                    {{ $faq->jawaban }}
                 </div>
             </div>
-            <div class="faq-answer" style="margin-top: 12px; color: #555; font-size: 14px; display: none;">
-                {{ $faq->jawaban }}
-            </div>
-        </div>
         @empty
-            <div style="text-align: center; color: #888;">Belum ada data FAQ.</div>
+            <div class="text-center text-muted">Belum ada data FAQ.</div>
         @endforelse
-
     </div>
 </div>
 
-<!-- Accordion Script -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const items = document.querySelectorAll('.faq-item');
+        const toggleButtons = document.querySelectorAll('.faq-toggle-btn');
 
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-                const answer = item.querySelector('.faq-answer');
-                const arrow = item.querySelector('.arrow');
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const faqItem = button.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const arrow = button.querySelector('.arrow');
+                const isActive = answer.classList.contains('active');
 
-                // Toggle visibility
-                const isVisible = answer.style.display === 'block';
-                answer.style.display = isVisible ? 'none' : 'block';
-
-                // Rotate arrow
-                arrow.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+                answer.classList.toggle('active');
+                arrow.style.transform = isActive ? 'rotate(0deg)' : 'rotate(180deg)';
             });
         });
     });

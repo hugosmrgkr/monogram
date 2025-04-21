@@ -24,8 +24,8 @@
                     </div>
 
                     <div class="form-group text-right">
-                        <a href="{{ route('admin.faq.index') }}" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ route('admin.faq.index') }}" class="btn btn-light">Batal</a>
                     </div>
                 </form>
 

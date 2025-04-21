@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <h2 class="card-title text-center">Tambah Berita</h2>
-            <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.berita.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
@@ -49,7 +49,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="{{ route('berita.index') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ route('admin.berita.index') }}" class="btn btn-light">Batal</a>
             </form>
         </div>
     </div>
