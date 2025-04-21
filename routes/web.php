@@ -48,8 +48,7 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->name('admi
     // Manajemen Ulasan
     Route::prefix('ulasan')->name('ulasan.')->group(function () {
         Route::get('/', [UlasanController::class, 'index'])->name('index');
-        Route::post('/{id}/approve', [UlasanController::class, 'approve'])->name('approve');
-        Route::post('/{id}/reject', [UlasanController::class, 'reject'])->name('reject');
+        Route::post('/{id}/toggle', [UlasanController::class, 'toggle'])->name('toggle'); // ✅ Tambahan ini
     });
 });
 

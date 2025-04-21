@@ -80,8 +80,8 @@
             @csrf
             <div class="monogram-input-group mb-3">
                 <label for="name" class="form-label">Nama Pengguna</label>
-                <input type="text" name="name" id="name" value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama (Opsional)">
-            </div>
+                <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
+                </div>
             <div class="monogram-textarea-group mb-3">
                 <label for="ulasan" class="form-label">Ulasan <span class="text-danger">*</span></label>
                 <textarea name="ulasan" id="ulasan" rows="5" required class="monogram-textarea form-control">{{ old('ulasan') }}</textarea>
