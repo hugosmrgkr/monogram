@@ -8,7 +8,7 @@
 
                 {{-- Tombol Tambah --}}
                 <div class="mb-3 text-right">
-                    <a href="{{ route('layanan.create') }}" class="btn btn-primary">Tambah Layanan</a>
+                    <a href="{{ route('admin.layanan.create') }}" class="btn btn-primary">Tambah Layanan</a>
                 </div>
 
                 @if ($layanans->isEmpty())
@@ -41,8 +41,8 @@
                                         </td>
                                         <td>{{ Str::limit($layanan->keterangan, 50) }}</td>
                                         <td>
-                                            <a href="{{ route('layanan.edit', $layanan->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('layanan.destroy', $layanan->id) }}" method="POST" style="display:inline;">
+                                            <a href="{{ route('admin.layanan.edit', $layanan->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('admin.layanan.destroy', $layanan->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"

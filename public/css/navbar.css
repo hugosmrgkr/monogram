@@ -1,77 +1,167 @@
- /* NAVIGATION STYLE */
- .navbar {
-    height: 164px;
-    background-color:white;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+nav.navbar {
+    padding: 18px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+nav.navbar.scrolled {
+    padding: 14px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo-text {
+    font-family: "Raleway", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text .highlight {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    font-size: 25px;
+    font-weight: 900;
+    font-family: "Satisfy", cursive;
+    transition: 0.3s;
+}
+
+.logo-text .highlight:hover {
+    background-color: #00ffee;
+    color: #000000;
 }
 
 .navbar-nav {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 48px;
+    align-items: center;
+    gap: 24px;
+    flex: 1;
+    margin: 0 auto;
 }
 
-.nav-link {
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-family: Inter, sans-serif;
-    font-weight: 500;
-    line-height: 30px;
-    text-align: center;
+.navbar-nav .nav-item .nav-link {
+    color: #222222 !important;
+    font-size: 16px;
+    font-weight: 700;
     text-decoration: none;
-    transition: background 0.3s ease;
+    position: relative;
+    padding: 10px 16px;
+    transition: 0.3s ease;
+    letter-spacing: 0.4px;
 }
 
-.nav-link.active {
-    background-color: black;
-    color: white !important;
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
+    color:#222222 !important;
 }
 
-.nav-link:not(.active) {
-    color: black;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-/* LOGO */
-.logo-text {
+.navbar-nav .nav-item .nav-link::after {
+    content: '';
     position: absolute;
-    left: 16px;
-    top: 41px;
-    font-size: 20px;
-    font-family: Inter, sans-serif;
-    font-weight: 500;
-    line-height: 30px;
-    color: black;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(to right, #444444, #aaaaaa);
+    transition: width 0.4s ease-in-out;
+    border-radius: 2px;
+}
+
+.navbar-nav .nav-item .nav-link:hover::after,
+.navbar-nav .nav-item .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-login-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.navbar-login-wrapper .btn-admin {
+    border: 2px solid #000000;
+    color: #000000;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     text-decoration: none;
+    background-color: transparent;
 }
 
-
-.navbar-transparent {
-position: absolute;
-top: 0;
-width: 100%;
-background: transparent !important;
-box-shadow: none;
-z-index: 999;
+.navbar-login-wrapper .btn-admin:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
 }
 
-.navbar-transparent .nav-link,
-.navbar-transparent .logo-text {
-color:white !important;
+#mainContent {
+    padding-top: 80px !important;
 }
 
-.navbar-transparent .nav-link.active {
-background-color: transparent;
-outline: 2px solidwhite;
-color: white !important;
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    nav.navbar {
+        padding: 12px 20px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+    .logo-text .highlight {
+        font-size: 20px;
+        padding: 2px 6px;
+    }
+
+    /* Memastikan navbar tetap di kiri dan kanan pada layar kecil */
+    .navbar-nav {
+        gap: 14px;
+        margin-left: 0; /* Menjaga navbar agar tetap rata kiri */
+        margin-right: 0; /* Menjaga navbar agar tetap rata kanan */
+        justify-content: flex-start; /* Memastikan navbar tidak bergerak ke tengah */
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    .navbar-login-wrapper .btn-admin {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
 }

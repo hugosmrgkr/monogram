@@ -23,6 +23,7 @@
                         <input type="file" name="gambar" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-success">Simpan</button>
+                    <a href="{{ route('admin.gallery.index') }}" class="btn btn-light">Batal</a>
                 </form>
             </div>
         </div>
