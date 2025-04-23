@@ -7,6 +7,8 @@ use App\Models\About;
 use Illuminate\Http\Request;
 use App\Models\Faq;
 use App\Models\Ulasan;
+use App\Models\Berita;
+use Carbon\Carbon;
 
 class PageController extends Controller
 {
@@ -16,7 +18,13 @@ class PageController extends Controller
         $galleries = Gallery::take(4)->get();
         $ulasans = Ulasan::where('is_approved', true)->latest()->get();
 
-        return view('home', compact('galleries', 'ulasans'));
+        // Ambil berita yang aktif (sesuai tanggal berlaku)
+        $beritas = Berita::whereDate('tanggal_mulai', '<=', Carbon::now())
+                         ->whereDate('tanggal_habis', '>=', Carbon::now())
+                         ->latest()
+                         ->get();
+
+        return view('home', compact('galleries', 'ulasans', 'beritas'));
     }
 
     // Halaman Profil Owner
