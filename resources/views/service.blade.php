@@ -4,6 +4,7 @@
 
 @section('styles')
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/service.css') }}">
 @endsection
 
 @section('content')
@@ -30,46 +31,41 @@
 </div>
 
 <section style="width: 100%; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 style="font-size: 48px; font-weight: 600; margin-bottom: 40px; text-align: center;">Additional</h2>
-
-  <div style="display: flex; flex-direction: column; gap: 20px;">
-    <div>
-      <h3 style="font-size: 24px; font-weight: 700;">Extra person (include 1 photo print 3R)</h3>
-      <p style="font-size: 20px; font-weight: 500;">22k/person</p>
-    </div>
-    <div>
-      <h3 style="font-size: 24px; font-weight: 700;">Extra Pets</h3>
-      <p style="font-size: 20px; font-weight: 500;">25k/pets</p>
-    </div>
-    <div>
-      <h3 style="font-size: 24px; font-weight: 700;">Extra photo printing 3R</h3>
-      <p style="font-size: 20px; font-weight: 500;">5k/pcs</p>
-    </div>
-    <div>
-      <h3 style="font-size: 24px; font-weight: 700;">Extra photo printing 4R</h3>
-      <p style="font-size: 20px; font-weight: 500;">7k/pcs</p>
-    </div>
-    <div>
-      <h3 style="font-size: 24px; font-weight: 700;">Extra spotlight mode</h3>
-      <p style="font-size: 20px; font-weight: 500;">25k</p>
-    </div>
-    <div>
-      <h3 style="font-size: 24px; font-weight: 700;">Extra 10 minutes</h3>
-      <p style="font-size: 20px; font-weight: 500;">35k</p>
-    </div>
-    <div>
-      <h3 style="font-size: 24px; font-weight: 700;">Extra 5 minutes</h3>
-      <p style="font-size: 20px; font-weight: 500;">20k</p>
-    </div>
-  </div>
-
-  <a href="https://monogram.youcanbook.me/?fbclid=PAY2xjawI809xleHRuA2FlbQIxMQABpg4DIp_ka4mMwoz2NqK3Q4C66HNN_4xD-cw6rugyYIUHKRHul0kOkfXwzw_aem_i2Kvsj7vE5AJ2gy2ytZdLA" target="_blank" style="display: block; margin: 40px auto 0; background-color: black; color: white; padding: 20px 40px; font-size: 24px; border-radius: 8px; text-decoration: none; text-align: center; width: fit-content;">
-  Booking now
-</a>
-
-
-
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-size: 48px; font-weight: 600; margin-bottom: 40px; text-align: center;">Additional</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+                <h3 style="font-size: 24px; font-weight: 700;">Extra person (include 1 photo print 3R)</h3>
+                <p style="font-size: 20px; font-weight: 500;">22k/person</p>
+            </div>
+            <div>
+                <h3 style="font-size: 24px; font-weight: 700;">Extra Pets</h3>
+                <p style="font-size: 20px; font-weight: 500;">25k/pets</p>
+            </div>
+            <div>
+                <h3 style="font-size: 24px; font-weight: 700;">Extra photo printing 3R</h3>
+                <p style="font-size: 20px; font-weight: 500;">5k/pcs</p>
+            </div>
+            <div>
+                <h3 style="font-size: 24px; font-weight: 700;">Extra photo printing 4R</h3>
+                <p style="font-size: 20px; font-weight: 500;">7k/pcs</p>
+            </div>
+            <div>
+                <h3 style="font-size: 24px; font-weight: 700;">Extra spotlight mode</h3>
+                <p style="font-size: 20px; font-weight: 500;">25k</p>
+            </div>
+            <div>
+                <h3 style="font-size: 24px; font-weight: 700;">Extra 10 minutes</h3>
+                <p style="font-size: 20px; font-weight: 500;">35k</p>
+            </div>
+            <div>
+                <h3 style="font-size: 24px; font-weight: 700;">Extra 5 minutes</h3>
+                <p style="font-size: 20px; font-weight: 500;">20k</p>
+            </div>
+        </div>
+        <a href="https://monogram.youcanbook.me/?fbclid=PAY2xjawI809xleHRuA2FlbQIxMQABpg4DIp_ka4mMwoz2NqK3Q4C66HNN_4xD-cw6rugyYIUHKRHul0kOkfXwzw_aem_i2Kvsj7vE5AJ2gy2ytZdLA" target="_blank" style="display: block; margin: 40px auto 0; background-color: black; color: white; padding: 20px 40px; font-size: 24px; border-radius: 8px; text-decoration: none; text-align: center; width: fit-content;">
+        Booking now
+        </a>
 </section>
 
 <!-- Layanan Panggilan Fotografer -->

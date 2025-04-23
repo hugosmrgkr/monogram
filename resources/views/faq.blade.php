@@ -2,6 +2,10 @@
 
 @section('title', 'FAQ')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
+@endsection
+
 @section('content')
 <div class="py-5">
     <h2 class="mb-4 text-center fw-bold" style="font-family: Inter, sans-serif; color: #1E1E1E;">

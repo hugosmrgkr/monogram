@@ -2,6 +2,10 @@
 
 @section('title', 'Beranda')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+@endsection
+
 @section('content')
     <!-- Hero Section - Full Width -->
     <br><br><br>
@@ -17,17 +21,19 @@
             </div>
         </div>
     </div>
+
     <!-- Benefits Section -->
     <div class="monogram-benefits-section container py-5 bg-white">
         <h2 class="monogram-benefits-title text-black fw-bold mb-4">Keuntungan</h2>
-        <div class="monogram-benefits-container d-flex gap-4 flex-wrap">
+        <div class="monogram-benefits-container d-flex gap-4 flex-wrap justify-content-center">
             @foreach ([
                 ['image' => 'keuntungan1.png', 'title' => 'Pilihan Tata Letak Hasil Foto', 'desc' => 'Pilih Tata letak foto sesuai keinginanmu'],
                 ['image' => 'keuntungan2.png', 'title' => 'BEBAS WARNA LATAR FOTO', 'desc' => 'Pilih warna latar sesuai keinginanmu'],
-                ['image' => 'keuntungan3.png', 'title' => 'Tersedia spotlight mode', 'desc' => '']
+                ['image' => 'keuntungan3.png', 'title' => 'Tersedia spotlight mode', 'desc' => 'Foto lebih fokus dan menarik dengan pencahayaan khusus']
             ] as $benefit)
-                <div class="monogram-benefit-card card" style="width: 300px;">
-                    <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}" class="monogram-benefit-img card-img-top rounded-3 mb-3">
+                <div class="monogram-benefit-card card shadow-sm p-0 overflow-hidden" style="width: 300px; height: 420px; border-radius: 12px;">
+                    <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}"
+                        class="benefit-img-fix w-100">
                     <div class="monogram-benefit-body card-body">
                         <h5 class="monogram-benefit-title card-title fw-bold mb-2">{{ $benefit['title'] }}</h5>
                         <p class="monogram-benefit-desc card-text text-muted">{{ $benefit['desc'] }}</p>
@@ -37,23 +43,27 @@
         </div>
     </div>
 
-    <!-- Recommended Photos Section -->
     <div class="monogram-gallery-section container mb-5">
         <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
-        <div class="row monogram-gallery-row g-4 justify-content-center">
-            @forelse($galleries as $gallery)
-                <div class="col-md-3 col-6">
-                    <div class="monogram-gallery-card card border-0 shadow-sm">
-                        <img src="{{ asset('uploads/' . $gallery->gambar) }}" class="monogram-gallery-img card-img-top img-fluid" alt="Rekomendasi Foto">
-                    </div>
+
+        <div class="lightbox" data-mdb-lightbox-init>
+            <div class="multi-carousel overflow-hidden" id="monogram-carousel">
+                <div class="multi-carousel-inner d-flex" id="carousel-track">
+                    @foreach ($galleries as $gallery)
+                        <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
+                            <img
+                                src="{{ asset('uploads/' . $gallery->gambar) }}"
+                                data-mdb-img="{{ asset('uploads/' . $gallery->gambar) }}"
+                                alt="Rekomendasi Foto"
+                                class="w-100 rounded shadow-sm"
+                            />
+                        </div>
+                    @endforeach
                 </div>
-            @empty
-                <div class="col-12 text-center">
-                    <p>Belum ada foto rekomendasi.</p>
-                </div>
-            @endforelse
+            </div>
         </div>
-        <div class="monogram-gallery-btn text-center mt-4">
+
+        <div class="text-center mt-4">
             <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
         </div>
     </div>
@@ -80,8 +90,8 @@
             @csrf
             <div class="monogram-input-group mb-3">
                 <label for="name" class="form-label">Nama Pengguna</label>
-                <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
-                </div>
+                <input type="text" name="name" id="name" value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama">
+            </div>
             <div class="monogram-textarea-group mb-3">
                 <label for="ulasan" class="form-label">Ulasan <span class="text-danger">*</span></label>
                 <textarea name="ulasan" id="ulasan" rows="5" required class="monogram-textarea form-control">{{ old('ulasan') }}</textarea>
@@ -94,18 +104,23 @@
 
     {{-- Tampilkan Ulasan yang Disetujui --}}
     @if($ulasans->isNotEmpty())
-        <div class="monogram-feedbacks mt-5">
-            <h3 class="monogram-feedbacks-title mb-4">Apa Kata Mereka?</h3>
-            <div class="monogram-feedbacks-container d-flex flex-wrap gap-4">
+    <div class="monogram-feedbacks-container mt-5">
+        <div class="monogram-feedbacks">
+            <div class="monogram-feedbacks-title-wrapper">
+                <h3 class="monogram-feedbacks-title mb-4">Apa Kata Mereka?</h3>
+                <div class="monogram-feedbacks-line"></div>
+            </div>
+            <div class="monogram-feedbacks-wrapper">
                 @foreach($ulasans as $ulasan)
-                    <div class="monogram-feedback-card card shadow-sm" style="width: 400px; background-color: #f8f9fa;">
+                    <div class="monogram-feedback-card">
                         <div class="card-body">
-                            <p class="monogram-feedback-quote card-text italic">"{{ $ulasan->ulasan }}"</p>
-                            <p class="monogram-feedback-name text-end mb-0 fw-bold">- {{ $ulasan->name ?? 'Anonim' }}</p>
+                            <p class="monogram-feedback-quote">{{ $ulasan->ulasan }}</p>
+                            <p class="monogram-feedback-name">- {{ $ulasan->name ?? 'Anonim' }}</p>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
+    </div>
     @endif
 @endsection
