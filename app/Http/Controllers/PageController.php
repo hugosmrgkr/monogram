@@ -15,10 +15,19 @@ class PageController extends Controller
     // Halaman Home
     public function home()
     {
-        $galleries = Gallery::latest()->get();
+        $galleries = Gallery::take(4)->get();
         $ulasans = Ulasan::where('is_approved', true)->latest()->get();
-        return view('home', compact('galleries', 'ulasans'));
+
+        // Ambil berita yang aktif (sesuai tanggal berlaku)
+        $beritas = Berita::whereDate('tanggal_mulai', '<=', Carbon::now())
+                         ->whereDate('tanggal_habis', '>=', Carbon::now())
+                         ->latest()
+                         ->get();
+
+        return view('home', compact('galleries', 'ulasans', 'beritas'));
     }
+
+
 
     // Halaman Profil Owner
     public function about()

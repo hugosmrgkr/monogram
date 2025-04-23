@@ -22,6 +22,39 @@
         </div>
     </div>
 
+     <!-- Section Berita Terkini -->
+     <div class="container my-5">
+    <h2 class="fw-bold mb-4">Berita Terkini</h2>
+
+    @forelse ($beritas as $berita)
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="row g-0 align-items-center">
+                @if($berita->gambar)
+                <div class="col-md-4">
+                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="img-fluid rounded-start" alt="Gambar Berita">
+                </div>
+                @endif
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ $berita->judul }}</h5>
+                        <p class="card-text">{{ $berita->isi }}</p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Berlaku dari {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
+                                sampai {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @empty
+        <p class="text-muted">Belum ada berita tersedia saat ini.</p>
+    @endforelse
+</div>
+
+
+
     <!-- Benefits Section -->
     <div class="monogram-benefits-section container py-5 bg-white">
         <h2 class="monogram-benefits-title text-black fw-bold mb-4">Keuntungan</h2>
