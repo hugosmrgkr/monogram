@@ -7,14 +7,13 @@
     <title>Monogram Toba - @yield('title', 'Photography Studio')</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/service.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    @yield('styles')
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -93,6 +92,40 @@
             }
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carouselTrack = document.getElementById('carousel-track');
+            const originalContent = carouselTrack.innerHTML;
+
+            // Gandakan isi carousel untuk efek infinite scroll
+            carouselTrack.innerHTML += originalContent;
+
+            const scrollSpeed = 0.5;
+            let scrollPos = 0;
+
+            // Hitung lebar isi asli (sebelum digandakan)
+            const itemWidth = carouselTrack.scrollWidth / 2;
+
+            function autoScroll() {
+                scrollPos += scrollSpeed;
+
+                // Jika scroll sudah sejauh isi asli, reset scrollPos ke 0
+                if (scrollPos >= itemWidth) {
+                    scrollPos = 0;
+                }
+
+                carouselTrack.style.transform = `translateX(-${scrollPos}px)`;
+
+                requestAnimationFrame(autoScroll);
+            }
+
+            autoScroll();
+        });
+    </script>
+
+
+
+
 </body>
 
 </html>

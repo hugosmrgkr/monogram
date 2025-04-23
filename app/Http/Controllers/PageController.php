@@ -13,9 +13,8 @@ class PageController extends Controller
     // Halaman Home
     public function home()
     {
-        $galleries = Gallery::take(4)->get();
+        $galleries = Gallery::latest()->get();
         $ulasans = Ulasan::where('is_approved', true)->latest()->get();
-
         return view('home', compact('galleries', 'ulasans'));
     }
 
