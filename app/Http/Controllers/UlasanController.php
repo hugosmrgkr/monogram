@@ -22,7 +22,7 @@ class UlasanController extends Controller
             'is_approved' => true, // langsung tampil
         ]);
     
-        return back()->with('success', 'Ulasan berhasil dikirim dan telah ditampilkan.');
+        return back()->with('success', 'Komentar berhasil dikirim dan telah ditampilkan.');
     }
     
     // Menampilkan semua ulasan untuk admin

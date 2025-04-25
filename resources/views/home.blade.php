@@ -153,11 +153,11 @@
                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama">
             </div>
             <div class="monogram-textarea-group mb-3">
-                <label for="ulasan" class="form-label">Ulasan <span class="text-danger">*</span></label>
+                <label for="ulasan" class="form-label">Komentar <span class="text-danger">*</span></label>
                 <textarea name="ulasan" id="ulasan" rows="5" required class="monogram-textarea form-control">{{ old('ulasan') }}</textarea>
             </div>
             <div class="monogram-submit-btn d-flex justify-content-start">
-                <button type="submit" class="monogram-submit-btn btn btn-dark px-5 py-2">Kirim Ulasan</button>
+                <button type="submit" class="monogram-submit-btn btn btn-dark px-5 py-2">Kirim Komentar</button>
             </div>
         </form>
     </div>

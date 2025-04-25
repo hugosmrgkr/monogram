@@ -40,7 +40,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.ulasan.index') }}">
                 <i class="fa fa-comments menu-icon"></i>
-                <span class="menu-title">Ulasan</span>
+                <span class="menu-title">Komentar</span>
             </a>
         </li>
     </ul>

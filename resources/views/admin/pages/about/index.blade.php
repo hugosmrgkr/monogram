@@ -40,7 +40,7 @@
                                         </td>
                                         <td>{{ Str::limit($about->description, 50) }}</td>
                                         <td>
-                                            <a href="{{ route('about.edit', $about->id) }}"
+                                            <a href="{{ route('admin.about.edit', $about->id) }}"
                                                 class="btn btn-warning btn-sm">Edit</a>
                                             <form action="{{ route('admin.about.destroy', $about->id) }}" method="POST"
                                                 style="display:inline;">
