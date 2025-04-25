@@ -33,7 +33,7 @@ class LayananController extends Controller
         $request->validate([
             'judul' => 'required',
             'keterangan' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048' // Gambar wajib
+            'gambar' => 'required|image|mimes:jpeg,JPG,png,jpg|max:2048' // Gambar wajib
         ]);
 
         $gambarPath = $request->file('gambar')->store('layanan', 'public');
@@ -60,7 +60,7 @@ class LayananController extends Controller
         $request->validate([
             'judul' => 'required',
             'keterangan' => 'required',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048' // Gambar opsional saat update
+            'gambar' => 'nullable|image|mimes:jpeg,JPG,png,jpg|max:2048' // Gambar opsional saat update
         ]);
 
         $data = $request->only(['judul', 'keterangan']);

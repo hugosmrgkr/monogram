@@ -9,7 +9,7 @@ use App\Models\Faq;
 use App\Models\Ulasan;
 use App\Models\Berita;
 use Carbon\Carbon;
-
+use App\Models\Layanan;
 class PageController extends Controller
 {
     // Halaman Home
@@ -48,9 +48,9 @@ class PageController extends Controller
     // Halaman Pilihan Layanan
     public function service()
     {
-        return view('service');
+        $layanans = Layanan::all(); // ambil semua data layanan dari tabel
+        return view('service', compact('layanans')); // kirim ke blade
     }
-
     public function hasil($kategori = 'wisuda')
     {
         $kategori = strtolower($kategori);
