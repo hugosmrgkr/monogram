@@ -122,8 +122,8 @@
         <form action="{{ route('ulasan.store') }}" method="POST">
             @csrf
             <div class="monogram-input-group mb-3">
-                <label for="name" class="form-label">Nama Pengguna</label>
-                <input type="text" name="name" id="name" value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama">
+                <label for="name" class="form-label">Nama Pengguna<span class="text-danger">*</span></label>
+                <input type="text" name="name" id="name" required value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama">
             </div>
             <div class="monogram-textarea-group mb-3">
                 <label for="ulasan" class="form-label">Komentar <span class="text-danger">*</span></label>
