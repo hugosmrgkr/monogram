@@ -7,48 +7,61 @@
 @endsection
 
 @section('content')
-<div class="py-5">
-    <h2 class="mb-4 text-center fw-bold" style="font-family: Inter, sans-serif; color: #1E1E1E;">
-        Frequently Asked Questions
-    </h2>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <h1 class="display-3 fw-bold">&gt;monogram_ FAQ</h1>
+            <p class="lead">
+                Temukan jawaban atas pertanyaan-pertanyaan umum seputar layanan Monogram Studio Balige.<br>
+                Jika masih ada yang belum jelas, jangan ragu untuk menghubungi kami.
+            </p>
+        </div>
+    </section>
 
-    <div class="mx-auto" style="max-width: 700px;" id="faq-container">
-        @forelse ($faqs as $faq)
-            <div class="faq-item mb-3 p-3 rounded border bg-light shadow-sm">
-                <div class="faq-question d-flex justify-content-between align-items-center">
-                    <div class="faq-text fw-semibold">
-                        {{ $faq->pertanyaan }}
+    <!-- FAQ List -->
+    <div class="py-5">
+        <h2 class="mb-4 text-center fw-bold" style="font-family: Inter, sans-serif; color: #1E1E1E;">
+            Frequently Asked Questions
+        </h2>
+
+        <div class="mx-auto" style="max-width: 700px;" id="faq-container">
+            @forelse ($faqs as $faq)
+                <div class="faq-item mb-3 p-3 rounded border bg-light shadow-sm">
+                    <div class="faq-question d-flex justify-content-between align-items-center">
+                        <div class="faq-text fw-semibold">
+                            {{ $faq->pertanyaan }}
+                        </div>
+                        <button class="faq-toggle-btn btn p-0 ms-3" aria-label="Toggle Answer">
+                            <div class="arrow"></div>
+                        </button>
                     </div>
-                    <button class="faq-toggle-btn btn p-0 ms-3" aria-label="Toggle Answer">
-                        <div class="arrow"></div>
-                    </button>
+                    <div class="faq-answer">
+                        {{ $faq->jawaban }}
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    {{ $faq->jawaban }}
-                </div>
-            </div>
-        @empty
-            <div class="text-center text-muted">Belum ada data FAQ.</div>
-        @endforelse
+            @empty
+                <div class="text-center text-muted">Belum ada data FAQ.</div>
+            @endforelse
+        </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggleButtons = document.querySelectorAll('.faq-toggle-btn');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButtons = document.querySelectorAll('.faq-toggle-btn');
 
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                event.stopPropagation();
-                const faqItem = button.closest('.faq-item');
-                const answer = faqItem.querySelector('.faq-answer');
-                const arrow = button.querySelector('.arrow');
-                const isActive = answer.classList.contains('active');
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const faqItem = button.closest('.faq-item');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const arrow = button.querySelector('.arrow');
+                    const isActive = answer.classList.contains('active');
 
-                answer.classList.toggle('active');
-                arrow.style.transform = isActive ? 'rotate(0deg)' : 'rotate(180deg)';
+                    answer.classList.toggle('active');
+                    arrow.style.transform = isActive ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
             });
         });
-    });
-</script>
+    </script>
 @endsection
