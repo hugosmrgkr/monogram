@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
+/* ===== Global Styles ===== */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
@@ -9,6 +9,7 @@ body {
     padding: 0;
 }
 
+/* ===== Navbar Base ===== */
 nav.navbar {
     padding: 18px 40px;
     position: fixed;
@@ -17,18 +18,51 @@ nav.navbar {
     right: 0;
     width: 100%;
     z-index: 1000;
-    transition: all 0.4s ease;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all 0.4s ease;
+    background-color: transparent;
+    border-bottom: 1px solid #e5e5e5;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+nav.navbar .logo-text {
+    color: #f4f6f7 !important;
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+nav.navbar.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 30 30'%3e%3cpath stroke='%23000000' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 nav.navbar.scrolled {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 14px 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+nav.navbar.scrolled .nav-item .nav-link.active {
+    color: #393838 !important;
+}
+
+nav.navbar.scrolled .logo-text {
+    color: #393838 !important;
+}
+
+
+nav.navbar.scrolled .nav-item .nav-link.active::after {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+    width: 100%;
 }
 
 .logo-text {
@@ -36,10 +70,10 @@ nav.navbar.scrolled {
     font-size: 22px;
     font-weight: 800;
     text-transform: uppercase;
-    color: #000000;
-    text-decoration: none;
+    color: #393838;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .logo-text .highlight {
@@ -54,11 +88,7 @@ nav.navbar.scrolled {
     transition: 0.3s;
 }
 
-.logo-text .highlight:hover {
-    background-color: #00ffee;
-    color: #000000;
-}
-
+/* ===== Navbar Links ===== */
 .navbar-nav {
     display: flex;
     justify-content: center;
@@ -69,7 +99,7 @@ nav.navbar.scrolled {
 }
 
 .navbar-nav .nav-item .nav-link {
-    color: #222222 !important;
+    color: #ffffff !important;
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
@@ -79,11 +109,6 @@ nav.navbar.scrolled {
     letter-spacing: 0.4px;
 }
 
-.navbar-nav .nav-item .nav-link:hover,
-.navbar-nav .nav-item .nav-link.active {
-    color:#222222 !important;
-}
-
 .navbar-nav .nav-item .nav-link::after {
     content: '';
     position: absolute;
@@ -91,7 +116,7 @@ nav.navbar.scrolled {
     left: 0;
     width: 0%;
     height: 2px;
-    background: linear-gradient(to right, #444444, #aaaaaa);
+    background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
     transition: width 0.4s ease-in-out;
     border-radius: 2px;
 }
@@ -101,15 +126,21 @@ nav.navbar.scrolled {
     width: 100%;
 }
 
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
+    color: #ffffff !important;
+}
+
+/* ===== Button Admin ===== */
 .navbar-login-wrapper {
     display: flex;
     align-items: center;
     margin-left: auto;
 }
 
-.navbar-login-wrapper .btn-admin {
-    border: 2px solid #000000;
-    color: #000000;
+.btn-admin {
+    border: 2px solid #ffffff;
+    color: #ffffff;
     font-weight: 600;
     font-size: 14px;
     padding: 6px 16px;
@@ -122,13 +153,34 @@ nav.navbar.scrolled {
     background-color: transparent;
 }
 
-.navbar-login-wrapper .btn-admin:hover {
-    background-color: #000000;
-    color: #ffffff;
-    border-color: #000000;
+.btn-admin:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
 }
 
-/* Responsive Styles */
+/* ===== Scroll Effects ===== */
+nav.navbar.scrolled .logo-text,
+nav.navbar.scrolled .navbar-link,
+nav.navbar.scrolled .btn-admin {
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+nav.navbar.scrolled .nav-item .nav-link::after {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+}
+
+nav.navbar.scrolled .navbar-link:hover {
+    color: #333333 !important;
+}
+
+nav.navbar.scrolled .btn-admin:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 991.98px) {
     nav.navbar {
         padding: 12px 20px;
@@ -143,21 +195,26 @@ nav.navbar.scrolled {
         padding: 2px 6px;
     }
 
-    /* Memastikan navbar tetap di kiri dan kanan pada layar kecil */
     .navbar-nav {
-        gap: 14px;
-        margin-left: 0; /* Menjaga navbar agar tetap rata kiri */
-        margin-right: 0; /* Menjaga navbar agar tetap rata kanan */
-        justify-content: flex-start; /* Memastikan navbar tidak bergerak ke tengah */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-top: 12px;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
     }
 
     .navbar-nav .nav-item .nav-link {
-        font-size: 13px;
-        padding: 5px 10px;
+        width: 100%;
+        padding: 10px 0;
     }
 
-    .navbar-login-wrapper .btn-admin {
-        padding: 5px 12px;
-        font-size: 12px;
+    .navbar-login-wrapper {
+        margin-left: 0;
+        margin-top: 16px;
+        justify-content: start;
+        width: 100%;
     }
 }
