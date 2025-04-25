@@ -1,9 +1,24 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+@endsection
+
 @section('content')
-    <div class="container py-5">
+    {{-- HERO ABOUT --}}
+    <section class="about-hero-section position-relative mb-5">
+        <div class="about-hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+        <div class="about-hero-text position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+          <h1 class="display-4 fw-bold mb-3" style="font-family: Inter, sans-serif;">
+            Tentang Monogram Studio
+          </h1>
+          <p class="lead" style="font-size: 1.25rem; font-family: Inter, sans-serif;">
+            Selami kisah, visi, dan layanan kami yang telah dipercaya banyak klien untuk momen terbaik mereka.
+          </p>
+        </div>
+      </section>
 
-
+    <div class="container">
     @forelse ($abouts as $about)
     {{-- Judul --}}
     <h1 style="font-size: 64px; font-family: Inter; font-weight: 700;">{{ $about->title }}</h1>
@@ -71,7 +86,6 @@
 @empty
     <h1>Belum ada Data</h1>
 @endforelse
-
 
         {{-- Profil Owner --}}
         <div class="container d-flex flex-wrap justify-content-between align-items-start py-5" style="gap: 40px;">

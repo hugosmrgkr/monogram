@@ -65,10 +65,8 @@
     @endunless
 
     <!-- Main Content -->
-    <main class="py-4 flex-grow-1">
-        <div class="container">
-            @yield('content')
-        </div>
+    <main class="flex-grow-1">
+        @yield('content')
     </main>
     {{-- Tombol WhatsApp Mengambang --}}
     <a href="https://wa.me/6282268691532" target="_blank" style="position: fixed; bottom: 24px; left: 24px; z-index: 999; text-decoration: none;">
@@ -122,10 +120,6 @@
             autoScroll();
         });
     </script>
-
-
-
-
 </body>
 
 </html>

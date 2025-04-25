@@ -8,52 +8,79 @@
 
 @section('content')
     <!-- Hero Section - Full Width -->
-    <br><br><br>
-    <div class="monogram-container mb-4">
-        <h1 class="monogram-title fw-bold">MONOGRAM TOBA</h1>
-        <p class="monogram-subtitle">Welcome to website Monogram Studio Balige</p>
-    </div>
-    <div class="monogram-hero-section position-relative mb-4">
-        <div class="container-fluid p-0">
-            <img src="{{ asset('assets/images/home.png') }}" alt="Monogram Toba Studio" class="monogram-hero-img img-fluid w-100" style="max-height: 600px; object-fit: cover;">
-            <div class="monogram-hero-text position-absolute top-50 start-50 translate-middle text-white text-center">
-                <h1 class="monogram-hero-title">>monogram_</h1>
-            </div>
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+          <h1 class="display-3 fw-bold">>monogram_</h1>
+          <p class="lead">
+            Selamat datang di website resmi Monogram Studio Balige.<br>
+            Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.
+          </p>
         </div>
-    </div>
+      </section>
 
-     <!-- Section Berita Terkini -->
-     <div class="container my-5">
-    <h2 class="fw-bold mb-4">Berita Terkini</h2>
+    <!-- Section Berita Terkini -->
+    <!-- Judul dan Deskripsi -->
+    <section class="news-header">
+        <h2>Berita Terkini</h2>
+        <p class="news-subtitle">
+        Dapatkan update harian seputar kegiatan, pengumuman, dan informasi penting kampus.
+        </p>
+  </section>
 
+  <!-- Wrapper Berita -->
+  <div class="news-wrapper">
     @forelse ($beritas as $berita)
-        <div class="card mb-4 border-0 shadow-sm">
-            <div class="row g-0 align-items-center">
-                @if($berita->gambar)
-                <div class="col-md-4">
-                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="img-fluid rounded-start" alt="Gambar Berita">
-                </div>
-                @endif
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">{{ $berita->judul }}</h5>
-                        <p class="card-text">{{ $berita->isi }}</p>
-                        <p class="card-text">
-                            <small class="text-muted">
-                                Berlaku dari {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
-                                sampai {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
-                            </small>
-                        </p>
+      <div class="news-daily-card">
+        @if($berita->gambar)
+        <div class="news-img">
+          <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
+        </div>
+        @endif
+
+        <div class="news-content">
+          <h3>{{ $berita->judul }}</h3>
+          <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
+          <p class="news-date">
+            Berlaku {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
+            – {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
+          </p>
+        </div>
+      </div>
+    @empty
+      <p class="news-empty">Belum ada berita tersedia saat ini.</p>
+    @endforelse
+  </div>
+
+    {{-- <div class="container my-5">
+        <h2 class="fw-bold mb-4">Berita Terkini</h2>
+
+        @forelse ($beritas as $berita)
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="row g-0 align-items-center">
+                    @if($berita->gambar)
+                    <div class="col-md-4">
+                        <img src="{{ asset('storage/' . $berita->gambar) }}" class="img-fluid rounded-start" alt="Gambar Berita">
+                    </div>
+                    @endif
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">{{ $berita->judul }}</h5>
+                            <p class="card-text">{{ $berita->isi }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Berlaku dari {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
+                                    sampai {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
+                                </small>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @empty
-        <p class="text-muted">Belum ada berita tersedia saat ini.</p>
-    @endforelse
-</div>
-
-
+            @empty
+                <p class="text-muted">Belum ada berita tersedia saat ini.</p>
+        @endforelse
+    </div> --}}
 
     <!-- Benefits Section -->
     <div class="monogram-benefits-section container py-5 bg-white">
