@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
@@ -70,12 +71,19 @@
             @yield('content')
         </div>
     </main>
+    
     {{-- Tombol WhatsApp Mengambang --}}
-    <a href="https://wa.me/6282268691532" target="_blank" style="position: fixed; bottom: 24px; left: 24px; z-index: 999; text-decoration: none;">
-        <div style="width: 150px; height: 80px; background: #19CF1C; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 500;">
-            WhatsApp
-        </div>
+    <a href="https://wa.me/6282268691532" target="_blank"
+        class="d-flex align-items-center text-white text-decoration-none"
+        style="position: fixed; bottom: 24px; left: 24px; z-index: 999; background-color: #25D366; width: 60px; height: 60px; border-radius: 30px; overflow: hidden; white-space: nowrap; padding-left: 20px; transition: all 0.3s ease;"
+        onmouseover="this.style.width='180px'; this.children[1].style.opacity='1'; this.children[0].style.transform='scale(1.2)'"
+        onmouseout="this.style.width='60px'; this.children[1].style.opacity='0'; this.children[0].style.transform='scale(1)'"
+        >
+        <i class="fab fa-whatsapp" style="font-size: 24px; transition: transform 0.3s ease;"></i>
+        <span style="opacity: 0; margin-left: 10px; transition: opacity 0.3s ease;">Chat Kami</span>
     </a>
+
+
 
     <!-- Footer -->
     @include('layouts.footer')

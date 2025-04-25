@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">Manajemen Ulasan</h2>
+    <h2 class="mb-4">Daftar Komentar</h2>
 
     {{-- Notifikasi --}}
     @if(session('success'))
