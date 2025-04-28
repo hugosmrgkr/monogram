@@ -1,77 +1,49 @@
 @extends('admin.layouts.master')
 @section('content')
-    <div class="col-12 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Tambah Data About</h4>
+<div class="col-lg-8 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title text-center">Tambah Data</h2>
 
-                <form class="forms-sample" action="{{ route('admin.about.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+            <form action="{{ route('admin.about.store') }}" method="POST">
+                @csrf
 
-                    {{-- Judul --}}
-                    <div class="form-group">
-                        <label for="title">Judul</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan judul">
-                    </div>
+                {{-- Jam Operasional Weekday --}}
+                <div class="form-group">
+                    <label>Jam Buka (Senin - Sabtu)</label>
+                    <input type="time" name="weekday_open" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Jam Tutup (Senin - Sabtu)</label>
+                    <input type="time" name="weekday_close" class="form-control" required>
+                </div>
 
-                    {{-- Deskripsi --}}
-                    <div class="form-group">
-                        <label for="description">Deskripsi</label>
-                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Masukkan deskripsi"></textarea>
-                    </div>
+                {{-- Jam Operasional Weekend --}}
+                <div class="form-group">
+                    <label>Jam Buka (Minggu)</label>
+                    <input type="time" name="weekend_open" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Jam Tutup (Minggu)</label>
+                    <input type="time" name="weekend_close" class="form-control" required>
+                </div>
 
-                    {{-- Gambar Utama --}}
-                    <div class="form-group">
-                        <label for="image">Gambar</label>
-                        <input type="file" class="form-control" name="image" id="image">
-                    </div>
+                {{-- Kontak --}}
+                <div class="form-group">
+                    <label>Link WhatsApp</label>
+                    <input type="url" name="kontak_wa" class="form-control" placeholder="https://wa.me/..." required>
+                </div>
+                <div class="form-group">
+                    <label>Link Instagram</label>
+                    <input type="url" name="kontak_ig" class="form-control" placeholder="https://instagram.com/..." required>
+                </div>
 
-                    {{-- Paragraf Penutup --}}
-                    <div class="form-group">
-                        <label for="closing_paragraph">Paragraf Penutup</label>
-                        <textarea class="form-control" name="closing_paragraph" rows="3" placeholder="Masukkan paragraf penutup"></textarea>
-                    </div>
-
-{{-- Jam Operasional --}}
-
-{{-- Jam Operasional (Senin - Sabtu) --}}
-<div class="form-group">
-    <label for="weekday_open">Jam Buka (Senin - Sabtu)</label>
-    <input type="time" class="form-control" name="weekday_open" required>
-</div>
-<div class="form-group">
-    <label for="weekday_close">Jam Tutup (Senin - Sabtu)</label>
-    <input type="time" class="form-control" name="weekday_close" required>
-</div>
-
-{{-- Jam Operasional (Minggu) --}}
-<div class="form-group">
-    <label for="weekend_open">Jam Buka (Minggu)</label>
-    <input type="time" class="form-control" name="weekend_open" required>
-</div>
-<div class="form-group">
-    <label for="weekend_close">Jam Tutup (Minggu)</label>
-    <input type="time" class="form-control" name="weekend_close" required>
-</div>
-
-
-                    {{-- Gambar Horizontal (2 Foto) --}}
-                    <div class="form-group">
-                        <label for="horizontal_images">Gambar Horizontal (2 Foto)</label>
-                        <input type="file" class="form-control" name="horizontal_images[]" multiple>
-                    </div>
-
-                    {{-- Galeri (3 Foto) --}}
-                    <div class="form-group">
-                        <label for="gallery_images">Galeri (3 Foto)</label>
-                        <input type="file" class="form-control" name="gallery_images[]" multiple>
-                    </div>
-
-                    {{-- Tombol --}}
-                    <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-                    <a href="{{ route('admin.about.index') }}" class="btn btn-light">Batal</a>
-                </form>
-            </div>
+                <div class="mt-3 text-center">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <a href="{{ route('admin.about.index') }}" class="btn btn-secondary">Batal</a>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 @endsection

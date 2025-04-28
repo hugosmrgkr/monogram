@@ -15,7 +15,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.about.index') }}">
                 <i class="fa fa-info-circle menu-icon"></i>
-                <span class="menu-title">About Monokkrom</span>
+                <span class="menu-title">Tentang kami</span>
             </a>
         </li>
         <li class="nav-item">

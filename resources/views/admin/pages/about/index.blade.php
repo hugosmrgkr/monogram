@@ -20,9 +20,12 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Judul</th>
-                                    <th>Gambar</th>
-                                    <th>Deskripsi</th>
+                                    <th>Jam Buka (Weekday)</th>
+                                    <th>Jam Tutup (Weekday)</th>
+                                    <th>Jam Buka (Weekend)</th>
+                                    <th>Jam Tutup (Weekend)</th>
+                                    <th>WhatsApp</th>
+                                    <th>Instagram</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -30,24 +33,30 @@
                                 @foreach ($abouts as $key => $about)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $about->title }}</td>
+                                        <td>{{ $about->weekday_open }}</td>
+                                        <td>{{ $about->weekday_close }}</td>
+                                        <td>{{ $about->weekend_open }}</td>
+                                        <td>{{ $about->weekend_close }}</td>
                                         <td>
-                                            @if ($about->image)
-                                                <img src="{{ asset('storage/' . $about->image) }}" alt="Gambar">
+                                            @if ($about->kontak_wa)
+                                                <a href="{{ $about->kontak_wa }}" target="_blank">WhatsApp</a>
                                             @else
-                                                <span class="text-muted">Tidak ada gambar</span>
+                                                <span class="text-muted">-</span>
                                             @endif
                                         </td>
-                                        <td>{{ Str::limit($about->description, 50) }}</td>
                                         <td>
-                                            <a href="{{ route('admin.about.edit', $about->id) }}"
-                                                class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('admin.about.destroy', $about->id) }}" method="POST"
-                                                style="display:inline;">
+                                            @if ($about->kontak_ig)
+                                                <a href="{{ $about->kontak_ig }}" target="_blank">Instagram</a>
+                                            @else
+                                                <span class="text-muted">-</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('admin.about.edit', $about->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('admin.about.destroy', $about->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>
