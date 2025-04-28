@@ -11,98 +11,75 @@
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-text">
-          <h1 class="display-3 fw-bold">>monogram_</h1>
-          <p class="lead">
-            Selamat datang di website resmi Monogram Studio Balige.<br>
-            Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.
-          </p>
+            <h1 class="display-3 fw-bold">>monogram_</h1>
+            <p class="lead">
+                Selamat datang di website resmi Monogram Studio Balige.<br>
+                Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.
+            </p>
         </div>
-      </section>
+    </section>
 
     <!-- Section Berita Terkini -->
-    <!-- Judul dan Deskripsi -->
     <section class="news-header">
         <h2>Berita Terkini</h2>
         <p class="news-subtitle">
-        Dapatkan update harian seputar kegiatan, pengumuman, dan informasi penting kampus.
+            Dapatkan update harian seputar kegiatan, pengumuman, dan informasi penting kampus.
         </p>
-  </section>
+    </section>
 
-  <!-- Wrapper Berita -->
-  <div class="news-wrapper">
-    @forelse ($beritas as $berita)
-      <div class="news-daily-card">
-        @if($berita->gambar)
-        <div class="news-img">
-          <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
-        </div>
-        @endif
-
-        <div class="news-content">
-          <h3>{{ $berita->judul }}</h3>
-          <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
-          <p class="news-date">
-            Berlaku {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
-            – {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
-          </p>
-        </div>
-      </div>
-    @empty
-      <p class="news-empty">Belum ada berita tersedia saat ini.</p>
-    @endforelse
-  </div>
-
-    {{-- <div class="container my-5">
-        <h2 class="fw-bold mb-4">Berita Terkini</h2>
-
+    <div class="news-wrapper">
         @forelse ($beritas as $berita)
-            <div class="card mb-4 border-0 shadow-sm">
-                <div class="row g-0 align-items-center">
-                    @if($berita->gambar)
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/' . $berita->gambar) }}" class="img-fluid rounded-start" alt="Gambar Berita">
-                    </div>
-                    @endif
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">{{ $berita->judul }}</h5>
-                            <p class="card-text">{{ $berita->isi }}</p>
-                            <p class="card-text">
-                                <small class="text-muted">
-                                    Berlaku dari {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
-                                    sampai {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
-                                </small>
-                            </p>
-                        </div>
-                    </div>
+            <div class="news-daily-card">
+                @if($berita->gambar)
+                <div class="news-img">
+                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
+                </div>
+                @endif
+                <div class="news-content">
+                    <h3>{{ $berita->judul }}</h3>
+                    <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
+                    <p class="news-date">
+                        Berlaku {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
+                        – {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
+                    </p>
                 </div>
             </div>
-            @empty
-                <p class="text-muted">Belum ada berita tersedia saat ini.</p>
+        @empty
+            <p class="news-empty">Belum ada berita tersedia saat ini.</p>
         @endforelse
-    </div> --}}
-
-    <!-- Benefits Section -->
-    <div class="monogram-benefits-section container py-5 bg-white">
-        <h2 class="monogram-benefits-title text-black fw-bold mb-4">Keuntungan</h2>
-        <div class="monogram-benefits-container d-flex gap-4 flex-wrap justify-content-center">
-            @foreach ([
-                ['image' => 'keuntungan1.png', 'title' => 'Pilihan Tata Letak Hasil Foto', 'desc' => 'Pilih Tata letak foto sesuai keinginanmu'],
-                ['image' => 'keuntungan2.png', 'title' => 'BEBAS WARNA LATAR FOTO', 'desc' => 'Pilih warna latar sesuai keinginanmu'],
-                ['image' => 'keuntungan3.png', 'title' => 'Tersedia spotlight mode', 'desc' => 'Foto lebih fokus dan menarik dengan pencahayaan khusus']
-            ] as $benefit)
-                <div class="monogram-benefit-card card shadow-sm p-0 overflow-hidden" style="width: 300px; height: 420px; border-radius: 12px;">
-                    <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}"
-                        class="benefit-img-fix w-100">
-                    <div class="monogram-benefit-body card-body">
-                        <h5 class="monogram-benefit-title card-title fw-bold mb-2">{{ $benefit['title'] }}</h5>
-                        <p class="monogram-benefit-desc card-text text-muted">{{ $benefit['desc'] }}</p>
-                    </div>
-                </div>
-            @endforeach
-        </div>
     </div>
 
+    <!-- Benefits Section -->
+    <section class="monogram-benefits section-padding" style="background-color: rgba(0, 0, 0, 0.05); padding-top: 60px; padding-bottom: 60px;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 text-center">
+                    <h2 class="mb-5">Keuntungan</h2>
+                </div>
+
+                @foreach ([
+                    ['image' => 'keuntungan1.png', 'title' => 'Tata Letak Foto', 'desc' => 'Pilih tata letak foto sesuai keinginanmu'],
+                    ['image' => 'keuntungan2.png', 'title' => 'Warna Latar Sesuai Keinginan', 'desc' => 'Pilih warna latar sesuai keinginanmu'],
+                    ['image' => 'keuntungan3.png', 'title' => 'Mode Spotlight', 'desc' => 'Foto lebih fokus dengan pencahayaan khusus']
+                ] as $benefit)
+                    <div class="col-lg-4 col-12 mb-3">
+                        <div class="product-thumb">
+                            <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}" class="img-fluid product-image">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">{{ $benefit['title'] }}</h5>
+                                    <p class="product-p">{{ $benefit['desc'] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
     <div class="monogram-gallery-section container mb-5">
         <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
 
