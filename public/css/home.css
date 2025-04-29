@@ -1,5 +1,7 @@
 /* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@400;600;700&display=swap');
+
 
 .hero-section {
     position: relative;
@@ -372,41 +374,6 @@
     font-size: 1rem;
 }
 
-/* Responsif untuk perangkat lebih kecil */
-@media (max-width: 768px) {
-    .monogram-feedbacks-title {
-        font-size: 2rem;
-    }
-
-    .monogram-feedbacks-wrapper {
-        gap: 15px;
-    }
-
-    .monogram-feedback-card {
-        width: 90%;
-        max-width: 350px;
-    }
-
-    .nav-button {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .monogram-feedbacks-title {
-        font-size: 1.5rem;
-    }
-
-    .monogram-feedback-card {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .nav-button {
-        font-size: 24px;
-    }
-}
-
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -465,6 +432,23 @@
     .monogram-feedback-card {
         width: 100%;
     }
+
+    .monogram-feedbacks-title {
+        font-size: 2rem;
+    }
+
+    .monogram-feedbacks-wrapper {
+        gap: 15px;
+    }
+
+    .monogram-feedback-card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .nav-button {
+        font-size: 28px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -478,5 +462,18 @@
 
     .hero-text p {
         font-size: 1rem;
+    }
+
+    .monogram-feedbacks-title {
+        font-size: 1.5rem;
+    }
+
+    .monogram-feedback-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .nav-button {
+        font-size: 24px;
     }
 }

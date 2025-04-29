@@ -39,8 +39,8 @@
                     <h3>{{ $berita->judul }}</h3>
                     <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
                     <p class="news-date">
-                        Berlaku {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->format('d M Y') }}
-                        – {{ \Carbon\Carbon::parse($berita->tanggal_akhir)->format('d M Y') }}
+                        Berlaku {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->timezone('Asia/Jakarta')->format('d M Y') }}
+                        – {{ \Carbon\Carbon::parse($berita->tanggal_habis)->timezone('Asia/Jakarta')->format('d M Y') }}
                     </p>
                 </div>
             </div>
@@ -81,7 +81,7 @@
 
     <!-- Gallery Section -->
     <div class="monogram-gallery-section-wrapper position-relative py-5">
-        <div class="gallery-background"></div> <!-- background di luar .monogram-gallery-section -->
+        <div class="gallery-background"></div>
 
         <div class="monogram-gallery-section container mb-5">
             <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
@@ -108,55 +108,6 @@
             </div>
         </div>
     </div>
-    <!-- Gallery Section -->
-    {{-- <div class="monogram-gallery-section container mb-5">
-        <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
-
-        <div class="lightbox" data-mdb-lightbox-init>
-            <div class="multi-carousel overflow-hidden" id="monogram-carousel">
-                <div class="multi-carousel-inner d-flex" id="carousel-track">
-                    @foreach ($galleries as $gallery)
-                        <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
-                            <img
-                                src="{{ asset('uploads/' . $gallery->gambar) }}"
-                                data-mdb-img="{{ asset('uploads/' . $gallery->gambar) }}"
-                                alt="Rekomendasi Foto"
-                                class="w-100 rounded shadow-sm"
-                            />
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-4">
-            <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
-        </div>
-    <!-- Gallery Section -->
-    {{-- <div class="monogram-gallery-section container mb-5">
-        <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
-
-        <div class="lightbox" data-mdb-lightbox-init>
-            <div class="multi-carousel overflow-hidden" id="monogram-carousel">
-                <div class="multi-carousel-inner d-flex" id="carousel-track">
-                    @foreach ($galleries as $gallery)
-                        <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
-                            <img
-                                src="{{ asset('uploads/' . $gallery->gambar) }}"
-                                data-mdb-img="{{ asset('uploads/' . $gallery->gambar) }}"
-                                alt="Rekomendasi Foto"
-                                class="w-100 rounded shadow-sm"
-                            />
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-4">
-            <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
-        </div>
-    </div> --}}
 
     <!-- Contact Form Ulasan -->
     <section class="monogram-feedback-section">
