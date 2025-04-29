@@ -80,7 +80,36 @@
     </section>
 
     <!-- Gallery Section -->
-    <div class="monogram-gallery-section container mb-5">
+    <div class="monogram-gallery-section-wrapper position-relative py-5">
+        <div class="gallery-background"></div> <!-- background di luar .monogram-gallery-section -->
+
+        <div class="monogram-gallery-section container mb-5">
+            <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
+
+            <div class="lightbox" data-mdb-lightbox-init>
+                <div class="multi-carousel overflow-hidden" id="monogram-carousel">
+                    <div class="multi-carousel-inner d-flex" id="carousel-track">
+                        @foreach ($galleries as $gallery)
+                            <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
+                                <img
+                                    src="{{ asset('uploads/' . $gallery->gambar) }}"
+                                    data-mdb-img="{{ asset('uploads/' . $gallery->gambar) }}"
+                                    alt="Rekomendasi Foto"
+                                    class="w-100 rounded shadow-sm"
+                                />
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Section -->
+    {{-- <div class="monogram-gallery-section container mb-5">
         <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
 
         <div class="lightbox" data-mdb-lightbox-init>
@@ -103,56 +132,84 @@
         <div class="text-center mt-4">
             <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
         </div>
-    </div>
+    <!-- Gallery Section -->
+    {{-- <div class="monogram-gallery-section container mb-5">
+        <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
+
+        <div class="lightbox" data-mdb-lightbox-init>
+            <div class="multi-carousel overflow-hidden" id="monogram-carousel">
+                <div class="multi-carousel-inner d-flex" id="carousel-track">
+                    @foreach ($galleries as $gallery)
+                        <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
+                            <img
+                                src="{{ asset('uploads/' . $gallery->gambar) }}"
+                                data-mdb-img="{{ asset('uploads/' . $gallery->gambar) }}"
+                                alt="Rekomendasi Foto"
+                                class="w-100 rounded shadow-sm"
+                            />
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
+        </div>
+    </div> --}}
 
     <!-- Contact Form Ulasan -->
-    <div class="monogram-feedback-form container max-w-1305 p-4 bg-white rounded-3 shadow-sm border border-light mb-5">
-        @if(session('success'))
-            <div class="monogram-alert-success alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+    <section class="monogram-feedback-section">
+        <div class="monogram-feedback-form container max-w-1305 p-4 bg-white rounded-3 shadow-sm border border-light mb-5">
+            @if(session('success'))
+                <div class="monogram-alert-success alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
-        @if($errors->any())
-            <div class="monogram-alert-danger alert alert-danger">
-                <ul class="m-0 p-0">
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+            @if($errors->any())
+                <div class="monogram-alert-danger alert alert-danger">
+                    <ul class="m-0 p-0">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-        <form action="{{ route('ulasan.store') }}" method="POST">
-            @csrf
-            <div class="monogram-input-group mb-3">
-                <label for="name" class="form-label">Nama Pengguna<span class="text-danger">*</span></label>
-                <input type="text" name="name" id="name" required value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama">
-            </div>
-            <div class="monogram-textarea-group mb-3">
-                <label for="ulasan" class="form-label">Komentar <span class="text-danger">*</span></label>
-                <textarea name="ulasan" id="ulasan" rows="5" required class="monogram-textarea form-control">{{ old('ulasan') }}</textarea>
-            </div>
-            <div class="monogram-submit-btn d-flex justify-content-start">
-                <button type="submit" class="monogram-submit-btn btn btn-dark px-5 py-2">Kirim Komentar</button>
-            </div>
-        </form>
-    </div>
+            <form action="{{ route('ulasan.store') }}" method="POST">
+                @csrf
+                <div class="monogram-input-group mb-3">
+                    <label for="name" class="form-label">Nama Pengguna<span class="text-danger">*</span></label>
+                    <input type="text" name="name" id="name" required value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama">
+                </div>
+                <div class="monogram-textarea-group mb-3">
+                    <label for="ulasan" class="form-label">Komentar <span class="text-danger">*</span></label>
+                    <textarea name="ulasan" id="ulasan" rows="5" required class="monogram-textarea form-control">{{ old('ulasan') }}</textarea>
+                </div>
+                <div class="monogram-submit-btn d-flex justify-content-start">
+                    <button type="submit" class="monogram-submit-btn btn btn-dark px-5 py-2">Kirim Komentar</button>
+                </div>
+            </form>
+        </div>
+    </section>
 
     {{-- Tampilkan Ulasan yang Disetujui --}}
     @if($ulasans->isNotEmpty())
     <div class="monogram-feedbacks-container mt-5">
         <div class="monogram-feedbacks">
-            <div class="monogram-feedbacks-title-wrapper">
-                <h3 class="monogram-feedbacks-title mb-4">Apa Kata Mereka?</h3>
-                <div class="monogram-feedbacks-line"></div>
+            <div class="monogram-feedbacks-title-wrapper text-center">
+                <h3 class="monogram-feedbacks-title mb-4 text-2xl font-bold">Apa Kata Mereka?</h3>
+                <div class="monogram-feedbacks-line mx-auto"></div>
             </div>
-            <div class="monogram-feedbacks-wrapper">
+            <!-- Kontainer Ulasan -->
+            <div class="monogram-feedbacks-wrapper" id="feedbackWrapper">
                 @foreach($ulasans as $ulasan)
                     <div class="monogram-feedback-card">
-                        <div class="card-body">
-                            <p class="monogram-feedback-quote">{{ $ulasan->ulasan }}</p>
-                            <p class="monogram-feedback-name">- {{ $ulasan->name ?? 'Anonim' }}</p>
+                        <div class="feedback-card-body">
+                            <h4 class="feedback-user-name">{{ $ulasan->name ?? 'Anonim' }}</h4>
+                            <div class="feedback-name-line"></div>
+                            <p class="feedback-user-quote">"{{ $ulasan->ulasan }}"</p>
                         </div>
                     </div>
                 @endforeach

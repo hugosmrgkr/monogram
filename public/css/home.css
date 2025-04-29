@@ -32,168 +32,129 @@
 /* Header Judul dan Deskripsi */
 .news-header {
     text-align: center;
-    margin: 2rem 0;
-  }
-  .news-header h2 {
+    margin: 4rem 0 2rem;
+    position: relative;
+}
+
+.news-header h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
-  }
-  .news-subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    color: #333;
+}
+
+.news-header h2::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 3px;
+    background: #777;
+    margin: 8px auto 0;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.news-header h2:hover::after {
+    width: 80%;
+}
+
+.news-subtitle {
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
-    color: #555;
-  }
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-  /* Wrapper Utama Berita */
-  .news-wrapper {
-    max-width: 1000px;
-    margin: 0 auto 3rem;
-    padding: 1rem;
-    background-color: #fff; /* putih */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+/* Wrapper Utama Berita */
+.news-wrapper {
+    max-width: 1100px;
+    margin: 3rem auto 5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f4f8, #e8efff);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
 
-  /* Kartu Harian */
-  .news-daily-card {
+/* Kartu Harian */
+.news-daily-card {
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
-    margin-bottom: 1.5rem;
-    border-radius: 6px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .news-daily-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.news-daily-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
 
-  /* Gambar Berita */
-  .news-img {
+/* Gambar Berita */
+.news-img {
     flex: 1 1 35%;
     min-width: 180px;
     overflow: hidden;
-  }
-  .news-img img {
+}
+.news-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 
-  /* Konten Berita */
-  .news-content {
+/* Konten Berita */
+.news-content {
     flex: 1 1 65%;
-    padding: 1rem 1.5rem;
-  }
-  .news-content h3 {
+    padding: 1.5rem 2rem;
+}
+.news-content h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-  .news-content p {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #222;
+}
+.news-content p {
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: #555;
-    margin-bottom: 0.75rem;
-  }
-  .news-date {
+    margin-bottom: 1rem;
+}
+.news-date {
     font-size: 0.85rem;
     color: #888;
-  }
+}
 
-  /* Pesan Kosong */
-  .news-empty {
+/* Pesan Kosong */
+.news-empty {
     text-align: center;
     font-style: italic;
-    padding: 2rem 0;
+    padding: 3rem 0;
     color: #777;
-  }
+}
 
 
-/* KEUNTUNGAN SECTION */
-/* .keuntungan-section {
+/* ======================= Recomended Carousel =========================== */
+
+.monogram-gallery-section-wrapper {
+    position: relative;
     width: 100%;
-    padding: 80px 5%;
-    background-color: #ffffff;
-    color: #000000;
-}
-
-.keuntungan-section h2 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-.keuntungan-cards {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.keuntungan-card {
-    width: 300px;
-}
-
-.keuntungan-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 16px;
-}
-
-.keuntungan-card h5 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.keuntungan-card p {
-    font-size: 14px;
-    color: #555;
-} */
-
-/* REKOMENDASI FOTO */
-.card {
-    background-color: #111111;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    color: #ffffff;
-    border: none;
-}
-
-.card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 6px;
-    transition: transform 0.3s ease;
-}
-
-.card img:hover {
-    transform: scale(1.03);
-}
-
-
-.gallery-img-wrapper {
-    width: 180px;
-    height: 180px;
     overflow: hidden;
-    border-radius: 10px;
-    margin: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ======================= Recomended Crausel =========================== */
+.monogram-gallery-section {
+    position: relative;
+    z-index: 1;
+}
 
 .multi-carousel {
     position: relative;
     white-space: nowrap;
+    overflow: hidden;
 }
 
 .multi-carousel-inner {
@@ -232,103 +193,220 @@
     will-change: transform;
 }
 
-.multi-carousel {
-    overflow: hidden;
-}
-
-.monogram-feedbacks-container {
+/* Background halus baru */
+.gallery-background {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.7;
+    z-index: 0;
 }
 
-.monogram-feedbacks {
-    padding: 60px 5%;
-    background-color: #ffffff;
-    color: #000000;
+/* Konten di atas background */
+.monogram-gallery-section > *:not(.gallery-background) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Center title */
+.monogram-gallery-title {
     text-align: center;
 }
 
-.monogram-feedbacks-title-wrapper {
-    display: inline-block;
+.monogram-feedback-section {
+    background: #ffffff;
+}
+
+
+/*=========== Container Form Feedback ==========*/
+
+.monogram-feedback-form {
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Alert Sukses & Error */
+.monogram-alert-success,
+.monogram-alert-danger {
+    margin-bottom: 1.5rem;
+    border-radius: 0;
+}
+
+/* Input Group */
+.monogram-input-group label,
+.monogram-textarea-group label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.monogram-input,
+.monogram-textarea {
+    border-radius: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+    font-family: 'Raleway', sans-serif;
+}
+
+.monogram-input:focus,
+.monogram-textarea:focus {
+    border-color: #666;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Tombol Submit */
+.monogram-submit-btn .btn {
+    border-radius: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.monogram-submit-btn .btn:hover {
+    background-color: #666;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+
+
+/* Container utama */
+.monogram-feedbacks-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
     position: relative;
+}
+
+/* Judul dan garis bawah */
+.monogram-feedbacks-title-wrapper {
     margin-bottom: 30px;
 }
 
 .monogram-feedbacks-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #000000;
-    position: relative;
-    z-index: 2;
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .monogram-feedbacks-line {
-    width: 50%;
-    height: 2px;
-    background-color: #000000;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #666;
+    margin: 0 auto;
 }
 
+/* Kontainer ulasan */
 .monogram-feedbacks-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     gap: 20px;
-    margin-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
 }
 
+.nav-button:active {
+    background-color: #666;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Desain kartu ulasan */
 .monogram-feedback-card {
-    width: 30%;
-    background-color: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 15px;
-    color: #000000;
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.monogram-feedback-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .monogram-feedback-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
 }
 
-.monogram-feedback-card .card-body {
-    padding: 20px;
+.feedback-card-body {
+    padding: 10px;
+}
+
+.feedback-user-name {
     font-family: 'Raleway', sans-serif;
-}
-
-.monogram-feedback-quote {
-    font-size: 1rem;
-    color: #000000;
-    font-style: italic;
-    margin-bottom: 12px;
-    position: relative;
-}
-
-.monogram-feedback-quote::before,
-.monogram-feedback-quote::after {
-    content: '"';
-    font-size: 1.5rem;
-    color: #000000;
+    font-size: 1.2rem;
     font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-.monogram-feedback-name {
-    font-size: 0.95rem;
-    color: #000000;
-    font-weight: 600;
-    text-align: right;
-    margin-top: 10px;
+.feedback-name-line {
+    width: 50px;
+    height: 2px;
+    background-color: #666;
+    margin: 10px auto;
 }
+
+.feedback-user-quote {
+    font-style: italic;
+    color: #777;
+    font-size: 1rem;
+}
+
+/* Responsif untuk perangkat lebih kecil */
+@media (max-width: 768px) {
+    .monogram-feedbacks-title {
+        font-size: 2rem;
+    }
+
+    .monogram-feedbacks-wrapper {
+        gap: 15px;
+    }
+
+    .monogram-feedback-card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .nav-button {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .monogram-feedbacks-title {
+        font-size: 1.5rem;
+    }
+
+    .monogram-feedback-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .nav-button {
+        font-size: 24px;
+    }
+}
+
 
 /* Responsive */
 @media (max-width: 1024px) {

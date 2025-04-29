@@ -69,7 +69,7 @@
     <main class="flex-grow-1">
         @yield('content')
     </main>
-    
+
     {{-- Tombol WhatsApp Mengambang --}}
     <a href="https://wa.me/6282268691532" target="_blank"
         class="d-flex align-items-center text-white text-decoration-none"
@@ -127,6 +127,29 @@
 
             autoScroll();
         });
+    </script>
+    <script>
+        // Ambil elemen tombol dan kontainer
+        const scrollLeftButton = document.getElementById('scrollLeft');
+        const scrollRightButton = document.getElementById('scrollRight');
+        const scrollContainer = document.getElementById('scrollContainer');
+
+        // Event listener untuk tombol scroll kiri
+        scrollLeftButton.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: -300, // Geser 300px ke kiri
+                behavior: 'smooth' // Efek scroll halus
+            });
+        });
+
+        // Event listener untuk tombol scroll kanan
+        scrollRightButton.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: 300, // Geser 300px ke kanan
+                behavior: 'smooth' // Efek scroll halus
+            });
+        });
+
     </script>
 </body>
 
