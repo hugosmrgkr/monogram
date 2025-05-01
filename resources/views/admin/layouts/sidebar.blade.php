@@ -1,6 +1,14 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar"
-     style="background-color: #212529; box-shadow: 2px 0 10px rgba(0,0,0,0.1); 
-            height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; width: 260px; z-index: 100;">
+     style="background-color: #212529; 
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1); 
+            height: calc(100vh - 70px); 
+            position: fixed; 
+            top: 60px; 
+            left: 0; 
+            overflow-y: auto; 
+            width: 260px; 
+            z-index: 100;">
+
      <ul class="nav flex-column" style="padding: 0 10px;">
         <li class="nav-item" style="margin-bottom: 5px;">
             <a class="nav-link d-flex align-items-center" href="{{ route('admin.dashboard') }}" 
