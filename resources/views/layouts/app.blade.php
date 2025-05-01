@@ -81,8 +81,6 @@
         <span style="opacity: 0; margin-left: 10px; transition: opacity 0.3s ease;">Chat Kami</span>
     </a>
 
-
-
     <!-- Footer -->
     @include('layouts.footer')
 
@@ -137,16 +135,16 @@
         // Event listener untuk tombol scroll kiri
         scrollLeftButton.addEventListener('click', () => {
             scrollContainer.scrollBy({
-                left: -300, // Geser 300px ke kiri
-                behavior: 'smooth' // Efek scroll halus
+                left: -300,
+                behavior: 'smooth'
             });
         });
 
         // Event listener untuk tombol scroll kanan
         scrollRightButton.addEventListener('click', () => {
             scrollContainer.scrollBy({
-                left: 300, // Geser 300px ke kanan
-                behavior: 'smooth' // Efek scroll halus
+                left: 300,
+                behavior: 'smooth'
             });
         });
 

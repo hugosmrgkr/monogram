@@ -20,31 +20,38 @@
     </section>
 
     <!-- FAQ List -->
-    <div class="py-5">
-        <h2 class="mb-4 text-center fw-bold" style="font-family: Inter, sans-serif; color: #1E1E1E;">
-            Frequently Asked Questions
-        </h2>
+    <section class="faq-section py-6">
+        <div class="container">
+            <div class="text-center mx-auto">
+                <h2 class="mb-4 text-center fw-bold faq-heading position-relative">
+                    Frequently Asked Questions
+                    <span class="faq-underline"></span>
+                </h2>
+            </div>
 
-        <div class="mx-auto" style="max-width: 700px;" id="faq-container">
-            @forelse ($faqs as $faq)
-                <div class="faq-item mb-3 p-3 rounded border bg-light shadow-sm">
-                    <div class="faq-question d-flex justify-content-between align-items-center">
-                        <div class="faq-text fw-semibold">
-                            {{ $faq->pertanyaan }}
+            <div class="accordion accordion-flush mx-auto" id="faqAccordion">
+                @forelse ($faqs as $index => $faq)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading{{ $index }}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse{{ $index }}" aria-expanded="false"
+                                aria-controls="flush-collapse{{ $index }}">
+                                {{ $faq->pertanyaan }}
+                            </button>
+                        </h2>
+                        <div id="flush-collapse{{ $index }}" class="accordion-collapse collapse"
+                            aria-labelledby="flush-heading{{ $index }}" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {{ $faq->jawaban }}
+                            </div>
                         </div>
-                        <button class="faq-toggle-btn btn p-0 ms-3" aria-label="Toggle Answer">
-                            <div class="arrow"></div>
-                        </button>
                     </div>
-                    <div class="faq-answer">
-                        {{ $faq->jawaban }}
-                    </div>
-                </div>
-            @empty
-                <div class="text-center text-muted">Belum ada data FAQ.</div>
-            @endforelse
+                @empty
+                    <div class="text-center text-muted">Belum ada data FAQ.</div>
+                @endforelse
+            </div>
         </div>
-    </div>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
