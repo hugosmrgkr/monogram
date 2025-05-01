@@ -183,7 +183,16 @@ nav.navbar.scrolled .btn-admin:hover {
 /* ===== Responsive ===== */
 @media (max-width: 991.98px) {
     nav.navbar {
+        background-color: rgba(0, 0, 0, 0.8) !important;
         padding: 12px 20px;
+    }
+
+    .logo-text,
+    .logo-text .highlight,
+    .navbar-nav .nav-item .nav-link,
+    .btn-admin {
+        color: #f4f6f7 !important;
+        border-color: #f4f6f7 !important;
     }
 
     .logo-text {
@@ -211,10 +220,61 @@ nav.navbar.scrolled .btn-admin:hover {
         padding: 10px 0;
     }
 
+    .navbar-nav .nav-item .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+        transition: width 0.4s ease-in-out;
+        border-radius: 2px;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover::after,
+    .navbar-nav .nav-item .nav-link.active::after {
+        width: 100%;
+    }
+
     .navbar-login-wrapper {
         margin-left: 0;
         margin-top: 16px;
         justify-content: start;
         width: 100%;
+    }
+
+    .btn-admin:hover {
+        background-color: #f4f6f7;
+        color: #333333;
+        border-color: #f4f6f7;
+    }
+
+    /* Navbar scrolled state for mobile */
+    nav.navbar.scrolled {
+        background-color: #f4f6f7 !important;
+        box-shadow: none !important;
+        padding: 12px 20px;
+    }
+
+    nav.navbar.scrolled .logo-text,
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link,
+    nav.navbar.scrolled .btn-admin {
+        color: #333333 !important;
+    }
+
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link::after {
+        background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.));
+    }
+
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link:hover,
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link.active {
+        color: #333 !important;
+    }
+
+    nav.navbar.scrolled .btn-admin:hover {
+        background-color: #333;
+        color: #f4f6f7;
+        border-color: #333;
     }
 }
