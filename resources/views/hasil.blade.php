@@ -24,6 +24,29 @@
         </div>
         <div class="title-button">FOTO {{ strtoupper($kategori) }}</div>
     </div>
+    <!-- Title & Description Section -->
+    <div class="text-center my-4">
+        <h2 class="gallery-title">Galeri Foto {{ ucfirst($kategori) }}</h2>
+        <p class="gallery-description">
+            @switch($kategori)
+                @case('wisuda')
+                    Abadikan momen kelulusanmu yang penuh makna bersama sahabat dan keluarga tercinta.
+                    @break
+                @case('pasangan')
+                    Tangkap kisah cinta terbaikmu dalam bidikan yang romantis dan elegan.
+                    @break
+                @case('pertemanan')
+                    Rayakan kebersamaan dan tawa bersama sahabat terbaikmu dalam bingkai kenangan.
+                    @break
+                @case('keluarga')
+                    Potret kehangatan dan kasih sayang keluarga dalam sesi foto yang tak terlupakan.
+                    @break
+                @default
+                    Temukan momen terbaik dalam galeri pilihan Monogram Toba Studio.
+            @endswitch
+        </p>
+    </div>
+
 
     <!-- Gallery Section -->
     <div class="gallery-container">
@@ -34,7 +57,7 @@
                 <div class="card m-2" style="width: 18rem;">
                     <img src="{{ asset('uploads/' . $item->gambar) }}" class="card-img-top" alt="Foto {{ $kategori }}">
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title dan bisa kamu ganti sesuai deskripsi.</p>
+                        <p class="card-text">{{ $loop->iteration }}</p>
                     </div>
                 </div>
             @empty
