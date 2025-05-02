@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ $title }}</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:800&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets-admin/vendors/feather/feather.css">
     <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="assets-admin/vendors/css/vendor.bundle.base.css">
@@ -14,8 +15,8 @@
     <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
     <link rel="stylesheet" href="assets-admin/css/vertical-layout-light/style.css">
-    <link rel="shortcut icon" href="assets-admin/images/favicon.png" />
-</head>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    </head>
 
 <body>
     <div class="container-scroller">

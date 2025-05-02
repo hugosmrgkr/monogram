@@ -24,8 +24,8 @@
                     </div>
 
                     <div class="form-group text-right">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('admin.faq.index') }}" class="btn btn-light">Batal</a>
+                    <button type="submit" class="btn" style="background-color: black; color: white; border: none;">Simpan</button>
+                    <a href="{{ route('admin.faq.index') }}" class="btn" style="background-color: white; color: black; border: 1px solid black;">Batal</a>
                     </div>
                 </form>
 

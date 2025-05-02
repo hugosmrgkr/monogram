@@ -55,8 +55,8 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-success">Update</button>
-                <a href="{{ route('admin.berita.index') }}" class="btn btn-light">Cancel</a>
+                <button type="submit" class="btn" style="background-color: black; color: white; border: none;">Simpan</button>
+                <a href="{{ route('admin.berita.index') }}" class="btn" style="background-color: white; color: black; border: 1px solid black;">Batal</a>
             </form>
         </div>
     </div>
