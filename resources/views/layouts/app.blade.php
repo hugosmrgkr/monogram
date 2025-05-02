@@ -106,23 +106,51 @@
 
             const scrollSpeed = 0.5;
             let scrollPos = 0;
+            let isDragging = false;
+            let startX;
+            let scrollLeft;
 
             // Hitung lebar isi asli (sebelum digandakan)
             const itemWidth = carouselTrack.scrollWidth / 2;
 
+            // Fungsi untuk auto scroll
             function autoScroll() {
-                scrollPos += scrollSpeed;
+                if (!isDragging) {
+                    scrollPos += scrollSpeed;
 
-                // Jika scroll sudah sejauh isi asli, reset scrollPos ke 0
-                if (scrollPos >= itemWidth) {
-                    scrollPos = 0;
+                    // Jika scroll sudah sejauh isi asli, reset scrollPos ke 0
+                    if (scrollPos >= itemWidth) {
+                        scrollPos = 0;
+                    }
+
+                    carouselTrack.style.transform = `translateX(-${scrollPos}px)`;
                 }
-
-                carouselTrack.style.transform = `translateX(-${scrollPos}px)`;
 
                 requestAnimationFrame(autoScroll);
             }
 
+            // Fungsi untuk memulai drag
+            carouselTrack.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX - carouselTrack.offsetLeft;
+                scrollLeft = carouselTrack.scrollLeft;
+            });
+
+            // Fungsi untuk menggerakkan saat drag
+            carouselTrack.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - carouselTrack.offsetLeft;
+                const walk = (x - startX) * 3; // Kecepatan geser manual
+                carouselTrack.scrollLeft = scrollLeft - walk;
+            });
+
+            // Fungsi untuk mengakhiri drag
+            carouselTrack.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            // Menjaga agar scroll otomatis tetap berjalan
             autoScroll();
         });
     </script>
@@ -149,6 +177,36 @@
         });
 
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.news-daily-card');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentIndex = 0;
+
+            function updateView(index) {
+                cards.forEach((card, i) => {
+                    card.style.display = (i === index) ? 'flex' : 'none';
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateView(currentIndex);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updateView(currentIndex);
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
