@@ -27,8 +27,8 @@
                         @endif
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="{{ route('admin.layanan.index') }}" class="btn btn-light">Cancel</a>
+                     <button type="submit" class="btn" style="background-color: black; color: white; border: none;">Simpan</button>
+                    <a href="{{ route('admin.layanan.index') }}" class="btn" style="background-color: white; color: black; border: 1px solid black;">Batal</a>
                 </form>
             </div>
         </div>
