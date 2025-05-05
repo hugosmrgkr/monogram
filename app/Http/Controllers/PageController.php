@@ -15,7 +15,7 @@ class PageController extends Controller
     // Halaman Home
     public function home()
     {
-        $galleries = Gallery::take(4)->get();
+        $galleries = Gallery::all();
         $ulasans = Ulasan::where('is_approved', true)->latest()->get();
 
         // Ambil berita yang aktif (sesuai tanggal berlaku)
