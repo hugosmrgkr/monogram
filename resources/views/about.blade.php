@@ -106,47 +106,7 @@
         </div>
     @endforelse
 
-    {{-- PROFIL OWNER --}}
-    <div class="container d-flex flex-wrap justify-content-between align-items-start py-5 owner-profile" style="gap: 40px;">
-        {{-- Keterangan Owner --}}
-        <div style="max-width: 700px;">
-            <h2 style="font-size: 45px; font-weight: 700;">Owner Monogram</h2>
-            <p style="color: #828282; font-size: 14px;">Berikut Profil Owner</p>
-
-            <table style="font-size: 20px; font-weight: 500; line-height: 30px;">
-                <tr>
-                    <td style="padding-right: 20px;">Nama</td>
-                    <td>: Jeremy Jordan Simorangkir</td>
-                </tr>
-                <tr>
-                    <td style="padding-right: 20px;">Tanggal Lahir</td>
-                    <td>: 2 April 2000</td>
-                </tr>
-                <tr>
-                    <td style="padding-right: 20px;">Riwayat Pendidikan</td>
-                    <td>: S1 Sistem Informasi (Mikroskil Medan)</td>
-                </tr>
-                <tr>
-                    <td style="padding-right: 20px;">Alamat Owner</td>
-                    <td>: Jl. Sabam Sirait, Porsea</td>
-                </tr>
-                <tr>
-                    <td style="padding-right: 20px;">Alasan</td>
-                    <td>: Carik duit</td>
-                </tr>
-                <tr>
-                    <td style="padding-right: 20px;">Terinspirasi dari</td>
-                    <td>: Self photo studio yg ada di Medan</td>
-                </tr>
-            </table>
-        </div>
-
-        {{-- Foto Owner --}}
-        <div>
-            <img src="{{ asset('assets/images/owner.png') }}" alt="Foto Owner" style="border-radius: 8px;">
-        </div>
-    </div>
-</div>
+   
 
 
 @endsection

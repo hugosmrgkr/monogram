@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
@@ -33,6 +34,18 @@ Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store')
 Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil');
 
 // ==========================
+// Rute Login Admin dengan Parameter Rahasia
+// ==========================
+Route::get('/admin-access/{secret}', function ($secret) {
+    if ($secret !== env('ADMIN_SECRET_CODE')) {
+        abort(404);
+    }
+    return view('auth.login');
+})->name('admin.login');
+
+Route::post('/admin-access/{secret}', [LoginController::class, 'login'])->name('admin.login.submit');
+
+// ==========================
 // Rute untuk Admin (Harus login)
 // ==========================
 Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->name('admin.')->group(function () {
@@ -48,7 +61,7 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->name('admi
     // Manajemen Ulasan
     Route::prefix('ulasan')->name('ulasan.')->group(function () {
         Route::get('/', [UlasanController::class, 'index'])->name('index');
-        Route::post('/{id}/toggle', [UlasanController::class, 'toggle'])->name('toggle'); // ✅ Tambahan ini
+        Route::post('/{id}/toggle', [UlasanController::class, 'toggle'])->name('toggle');
     });
 });
 
