@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monogram Toba - @yield('title', 'Photography Studio')</title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="assets/images/logo-user.jpg" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     </li>
                 </ul>
 
-                {{-- Login / Logout di Kanan --}}
+                <!-- {{-- Login / Logout di Kanan --}}
                 <div class="navbar-login-wrapper">
                     @auth
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
@@ -62,7 +62,7 @@
                     @endauth
                 </div>
             </div>
-        </div>
+        </div> -->
     </nav>
     @endunless
 
