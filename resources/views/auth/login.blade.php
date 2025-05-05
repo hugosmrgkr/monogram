@@ -19,7 +19,7 @@
           <h4 class="title">Monogram Admin Login</h4>
         </div>
 
-        <form method="POST" action="{{ url('admin-access/porsea1041') }}">
+        <form method="POST" action="{{ url()->current() }}">
         @csrf
 
           <div class="input-group">
