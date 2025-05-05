@@ -221,6 +221,49 @@
     });
 </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.news-daily-card');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('newsCounter');
+            const dots = document.querySelectorAll('.news-dot');
+            let currentIndex = 0;
+
+            function updateView() {
+                cards.forEach((card, index) => {
+                    card.style.display = index === currentIndex ? 'block' : 'none';
+                });
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+
+                if (counter) {
+                    counter.textContent = `${currentIndex + 1} dari ${cards.length}`;
+                }
+            }
+
+            prevBtn?.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                updateView();
+            });
+
+            nextBtn?.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % cards.length;
+                updateView();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateView();
+                });
+            });
+
+            updateView();
+        });
+    </script>
 </body>
 
 </html>

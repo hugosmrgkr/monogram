@@ -40,7 +40,7 @@
                                     <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
                                 </div>
                             @endif
-                            <div class="news-content">
+                            <div class="news-content"> 
                                 <h3>{{ $berita->judul }}</h3>
                                 <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
                                 <p class="news-date">
