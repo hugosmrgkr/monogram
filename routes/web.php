@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\LayananController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\AboutController;
+use App\Http\Middleware\PreventBackHistory;
 
 // ==========================
 // Rute untuk User (Tamu)
@@ -41,14 +42,14 @@ Route::get('/admin-access/{secret}', function ($secret) {
         abort(404);
     }
     return view('auth.login');
-})->name('admin.login');
+})->middleware(PreventBackHistory::class)->name('admin.login');
 
-Route::post('/admin-access/{secret}', [LoginController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin-access/{secret}', [LoginController::class, 'login'])->middleware(PreventBackHistory::class)->name('admin.login.submit');
 
 // ==========================
 // Rute untuk Admin (Harus login)
 // ==========================
-Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth', AdminMiddleware::class, PreventBackHistory::class])->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 
     // Resource routes
@@ -73,7 +74,7 @@ Auth::routes([
 ]);
 
 // Override logout Laravel
-Route::middleware('auth')->post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::middleware(['auth', PreventBackHistory::class])->post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // ==========================
 // Fallback untuk route yang tidak ditemukan
