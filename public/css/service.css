@@ -1,94 +1,325 @@
-.service-hero {
-    width: 100vw;
-    height: 886px;
-    position: relative;
-    background: #F7F7F7;
-    background-image: url('/assets/images/layanan.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* service.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+.service-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/images/layanan.jpg') center center / cover no-repeat;
     overflow: hidden;
 }
 
+.service-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
 
-    .service-overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.24);
-        top: 0;
-        left: 0;
-    }
+.service-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 0 1rem;
+}
 
-    .service-text-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 844px;
-        width: 90%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        color: white;
-    }
+.service-text-container h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
 
-    .service-text-container h1 {
-        font-size: 64px;
-        font-family: Inter, sans-serif;
-        font-weight: 700;
-        line-height: 89.6px;
-    }
+.service-text-container p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
 
-    .service-text-container p {
-        font-size: 24px;
-        font-family: Inter, sans-serif;
-        font-weight: 500;
-        line-height: 33.6px;
+.service-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: #f8f8f8;
+}
+
+.service-image {
+    width: 250px;
+    height: auto;
+    margin-right: 40px;
+}
+
+.service-info {
+    max-width: 400px;
+}
+
+.service-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.additional-section {
+    width: 100%;
+    background: white;
+    padding: 40px 20px;
+}
+
+.additional-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.layanan-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.layanan-card {
+    flex: 0 0 calc(33.333% - 10px);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+.layanan-card-inner {
+    padding: 15px;
+}
+
+.layanan-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.layanan-img-placeholder {
+    width: 100px;
+    height: 100px;
+    background: #E3E3E3;
+    margin-bottom: 10px;
+}
+
+.layanan-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.layanan-desc {
+    font-size: 12px;
+    color: #666;
+}
+
+.no-layanan-msg {
+    text-align: center;
+    width: 100%;
+}
+
+.booking-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.booking-btn {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 16px 32px;
+    font-size: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.panggilan-section {
+    background-color: #686868;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+.panggilan-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.panggilan-text h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.panggilan-text p {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.wa-button {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.wa-button svg {
+    margin-right: 5px;
+}
+
+.panggilan-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.panggilan-img.photographer {
+    right: 20%;
+}
+
+.panggilan-img.camera {
+    right: 5%;
+}
+
+.panggilan-img img {
+    height: 120px;
+}
+
+
+/* Responsive untuk layar max 1024px */
+@media (max-width: 1024px) {
+    .service-hero {
+        height: 80vh;
     }
 
     .service-section {
-        display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        gap: 40px;
-        padding: 60px 100px;
-        background-color: #fff;
-        flex-wrap: wrap;
+        text-align: center;
     }
 
     .service-image {
-        width: 535px;
-        height: 655px;
-        background: #F7F7F7;
-        border-radius: 8px;
-        object-fit: cover;
+        width: 100%;
+        max-width: 400px;
     }
 
-    .service-info {
-        max-width: 516px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 24px;
+    .photographer-img,
+    .camera-img {
+        height: 140px;
+        right: 10%;
+    }
+}
+
+/* Responsive untuk layar max 768px */
+@media (max-width: 768px) {
+    .service-hero {
+        height: 60vh;
+    }
+
+    .service-text-container h1 {
+        font-size: 2rem;
+    }
+
+    .service-text-container p {
+        font-size: 1rem;
+    }
+
+    .service-image {
+        width: 100%;
+        max-width: 320px;
     }
 
     .service-price {
-        padding: 14px 24px;
-        background: black;
-        color: white;
-        font-size: 36px;
-        font-weight: 500;
-        border-radius: 8px;
-        display: inline-block;
+        font-size: 28px;
     }
 
     .service-description {
-        color: #828282;
-        font-size: 24px;
-        line-height: 40px;
+        font-size: 14px;
     }
+
+    .additional-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .photographer-img,
+    .camera-img {
+        height: 120px;
+        right: 5%;
+    }
+
+    .photographer-content h2 {
+        font-size: 20px;
+    }
+
+    .photographer-content p {
+        font-size: 13px;
+    }
+}
+
+/* Responsive untuk layar max 480px */
+@media (max-width: 480px) {
+    .service-hero {
+        height: 50vh;
+    }
+
+    .service-text-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .service-text-container p {
+        font-size: 0.95rem;
+    }
+
+    .service-price {
+        font-size: 24px;
+    }
+
+    .service-description {
+        font-size: 13px;
+    }
+
+    .photographer-img {
+        display: none;
+    }
+
+    .camera-img {
+        display: none;
+    }
+
+    .booking-button a {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
