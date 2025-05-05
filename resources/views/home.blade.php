@@ -27,26 +27,43 @@
         </p>
     </section>
 
-    <div class="news-wrapper">
-        @forelse ($beritas as $berita)
-            <div class="news-daily-card">
-                @if($berita->gambar)
-                <div class="news-img">
-                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
-                </div>
-                @endif
-                <div class="news-content">
-                    <h3>{{ $berita->judul }}</h3>
-                    <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
-                    <p class="news-date">
-                        Berlaku {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->timezone('Asia/Jakarta')->format('d M Y') }}
-                        – {{ \Carbon\Carbon::parse($berita->tanggal_habis)->timezone('Asia/Jakarta')->format('d M Y') }}
-                    </p>
-                </div>
+    <div class="news-navigation">
+        {{-- Tombol kiri (desktop only) --}}
+        <button class="news-nav-btn side desktop-only" id="prevBtn">&#10094;</button>
+
+        {{-- Konten berita --}}
+        <div class="news-wrapper" id="newsContainer">
+            <div class="news-navigation-inner">
+                @forelse ($beritas as $index => $berita)
+                    <div class="news-daily-card" data-index="{{ $index }}" style="{{ $index !== 0 ? 'display:none;' : '' }}">
+                        @if($berita->gambar)
+                            <div class="news-img">
+                                <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
+                            </div>
+                        @endif
+                        <div class="news-content">
+                            <h3>{{ $berita->judul }}</h3>
+                            <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
+                            <p class="news-date">
+                                Berlaku {{ \Carbon\Carbon::parse($berita->tanggal_mulai)->timezone('Asia/Jakarta')->format('d M Y') }}
+                                – {{ \Carbon\Carbon::parse($berita->tanggal_habis)->timezone('Asia/Jakarta')->format('d M Y') }}
+                            </p>
+                        </div>
+                    </div>
+                @empty
+                    <p class="news-empty">Belum ada berita tersedia saat ini.</p>
+                @endforelse
             </div>
-        @empty
-            <p class="news-empty">Belum ada berita tersedia saat ini.</p>
-        @endforelse
+
+            {{-- Tombol bawah (mobile only) --}}
+            <div class="news-buttons mobile-only">
+                <button class="news-nav-btn" id="prevBtnMobile">&#10094;</button>
+                <button class="news-nav-btn" id="nextBtnMobile">&#10095;</button>
+            </div>
+        </div>
+
+        {{-- Tombol kanan (desktop only) --}}
+        <button class="news-nav-btn side desktop-only" id="nextBtn">&#10095;</button>
     </div>
 
     <!-- Benefits Section -->
@@ -54,9 +71,13 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-12 text-center">
-                    <h2 class="mb-5">Keuntungan</h2>
-                </div>
+            <div class="col-12 text-center">
+                <h2 class="mb-3">Keuntungan</h2>
+                <p class="mb-5" style="color: #555; font-size: 1.05rem; max-width: 700px; margin: 0 auto;">
+                    Monogram Studio memberikan berbagai keuntungan yang dapat kamu nikmati saat melakukan sesi foto.
+                    Dari fleksibilitas pengaturan tata letak hingga pencahayaan eksklusif, semua kami siapkan demi hasil terbaik untukmu.
+                </p>
+            </div>
 
                 @foreach ([
                     ['image' => 'keuntungan1.png', 'title' => 'Tata Letak Foto', 'desc' => 'Pilih tata letak foto sesuai keinginanmu'],
