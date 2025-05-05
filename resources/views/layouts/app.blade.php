@@ -41,7 +41,7 @@
                         <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQ</a>
+                        <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
@@ -178,35 +178,48 @@
         });
 
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.news-daily-card');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.news-daily-card');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
 
-            let currentIndex = 0;
+        function updateView(index) {
+            cards.forEach((card, i) => {
+                card.style.display = (i === index) ? 'flex' : 'none';
+            });
+        }
 
-            function updateView(index) {
-                cards.forEach((card, i) => {
-                    card.style.display = (i === index) ? 'flex' : 'none';
-                });
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateView(currentIndex);
             }
-
-            prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateView(currentIndex);
-                }
-            });
-
-            nextBtn.addEventListener('click', () => {
-                if (currentIndex < cards.length - 1) {
-                    currentIndex++;
-                    updateView(currentIndex);
-                }
-            });
         });
-    </script>
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateView(currentIndex);
+            }
+        });
+
+        prevBtnMobile.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateView(currentIndex);
+            }
+        });
+
+        nextBtnMobile.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateView(currentIndex);
+            }
+        });
+    });
+</script>
 
 </body>
 
