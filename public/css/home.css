@@ -11,16 +11,16 @@
       url('../assets/images/home.png')
       center center / cover no-repeat;
     overflow: hidden;
-  }
+}
 
-  .hero-overlay {
+.hero-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.4);
     z-index: 1;
-  }
+}
 
-  .hero-text {
+.hero-text {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -29,7 +29,7 @@
     padding: 0 1rem;
     text-align: center;
     color: #fff;
-  }
+}
 
 .news-header {
     text-align: center;
