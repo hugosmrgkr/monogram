@@ -48,7 +48,7 @@
                     </li>
                 </ul>
 
-                {{-- Login / Logout di Kanan --}}
+                <!-- {{-- Login / Logout di Kanan --}}
                 <div class="navbar-login-wrapper">
                     @auth
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
@@ -62,7 +62,7 @@
                     @endauth
                 </div>
             </div>
-        </div>
+        </div> -->
     </nav>
     @endunless
 

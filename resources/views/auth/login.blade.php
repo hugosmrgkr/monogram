@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+
 <section class="login-section">
   <div class="container-login">
     <div class="login-card" data-aos="fade-up" data-aos-duration="1000">
@@ -18,8 +19,8 @@
           <h4 class="title">Monogram Admin Login</h4>
         </div>
 
-        <form method="POST" action="{{ route('login') }}">
-          @csrf
+        <form method="POST" action="{{ url('admin-access/porsea1041') }}">
+        @csrf
 
           <div class="input-group">
             <label for="email">Email</label>
