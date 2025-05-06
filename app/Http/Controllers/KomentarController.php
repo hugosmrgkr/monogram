@@ -8,19 +8,23 @@ use Illuminate\Support\Facades\Log;
 
 class KomentarController extends Controller
 {
-    // Menyimpan komentar dari user
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama' => 'required|string|max:255',
             'komentar' => 'required|string',
         ]);
 
-        Komentar::create([
-            'nama' => $request->input('nama'),
-            'komentar' => $request->input('komentar'),
+        $komentar = Komentar::create([
+            'nama' => $validated['nama'],
+            'komentar' => $validated['komentar'],
             'is_approve' => true,
         ]);
+
+        // Untuk AJAX: balas JSON
+        if ($request->ajax()) {
+            return response()->json($komentar, 200);
+        }
 
         return back()->with('success', 'Komentar berhasil dikirim dan telah ditampilkan.');
     }
