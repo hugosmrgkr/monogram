@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\KomentarController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -27,7 +27,7 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
 // Ulasan oleh user
-Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
+Route::post('/komentar', [KomentarController::class, 'store'])->name('komentar.store');
 
 // ==========================
 // Rute Hasil Foto (Kategori Dinamis)

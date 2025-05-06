@@ -9,11 +9,11 @@
                 </div>
 
                 @if(session('success'))
-                    <div class="alert" style="background-color: #f8f9fa; color: #000000; border-radius: 0; padding: 14px 18px; margin-bottom: 24px; border-left: 3px solid #000000;">
+                    <div class="alert" style="background-color: #f8f9fa; color: #000000; border-radius: 0; padding: 14px 18px; margin-bottom: 24px; border-left: 3px solid #28a745;">
                         <i class="fa fa-check-circle me-2"></i>{{ session('success') }}
                     </div>
                 @elseif(session('error'))
-                    <div class="alert" style="background-color: #f8f9fa; color: #000000; border-radius: 0; padding: 14px 18px; margin-bottom: 24px; border-left: 3px solid #000000;">
+                    <div class="alert" style="background-color: #f8f9fa; color: #000000; border-radius: 0; padding: 14px 18px; margin-bottom: 24px; border-left: 3px solid #dc3545;">
                         <i class="fa fa-times-circle me-2"></i>{{ session('error') }}
                     </div>
                 @endif
@@ -30,7 +30,7 @@
                         </thead>
                         <tbody>
                             @forelse($ulasans as $ulasan)
-                                <tr style="transition: all 0.2s ease; border-bottom: 1px solid #f0f0f0;">
+                                <tr class="table-row" style="transition: all 0.3s ease; border-bottom: 1px solid #f0f0f0;">
                                     <td style="padding: 18px 16px; vertical-align: middle;">
                                         <span style="font-size: 14px; color: #000000; font-weight: 500;">{{ $ulasan->name ?? 'Anonim' }}</span>
                                     </td>
@@ -38,7 +38,7 @@
                                         <span style="font-size: 14px; color: #333333;">{{ $ulasan->ulasan }}</span>
                                     </td>
                                     <td style="padding: 18px 16px; vertical-align: middle;">
-                                        <span style="font-size: 13px; color: #ffffff; background-color: {{ $ulasan->is_approved ? '#000000' : '#666666' }}; padding: 5px 12px; border-radius: 0; letter-spacing: 0.5px; font-weight: 500;">
+                                        <span style="font-size: 13px; color: #ffffff; background-color: {{ $ulasan->is_approved ? '#28a745' : '#dc3545' }}; padding: 5px 12px; border-radius: 0; letter-spacing: 0.5px; font-weight: 500;">
                                             {{ $ulasan->is_approved ? 'Tampil' : 'Disembunyikan' }}
                                         </span>
                                     </td>
@@ -46,7 +46,7 @@
                                         <form action="{{ route('admin.ulasan.toggle', $ulasan->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn" style="{{ $ulasan->is_approved ? 'background-color: #ffffff; color: #000000; border: 1px solid #000000;' : 'background-color: #000000; color: #ffffff; border: 1px solid #000000;' }} border-radius: 0; padding: 8px 16px; font-size: 13px; letter-spacing: 0.5px; font-weight: 500; transition: all 0.3s ease;">
-                                                <i class="fa {{ $ulasan->is_approved ? 'fa-eye-slash' : 'fa-eye' }} me-1"></i> 
+                                                <i class="fa {{ $ulasan->is_approved ? 'fa-eye-slash' : 'fa-eye' }} me-1"></i>
                                                 {{ $ulasan->is_approved ? 'Sembunyikan' : 'Tampilkan' }}
                                             </button>
                                         </form>
@@ -72,15 +72,15 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Hover effect pada baris tabel
-        document.querySelectorAll('tbody tr').forEach(row => {
+        document.querySelectorAll('.table-row').forEach(row => {
             row.addEventListener('mouseenter', function() {
                 this.style.backgroundColor = '#f8f9fa';
             });
-            
+
             row.addEventListener('mouseleave', function() {
                 this.style.backgroundColor = '';
             });
-            
+
             // Button hover effects
             const buttons = row.querySelectorAll('.btn');
             buttons.forEach(button => {
@@ -93,7 +93,7 @@
                         this.style.color = '#000000';
                     }
                 });
-                
+
                 button.addEventListener('mouseleave', function() {
                     if (this.textContent.includes('Sembunyikan')) {
                         this.style.backgroundColor = '#ffffff';

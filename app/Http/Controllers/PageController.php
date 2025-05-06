@@ -6,17 +6,18 @@ use App\Models\Gallery;
 use App\Models\About;
 use Illuminate\Http\Request;
 use App\Models\Faq;
-use App\Models\Ulasan;
+use App\Models\Komentar;  // Ubah dari 'Ulasan' menjadi 'Komentar'
 use App\Models\Berita;
 use Carbon\Carbon;
 use App\Models\Layanan;
+
 class PageController extends Controller
 {
     // Halaman Home
     public function home()
     {
         $galleries = Gallery::all();
-        $ulasans = Ulasan::where('is_approved', true)->latest()->get();
+        $komentars = Komentar::where('is_approve', true)->latest()->get();  // Ubah 'ulasans' menjadi 'komentars'
 
         // Ambil berita yang aktif (sesuai tanggal berlaku)
         $beritas = Berita::whereDate('tanggal_mulai', '<=', Carbon::now())
@@ -24,10 +25,8 @@ class PageController extends Controller
                          ->latest()
                          ->get();
 
-        return view('home', compact('galleries', 'ulasans', 'beritas'));
+        return view('home', compact('galleries', 'komentars', 'beritas'));  // Ubah 'ulasans' menjadi 'komentars'
     }
-
-
 
     // Halaman Profil Owner
     public function about()
@@ -51,6 +50,7 @@ class PageController extends Controller
         $layanans = Layanan::all(); // ambil semua data layanan dari tabel
         return view('service', compact('layanans')); // kirim ke blade
     }
+
     public function hasil($kategori = 'wisuda')
     {
         $kategori = strtolower($kategori);

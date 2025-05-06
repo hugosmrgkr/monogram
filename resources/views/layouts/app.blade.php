@@ -23,17 +23,20 @@
     <!-- Navigation -->
     @unless(request()->routeIs('hasil'))
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
-        <div class="container">
+        <div class="container d-flex justify-content-between">
+            {{-- Logo di kiri --}}
             <a class="logo-text" href="{{ route('home') }}">
                 <span class="highlight">M</span>ONOGRAM_
             </a>
+
+            {{-- Toggler Button --}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
 
-                {{-- Menu di Tengah --}}
-                <ul class="navbar-nav mx-auto">
+            {{-- Menu di kanan --}}
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
                     </li>
@@ -47,22 +50,8 @@
                         <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
                     </li>
                 </ul>
-
-                <!-- {{-- Login / Logout di Kanan --}}
-                <div class="navbar-login-wrapper">
-                    @auth
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
-                        </form>
-                    @else
-                        <a href="login" class="btn-admin">
-                            <i class="bi bi-shield-lock"></i> Admin
-                        </a>
-                    @endauth
-                </div>
             </div>
-        </div> -->
+        </div>
     </nav>
     @endunless
 
