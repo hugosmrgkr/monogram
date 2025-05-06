@@ -126,7 +126,7 @@
         </div>
     </div>
 
-    <!-- Contact Form Ulasan -->
+    <!-- Contact Form Komentar -->
     <section class="monogram-feedback-section">
         <div class="monogram-feedback-form container max-w-1305 p-4 bg-white rounded-3 shadow-sm border border-light mb-5">
             @if(session('success'))
@@ -145,15 +145,15 @@
                 </div>
             @endif
 
-            <form action="{{ route('ulasan.store') }}" method="POST">
+            <form action="{{ route('komentar.store') }}" method="POST"> <!-- Ganti ke route komentar.store -->
                 @csrf
                 <div class="monogram-input-group mb-3">
-                    <label for="name" class="form-label">Nama Pengguna<span class="text-danger">*</span></label>
-                    <input type="text" name="name" id="name" required value="{{ old('name') }}" class="monogram-input form-control" placeholder="Nama">
+                    <label for="nama" class="form-label">Nama Pengguna<span class="text-danger">*</span></label>
+                    <input type="text" name="nama" id="nama" required value="{{ old('nama') }}" class="monogram-input form-control" placeholder="Nama">
                 </div>
                 <div class="monogram-textarea-group mb-3">
-                    <label for="ulasan" class="form-label">Komentar <span class="text-danger">*</span></label>
-                    <textarea name="ulasan" id="ulasan" rows="5" required class="monogram-textarea form-control">{{ old('ulasan') }}</textarea>
+                    <label for="komentar" class="form-label">Komentar <span class="text-danger">*</span></label>
+                    <textarea name="komentar" id="komentar" rows="5" required class="monogram-textarea form-control">{{ old('komentar') }}</textarea>
                 </div>
                 <div class="monogram-submit-btn d-flex justify-content-start">
                     <button type="submit" class="monogram-submit-btn btn btn-dark px-5 py-2">Kirim Komentar</button>
@@ -162,24 +162,26 @@
         </div>
     </section>
 
-    {{-- Tampilkan Ulasan yang Disetujui --}}
-    @if($ulasans->isNotEmpty())
+    {{-- Tampilkan Komentar yang Disetujui --}}
+    @if($komentars->isNotEmpty()) <!-- Ganti 'ulasans' menjadi 'komentars' -->
     <div class="monogram-feedbacks-container mt-5">
         <div class="monogram-feedbacks">
             <div class="monogram-feedbacks-title-wrapper text-center">
                 <h3 class="monogram-feedbacks-title mb-4 text-2xl font-bold">Apa Kata Mereka?</h3>
                 <div class="monogram-feedbacks-line mx-auto"></div>
             </div>
-            <!-- Kontainer Ulasan -->
+            <!-- Kontainer Komentar -->
             <div class="monogram-feedbacks-wrapper" id="feedbackWrapper">
-                @foreach($ulasans as $ulasan)
-                    <div class="monogram-feedback-card">
-                        <div class="feedback-card-body">
-                            <h4 class="feedback-user-name">{{ $ulasan->name ?? 'Anonim' }}</h4>
-                            <div class="feedback-name-line"></div>
-                            <p class="feedback-user-quote">"{{ $ulasan->ulasan }}"</p>
+                @foreach($komentars as $komentar) <!-- Ganti 'ulasans' menjadi 'komentars' -->
+                    @if($komentar->is_approve) <!-- Pastikan hanya komentar yang disetujui yang tampil -->
+                        <div class="monogram-feedback-card">
+                            <div class="feedback-card-body">
+                                <h4 class="feedback-user-name">{{ $komentar->nama ?? 'Anonim' }}</h4> <!-- Ganti 'name' menjadi 'nama' -->
+                                <div class="feedback-name-line"></div>
+                                <p class="feedback-user-quote">"{{ $komentar->komentar }}"</p> <!-- Ganti 'ulasan' menjadi 'komentar' -->
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
             </div>
         </div>

@@ -23,6 +23,13 @@ nav.navbar {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+.container.d-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+}
+
 nav.navbar .logo-text {
     font-family: 'Raleway', sans-serif;
     color: #f4f6f7 !important;
@@ -92,6 +99,7 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     gap: 24px;
     flex: 1;
     margin: 0 auto;
+    justify-content: flex-end;
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -128,39 +136,10 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     color: #ffffff !important;
 }
 
-/* ===== Button Admin ===== */
-.navbar-login-wrapper {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.btn-admin {
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 6px 16px;
-    border-radius: 30px;
-    transition: 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-.btn-admin:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-}
-
 /* ===== Scroll Effects ===== */
 nav.navbar.scrolled .logo-text,
 nav.navbar.scrolled .navbar-link,
-nav.navbar.scrolled .btn-admin {
+nav.navbar.scrolled {
     color: #000000 !important;
     border-color: #000000 !important;
 }
@@ -171,11 +150,6 @@ nav.navbar.scrolled .nav-item .nav-link::after {
 
 nav.navbar.scrolled .navbar-link:hover {
     color: #333333 !important;
-}
-
-nav.navbar.scrolled .btn-admin:hover {
-    background-color: #000000;
-    color: #ffffff;
 }
 
 /* ===== Responsive ===== */

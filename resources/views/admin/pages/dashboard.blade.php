@@ -24,15 +24,15 @@
             </div>
         </div>
 
-        {{-- Total Ulasan --}}
+        {{-- Total Komentar --}}
         <div class="col-md-3">
             <div class="card mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
                 <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Total Ulasan</h5>
+                        <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Total Komentar</h5>
                         <i class="bi bi-chat-square-text" style="font-size: 1.5rem;"></i>
                     </div>
-                    <p class="card-text" style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">{{ $totalUlasan }}</p>
+                    <p class="card-text" style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">{{ $totalKomentar }}</p>
                 </div>
             </div>
         </div>
