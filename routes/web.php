@@ -59,10 +59,10 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class, PreventBackH
     Route::resource('layanan', LayananController::class);       // admin.layanan.*
     Route::resource('faq', FaqController::class);               // admin.faq.*
 
-    // Manajemen Ulasan
-    Route::prefix('ulasan')->name('ulasan.')->group(function () {
-        Route::get('/', [UlasanController::class, 'index'])->name('index');
-        Route::post('/{id}/toggle', [UlasanController::class, 'toggle'])->name('toggle');
+    // Manajemen Komentar
+    Route::prefix('komentar')->name('komentar.')->group(function () {
+        Route::get('/', [KomentarController::class, 'index'])->name('index');
+        Route::post('/{id}/toggle', [KomentarController::class, 'toggle'])->name('toggle');
     });
 });
 

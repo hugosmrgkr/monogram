@@ -126,59 +126,45 @@
         </div>
     </div>
 
-    <!-- Contact Form Komentar -->
+    <!-- Komentar Section -->
     <section class="monogram-feedback-section">
         <div class="monogram-feedback-form container max-w-1305 p-4 bg-white rounded-3 shadow-sm border border-light mb-5">
-            @if(session('success'))
-                <div class="monogram-alert-success alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
+            <div id="alertSuccess" class="alert alert-success d-none"></div>
+            <div id="alertError" class="alert alert-danger d-none"></div>
 
-            @if($errors->any())
-                <div class="monogram-alert-danger alert alert-danger">
-                    <ul class="m-0 p-0">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <form action="{{ route('komentar.store') }}" method="POST"> <!-- Ganti ke route komentar.store -->
+            <form id="formKomentar" action="{{ route('komentar.store') }}" method="POST">
                 @csrf
-                <div class="monogram-input-group mb-3">
+                <div class="mb-3">
                     <label for="nama" class="form-label">Nama Pengguna<span class="text-danger">*</span></label>
-                    <input type="text" name="nama" id="nama" required value="{{ old('nama') }}" class="monogram-input form-control" placeholder="Nama">
+                    <input type="text" name="nama" id="nama" required class="form-control" placeholder="Nama">
                 </div>
-                <div class="monogram-textarea-group mb-3">
+                <div class="mb-3">
                     <label for="komentar" class="form-label">Komentar <span class="text-danger">*</span></label>
-                    <textarea name="komentar" id="komentar" rows="5" required class="monogram-textarea form-control">{{ old('komentar') }}</textarea>
+                    <textarea name="komentar" id="komentar" rows="5" required class="form-control" placeholder="Tulis komentar..."></textarea>
                 </div>
-                <div class="monogram-submit-btn d-flex justify-content-start">
-                    <button type="submit" class="monogram-submit-btn btn btn-dark px-5 py-2">Kirim Komentar</button>
+                <div class="d-flex justify-content-start">
+                    <button type="submit" class="btn btn-dark px-5 py-2">Kirim Komentar</button>
                 </div>
             </form>
         </div>
     </section>
 
-    {{-- Tampilkan Komentar yang Disetujui --}}
-    @if($komentars->isNotEmpty()) <!-- Ganti 'ulasans' menjadi 'komentars' -->
+    <!-- Tampilkan Komentar -->
+    @if(isset($komentars) && $komentars->isNotEmpty())
     <div class="monogram-feedbacks-container mt-5">
         <div class="monogram-feedbacks">
-            <div class="monogram-feedbacks-title-wrapper text-center">
-                <h3 class="monogram-feedbacks-title mb-4 text-2xl font-bold">Apa Kata Mereka?</h3>
+            <div class="text-center mb-4">
+                <h3 class="text-2xl font-bold">Apa Kata Mereka?</h3>
                 <div class="monogram-feedbacks-line mx-auto"></div>
             </div>
-            <!-- Kontainer Komentar -->
             <div class="monogram-feedbacks-wrapper" id="feedbackWrapper">
-                @foreach($komentars as $komentar) <!-- Ganti 'ulasans' menjadi 'komentars' -->
-                    @if($komentar->is_approve) <!-- Pastikan hanya komentar yang disetujui yang tampil -->
+                @foreach($komentars as $komentar)
+                    @if($komentar->is_approve)
                         <div class="monogram-feedback-card">
                             <div class="feedback-card-body">
-                                <h4 class="feedback-user-name">{{ $komentar->nama ?? 'Anonim' }}</h4> <!-- Ganti 'name' menjadi 'nama' -->
+                                <h4 class="feedback-user-name">{{ $komentar->nama ?? 'Anonim' }}</h4>
                                 <div class="feedback-name-line"></div>
-                                <p class="feedback-user-quote">"{{ $komentar->komentar }}"</p> <!-- Ganti 'ulasan' menjadi 'komentar' -->
+                                <p class="feedback-user-quote">"{{ $komentar->komentar }}"</p>
                             </div>
                         </div>
                     @endif
@@ -187,4 +173,47 @@
         </div>
     </div>
     @endif
+
+    <!-- JQuery & AJAX Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#formKomentar').on('submit', function(e) {
+            e.preventDefault();
+            const form = $(this);
+            const formData = form.serialize();
+
+            $.ajax({
+                url: form.attr('action'),
+                method: 'POST',
+                data: formData,
+                success: function(res) {
+                    $('#alertSuccess').removeClass('d-none').text('Komentar berhasil dikirim dan telah ditampilkan.');
+                    $('#alertError').addClass('d-none');
+                    form[0].reset();
+
+                    // Tambahkan komentar terbaru ke atas
+                    $('#feedbackWrapper').prepend(`
+                        <div class="monogram-feedback-card">
+                            <div class="feedback-card-body">
+                                <h4 class="feedback-user-name">${res.nama}</h4>
+                                <div class="feedback-name-line"></div>
+                                <p class="feedback-user-quote">"${res.komentar}"</p>
+                            </div>
+                        </div>
+                    `);
+                },
+                error: function(xhr) {
+                    let errors = xhr.responseJSON.errors;
+                    let errorText = '';
+                    for (const key in errors) {
+                        if (errors.hasOwnProperty(key)) {
+                            errorText += `<li>${errors[key][0]}</li>`;
+                        }
+                    }
+                    $('#alertError').removeClass('d-none').html(`<ul>${errorText}</ul>`);
+                    $('#alertSuccess').addClass('d-none');
+                }
+            });
+        });
+    </script>
 @endsection
