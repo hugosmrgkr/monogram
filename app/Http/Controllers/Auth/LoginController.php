@@ -3,43 +3,42 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/admin/dashboard';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
-    /**
-     * Log the user out of the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $admin = Admin::where('email', $credentials['email'])->first();
+
+        if ($admin && Hash::check($credentials['password'], $credentials['password'])) {
+            session(['admin_id' => $admin->admin_id]);
+            return redirect()->route('admin.dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ])->withInput($request->only('email'));
+    }
+
     public function logout(Request $request)
     {
-        Auth::logout();
+        $request->session()->forget('admin_id');
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/home');
+        return redirect()->route('admin.login', ['secret' => env('ADMIN_SECRET_CODE')]);
     }
 }

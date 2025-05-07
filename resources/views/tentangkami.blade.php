@@ -24,13 +24,13 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <p class="fw-500">Monogram Toba Studio didirikan pada 17 Agustus 2022 di Lumban Dolok Haume Bange, Kec. Balige, Toba, Sumatera Utara, Indonesia, sebagai tempat fotografi yang mengutamakan kualitas dan kenyamanan.</p>
-                
+
                 <p class="fw-500">Kami melayani berbagai sesi foto, seperti foto sendiri (portrait), foto wisuda, foto bersama teman, serta sesi dengan berbagai gaya dan konsep. Dengan sentuhan profesional dari fotografer berpengalaman, setiap momen spesial akan diabadikan dengan hasil terbaik.</p>
-                
+
                 <p class="fw-500">Kami menyediakan berbagai fasilitas, termasuk background beragam, pencahayaan profesional, properti pendukung, serta layanan editing dan cetak foto. Selain itu, tersedia juga berbagai pilihan snack dan minuman yang bisa dinikmati sebelum atau sesudah sesi foto, menambah kenyamanan selama berada di studio. Dengan perpaduan suasana santai dan pelayanan terbaik, Monogram Toba Studio menjadi pilihan ideal untuk setiap kebutuhan fotografi Anda.</p>
-                
+
                 <p class="fw-500">Setiap detail dalam studio kami dirancang untuk memberikan pengalaman yang menyenangkan dan hasil yang memuaskan. Kami percaya bahwa fotografi bukan hanya sekadar gambar, tetapi juga tentang menangkap cerita di setiap momen yang berharga. Dengan teknologi terkini dan kreativitas tanpa batas, kami menghadirkan hasil foto yang tajam, artistik, dan penuh makna.</p>
-                
+
                 <p class="fw-500">Kami juga selalu terbuka untuk berbagai konsep pemotretan, mulai dari foto formal hingga sesi kasual yang lebih santai, sesuai dengan keinginan pelanggan. Dengan berbagai pilihan properti dan latar yang dapat disesuaikan, setiap foto yang diambil akan memiliki karakter unik dan estetika yang memikat.</p>
             </div>
         </div>
@@ -69,19 +69,20 @@
         </div>
     </div>
 
-    @forelse ($abouts as $about)
-        {{-- JAM OPERASIONAL --}}
-        @if (!empty($about->weekday_open) || !empty($about->weekend_open))
+    {{-- JAM OPERASIONAL --}}
+    
+    @forelse ($tentangKami as $about)
+        @if (!empty($about->jam_buka_hari_biasa) || !empty($about->jam_buka_akhir_pekan))
         <div class="text-center my-5">
             <h3 style="font-size: 32px; font-weight: 700;">Jam Operasional</h3>
-            @if (!empty($about->weekday_open) && !empty($about->weekday_close))
+            @if (!empty($about->jam_buka_hari_biasa) && !empty($about->jam_tutup_hari_biasa))
                 <p style="font-size: 20px;">
-                    Senin - Sabtu : {{ \Carbon\Carbon::parse($about->weekday_open)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->weekday_close)->format('H:i') }}
+                    Senin - Sabtu : {{ \Carbon\Carbon::parse($about->jam_buka_hari_biasa)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->jam_tutup_hari_biasa)->format('H:i') }}
                 </p>
             @endif
-            @if (!empty($about->weekend_open) && !empty($about->weekend_close))
+            @if (!empty($about->jam_buka_akhir_pekan) && !empty($about->jam_tutup_akhir_pekan))
                 <p style="font-size: 20px;">
-                    Minggu : {{ \Carbon\Carbon::parse($about->weekend_open)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->weekend_close)->format('H:i') }}
+                    Minggu : {{ \Carbon\Carbon::parse($about->jam_buka_akhir_pekan)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->jam_tutup_akhir_pekan)->format('H:i') }}
                 </p>
             @endif
         </div>
@@ -105,8 +106,5 @@
             <h3>Belum ada Data About</h3>
         </div>
     @endforelse
-
-   
-
 
 @endsection

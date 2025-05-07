@@ -13,17 +13,18 @@
     <!-- Header Section -->
     <div class="container-header">
         <div class="logo">
-        <a href="{{ route('home') }}" class="logo-text">>MONOGRAM_</a>
-
+            <a href="{{ route('home') }}" class="logo-text">>MONOGRAM_</a>
         </div>
         <div class="nav-menu">
             <a href="{{ route('hasil', ['kategori' => 'wisuda']) }}" class="nav-button {{ $kategori == 'wisuda' ? 'active' : '' }}">Wisuda</a>
             <a href="{{ route('hasil', ['kategori' => 'pasangan']) }}" class="nav-button {{ $kategori == 'pasangan' ? 'active' : '' }}">Pasangan</a>
             <a href="{{ route('hasil', ['kategori' => 'pertemanan']) }}" class="nav-button {{ $kategori == 'pertemanan' ? 'active' : '' }}">Pertemanan</a>
             <a href="{{ route('hasil', ['kategori' => 'keluarga']) }}" class="nav-button {{ $kategori == 'keluarga' ? 'active' : '' }}">Keluarga</a>
+            <a href="{{ route('hasil', ['kategori' => 'lainnya']) }}" class="nav-button {{ $kategori == 'lainnya' ? 'active' : '' }}">Lainnya</a>
         </div>
         <div class="title-button">FOTO {{ strtoupper($kategori) }}</div>
     </div>
+
     <!-- Title & Description Section -->
     <div class="text-center my-4">
         <h2 class="gallery-title">Galeri Foto {{ ucfirst($kategori) }}</h2>
@@ -41,23 +42,26 @@
                 @case('keluarga')
                     Potret kehangatan dan kasih sayang keluarga dalam sesi foto yang tak terlupakan.
                     @break
+                @case('lainnya')
+                    Temukan berbagai momen spesial lainnya yang bisa dikenang melalui lensa Monogram Toba Studio.
+                    @break
                 @default
                     Temukan momen terbaik dalam galeri pilihan Monogram Toba Studio.
             @endswitch
         </p>
     </div>
 
-
     <!-- Gallery Section -->
     <div class="gallery-container">
-
         <!-- Card view -->
         <div class="row justify-content-center my-4">
             @forelse($data as $item)
-                <div class="card m-2" style="width: 18rem;">
-                    <img src="{{ asset('uploads/' . $item->gambar) }}" class="card-img-top" alt="Foto {{ $kategori }}">
-                    <div class="card-body">
-                        <p class="card-text">{{ $loop->iteration }}</p>
+                <div class="col-12 col-md-4 col-lg-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ asset('storage/' . $item->gambar) }}" class="card-img-top" alt="Foto {{ $kategori }}">
+                        <div class="card-body">
+                            <p class="card-text text-center">{{ $loop->iteration }}</p>
+                        </div>
                     </div>
                 </div>
             @empty
@@ -73,7 +77,6 @@
             "SIMPAN MOMENT {{ strtoupper($kategori) }} MU BERSAMA ORANG TERKASIH MELALUI LENSA MONOGRAM TOBA STUDIO"
         </div>
     </div>
-
 
     <!-- Back to Home Button -->
     <div class="text-center mb-5 mt-4">

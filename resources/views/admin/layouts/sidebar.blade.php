@@ -23,7 +23,7 @@
             </a>
         </li>
         <li class="nav-item" style="margin-bottom: 5px;">
-            <a class="nav-link d-flex align-items-center" href="{{ route('admin.about.index') }}"
+            <a class="nav-link d-flex align-items-center" href="    {{ route('admin.tentang-kami.index') }}"
                style="color: #f8f9fa; padding: 12px 15px; border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid transparent;">
                 <i class="fa fa-info-circle menu-icon me-3" style="font-size: 18px; min-width: 18px;"></i>
                 <span class="menu-title" style="font-size: 14px; font-weight: 500;">Tentang kami</span>

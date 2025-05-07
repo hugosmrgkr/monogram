@@ -54,13 +54,25 @@
                     @endforelse
                 </div>
 
-                <div class="news-buttons">
-                    <button class="news-nav-btn" id="prevBtn">&#10094;</button>
-                    <button class="news-nav-btn" id="nextBtn">&#10095;</button>
-                </div>
+                @if($beritas->count() > 1)
+                    <div class="news-buttons">
+                        <button class="news-nav-btn" id="prevBtn">&#10094;</button>
+                        <button class="news-nav-btn" id="nextBtn">&#10095;</button>
+                    </div>
+                @endif
+
+                {{-- Tampilkan keterangan jika ada lebih dari satu berita --}}
+                @if($beritas->count() > 1)
+                    <div class="text-center mt-3">
+                        <span id="newsIndexDisplay" class="badge bg-info">
+                            1 dari {{ $beritas->count() }}
+                        </span>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
+
 
     <!-- Benefits Section -->
     <section class="monogram-benefits section-padding" style="background-color: rgba(0, 0, 0, 0.05); padding-top: 60px; padding-bottom: 60px;">
@@ -103,23 +115,36 @@
         <div class="monogram-gallery-section container mb-5">
             <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
 
-            <div class="lightbox" data-mdb-lightbox-init>
-                <div class="multi-carousel overflow-hidden" id="monogram-carousel">
-                    <div class="multi-carousel-inner d-flex" id="carousel-track">
-                        @foreach ($galleries as $gallery)
+            @if($galleries->isEmpty())
+                <div class="alert alert-warning text-center" role="alert">
+                    Belum ada gambar yang dimasukkan ke dalam galeri.
+                </div>
+            @else
+                <div class="lightbox" data-mdb-lightbox-init>
+                    <div class="multi-carousel overflow-hidden" id="monogram-carousel">
+                        <div class="multi-carousel-inner d-flex" id="carousel-track">
+                            @foreach ($galleries as $index => $gallery)
                             <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
                                 <img
-                                    src="{{ asset('uploads/' . $gallery->gambar) }}"
-                                    data-mdb-img="{{ asset('uploads/' . $gallery->gambar) }}"
+                                    src="{{ asset('storage/' . $gallery->gambar) }}"
+                                    data-mdb-img="{{ asset('storage/' . $gallery->gambar) }}"
                                     alt="Rekomendasi Foto"
                                     class="w-100 rounded shadow-sm"
                                 />
                             </div>
                         @endforeach
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                {{-- Tampilkan tombol navigasi hanya jika ada lebih dari satu gambar --}}
+                @if($galleries->count() > 1)
+                    <div class="text-center mt-4">
+                        <button class="news-nav-btn" id="prevBtn">&#10094;</button>
+                        <button class="news-nav-btn" id="nextBtn">&#10095;</button>
+                    </div>
+                @endif
+            @endif
             <div class="text-center mt-4">
                 <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
             </div>

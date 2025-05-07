@@ -11,7 +11,7 @@
         </button>
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile">
-                <form method="POST" action="{{ route('logout') }}">
+                <form action="{{ route('admin.admin.logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-outline-light btn-sm" style="border-radius: 6px; padding: 8px 16px; transition: background-color 0.3s, color 0.3s;">
                         <i class="ti-power-off"></i> Logout
@@ -28,19 +28,19 @@
         color: #000000;
         border-color: #ffffff;
     }
-    
+
     /* Mobile responsive adjustments */
     @media (max-width: 576px) {
         .navbar-brand {
             font-size: 16px !important;
             margin-right: 0 !important;
         }
-        
+
         .navbar-menu-wrapper {
             padding-left: 10px;
             padding-right: 10px;
         }
-        
+
         .btn-sm {
             padding: 4px 8px !important;
             font-size: 0.75rem !important;

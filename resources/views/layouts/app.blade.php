@@ -41,7 +41,7 @@
                         <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a>
+                        <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>

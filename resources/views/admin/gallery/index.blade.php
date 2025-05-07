@@ -30,17 +30,19 @@
                             @foreach($galleries as $gallery)
                                 <tr style="transition: all 0.2s ease;">
                                     <td style="padding: 16px; border-bottom: 1px solid #dee2e6; vertical-align: middle;">
-                                        <img src="{{ asset('uploads/' . $gallery->gambar) }}" width="100" style="border-radius: 6px; object-fit: cover; height: 60px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                        <img src="{{ asset('storage/' . $gallery->gambar) }}" width="100" style="border-radius: 6px; object-fit: cover; height: 60px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
                                     </td>
                                     <td style="padding: 16px; border-bottom: 1px solid #dee2e6; vertical-align: middle;">
-                                        <span style="font-size: 14px; color: #212529; background-color: #f8f9fa; padding: 5px 10px; border-radius: 4px;">{{ $gallery->kategori }}</span>
+                                        <span style="font-size: 14px; color: #212529; background-color: #f8f9fa; padding: 5px 10px; border-radius: 4px;">
+                                            {{ $gallery->kategori }}
+                                        </span>
                                     </td>
                                     <td style="padding: 16px; border-bottom: 1px solid #dee2e6; vertical-align: middle;">
                                         <div class="d-flex gap-2">
-                                            <a href="{{ route('admin.gallery.edit', $gallery->id) }}" class="btn" style="background-color: #f8f9fa; color: #212529; border-radius: 6px; padding: 6px 12px; font-size: 13px; border: 1px solid #dee2e6;">
+                                            <a href="{{ route('admin.gallery.edit', ['gallery' => $gallery->galeri_id]) }}" class="btn" style="background-color: #f8f9fa; color: #212529; border-radius: 6px; padding: 6px 12px; font-size: 13px; border: 1px solid #dee2e6;">
                                                 <i class="fa fa-edit me-1"></i> Edit
                                             </a>
-                                            <form action="{{ route('admin.gallery.destroy', $gallery->id) }}" method="POST" style="display:inline;">
+                                            <form action="{{ route('admin.gallery.destroy', ['gallery' => $gallery->galeri_id]) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn" style="background-color: #fff; color: #dc3545; border-radius: 6px; padding: 6px 12px; font-size: 13px; border: 1px solid #dc3545;" onclick="return confirm('Yakin ingin menghapus?')">
@@ -54,7 +56,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
                 @if(count($galleries) == 0)
                 <div class="text-center py-5" style="background-color: #f8f9fa; border-radius: 6px; margin-top: 20px;">
                     <i class="fa fa-image mb-3" style="font-size: 3rem; color: #adb5bd;"></i>
@@ -72,7 +74,7 @@
             row.addEventListener('mouseenter', function() {
                 this.style.backgroundColor = '#f8f9fa';
             });
-            
+
             row.addEventListener('mouseleave', function() {
                 this.style.backgroundColor = '';
             });
