@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
-use App\Models\About;
+use App\Models\TentangKami;
 use Illuminate\Http\Request;
 use App\Models\Faq;
-use App\Models\Komentar;  // Ubah dari 'Ulasan' menjadi 'Komentar'
+use App\Models\Komentar;
 use App\Models\Berita;
 use Carbon\Carbon;
 use App\Models\Layanan;
@@ -25,30 +25,30 @@ class PageController extends Controller
                          ->latest()
                          ->get();
 
-        return view('home', compact('galleries', 'komentars', 'beritas'));  // Ubah 'ulasans' menjadi 'komentars'
+        return view('home', compact('galleries', 'komentars', 'beritas'));
     }
 
     // Halaman Profil Owner
-    public function about()
+    public function tentangKami()
     {
-        $abouts = About::all();
-        return view('about', [
-            'abouts' => $abouts
-        ]);
+        $tentangKami = TentangKami::all();
+        $title = 'Tentang Kami';
+        return view('tentangkami', compact('title', 'tentangKami'));
     }
+
 
     // Halaman Profil Lengkap Monogram
     public function faq()
     {
-        $faqs = Faq::all(); // ambil semua data dari tabel 'faqs'
-        return view('faq', compact('faqs')); // kirim data ke view
+        $faqs = Faq::all();
+        return view('faq', compact('faqs'));
     }
 
     // Halaman Pilihan Layanan
     public function service()
     {
-        $layanans = Layanan::all(); // ambil semua data layanan dari tabel
-        return view('service', compact('layanans')); // kirim ke blade
+        $layanans = Layanan::all();
+        return view('service', compact('layanans'));
     }
 
     public function hasil($kategori = 'wisuda')
@@ -59,7 +59,7 @@ class PageController extends Controller
         $data = Gallery::where('kategori', ucfirst($kategori))->get();
 
         // Jika data kosong & kategori tidak valid, redirect ke home
-        if ($data->isEmpty() && !in_array($kategori, ['wisuda', 'pasangan', 'pertemanan', 'keluarga'])) {
+        if ($data->isEmpty() && !in_array($kategori, ['wisuda', 'pasangan', 'pertemanan', 'keluarga', 'lainnya'])) {
             return redirect()->route('home');
         }
 

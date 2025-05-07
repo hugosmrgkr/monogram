@@ -1,19 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\KomentarController;
-use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\LayananController;
 use App\Http\Controllers\Admin\FaqController;
-use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TentangKamiController;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\PreventBackHistory;
 
 // ==========================
@@ -23,19 +20,13 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/owner', [PageController::class, 'owner'])->name('owner');
 Route::get('/profil', [PageController::class, 'profil'])->name('profil');
 Route::get('/service', [PageController::class, 'service'])->name('service');
-Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/tentang-kami', [PageController::class, 'tentangKami'])->name('tentang-kami');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
-
-// Ulasan oleh user
 Route::post('/komentar', [KomentarController::class, 'store'])->name('komentar.store');
-
-// ==========================
-// Rute Hasil Foto (Kategori Dinamis)
-// ==========================
 Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil');
 
 // ==========================
-// Rute Login Admin dengan Parameter Rahasia
+// Rute Login Admin dengan Secret URL
 // ==========================
 Route::get('/admin-access/{secret}', function ($secret) {
     if ($secret !== env('ADMIN_SECRET_CODE')) {
@@ -44,40 +35,34 @@ Route::get('/admin-access/{secret}', function ($secret) {
     return view('auth.login');
 })->middleware(PreventBackHistory::class)->name('admin.login');
 
-Route::post('/admin-access/{secret}', [LoginController::class, 'login'])->middleware(PreventBackHistory::class)->name('admin.login.submit');
+// Proses login admin
+Route::post('/admin-access/{secret}', [AdminLoginController::class, 'login'])
+    ->middleware(PreventBackHistory::class)->name('admin.login.submit');
 
 // ==========================
-// Rute untuk Admin (Harus login)
+// Rute Admin (Login Required)
 // ==========================
-Route::prefix('admin')->middleware(['auth', AdminMiddleware::class, PreventBackHistory::class])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware([AdminMiddleware::class, PreventBackHistory::class])->name('admin.')->group(function () {
+    // Dashboard Admin
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::resource('gallery', GalleryController::class);
+    Route::resource('tentang-kami', TentangKamiController::class);
+    Route::resource('berita', BeritaController::class);
+    Route::resource('layanan', LayananController::class);
+    Route::resource('faq', FaqController::class);
 
-    // Resource routes
-    Route::resource('gallery', GalleryController::class);       // admin.gallery.*
-    Route::resource('about', AboutController::class);           // admin.about.*
-    Route::resource('berita', BeritaController::class);         // admin.berita.*
-    Route::resource('layanan', LayananController::class);       // admin.layanan.*
-    Route::resource('faq', FaqController::class);               // admin.faq.*
-
-    // Manajemen Komentar
+    // Rute untuk Komenta-
     Route::prefix('komentar')->name('komentar.')->group(function () {
         Route::get('/', [KomentarController::class, 'index'])->name('index');
         Route::post('/{id}/toggle', [KomentarController::class, 'toggle'])->name('toggle');
     });
+
+    // Logout Admin
+    Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 });
 
 // ==========================
-// Rute Otentikasi
-// ==========================
-Auth::routes([
-    'register' => true,
-]);
-
-// Override logout Laravel
-Route::middleware(['auth', PreventBackHistory::class])->post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// ==========================
-// Fallback untuk route yang tidak ditemukan
+// Fallback Route untuk URL yang tidak ditemukan
 // ==========================
 Route::fallback(function () {
     return redirect()->route('home');

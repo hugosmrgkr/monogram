@@ -6,19 +6,35 @@
     <base href="/public">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ $title }}</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome (gunakan hanya salah satu, versi 5 atau 6, hindari duplikat) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts (gunakan yang dibutuhkan saja) -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:800&family=Satisfy&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS (dari template admin) -->
     <link rel="stylesheet" href="assets-admin/vendors/feather/feather.css">
     <link rel="stylesheet" href="assets-admin/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="assets-admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+
+    <!-- Template Style -->
     <link rel="stylesheet" href="assets-admin/css/vertical-layout-light/style.css">
+
+    <!-- Favicon -->
     <link rel="icon" href="assets-admin/images/admin.png" type="image/x-icon">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 
 
-   
+
+
 </head>
 
 <body>
@@ -45,7 +61,7 @@
     <script src="{{ asset('assets-admin/js/todolist.js') }}"></script>
     <script src="{{ asset('assets-admin/js/dashboard.js') }}"></script>
     <script src="{{ asset('assets-admin/js/Chart.roundedBarCharts.js') }}"></script>
-    
+
     <script>
         // Enhanced sidebar toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -54,18 +70,18 @@
             const toggleBtn = document.querySelector('[data-toggle="minimize"]');
             const sidebar = document.querySelector('.sidebar');
             const overlay = document.querySelector('.sidebar-overlay');
-            
+
             // Desktop sidebar toggle
             if (toggleBtn) {
                 toggleBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
+
                     if (body.classList.contains('sidebar-icon-only')) {
                         body.classList.remove('sidebar-icon-only');
                     } else {
                         body.classList.add('sidebar-icon-only');
                     }
-                    
+
                     // On mobile, handle the sidebar differently
                     if (window.innerWidth <= 991) {
                         if (sidebar.classList.contains('show-sidebar')) {
@@ -80,7 +96,7 @@
             } else {
                 console.error('Toggle button not found!');
             }
-            
+
             // Close sidebar when clicking overlay
             if (overlay) {
                 overlay.addEventListener('click', function() {
@@ -88,7 +104,7 @@
                     body.classList.remove('show-sidebar-overlay');
                 });
             }
-            
+
             // Adjust sidebar on window resize
             window.addEventListener('resize', function() {
                 if (window.innerWidth <= 991) {
@@ -102,7 +118,7 @@
                     body.classList.remove('show-sidebar-overlay');
                 }
             });
-            
+
             // Add active class to current page link
             const currentLocation = window.location.href;
             document.querySelectorAll('.nav-link').forEach(link => {
@@ -111,7 +127,7 @@
                     link.style.backgroundColor = '#2c3136';
                     link.style.borderLeft = '3px solid #fff';
                 }
-                
+
                 // Hover effects
                 link.addEventListener('mouseenter', function() {
                     if (!currentLocation.includes(this.getAttribute('href'))) {
@@ -119,7 +135,7 @@
                         this.style.borderLeft = '3px solid #6c757d';
                     }
                 });
-                
+
                 link.addEventListener('mouseleave', function() {
                     if (!currentLocation.includes(this.getAttribute('href'))) {
                         this.style.backgroundColor = 'transparent';

@@ -4,17 +4,16 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
 {
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role === 'admin') {
-            return $next($request);
+        // Cek apakah admin_id ada dalam session
+        if (!session()->has('admin_id')) {
+            return redirect()->route('admin.login', ['secret' => env('ADMIN_SECRET_CODE')]);
         }
 
-        abort(403, 'Unauthorized.');
+        return $next($request);
     }
 }

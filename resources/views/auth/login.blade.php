@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-
 <section class="login-section">
   <div class="container-login">
     <div class="login-card" data-aos="fade-up" data-aos-duration="1000">
@@ -19,8 +18,15 @@
           <h4 class="title">Monogram Admin Login</h4>
         </div>
 
-        <form method="POST" action="{{ url()->current() }}">
-        @csrf
+        {{-- Tampilkan pesan error jika login gagal --}}
+        @if(session('error'))
+          <div class="alert-error">
+            {{ session('error') }}
+          </div>
+        @endif
+
+        <form method="POST" action="{{ route('admin.login.submit', ['secret' => env('ADMIN_SECRET_CODE')]) }}">
+          @csrf
 
           <div class="input-group">
             <label for="email">Email</label>
