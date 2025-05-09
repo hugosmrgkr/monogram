@@ -9,27 +9,20 @@ use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
-    // Menampilkan galeri untuk user berdasarkan kategori
-    public function userView()
+    public function index(Request $request)
     {
-        $wisuda     = Gallery::where('kategori', 'Wisuda')->get();
-        $keluarga   = Gallery::where('kategori', 'Keluarga')->get();
-        $pasangan   = Gallery::where('kategori', 'Pasangan')->get();
-        $pertemanan = Gallery::where('kategori', 'Pertemanan')->get();
-        $lainnya    = Gallery::where('kategori', 'Lainnya')->get();
-
-        return view('user.gallery', compact('wisuda', 'keluarga', 'pasangan', 'pertemanan', 'lainnya'));
-    }
-
-
-    // Menampilkan semua gambar di dashboard admin
-    public function index()
-    {
-        $galleries = Gallery::latest()->get();
+        $kategoriList = ['Wisuda', 'Keluarga', 'Pasangan', 'Pertemanan', 'Lainnya'];
         $title = 'Gallery Page';
+        $kategori = $request->input('kategori', 'Semua');
+        if ($kategori !== 'Semua') {
+            $galleries = Gallery::where('kategori', $kategori)->latest()->get();
+        } else {
+            $galleries = Gallery::latest()->get();
+        }
 
-        return view('admin.gallery.index', compact('galleries', 'title'));
+        return view('admin.gallery.index', compact('galleries', 'title', 'kategoriList', 'kategori'));
     }
+
 
     // Tampilkan form tambah gambar
     public function create()
