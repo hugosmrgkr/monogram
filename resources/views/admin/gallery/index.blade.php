@@ -25,6 +25,12 @@
                 </div>
             </div>
 
+            <div class="mb-3 text-end">
+                <a href="{{ route('admin.gallery.create') }}" class="btn btn-dark">
+                    <i class="fa fa-plus-circle me-1"></i> Tambah galeri
+    </a>
+</div>
+
             {{-- Tampilkan pesan jika tidak ada gambar --}}
             @if ($galleries->isEmpty())
                 <div class="alert alert-info text-center">
