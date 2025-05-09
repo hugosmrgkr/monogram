@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tentangkami.css') }}">
 @endsection
 
 @section('content')
@@ -22,89 +22,112 @@
     {{-- DESKRIPSI STUDIO --}}
     <div class="studio-description mb-5">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <p class="fw-500">Monogram Toba Studio didirikan pada 17 Agustus 2022 di Lumban Dolok Haume Bange, Kec. Balige, Toba, Sumatera Utara, Indonesia, sebagai tempat fotografi yang mengutamakan kualitas dan kenyamanan.</p>
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="studio-title mb-4">Profil & Layanan Studio</h2>
+            </div>
+            <div class="col-lg-8 mx-auto studio-text">
+                <p>Monogram Toba Studio didirikan pada 17 Agustus 2022 di Lumban Dolok Haume Bange, Kec. Balige, Toba, Sumatera Utara, Indonesia, sebagai tempat fotografi yang mengutamakan kualitas dan kenyamanan.</p>
 
-                <p class="fw-500">Kami melayani berbagai sesi foto, seperti foto sendiri (portrait), foto wisuda, foto bersama teman, serta sesi dengan berbagai gaya dan konsep. Dengan sentuhan profesional dari fotografer berpengalaman, setiap momen spesial akan diabadikan dengan hasil terbaik.</p>
+                <p>Kami melayani berbagai sesi foto, seperti foto sendiri (portrait), foto wisuda, foto bersama teman, serta sesi dengan berbagai gaya dan konsep. Dengan sentuhan profesional dari fotografer berpengalaman, setiap momen spesial akan diabadikan dengan hasil terbaik.</p>
 
-                <p class="fw-500">Kami menyediakan berbagai fasilitas, termasuk background beragam, pencahayaan profesional, properti pendukung, serta layanan editing dan cetak foto. Selain itu, tersedia juga berbagai pilihan snack dan minuman yang bisa dinikmati sebelum atau sesudah sesi foto, menambah kenyamanan selama berada di studio. Dengan perpaduan suasana santai dan pelayanan terbaik, Monogram Toba Studio menjadi pilihan ideal untuk setiap kebutuhan fotografi Anda.</p>
+                <p>Kami menyediakan berbagai fasilitas, termasuk background beragam, pencahayaan profesional, properti pendukung, serta layanan editing dan cetak foto. Selain itu, tersedia juga berbagai pilihan snack dan minuman yang bisa dinikmati sebelum atau sesudah sesi foto, menambah kenyamanan selama berada di studio.</p>
 
-                <p class="fw-500">Setiap detail dalam studio kami dirancang untuk memberikan pengalaman yang menyenangkan dan hasil yang memuaskan. Kami percaya bahwa fotografi bukan hanya sekadar gambar, tetapi juga tentang menangkap cerita di setiap momen yang berharga. Dengan teknologi terkini dan kreativitas tanpa batas, kami menghadirkan hasil foto yang tajam, artistik, dan penuh makna.</p>
+                <p>Setiap detail dalam studio kami dirancang untuk memberikan pengalaman yang menyenangkan dan hasil yang memuaskan. Kami percaya bahwa fotografi bukan hanya sekadar gambar, tetapi juga tentang menangkap cerita di setiap momen yang berharga.</p>
 
-                <p class="fw-500">Kami juga selalu terbuka untuk berbagai konsep pemotretan, mulai dari foto formal hingga sesi kasual yang lebih santai, sesuai dengan keinginan pelanggan. Dengan berbagai pilihan properti dan latar yang dapat disesuaikan, setiap foto yang diambil akan memiliki karakter unik dan estetika yang memikat.</p>
+                <p>Kami juga selalu terbuka untuk berbagai konsep pemotretan, mulai dari foto formal hingga sesi kasual yang lebih santai, sesuai dengan keinginan pelanggan. Dengan berbagai pilihan properti dan latar yang dapat disesuaikan, setiap foto yang diambil akan memiliki karakter unik dan estetika yang memikat.</p>
             </div>
         </div>
     </div>
+
 
     {{-- GALERI STUDIO --}}
     <div class="studio-gallery mb-5">
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="gallery-item">
-                    <img src="{{ asset('assets/images/studio-1.jpg') }}" alt="Studio Monogram" class="img-fluid rounded">
+                    <img src="{{ asset('assets/images/Foot1.png') }}" alt="Studio Monogram" class="img-fluid rounded">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="gallery-item">
-                    <img src="{{ asset('assets/images/studio-2.jpg') }}" alt="Studio Monogram" class="img-fluid rounded">
+                    <img src="{{ asset('assets/images/Foot2.png') }}" alt="Studio Monogram" class="img-fluid rounded">
                 </div>
             </div>
         </div>
         <div class="row g-4 mt-3">
             <div class="col-md-4">
                 <div class="gallery-item">
-                    <img src="{{ asset('assets/images/studio-3.jpg') }}" alt="Studio Monogram" class="img-fluid rounded">
+                    <img src="{{ asset('assets/images/tentangCard1.png') }}" alt="Studio Monogram" class="img-fluid rounded">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="gallery-item">
-                    <img src="{{ asset('assets/images/studio-4.jpg') }}" alt="Studio Monogram" class="img-fluid rounded">
+                    <img src="{{ asset('assets/images/tentangCard2.png') }}" alt="Studio Monogram" class="img-fluid rounded">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="gallery-item">
-                    <img src="{{ asset('assets/images/studio-5.jpg') }}" alt="Studio Monogram" class="img-fluid rounded">
+                    <img src="{{ asset('assets/images/tentangCard3.png') }}" alt="Studio Monogram" class="img-fluid rounded">
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- JAM OPERASIONAL --}}
-    
+    {{-- INFORMASI TOKO --}}
     @forelse ($tentangKami as $about)
         @if (!empty($about->jam_buka_hari_biasa) || !empty($about->jam_buka_akhir_pekan))
-        <div class="text-center my-5">
-            <h3 style="font-size: 32px; font-weight: 700;">Jam Operasional</h3>
-            @if (!empty($about->jam_buka_hari_biasa) && !empty($about->jam_tutup_hari_biasa))
-                <p style="font-size: 20px;">
-                    Senin - Sabtu : {{ \Carbon\Carbon::parse($about->jam_buka_hari_biasa)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->jam_tutup_hari_biasa)->format('H:i') }}
-                </p>
-            @endif
-            @if (!empty($about->jam_buka_akhir_pekan) && !empty($about->jam_tutup_akhir_pekan))
-                <p style="font-size: 20px;">
-                    Minggu : {{ \Carbon\Carbon::parse($about->jam_buka_akhir_pekan)->format('H:i') }} - {{ \Carbon\Carbon::parse($about->jam_tutup_akhir_pekan)->format('H:i') }}
-                </p>
-            @endif
-        </div>
-        @endif
+            <div class="informasi-toko container my-5">
+                <h3 class="section-title text-center mb-4">Jam Operasional</h3>
+                <p class="section-desc text-center mb-4">
+                    Kami siap melayani Anda setiap hari dengan jam operasional yang fleksibel. Silakan cek jadwal kami di bawah ini!
+                </p>    
+                <div class="table-responsive">
+                    <table class="table-jam table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Hari</th>
+                                <th>Jam Buka</th>
+                                <th>Jam Tutup</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!empty($about->jam_buka_hari_biasa) && !empty($about->jam_tutup_hari_biasa))
+                                <tr>
+                                    <td>Senin - Sabtu</td>
+                                    <td>{{ \Carbon\Carbon::parse($about->jam_buka_hari_biasa)->format('H:i') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($about->jam_tutup_hari_biasa)->format('H:i') }}</td>
+                                </tr>
+                            @endif
+                            @if (!empty($about->jam_buka_akhir_pekan) && !empty($about->jam_tutup_akhir_pekan))
+                                <tr>
+                                    <td>Minggu</td>
+                                    <td>{{ \Carbon\Carbon::parse($about->jam_buka_akhir_pekan)->format('H:i') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($about->jam_tutup_akhir_pekan)->format('H:i') }}</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
 
-        {{-- HUBUNGI KAMI --}}
-        <div class="text-center mb-5">
-            <h3 style="font-size: 32px; font-weight: 700;">Hubungi Kami</h3>
-            <p class="mb-3" style="font-size: 20px; font-weight: 500;">+62 82268691532</p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
-                @if (!empty($about->kontak_wa))
-                    <a href="{{ $about->kontak_wa }}" target="_blank" class="btn btn-success">WhatsApp</a>
-                @endif
-                @if (!empty($about->kontak_ig))
-                    <a href="{{ $about->kontak_ig }}" target="_blank" class="btn btn-primary">Instagram</a>
-                @endif
+                <div class="hubungi-kami mt-5 text-center">
+                    <h3 class="section-title mb-3">Hubungi Kami</h3>
+                    <p class="section-text">+62 82268691532</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+                        @if (!empty($about->kontak_wa))
+                            <a href="{{ $about->kontak_wa }}" target="_blank" class="btn btn-wa">WhatsApp</a>
+                        @endif
+                        @if (!empty($about->kontak_ig))
+                            <a href="{{ $about->kontak_ig }}" target="_blank" class="btn btn-ig">Instagram</a>
+                        @endif
+                    </div>
+                </div>
             </div>
-        </div>
+        @endif
     @empty
         <div class="text-center my-5">
             <h3>Belum ada Data About</h3>
         </div>
     @endforelse
+
 
 @endsection

@@ -8,11 +8,21 @@
 
 @section('content')
     <!-- Hero Section - Full Width -->
-    <section class="hero-section">
+    {{-- <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-text">
             <h1 class="display-3 fw-bold">>monogram_</h1>
             <p class="lead">
+                Selamat datang di website resmi Monogram Studio Balige.<br>
+                Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.
+            </p>
+        </div>
+    </section> --}}
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <h1>>monogram_</h1>
+            <p>
                 Selamat datang di website resmi Monogram Studio Balige.<br>
                 Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.
             </p>
@@ -136,14 +146,6 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- Tampilkan tombol navigasi hanya jika ada lebih dari satu gambar --}}
-                @if($galleries->count() > 1)
-                    <div class="text-center mt-4">
-                        <button class="news-nav-btn" id="prevBtn">&#10094;</button>
-                        <button class="news-nav-btn" id="nextBtn">&#10095;</button>
-                    </div>
-                @endif
             @endif
             <div class="text-center mt-4">
                 <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>

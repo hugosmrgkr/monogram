@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.  
+     * Run the migrations.
      */
     public function up()
     {
@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('judul');
             $table->text('isi');
             $table->string('gambar')->nullable();
-            $table->date('tanggal_mulai'); // Kolom tanggal_mulai
-            $table->date('tanggal_habis'); // Kolom tanggal_habis
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_habis');
             $table->timestamps();
         });
     }

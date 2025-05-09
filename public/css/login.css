@@ -99,6 +99,28 @@ body {
   background-color: #fff;
 }
 
+.btn-close-custom {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    text-decoration: none;
+    color: #fff;                /* ganti dari #000 ke #fff */
+    font-weight: bold;
+    z-index: 10;
+    transition: color 0.2s;
+    /* opsional: beri background transparan biar makin jelas */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 2px 6px;
+  }
+
+  .btn-close-custom:hover {
+    color: #ff0;                /* contoh hover jadi kuning */
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+
 .error {
   color: red;
   font-size: 13px;
