@@ -7,17 +7,6 @@
 @endsection
 
 @section('content')
-    <!-- Hero Section - Full Width -->
-    {{-- <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-text">
-            <h1 class="display-3 fw-bold">>monogram_</h1>
-            <p class="lead">
-                Selamat datang di website resmi Monogram Studio Balige.<br>
-                Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.
-            </p>
-        </div>
-    </section> --}}
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-text">

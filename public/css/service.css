@@ -47,32 +47,52 @@ body {
 .service-section {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 40px 20px;
     background: #f8f8f8;
 }
 
+.service-card {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 90vw; /* Hampir full screen */
+    max-width: 1200px; /* Batas maksimum agar tetap rapi di layar besar */
+    align-items: flex-start;
+}
+
 .service-image {
-    width: 250px;
+    width: 300px; /* Lebih besar dari sebelumnya */
     height: auto;
-    margin-right: 40px;
+    object-fit: cover;
+    margin-right: 30px;
 }
 
 .service-info {
-    max-width: 400px;
-}
-
-.service-price {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
 }
 
 .service-description {
-    font-size: 14px;
+    font-size: 16px;
     color: #444;
-    line-height: 1.6;
+    margin-bottom: 20px;
+    line-height: 1.8;
 }
+
+.service-price {
+    align-self: start;
+    background-color: #000;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 
 .additional-section {
     width: 100%;
