@@ -25,8 +25,8 @@
           </div>
         @endif
 
-        <form method="POST" action="{{ route('admin.login.submit', ['secret' => env('ADMIN_SECRET_CODE')]) }}">
-          @csrf
+        <form method="POST" action="{{ route('admin.login.submit') }}">
+        @csrf
 
           <div class="input-group">
             <label for="email">Email</label>

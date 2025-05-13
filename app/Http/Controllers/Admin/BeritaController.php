@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class BeritaController extends Controller
 {
@@ -48,6 +49,7 @@ class BeritaController extends Controller
             'gambar' => $gambarPath,
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_habis' => $request->tanggal_habis,
+            'admin_id' => Auth::id(),
         ]);
 
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan!');

@@ -36,35 +36,31 @@
             </button>
 
             <div class="collapse navbar-collapse">
-    <div class="d-flex w-100 justify-content-center">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
-            </li>
-        </ul>
-    </div>
-
-    {{-- Icon admin login di kanan --}}
-    <div class="d-flex ms-auto">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="d-flex align-items-center" href="{{ url('/admin-access/' . env('ADMIN_SECRET_CODE')) }}" style="color:white;">
-                    <i class="bi bi-person-gear" style="font-size: 1.5rem;"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-
+                <div class="d-flex w-100 justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex ms-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                                <a class="d-flex align-items-center" href="{{ route('admin.login') }}">
+                                <i class="bi bi-person-gear" style="font-size: 1.5rem;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

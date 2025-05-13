@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Berita extends Model
 {
     use HasFactory;
+    protected $table = 'beritas';
+    protected $fillable = ['judul', 'isi', 'gambar', 'tanggal_mulai', 'tanggal_habis', 'admin_id'];
 
-    protected $fillable = ['judul', 'isi', 'gambar', 'tanggal_mulai', 'tanggal_habis'];
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'admin_id');
+    }
 }

@@ -28,7 +28,7 @@ class PreventBackHistory
     {
         // Mengecualikan rute logout
         if ($request->is('admin/logout')) {
-            return $next($request);  // Lewatkan rute logout
+            return $next($request);
         }
 
         $response = $next($request);

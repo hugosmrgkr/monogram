@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FaqController extends Controller
 {
@@ -31,7 +32,11 @@ class FaqController extends Controller
             'jawaban' => 'required|string',
         ]);
 
-        Faq::create($request->all());
+        Faq::create([
+            'pertanyaan' => $request->pertanyaan,
+            'jawaban' => $request->jawaban,
+            'admin_id' => Auth::id()
+        ]);
 
         return redirect()->route('admin.faq.index')->with('success', 'FAQ berhasil ditambahkan.');
     }

@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('kontak_wa')->nullable();
             $table->string('kontak_ig')->nullable();
 
+            // Foreign key yang benar ke kolom 'admin_id' di tabel 'admins'
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

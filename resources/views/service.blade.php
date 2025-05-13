@@ -18,14 +18,16 @@
 </div>
 
 <div class="service-section">
-    <img class="service-image" src="/assets/images/keuntungan2.png" alt="Studio Monogram" />
-    <div class="service-info">
-        <div class="service-price">75K</div>
-        <div class="service-description">
-            15 minutes photoshoot<br>
-            - 2 people<br>
-            - 2 photo printing (3R)<br>
-            - all soft files (Google Drive link expires in 7 days)
+    <div class="service-card">
+        <img class="service-image" src="/assets/images/keuntungan2.png" alt="Studio Monogram" />
+        <div class="service-info">
+            <div class="service-description">
+                15 minutes photoshoot<br>
+                - 2 people<br>
+                - 2 photo printing (3R)<br>
+                - all soft files (Google Drive link expires in 7 days)
+            </div>
+            <div class="service-price">75K</div>
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TentangKami;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TentangKamiController extends Controller
 {
@@ -23,29 +24,30 @@ class TentangKamiController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            'jam_buka_hari_biasa' => 'required',
-            'jam_tutup_hari_biasa' => 'required',
-            'jam_buka_akhir_pekan' => 'required',
-            'jam_tutup_akhir_pekan' => 'required',
-            'kontak_wa' => 'required|url',
-            'kontak_ig' => 'required|url',
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'jam_buka_hari_biasa' => 'required',
+        'jam_tutup_hari_biasa' => 'required',
+        'jam_buka_akhir_pekan' => 'required',
+        'jam_tutup_akhir_pekan' => 'required',
+        'kontak_wa' => 'required|url',
+        'kontak_ig' => 'required|url',
+    ]);
 
-        // Menyimpan data ke database
-        TentangKami::create([
-            'jam_buka_hari_biasa' => $request->jam_buka_hari_biasa,
-            'jam_tutup_hari_biasa' => $request->jam_tutup_hari_biasa,
-            'jam_buka_akhir_pekan' => $request->jam_buka_akhir_pekan,
-            'jam_tutup_akhir_pekan' => $request->jam_tutup_akhir_pekan,
-            'kontak_wa' => $request->kontak_wa,
-            'kontak_ig' => $request->kontak_ig,
-        ]);
-        return redirect()->route('admin.tentang-kami.index')->with('success', 'Data Tentang Kami berhasil ditambahkan!');
-    }
+    TentangKami::create([
+        'jam_buka_hari_biasa' => $request->jam_buka_hari_biasa,
+        'jam_tutup_hari_biasa' => $request->jam_tutup_hari_biasa,
+        'jam_buka_akhir_pekan' => $request->jam_buka_akhir_pekan,
+        'jam_tutup_akhir_pekan' => $request->jam_tutup_akhir_pekan,
+        'kontak_wa' => $request->kontak_wa,
+        'kontak_ig' => $request->kontak_ig,
+        'admin_id' => Auth::id(),
+    ]);
+
+    return redirect()->route('admin.tentang-kami.index')->with('success', 'Data Tentang Kami berhasil ditambahkan!');
+}
+
 
     public function edit(TentangKami $tentangKami)
     {

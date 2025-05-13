@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->date('tanggal_mulai');
             $table->date('tanggal_habis');
+
+            // Ubah foreign key agar cocok dengan struktur tabel admins
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
