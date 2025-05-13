@@ -18,8 +18,6 @@
 
     <!-- Vendor CSS (dari template admin) -->
     <link rel="stylesheet" href="assets-admin/vendors/feather/feather.css">
-    <link rel="stylesheet" href="assets-admin/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="assets-admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="assets-admin/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
 
