@@ -16,16 +16,20 @@ return new class extends Migration
             $table->string('judul');
             $table->text('keterangan');
             $table->string('gambar');
+
+            // Foreign key disesuaikan dengan kolom primary key di tabel 'admins'
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('layanan');
+        Schema::dropIfExists('layanans');
     }
 };

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     use HasFactory;
-
-    // Tentukan kolom primary key
+    protected $table = 'galleries';
     protected $primaryKey = 'galeri_id';
+    protected $fillable = ['kategori', 'gambar', 'admin_id'];
 
-    // Tentukan kolom yang bisa diisi
-    protected $fillable = ['kategori', 'gambar'];
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'admin_id');
+    }
 }

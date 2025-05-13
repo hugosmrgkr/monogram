@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id('galeri_id');
             $table->string('kategori');
             $table->string('gambar');
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateKomentarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,12 @@ return new class extends Migration
             $table->string('nama')->nullable();
             $table->text('komentar');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->boolean('is_approve')->default(false); // dulunya 'is_approved'
+            $table->boolean('is_approve')->default(false);
+            $table->unsignedBigInteger('admin_id')->nullable();
+
+            // FOREIGN KEY harus mengacu ke 'admin_id' di tabel 'admins'
+            $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('set null');
+
             $table->timestamps();
         });
     }
@@ -28,4 +33,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('komentars');
     }
-};
+}

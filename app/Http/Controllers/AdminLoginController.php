@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
-use Illuminate\Support\Facades\Route;
 
 class AdminLoginController extends Controller
 {
+    // Tampilkan form login admin
     public function showLoginForm()
     {
-        if (session()->has('admin_id')) {
+        if (Auth::check()) {
+            // Jika admin sudah login, arahkan ke dashboard
             return redirect()->route('admin.dashboard');
         }
 
@@ -26,31 +27,31 @@ class AdminLoginController extends Controller
             'password' => 'required',
         ]);
 
-        // Cek kredensial admin
-        $admin = Admin::where('email', $request->email)->first();
-
-        if ($admin && password_verify($request->password, $admin->password)) {
-            // Set sesi login
-            session(['admin_id' => $admin->admin_id]);
+        // Menggunakan guard admin saat login
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            // Jika login berhasil, arahkan ke dashboard
             return redirect()->route('admin.dashboard');
         }
 
+        // Jika login gagal, kembali ke halaman login dengan error
         return back()->withErrors([
             'email' => 'Kredensial tidak cocok.',
         ]);
     }
 
-    // public function logout()
-    // {
-    //     session()->forget('admin_id');
-    //     return redirect()->route('admin.login');
-    // }
 
+
+    // Logout admin
     public function logout(Request $request)
     {
+        // Logout admin menggunakan Auth::logout()
+        Auth::logout();
+
+        // Hapus semua sesi dan token CSRF
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        // Arahkan kembali ke halaman utama
         return redirect()->route('home');
     }
 }

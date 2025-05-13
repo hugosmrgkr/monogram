@@ -6,6 +6,7 @@ use App\Models\Layanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class LayananController extends Controller
 {
@@ -41,7 +42,8 @@ class LayananController extends Controller
         Layanan::create([
             'judul' => $request->judul,
             'keterangan' => $request->keterangan,
-            'gambar' => $gambarPath
+            'gambar' => $gambarPath,
+            'admin_id' => Auth::id()
         ]);
 
         return redirect()->route('admin.layanan.index')->with('success', 'Layanan berhasil ditambahkan.');
