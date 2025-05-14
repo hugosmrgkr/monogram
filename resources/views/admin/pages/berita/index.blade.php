@@ -18,16 +18,14 @@
                     {{ session('success') }}
                 </div>
                 <script>
-                    // Menyembunyikan alert setelah 3 detik
                     setTimeout(function() {
                         var successAlert = document.getElementById('success-alert');
                         if (successAlert) {
                             successAlert.style.display = 'none';
                         }
-                    }, 3000); // 3000ms = 3 detik
+                    }, 3000);
                 </script>
             @endif
-
 
             @if ($beritas->isEmpty())
                 <div class="alert alert-info text-center">
@@ -54,7 +52,7 @@
                                     <td>{{ $berita->judul }}</td>
                                     <td class="text-center">
                                         @if ($berita->gambar)
-                                            <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100px; height: 80px;">
+                                            <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100px; height: 80px; object-fit: contain; border-radius: 6px;">
                                         @else
                                             <span class="text-muted">Tidak ada gambar</span>
                                         @endif

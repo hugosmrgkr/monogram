@@ -29,9 +29,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
-
-
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
 
@@ -143,5 +141,20 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileToggle = document.getElementById('mobileSidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const body = document.querySelector('body');
+
+        if (mobileToggle && sidebar) {
+            mobileToggle.addEventListener('click', function () {
+                sidebar.classList.toggle('show-sidebar');
+                body.classList.toggle('show-sidebar-overlay');
+            });
+        }
+    });
+</script>
+
 </body>
 </html>
