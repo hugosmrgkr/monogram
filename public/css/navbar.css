@@ -77,7 +77,9 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     align-items: center;
     text-decoration: none;
     transition: color 0.3s;
-    color: white; /* default putih untuk navbar transparan */
+    color: white;
+    position: relative;
+    z-index: 10; 
 }
 
 .logo-text .highlight {
@@ -89,7 +91,7 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     font-weight: 900;
     font-family: 'Open Sans', sans-serif;
     transition: color 0.3s;
-    color: white; /* default putih */
+    color: white;
 }
 
 /* Saat navbar discroll, ubah warna teks logo jadi hitam */
@@ -171,21 +173,15 @@ nav.navbar.scrolled .navbar-link:hover {
         padding: 12px 20px;
     }
 
-    .logo-text,
-    .logo-text .highlight,
-    .navbar-nav .nav-item .nav-link,
-    .btn-admin {
-        color: #f4f6f7 !important;
-        border-color: #f4f6f7 !important;
-    }
-
     .logo-text {
         font-size: 18px;
+        color: #f4f6f7 !important;
     }
 
     .logo-text .highlight {
         font-size: 20px;
         padding: 2px 6px;
+        color: #f4f6f7 !important;
     }
 
     .navbar-nav {
@@ -202,6 +198,9 @@ nav.navbar.scrolled .navbar-link:hover {
     .navbar-nav .nav-item .nav-link {
         width: 100%;
         padding: 10px 0;
+        color: #f4f6f7 !important;
+        border-color: #f4f6f7 !important;
+        position: relative;
     }
 
     .navbar-nav .nav-item .nav-link::after {
@@ -224,8 +223,13 @@ nav.navbar.scrolled .navbar-link:hover {
     .navbar-login-wrapper {
         margin-left: 0;
         margin-top: 16px;
-        justify-content: start;
+        justify-content: flex-start;
         width: 100%;
+    }
+
+    .btn-admin {
+        color: #f4f6f7 !important;
+        border-color: #f4f6f7 !important;
     }
 
     .btn-admin:hover {
@@ -242,25 +246,24 @@ nav.navbar.scrolled .navbar-link:hover {
     }
 
     nav.navbar.scrolled .logo-text,
+    nav.navbar.scrolled .logo-text .highlight,
     nav.navbar.scrolled .navbar-nav .nav-item .nav-link,
     nav.navbar.scrolled .btn-admin {
         color: #333333 !important;
     }
 
     nav.navbar.scrolled .navbar-nav .nav-item .nav-link::after {
-        background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.));
+        background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
     }
 
     nav.navbar.scrolled .navbar-nav .nav-item .nav-link:hover,
     nav.navbar.scrolled .navbar-nav .nav-item .nav-link.active {
-        color: #333 !important;
+        color: #333333 !important;
     }
 
     nav.navbar.scrolled .btn-admin:hover {
-        background-color: #333;
+        background-color: #333333;
         color: #f4f6f7;
-        border-color: #333;
+        border-color: #333333;
     }
-
-
 }

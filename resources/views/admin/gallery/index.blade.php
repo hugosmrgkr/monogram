@@ -8,22 +8,23 @@
 
             {{-- Tombol Kategori --}}
             <div class="mb-3 d-flex justify-content-start gap-3">
-                <div class="dropdown">
-                    <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownKategori" data-bs-toggle="dropdown" aria-expanded="false">
-                        Pilih Kategori
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownKategori">
-                        <li>
-                            <a href="{{ route('admin.gallery.index', ['kategori' => 'Semua']) }}" class="dropdown-item">Semua</a>
-                        </li>
-                        @foreach ($kategoriList as $kategoriItem)
-                            <li>
-                                <a href="{{ route('admin.gallery.index', ['kategori' => $kategoriItem]) }}" class="dropdown-item">{{ $kategoriItem }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+    <div class="dropdown custom-dropdown-bw">
+        <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownKategori" data-bs-toggle="dropdown" aria-expanded="false">
+            Pilih Kategori
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownKategori">
+            <li>
+                <a href="{{ route('admin.gallery.index', ['kategori' => 'Semua']) }}" class="dropdown-item">Semua</a>
+            </li>
+            @foreach ($kategoriList as $kategoriItem)
+                <li>
+                    <a href="{{ route('admin.gallery.index', ['kategori' => $kategoriItem]) }}" class="dropdown-item">{{ $kategoriItem }}</a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+
 
             <div class="mb-3 text-end">
                 <a href="{{ route('admin.gallery.create') }}" class="btn btn-dark">
