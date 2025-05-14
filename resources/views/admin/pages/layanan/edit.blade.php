@@ -20,11 +20,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="gambar">Gambar Layanan</label>
-                        <input type="file" class="form-control" id="gambar" name="gambar">
+                        <label>Gambar Saat Ini</label><br>
                         @if($layanan->gambar)
-                            <img src="{{ asset('storage/' . $layanan->gambar) }}" width="100">
+                            <img src="{{ asset('storage/'.$layanan->gambar) }}" width="150"><br><br>
+                        @else
+                            <span class="text-muted">Tidak ada gambar</span><br><br>
                         @endif
+                        <label>Ganti Gambar (Opsional)</label>
+                        <input type="file" name="gambar" class="form-control-file @error('gambar') is-invalid @enderror">
+                        @error('gambar')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                      <button type="submit" class="btn" style="background-color: black; color: white; border: none;">Simpan</button>

@@ -119,51 +119,51 @@ html, body {
       box-shadow: none;
       z-index: 1031; /* Higher than overlay */
     }
-    
+
     .sidebar.show-sidebar {
       left: 0;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
-    
+
     .main-panel {
       margin-left: 0;
       width: 100% !important;
     }
-    
+
     body.sidebar-icon-only .sidebar {
       left: -70px; /* Hide even when collapsed by default on mobile */
     }
-    
+
     body.sidebar-icon-only .sidebar.show-sidebar {
       left: 0;
       width: 260px !important; /* Always show full sidebar on mobile when toggled */
     }
-    
+
     body.sidebar-icon-only .main-panel {
       margin-left: 0;
       width: 100% !important;
     }
-    
+
     /* Added mobile toggle button styling */
     .navbar-toggler {
       display: block !important;
     }
-    
+
     /* Make sure sidebar items are clickable on mobile */
     .sidebar .nav-link {
       padding: 15px !important; /* Larger touch target */
     }
-    
+
     /* Always show menu titles on mobile */
     body.sidebar-icon-only .sidebar.show-sidebar .nav .nav-item .nav-link .menu-title {
       display: block !important;
     }
-    
+
     body.sidebar-icon-only .sidebar.show-sidebar .nav .nav-item .nav-link {
       text-align: left !important;
       justify-content: flex-start !important;
     }
-    
+
     body.sidebar-icon-only .sidebar.show-sidebar .nav .nav-item .nav-link i {
       margin-right: 15px !important;
     }
@@ -174,27 +174,27 @@ html, body {
     .navbar {
       padding: 0.5rem;
     }
-    
+
     .navbar-brand {
       font-size: 16px;
       max-width: 150px;
     }
-    
+
     .content-wrapper {
       padding: 15px 10px;
     }
-    
+
     /* Adjust tables for mobile */
     .table-responsive {
       border: none;
     }
-    
+
     /* Fix for potential padding issues */
     .row {
       margin-left: -5px;
       margin-right: -5px;
     }
-    
+
     .col, [class*="col-"] {
       padding-left: 5px;
       padding-right: 5px;
@@ -238,15 +238,12 @@ html, body {
   .show-sidebar-overlay .sidebar-overlay {
     display: block;
   }
-
   
-
-  /* Fix for form inputs on small screens */
   @media (max-width: 576px) {
     .form-control {
       font-size: 0.875rem;
     }
-    
+
     .btn {
       padding: 0.375rem 0.75rem;
     }
