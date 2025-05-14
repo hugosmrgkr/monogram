@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monogram Toba - @yield('title', 'Photography Studio')</title>
-    <link rel="icon" href="assets/images/logo-user.jpg" type="image/x-icon">
-
+    <link rel="icon" href="{{ asset('assets/images/logo-user.jpg') }}" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
@@ -23,7 +23,8 @@
 
     <!-- Navigation -->
     @unless(request()->routeIs('hasil'))
-        <nav class="navbar navbar-expand-lg navbar-light navbar-custom {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
+        <nav
+            class="navbar navbar-expand-lg navbar-light navbar-custom {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
             <div class="container d-flex justify-content-between">
                 {{-- Logo di kiri --}}
                 <a class="logo-text" href="{{ route('home') }}">
@@ -31,7 +32,8 @@
                 </a>
 
                 {{-- Toggler Button --}}
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -41,16 +43,20 @@
                     <div class="d-flex w-100 justify-content-center">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
+                                <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                                    href="{{ route('home') }}">Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link {{ request()->routeIs('tentang-kami') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a>
+                                <a class="nav-link navbar-link {{ request()->routeIs('tentang-kami') ? 'active' : '' }}"
+                                    href="{{ route('tentang-kami') }}">Tentang Kami</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>
+                                <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}"
+                                    href="{{ route('faq') }}">FAQs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
+                                <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}"
+                                    href="{{ route('service') }}">Pilihan Layanan</a>
                             </li>
                         </ul>
                     </div>
@@ -80,8 +86,7 @@
         class="d-flex align-items-center text-white text-decoration-none"
         style="position: fixed; bottom: 24px; left: 24px; z-index: 999; background-color: #25D366; width: 60px; height: 60px; border-radius: 30px; overflow: hidden; white-space: nowrap; padding-left: 20px; transition: all 0.3s ease;"
         onmouseover="this.style.width='180px'; this.children[1].style.opacity='1'; this.children[0].style.transform='scale(1.2)'"
-        onmouseout="this.style.width='60px'; this.children[1].style.opacity='0'; this.children[0].style.transform='scale(1)'"
-        >
+        onmouseout="this.style.width='60px'; this.children[1].style.opacity='0'; this.children[0].style.transform='scale(1)'">
         <i class="fab fa-whatsapp" style="font-size: 24px; transition: transform 0.3s ease;"></i>
         <span style="opacity: 0; margin-left: 10px; transition: opacity 0.3s ease;">Chat Kami</span>
     </a>
@@ -182,48 +187,48 @@
         });
 
     </script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const cards = document.querySelectorAll('.news-daily-card');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let currentIndex = 0;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.news-daily-card');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
 
-        function updateView(index) {
-            cards.forEach((card, i) => {
-                card.style.display = (i === index) ? 'flex' : 'none';
+            function updateView(index) {
+                cards.forEach((card, i) => {
+                    card.style.display = (i === index) ? 'flex' : 'none';
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateView(currentIndex);
+                }
             });
-        }
 
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateView(currentIndex);
-            }
-        });
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updateView(currentIndex);
+                }
+            });
 
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < cards.length - 1) {
-                currentIndex++;
-                updateView(currentIndex);
-            }
-        });
+            prevBtnMobile.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateView(currentIndex);
+                }
+            });
 
-        prevBtnMobile.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateView(currentIndex);
-            }
+            nextBtnMobile.addEventListener('click', () => {
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updateView(currentIndex);
+                }
+            });
         });
-
-        nextBtnMobile.addEventListener('click', () => {
-            if (currentIndex < cards.length - 1) {
-                currentIndex++;
-                updateView(currentIndex);
-            }
-        });
-    });
-</script>
+    </script>
 
 </body>
 

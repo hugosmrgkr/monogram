@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Foto Wisuda - Monogram Toba Studio')
+@section('title', 'Hasil - Monogram Toba Studio')
 
 @section('styles')
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Title & Description Section -->
-    <div class="text-center my-4">
+    <div class="text-center my-5">
         <h2 class="gallery-title">Galeri Foto {{ ucfirst($kategori) }}</h2>
         <p class="gallery-description">
             @switch($kategori)
@@ -54,18 +54,18 @@
     <!-- Gallery Section -->
     <div class="gallery-container">
         <!-- Card view -->
-        <div class="row justify-content-center my-4">
+        <div class="row justify-content-center my-4 g-4">
             @forelse($data as $item)
                 <div class="col-12 col-md-4 col-lg-3 mb-4">
                     <div class="card shadow-sm">
                         <img src="{{ asset('storage/' . $item->gambar) }}" class="card-img-top" alt="Foto {{ $kategori }}">
                         <div class="card-body">
-                            <p class="card-text text-center">{{ $loop->iteration }}</p>
+                            <p class="card-text text-center fw-medium">{{ $loop->iteration }}</p>
                         </div>
                     </div>
                 </div>
             @empty
-                <div class="no-photo text-center mt-5">
+                <div class="no-photo text-center">
                     <img src="{{ asset('img/empty-gallery.png') }}" alt="No photos" class="no-photo-img">
                     <p class="no-photo-text">Belum ada foto untuk kategori ini. Yuk jadi yang pertama!</p>
                 </div>
@@ -73,13 +73,13 @@
         </div>
 
         <!-- Gallery Footer -->
-        <div class="gallery-footer text-center mt-4">
+        <div class="gallery-footer text-center">
             "SIMPAN MOMENT {{ strtoupper($kategori) }} MU BERSAMA ORANG TERKASIH MELALUI LENSA MONOGRAM TOBA STUDIO"
         </div>
     </div>
 
     <!-- Back to Home Button -->
-    <div class="text-center mb-5 mt-4">
+    <div class="text-center mb-5 mt-5">
         <a href="{{ route('home') }}" class="btn btn-dark rounded-0 px-5 py-2">Kembali ke Beranda</a>
     </div>
 @endsection

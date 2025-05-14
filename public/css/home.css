@@ -46,41 +46,165 @@
     color: #f1f1f1;
 }
 
-/* Header Berita */
-.news-header {
-    text-align: center;
-    margin: 5rem 0 3rem;
+/* Tombol Navigasi - Desain monokrom dan elegan */
+.news-nav-btn {
+    background-color: #fff;
+    border: 2px solid #000;
+    font-size: 1.5rem;
+    color: #000;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 5;
     position: relative;
-    padding: 0 1.5rem;
+    overflow: hidden;
 }
 
+.news-nav-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: #000;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: -1;
+}
+
+.news-nav-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.8);
+    border-color: #000;
+}
+
+.news-nav-btn:hover::before {
+    width: 150%;
+    height: 150%;
+}
+
+.news-nav-btn:focus {
+    outline: none;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+}
+
+.news-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+/* Badge untuk indikator halaman - Desain monokrom yang elegan */
+.badge.bg-info {
+    background: #000 !important;
+    color: #fff;
+    padding: 8px 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 0;
+    display: inline-block;
+    margin-top: 1.8rem;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: none;
+}
+
+.badge.bg-info::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20px;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(35deg);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.badge.bg-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.badge.bg-info:hover::after {
+    left: 120%;
+}
+
+/* Animasi untuk elemen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: none;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: none;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    .news-inner {
+        padding: 2.5rem;
+    }
+
+    .news-content {
+        padding: 2rem 2.5rem;
+    }
+
+    .news-content h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Header Berita - Tema Hitam Putih yang Elegan */
+.news-header {
+    text-align: center;
+    margin: 6rem 0 4rem;
+    position: relative;
+    padding: 0 2rem;
+}
 
 .news-header h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 1.2rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
     color: #000;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
 .news-header h2::after {
     content: "";
     display: block;
-    width: 40%;
+    width: 35%;
     height: 4px;
-    background: #000;
-    margin: 15px auto 0;
+    background: linear-gradient(90deg, #000, #444);
+    margin: 12px auto 0;
     border-radius: 0;
-    transition: width 0.5s ease, background 0.3s ease;
+    transition: width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .news-header h2:hover::after {
-    width: 80%;
-    background: #333;
+    width: 70%;
 }
 
 .news-subtitle {
@@ -89,36 +213,56 @@
     color: #444;
     max-width: 700px;
     margin: 0 auto;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.7;
+    transition: transform 0.3s ease;
 }
 
-/* Wrapper Berita */
+.news-subtitle:hover {
+    transform: translateY(-3px);
+}
+
+/* Wrapper Berita - Dengan texture elegan */
 .news-wrapper {
     width: 100%;
-    padding: 4rem 0;
-    background: linear-gradient(to bottom, #f9f9f9, #e9e9e9);
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f2f2f2 0%, #e6e6e6 100%);
     display: flex;
     justify-content: center;
     position: relative;
     overflow: hidden;
 }
 
+.news-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
 .news-inner {
     width: 100%;
     max-width: 1200px;
     background-color: #fff;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
     padding: 3rem;
-    border: none;
-    border-radius: 3px;
+    border-radius: 0;
     position: relative;
     margin: 0 20px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border-top: 5px solid #000;
+    border-bottom: 5px solid #000;
+    overflow: hidden;
 }
 
-.news-inner:hover::after {
-    transform: scaleX(1);
+.news-inner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 /* Navigasi Utama Berita */
@@ -141,28 +285,29 @@
     gap: 1rem;
     position: relative;
     width: 100%;
-    perspective: 1000px;
+    perspective: 1200px;
 }
 
-/* Kartu Harian Berita */
+/* Kartu Harian Berita - Desain monokrom dengan detail menarik */
 .news-daily-card {
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
     margin-bottom: 2rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     width: 100%;
-    border: none;
+    border-radius: 0;
     position: relative;
     transform-style: preserve-3d;
-    border-radius: 2px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 .news-daily-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .news-daily-card::before {
@@ -170,27 +315,57 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 4px;
+    height: 0;
+    background: #000;
+    transition: height 0.5s ease;
+    z-index: 1;
+}
+
+.news-daily-card:hover::before {
+    height: 100%;
+}
+
+.news-daily-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 0;
+    background: #000;
+    transition: height 0.5s ease 0.2s;
+    z-index: 1;
+}
+
+.news-daily-card:hover::after {
+    height: 100%;
+}
+
+/* Gambar Berita - Efek monokrom yang dramatis */
+.news-img {
+    flex: 1 1 45%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.08);
+}
+
+.news-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0));
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
     z-index: 1;
     pointer-events: none;
 }
 
-.news-daily-card:hover::after {
-    width: 100%;
-}
-
-/* Gambar Berita */
-.news-img {
-    flex: 1 1 42%;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 5px 0 15px -5px rgba(0,0,0,0.1);
-}
-
-.news-daily-card:hover .news-img::after {
-    height: 100%;
+.news-daily-card:hover .news-img::before {
+    opacity: 1;
 }
 
 .news-img img {
@@ -199,18 +374,40 @@
     aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
-    transition: transform 0.7s ease, filter 0.7s ease;
-    filter: grayscale(40%) contrast(1.1);
+    transition: transform 0.8s ease, filter 0.8s ease;
+    filter: contrast(1.1);
 }
 
-/* Konten Berita */
+.news-daily-card:hover .news-img img {
+    transform: scale(1.05);
+    filter: contrast(1.2);
+}
+
+/* Konten Berita - Layout monokrom elegan */
 .news-content {
-    flex: 1 1 58%;
+    flex: 1 1 55%;
     padding: 2.5rem 3rem;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: #fff url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f5f5f5' fill-opacity='0.8' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='3' cy='17' r='1'/%3E%3Ccircle cx='17' cy='3' r='1'/%3E%3Ccircle cx='17' cy='17' r='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.news-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.2), transparent);
+    z-index: 0;
+    transition: width 0.5s ease;
+}
+
+.news-daily-card:hover .news-content::before {
+    width: 100%;
 }
 
 .news-content h3 {
@@ -219,10 +416,11 @@
     margin-bottom: 1.2rem;
     color: #000;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.4;
     position: relative;
     padding-bottom: 15px;
     letter-spacing: 0.5px;
+    z-index: 1;
 }
 
 .news-content h3::after {
@@ -230,69 +428,82 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px;
-    height: 2px;
-    background: #333;
-    transition: width 0.4s ease;
+    width: 40px;
+    height: 3px;
+    background: #000;
+    transition: width 0.4s ease, background 0.4s ease;
 }
 
 .news-daily-card:hover .news-content h3::after {
-    width: 100px;
+    width: 120px;
+    background: #000;
 }
 
 .news-content p {
     font-family: 'Raleway', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #444;
+    color: #333;
     margin-bottom: 1.4rem;
     font-weight: 400;
     position: relative;
+    z-index: 1;
 }
 
 .news-date {
     font-size: 0.95rem;
-    color: #666;
+    color: #555;
     font-style: italic;
     margin-top: 1.2rem;
     padding-top: 1rem;
-    border-top: 1px dashed #ddd;
+    border-top: 1px solid #ddd;
     position: relative;
     transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
 }
 
 .news-daily-card:hover .news-date {
-    color: #222;
+    color: #000;
 }
 
 .news-date::before {
     content: "📅";
     margin-right: 8px;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
-/* Pesan Tidak Ada Berita */
+/* Pesan Tidak Ada Berita - Desain monokrom yang elegan */
 .news-empty {
     text-align: center;
     font-style: italic;
     padding: 5rem 0;
-    color: #555;
+    color: #333;
     font-size: 1.2rem;
-    border: 2px dashed #ddd;
-    background: #fafafa;
+    border: 2px dashed #ccc;
+    background: linear-gradient(to bottom, #f8f8f8, #eee);
     width: 100%;
-    border-radius: 3px;
+    border-radius: 0;
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.news-empty:hover {
+    border-color: #000;
+    background: linear-gradient(to bottom, #f0f0f0, #e8e8e8);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .news-empty::before,
 .news-empty::after {
     content: "";
     position: absolute;
-    width: 30px;
+    width: 40px;
     height: 2px;
     background: #ccc;
     top: 50%;
+    transition: width 0.3s ease, background 0.3s ease;
 }
 
 .news-empty::before {
@@ -303,115 +514,15 @@
     right: 25%;
 }
 
-/* Tombol Navigasi */
-.news-nav-btn {
-    background-color: #fff;
-    border: 2px solid #000;
-    font-size: 1.8rem;
-    color: #000;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 5;
-    position: relative;
-    overflow: hidden;
-}
-
-.news-nav-btn::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
+.news-empty:hover::before,
+.news-empty:hover::after {
+    width: 60px;
     background: #000;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
-    z-index: -1;
-}
-
-.news-nav-btn:hover {
-    color: #fff;
-    transform: scale(1.15);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.news-nav-btn:hover::before {
-    width: 150%;
-    height: 150%;
-}
-
-.news-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2.5rem;
-}
-
-/* Badge untuk indikator halaman */
-.badge.bg-info {
-    background-color: #000 !important;
-    color: #fff;
-    padding: 8px 18px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    border-radius: 30px;
-    display: inline-block;
-    margin-top: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    font-weight: 500;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.badge.bg-info::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 20px;
-    height: 200%;
-    background: rgba(255,255,255,0.15);
-    transform: rotate(35deg);
-    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.badge.bg-info:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.badge.bg-info:hover::after {
-    left: 120%;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 992px) {
-    .news-inner {
-        padding: 2.5rem;
-    }
-
-    .news-content {
-        padding: 2rem 2.5rem;
-    }
-
-    .news-content h3 {
-        font-size: 1.6rem;
-    }
 }
 
 @media (max-width: 768px) {
     .news-header h2 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
 
     .news-inner {
@@ -430,7 +541,7 @@
     }
 
     .news-nav-btn {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         margin: 0.5rem 0;
         width: 50px;
         height: 50px;
@@ -443,10 +554,7 @@
     .news-img,
     .news-content {
         width: 100%;
-    }
-
-    .news-img::after {
-        display: none;
+        flex: none;
     }
 
     .news-content {
@@ -464,7 +572,7 @@
     }
 
     .news-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         letter-spacing: 1px;
     }
 
@@ -473,7 +581,7 @@
     }
 
     .news-wrapper {
-        padding: 2.5rem 0;
+        padding: 3rem 0;
     }
 
     .news-inner {
@@ -504,7 +612,8 @@
     .news-buttons {
         gap: 1.5rem;
     }
-}/* ======================= Product Carousel =========================== */
+}
+/* ======================= Product Carousel =========================== */
 
 .monogram-benefits {
     padding: 60px 0;

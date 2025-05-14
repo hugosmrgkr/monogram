@@ -57,6 +57,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="gallery-description my-5" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <p class="text-center gallery-text">
+                        Di Monogram Toba Studio, kami menciptakan ruang fotografi yang menggabungkan estetika modern dan kearifan lokal budaya Batak Toba. 
+                        Ruangan kami dirancang dengan pencahayaan alami dan buatan yang telah dioptimalkan untuk menghasilkan foto terbaik dalam berbagai kondisi. 
+                        Dengan latar dan properti yang dapat disesuaikan, setiap sudut studio menawarkan kemungkinan tidak terbatas untuk mengabadikan momen istimewa 
+                        Anda dengan sentuhan profesional yang khas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <div class="row g-4 mt-3">
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="gallery-item">
@@ -76,40 +90,45 @@
         </div>
     </div>
 
-    {{-- INFORMASI TOKO --}}
-    @forelse ($tentangKami as $about)
-        @if (!empty($about->jam_buka_hari_biasa) || !empty($about->jam_buka_akhir_pekan))
-            <div class="informasi-toko container my-5" data-aos="fade-up" data-aos-duration="1200">
-                <h3 class="section-title text-center mb-4">Jam Operasional</h3>
-                <p class="section-desc text-center mb-4">Kami siap melayani Anda setiap hari...</p>
-                <div class="table-responsive" data-aos="zoom-in" data-aos-delay="100">
-                    <table class="table-jam table table-bordered text-center">
-                        <thead>
+   {{-- INFORMASI TOKO --}}
+@forelse ($tentangKami as $about)
+    @if (!empty($about->jam_buka_hari_biasa) || !empty($about->jam_buka_akhir_pekan))
+        <div class="informasi-toko container my-5" data-aos="fade-up" data-aos-duration="1200">
+            <h3 class="section-title text-center mb-4">Jam Operasional</h3>
+            <p class="section-desc text-center mb-4">Kami siap melayani Anda setiap hari...</p>
+            <div class="table-responsive" data-aos="zoom-in" data-aos-delay="100">
+                <table class="table-jam table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                            <th>Jam Buka</th>
+                            <th>Jam Tutup</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!empty($about->jam_buka_hari_biasa) && !empty($about->jam_tutup_hari_biasa))
                             <tr>
-                                <th>Hari</th>
-                                <th>Jam Buka</th>
-                                <th>Jam Tutup</th>
+                                <td>Senin - Sabtu</td>
+                                <td>{{ \Carbon\Carbon::parse($about->jam_buka_hari_biasa)->format('H:i') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($about->jam_tutup_hari_biasa)->format('H:i') }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @if (!empty($about->jam_buka_hari_biasa) && !empty($about->jam_tutup_hari_biasa))
-                                <tr>
-                                    <td>Senin - Sabtu</td>
-                                    <td>{{ \Carbon\Carbon::parse($about->jam_buka_hari_biasa)->format('H:i') }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($about->jam_tutup_hari_biasa)->format('H:i') }}</td>
-                                </tr>
-                            @endif
-                            @if (!empty($about->jam_buka_akhir_pekan) && !empty($about->jam_tutup_akhir_pekan))
-                                <tr>
-                                    <td>Minggu</td>
-                                    <td>{{ \Carbon\Carbon::parse($about->jam_buka_akhir_pekan)->format('H:i') }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($about->jam_tutup_akhir_pekan)->format('H:i') }}</td>
-                                </tr>
-                            @endif
-                        </tbody>
-                    </table>
-                </div>
-
+                        @endif
+                        {{-- Menambahkan informasi hari Rabu tutup --}}
+                        <tr>
+                            <td>Rabu</td>
+                            <td>Tutup</td>
+                            <td>Tutup</td>
+                        </tr>
+                        @if (!empty($about->jam_buka_akhir_pekan) && !empty($about->jam_tutup_akhir_pekan))
+                            <tr>
+                                <td>Minggu</td>
+                                <td>{{ \Carbon\Carbon::parse($about->jam_buka_akhir_pekan)->format('H:i') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($about->jam_tutup_akhir_pekan)->format('H:i') }}</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
+            </div>
                 <div class="hubungi-kami mt-5 text-center" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="section-title mb-3">Hubungi Kami</h3>
                     <p class="section-text">+62 82268691532</p>
