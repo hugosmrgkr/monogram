@@ -1,36 +1,47 @@
 @extends('admin.layouts.master')
 
 @section('content')
-<div class="container-fluid">
-    <div class="card shadow rounded-4 mt-4">
-        <div class="card-body">
-            <h2 class="text-center fw-bold mb-4">{{ $title }}</h2>
-
-            {{-- Tombol Kategori --}}
-            <div class="mb-3 d-flex justify-content-start gap-3">
-    <div class="dropdown custom-dropdown-bw">
-        <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownKategori" data-bs-toggle="dropdown" aria-expanded="false">
-            Pilih Kategori
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownKategori">
-            <li>
-                <a href="{{ route('admin.gallery.index', ['kategori' => 'Semua']) }}" class="dropdown-item">Semua</a>
-            </li>
-            @foreach ($kategoriList as $kategoriItem)
-                <li>
-                    <a href="{{ route('admin.gallery.index', ['kategori' => $kategoriItem]) }}" class="dropdown-item">{{ $kategoriItem }}</a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-</div>
-
-
+    <div class="container-fluid">
+        <div class="card shadow rounded-4 mt-4">
+            <div class="card-body">
+                <h2 class="text-center fw-bold mb-4">{{ $title }}</h2>
+                {{-- Tombol Kategori --}}
+                <div class="mb-3 d-flex justify-content-start gap-3">
+                <div class="dropdown custom-dropdown-bw">
+                    <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownKategori" data-bs-toggle="dropdown" aria-expanded="false">
+                        Pilih Kategori
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownKategori">
+                        <li>
+                            <a href="{{ route('admin.gallery.index', ['kategori' => 'Semua']) }}" class="dropdown-item">Semua</a>
+                        </li>
+                        @foreach ($kategoriList as $kategoriItem)
+                            <li>
+                                <a href="{{ route('admin.gallery.index', ['kategori' => $kategoriItem]) }}" class="dropdown-item">{{ $kategoriItem }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
             <div class="mb-3 text-end">
                 <a href="{{ route('admin.gallery.create') }}" class="btn btn-dark">
                     <i class="fa fa-plus-circle me-1"></i> Tambah galeri
-    </a>
-</div>
+                </a>
+            </div>
+            @if(session('success'))
+                <div id="success-alert" class="alert alert-success text-center mb-3" role="alert">
+                    {{ session('success') }}
+                </div>
+                <script>
+                    // Menyembunyikan alert setelah 3 detik
+                    setTimeout(function() {
+                        var successAlert = document.getElementById('success-alert');
+                        if (successAlert) {
+                            successAlert.style.display = 'none';
+                        }
+                    }, 3000); // 3000ms = 3 detik
+                </script>
+            @endif
 
             {{-- Tampilkan pesan jika tidak ada gambar --}}
             @if ($galleries->isEmpty())

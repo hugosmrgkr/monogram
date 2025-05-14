@@ -7,13 +7,19 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 @endsection
 @section('content')
-<div class="service-hero" data-aos="fade-in" data-aos-duration="1200">
+
+<section class="service-hero" data-aos="fade-down" data-aos-duration="1200">
     <div class="service-overlay"></div>
     <div class="service-text-container">
-        <h1 class="service-title" data-aos="fade-up" data-aos-delay="300">Layanan Monogram</h1>
-        <p data-aos="fade-up" data-aos-delay="500">Subheading with description of your shopping site</p>
+        <h1 data-aos="fade-up" data-aos-delay="300">
+            Layanan >Monogram_
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="500">
+            Temukan berbagai layanan fotografi profesional yang kami tawarkan untuk momen terbaik Anda.
+        </p>
     </div>
-</div>
+</section>
+
 <div class="service-section" data-aos="fade-up" data-aos-duration="800" data-aos-offset="200">
     <div class="service-card" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
         <img class="service-image" src="/assets/images/keuntungan2.png" alt="Studio Monogram" />
@@ -28,6 +34,7 @@
         </div>
     </div>
 </div>
+
 <section class="additional-section">
     <div class="additional-container">
         <h2 class="section-title" data-aos="fade-up" data-aos-offset="200">Additional</h2>
@@ -55,7 +62,7 @@
             <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Kenapa Cetak Foto Masih Penting?</h2>
             <p class="importance-text" data-aos="fade-up" data-aos-delay="400">
                 Di era serba digital, foto seringkali hanya disimpan di ponsel atau cloud — dan bisa hilang kapan saja.
-                Mencetak foto adalah cara menjaga kenangan tetap nyata. 
+                Mencetak foto adalah cara menjaga kenangan tetap nyata.
                 <strong>Foto cetak bisa dipajang, disimpan, atau diwariskan</strong> ke generasi berikutnya.
             </p>
             <p class="importance-text" data-aos="fade-up" data-aos-delay="600">

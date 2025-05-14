@@ -9,12 +9,14 @@
 @endsection
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="hero-section" data-aos="fade" data-aos-duration="1000">
-        <div class="hero-overlay"></div>
-        <div class="hero-text">
-            <h1 class="display-3 fw-bold" data-aos="fade-up" data-aos-delay="300">&gt;monogram_ FAQ</h1>
-            <p class="lead" data-aos="fade-up" data-aos-delay="500">
+    <!-- FAQ Hero Section -->
+    <section class="faq-hero-section" data-aos="fade-down" data-aos-duration="1200">
+        <div class="faq-hero-overlay"></div>
+        <div class="faq-hero-text">
+            <h1 class="display-4 fw-bold" data-aos="fade-up" data-aos-delay="300">
+                &gt;MONOGRAM_ FAQ
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="600">
                 Temukan jawaban atas pertanyaan-pertanyaan umum seputar layanan Monogram Studio Balige.<br>
                 Jika masih ada yang belum jelas, jangan ragu untuk menghubungi kami.
             </p>

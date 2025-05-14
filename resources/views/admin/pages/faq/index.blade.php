@@ -11,6 +11,20 @@
                         <i class="fa fa-plus-circle me-2"></i>Tambah FAQ
                     </a>
                 </div>
+                @if(session('success'))
+                    <div id="success-alert" class="alert alert-success text-center mb-3" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    <script>
+                        // Menyembunyikan alert setelah 3 detik
+                        setTimeout(function() {
+                            var successAlert = document.getElementById('success-alert');
+                            if (successAlert) {
+                                successAlert.style.display = 'none';
+                            }
+                        }, 3000); // 3000ms = 3 detik
+                    </script>
+                @endif
 
                 @if ($faqs->isEmpty())
                     <div class="alert alert-info text-center mb-3" role="alert">

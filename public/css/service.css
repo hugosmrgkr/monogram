@@ -1,51 +1,52 @@
-/* service.css - Modern Black & White Theme */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Raleway:wght@700&display=swap');
 
-:root {
-  --primary-black: #121212;
-  --dark-gray: #1e1e1e;
-  --medium-gray: #333333;
-  --light-gray: #888888;
-  --lighter-gray: #cccccc;
-  --off-white: #f5f5f5;
-  --pure-white: #ffffff;
-  --accent-gray: #444444;
-  --transition-default: all 0.3s ease;
-  --box-shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--off-white);
-  color: var(--primary-black);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* Hero Section with Modern Styling */
 .service-hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url('../assets/images/layanan.jpg') center center / cover no-repeat;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/images/layanan.jpg') center center / cover no-repeat;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 .service-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
-  backdrop-filter: blur(2px);
-  z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
+
+.service-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 90%;
+    max-width: 700px;
+    padding: 0 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+.service-text-container h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.service-text-container p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #f1f1f1;
+}
+
 
 .service-text-container {
   position: absolute;
@@ -89,15 +90,13 @@ body {
   opacity: 0.9;
 }
 
-/* Service Section with Elegant Design */
 .service-section {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding: 80px 40px;
+  padding: 80px 20px;
   background: var(--pure-white);
   position: relative;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -108,7 +107,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(to right, var(--lighter-gray) 1px, transparent 1px),
     linear-gradient(to bottom, var(--lighter-gray) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -116,21 +115,21 @@ body {
 }
 
 .service-card {
-    display: flex;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 30px;
-    width: 90vw; /* Hampir full screen */
-    max-width: 1200px; /* Batas maksimum agar tetap rapi di layar besar */
-    align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 1100px;
+  width: 100%;
+  gap: 30px;
+  align-items: center;
 }
 
 .service-image {
-  width: 450px;
-  height: auto;
-  margin-right: 60px;
-  margin-left: 20px;
+  width: 100%;
+  max-width: 450px;
   border-radius: 8px;
   box-shadow: var(--box-shadow-soft);
   transition: var(--transition-default);
@@ -142,6 +141,7 @@ body {
 }
 
 .service-info {
+  flex: 1;
   max-width: 500px;
 }
 
@@ -339,7 +339,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(to right, var(--lighter-gray) 1px, transparent 1px),
     linear-gradient(to bottom, var(--lighter-gray) 1px, transparent 1px);
   background-size: 20px 20px;
@@ -409,16 +409,23 @@ body {
 
 @media (max-width: 768px) {
   .service-hero {
-    height: 70vh;
+    height: 60vh;
   }
 
-  .section-title {
-    font-size: 1.75rem;
-  }
 
-  .service-title {
-    font-size: clamp(2rem, 6vw, 2.5rem);
-  }
+    .service-text-container {
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+
+    .service-text-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .service-text-container p {
+        font-size: 1.1rem;
+    }
 
   .service-image {
     max-width: 450px;
@@ -442,9 +449,17 @@ body {
 }
 
 @media (max-width: 480px) {
-  .service-hero {
-    height: 60vh;
-  }
+    .service-hero {
+        height: 50vh;
+    }
+
+    .service-text-container h1 {
+        font-size: 2rem;
+    }
+
+    .service-text-container p {
+        font-size: 1rem;
+    }
 
   .service-section {
     padding: 50px 20px;
@@ -482,4 +497,4 @@ body {
   .importance-text {
     font-size: 1rem;
   }
-}   
+}

@@ -13,7 +13,7 @@
     <section class="hero-section" data-aos="fade-down" data-aos-duration="1200">
         <div class="hero-overlay"></div>
         <div class="hero-text">
-            <h1 style="font-family: 'Open Sans', sans-serif; text-transform: uppercase; color: white; margin: 0;" data-aos="fade-up" data-aos-delay="300">>monogram_</h1>
+            <h1 data-aos="fade-up" data-aos-delay="300">>monogram_</h1>
             <p data-aos="fade-up" data-aos-delay="600">
                 Selamat datang di website resmi Monogram Studio Balige.<br>
                 Kami menyediakan layanan fotografi profesional dengan kualitas terbaik dan pengalaman tak terlupakan.
@@ -205,7 +205,7 @@
                 offset: 100, // offset (in px) from the original trigger point
                 easing: 'ease-in-out',
             });
-            
+
             // Refresh AOS on window resize
             $(window).on('resize', function() {
                 AOS.refresh();
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                     `);
-                    
+
                     $('#feedbackWrapper').prepend(newComment);
                     // Refresh AOS to apply to the new element
                     AOS.refresh();
