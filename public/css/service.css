@@ -115,6 +115,17 @@ body {
   opacity: 0.05;
 }
 
+.service-card {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 90vw; /* Hampir full screen */
+    max-width: 1200px; /* Batas maksimum agar tetap rapi di layar besar */
+    align-items: flex-start;
+}
+
 .service-image {
   width: 450px;
   height: auto;

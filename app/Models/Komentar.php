@@ -9,20 +9,30 @@ class Komentar extends Model
 {
     use HasFactory;
 
-    // Nama tabel yang digunakan oleh model ini
+    // Nama tabel
     protected $table = 'komentars';
 
-    // Kolom yang boleh diisi secara massal
-    protected $fillable = ['nama', 'komentar', 'status', 'is_approve'];
+    // Kolom yang dapat diisi
+    protected $fillable = ['nama', 'komentar', 'status', 'is_approve', 'admin_id'];
 
-    // Casting untuk memastikan nilai boolean diproses dengan benar
+    // Casting tipe data
     protected $casts = [
         'is_approve' => 'boolean',
     ];
 
-    // Scope untuk hanya mengambil komentar yang disetujui
+    /**
+     * Scope untuk hanya komentar yang sudah disetujui
+     */
     public function scopeApproved($query)
     {
         return $query->where('is_approve', true);
+    }
+
+    /**
+     * Relasi: Komentar dimiliki oleh Admin
+     */
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'admin_id');
     }
 }

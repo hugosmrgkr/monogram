@@ -26,17 +26,14 @@ Route::post('/komentar', [KomentarController::class, 'store'])->name('komentar.s
 Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil');
 
 // ==========================
-// Rute Login Admin dengan Secret URL
+// Rute Login Admin (Tanpa Secret Code)
 // ==========================
-Route::get('/admin-access/{secret}', function ($secret) {
-    if ($secret !== env('ADMIN_SECRET_CODE')) {
-        abort(404);
-    }
+Route::get('/admin/login', function () {
     return view('auth.login');
 })->middleware(PreventBackHistory::class)->name('admin.login');
 
 // Proses login admin
-Route::post('/admin-access/{secret}', [AdminLoginController::class, 'login'])
+Route::post('/admin/login', [AdminLoginController::class, 'login'])
     ->middleware(PreventBackHistory::class)->name('admin.login.submit');
 
 // ==========================
@@ -51,7 +48,7 @@ Route::prefix('admin')->middleware([AdminMiddleware::class, PreventBackHistory::
     Route::resource('layanan', LayananController::class);
     Route::resource('faq', FaqController::class);
 
-    // Rute untuk Komenta-
+    // Rute untuk Komentar
     Route::prefix('komentar')->name('komentar.')->group(function () {
         Route::get('/', [KomentarController::class, 'index'])->name('index');
         Route::post('/{id}/toggle', [KomentarController::class, 'toggle'])->name('toggle');

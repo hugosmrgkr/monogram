@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('pertanyaan');
             $table->text('jawaban');
+
+            // Ganti foreign key menjadi manual agar cocok dengan kolom `admin_id` di tabel admins
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

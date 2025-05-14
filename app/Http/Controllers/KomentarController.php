@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Komentar;  // Ubah dari 'Ulasan' menjadi 'Komentar'
+use App\Models\Komentar;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class KomentarController extends Controller
 {
@@ -40,10 +41,10 @@ class KomentarController extends Controller
     // Toggle status komentar (tampilkan/sembunyikan)
     public function toggle($id)
     {
-        $komentar = Komentar::findOrFail($id);  // Ubah 'Ulasan' menjadi 'Komentar'
-        $komentar->is_approve = !$komentar->is_approve;  // Ubah 'is_approved' menjadi 'is_approve'
+        $komentar = Komentar::findOrFail($id);
+        $komentar->is_approve = !$komentar->is_approve;
+        $komentar->admin_id = Auth::guard('admin')->id();
         $komentar->save();
-
-        return redirect()->route('admin.komentar.index')->with('success', 'Status komentar berhasil diperbarui.');  // Ubah 'ulasan' menjadi 'komentar'
+        return redirect()->route('admin.komentar.index')->with('success', 'Status komentar berhasil diperbarui.');
     }
 }
