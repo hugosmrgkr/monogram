@@ -24,51 +24,50 @@
     <!-- Navigation -->
     @unless(request()->routeIs('hasil'))
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
-    <div class="container d-flex justify-content-between">
-        {{-- Logo di kiri --}}
-        <a class="logo-text" href="{{ route('home') }}">
-            <span class="highlight">>MONOGRAM_</span>
-        </a>
+            <div class="container d-flex justify-content-between">
+                {{-- Logo di kiri --}}
+                <a class="logo-text" href="{{ route('home') }}">
+                    <span class="highlight">>MONOGRAM_</span>
+                </a>
 
-        {{-- Toggler Button --}}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                {{-- Toggler Button --}}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        {{-- Konten navbar --}}
-        <div class="collapse navbar-collapse" id="navbarNav">
-            {{-- Tengah --}}
-            <div class="d-flex w-100 justify-content-center">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
-                    </li>
-                </ul>
+                {{-- Konten navbar --}}
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    {{-- Tengah --}}
+                    <div class="d-flex w-100 justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link {{ request()->routeIs('tentang-kami') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Pilihan Layanan</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {{-- Icon admin login di kanan --}}
+                    <div class="d-flex ms-auto">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link" href="{{ route('admin.login') }}" style="color:white;">
+                                    <i class="bi bi-person-gear" style="font-size: 1.5rem;"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            {{-- Icon admin login di kanan --}}
-            <div class="d-flex ms-auto">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="d-flex align-items-center" href="{{ url('/admin-access/' . env('ADMIN_SECRET_CODE')) }}" style="color:white;">
-                            <i class="bi bi-person-gear" style="font-size: 1.5rem;"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
+        </nav>
     @endunless
 
     <!-- Main Content -->
@@ -101,7 +100,7 @@
                 navbar.classList.remove('scrolled');
             }
         });
-    </script>   
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const carouselTrack = document.getElementById('carousel-track');

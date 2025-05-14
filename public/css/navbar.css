@@ -79,7 +79,7 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     transition: color 0.3s;
     color: white;
     position: relative;
-    z-index: 10; 
+    z-index: 10;
 }
 
 .logo-text .highlight {
@@ -94,7 +94,6 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     color: white;
 }
 
-/* Saat navbar discroll, ubah warna teks logo jadi hitam */
 nav.navbar.scrolled .logo-text {
     color: #393838;
 }
@@ -102,8 +101,6 @@ nav.navbar.scrolled .logo-text {
 nav.navbar.scrolled .logo-text .highlight {
     color: #393838;
 }
-
-
 
 /* ===== Navbar Links ===== */
 .navbar-nav {

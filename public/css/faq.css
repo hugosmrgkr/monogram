@@ -1,38 +1,48 @@
-/* ===== Hero Section Full Screen ===== */
-.hero-section {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Raleway:wght@700&display=swap');
+
+.faq-hero-section {
     position: relative;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background: url('../assets/images/.jpeg') center center/cover no-repeat;
+    background: url('../assets/images/.jpeg') center center / cover no-repeat;
     overflow: hidden;
-  }
+    font-family: 'Poppins', sans-serif;
+}
 
-  .hero-overlay {
+.faq-hero-overlay {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(3px);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
-  }
+}
 
-  .hero-text {
+.faq-hero-text {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    width: 90vw;
-    max-width: 700px;
+    width: 90%; max-width: 700px;
     padding: 0 1rem;
     text-align: center;
     color: #fff;
-  }
+}
 
-  body {
-    margin: 0;
-    padding: 0;
-  }
+.faq-hero-text h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.faq-hero-text p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #f1f1f1;
+}
 
 /* FAQ section background and spacing */
 .faq-section {
@@ -96,17 +106,42 @@
     overflow: hidden;
 }
 
+/* Responsive */
+@media (max-width: 1024px) {
+    .faq-hero-section {
+        height: 80vh;
+    }
+}
+
 @media (max-width: 768px) {
-    .hero-text h1 {
-        font-size: 2rem;
+    .faq-hero-section {
+        height: 60vh;
     }
 
-    .hero-section {
+    .faq-hero-text {
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .faq-hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .faq-hero-text p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-hero-section {
         height: 50vh;
     }
 
-    .faq-section {
-        padding-top: 70px;
-        padding-bottom: 70px;
+    .faq-hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .faq-hero-text p {
+        font-size: 1rem;
     }
 }

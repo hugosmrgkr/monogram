@@ -1,30 +1,47 @@
-/* HERO SECTION KHUSUS ABOUT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Raleway:wght@700&display=swap');
+
 .about-hero-section {
     position: relative;
     width: 100%;
     height: 100vh;
     background: url('../assets/images/about.png') center center / cover no-repeat;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 .about-hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
 .about-hero-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    width: 90%;
-    max-width: 700px;
+    width: 90%; max-width: 700px;
     padding: 0 1rem;
     text-align: center;
     color: #fff;
+}
+
+.about-hero-text h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.about-hero-text p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #f1f1f1;
 }
 
 /* DESKRIPSI STUDIO */
@@ -64,6 +81,20 @@
 }
 
 /* GALERI STUDIO */
+.studio-gallery .foot-gallery .gallery-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.studio-gallery .foot-gallery .gallery-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
 .studio-gallery .gallery-item img {
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
