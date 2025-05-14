@@ -2,52 +2,45 @@
 
 @section('content')
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card" style="border: none; border-radius: 0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); background-color: #ffffff;">
-            <div class="card-body" style="padding: 2.5rem;">
-                <h2 class="font-weight-bold text-center text-dark" style="letter-spacing: -0.5px;">Daftar Komentar</h2>
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h2 class="text-center text-dark font-weight-bold mb-4" style="letter-spacing: -0.5px;">Daftar Komentar</h2>
 
                 {{-- Notifikasi --}}
                 @if(session('success'))
-                    <div class="alert alert-success" style="background-color: #28a745; color: white;">
+                    <div class="alert alert-success">
                         <i class="fa fa-check-circle me-2"></i>{{ session('success') }}
                     </div>
                 @elseif(session('error'))
-                    <div class="alert alert-danger" style="background-color: #dc3545; color: white;">
+                    <div class="alert alert-danger">
                         <i class="fa fa-times-circle me-2"></i>{{ session('error') }}
                     </div>
                 @endif
 
-                <div class="table-responsive mt-4">
-                    <table class="table table-bordered" style="width: 100%; border-collapse: separate; border-spacing: 0;">
-                        <thead class="bg-dark text-white">
-                            <tr style="text-transform: uppercase; letter-spacing: 1px;">
-                                <th class="text-center" style="padding: 16px; font-weight: 600; font-size: 14px;">Nama</th>
-                                <th class="text-center" style="padding: 16px; font-weight: 600; font-size: 14px;">Komentar</th>
-                                <th class="text-center" style="padding: 16px; font-weight: 600; font-size: 14px;">Status</th>
-                                <th class="text-center" style="padding: 16px; font-weight: 600; font-size: 14px;">Aksi</th>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th class="text-uppercase text-white" style="font-size: 14px; letter-spacing: 1px;">Nama</th>
+                                <th class="text-uppercase text-white" style="font-size: 14px; letter-spacing: 1px;">Komentar</th>
+                                <th class="text-uppercase text-white" style="font-size: 14px; letter-spacing: 1px;">Status</th>
+                                <th class="text-uppercase text-white" style="font-size: 14px; letter-spacing: 1px;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($komentars as $komentar)
-                                <tr style="transition: all 0.2s ease; border-bottom: 1px solid #f0f0f0;">
-                                    <td class="text-center" style="padding: 18px 16px; vertical-align: middle;">
-                                        {{ $komentar->nama ?? 'Anonim' }}
-                                    </td>
-                                    <td class="text-center" style="padding: 18px 16px; vertical-align: middle;">
-                                        {{ $komentar->komentar }}
-                                    </td>
-                                    <td class="text-center" style="padding: 18px 16px; vertical-align: middle;">
-                                        <span class="badge
-                                            {{ $komentar->is_approve ? 'bg-success' : 'bg-danger' }} text-uppercase">
+                                <tr>
+                                    <td class="text-center">{{ $komentar->nama ?? 'Anonim' }}</td>
+                                    <td class="text-center">{{ $komentar->komentar }}</td>
+                                    <td class="text-center">
+                                        <span class="badge {{ $komentar->is_approve ? 'bg-success' : 'bg-danger' }} text-uppercase">
                                             {{ $komentar->is_approve ? 'Tampil' : 'Disembunyikan' }}
                                         </span>
                                     </td>
-                                    <td class="text-center" style="padding: 18px 16px; vertical-align: middle;">
+                                    <td class="text-center">
                                         <form action="{{ route('admin.komentar.toggle', $komentar->id) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn
-                                                {{ $komentar->is_approve ? 'btn-outline-danger' : 'btn-outline-success' }}
-                                                btn-sm" style="transition: all 0.3s ease;">
+                                            <button type="submit" class="btn {{ $komentar->is_approve ? 'btn-outline-danger' : 'btn-outline-success' }} btn-sm">
                                                 <i class="fa {{ $komentar->is_approve ? 'fa-eye-slash' : 'fa-eye' }} me-1"></i>
                                                 {{ $komentar->is_approve ? 'Sembunyikan' : 'Tampilkan' }}
                                             </button>
@@ -68,11 +61,13 @@
             </div>
         </div>
     </div>
+@endsection
 
-    <script>
+@section('script')
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         // Hover effect pada baris tabel
-        document.querySelectorAll('.table tr').forEach(row => {
+        document.querySelectorAll('tbody tr').forEach(row => {
             row.addEventListener('mouseenter', function() {
                 this.style.backgroundColor = '#f8f9fa';
             });
@@ -81,6 +76,21 @@
                 this.style.backgroundColor = '';
             });
         });
+
+        // Hover effects untuk tombol
+        document.querySelectorAll('.btn-outline-success, .btn-outline-danger').forEach(button => {
+            const originalColor = button.classList.contains('btn-outline-success') ? '#198754' : '#dc3545';
+
+            button.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = originalColor;
+                this.style.color = '#ffffff';
+            });
+
+            button.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+                this.style.color = originalColor;
+            });
+        });
     });
-    </script>
+</script>
 @endsection

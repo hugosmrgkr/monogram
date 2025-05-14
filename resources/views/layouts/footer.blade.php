@@ -3,10 +3,13 @@
         <div class="row">
             <div class="col-md-3">
                 <h5 class="footer-title">Monogram Toba</h5>
-                <p>Studio fotografi profesional di Balige sejak 17 Agustus 2022. Menyediakan layanan dokumentasi momen spesial seperti wisuda, prewedding, pernikahan, keluarga, dan lainnya.</p>
+                <p>Studio fotografi profesional di Balige sejak 17 Agustus 2022. Menyediakan layanan dokumentasi momen
+                    spesial seperti wisuda, prewedding, pernikahan, keluarga, dan lainnya.</p>
                 <!-- Lokasi Google Maps -->
                 <div class="google-maps">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.579601644355!2d98.98105411643752!3d2.3945973539259866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3131eaa0c1a132d1%3A0x87229c590207c674!2s83J8%2BPQ6%2C%20Lumban%20Dolok%20Haume%20Bange%2C%20Balige%2C%20Toba%2C%20Sumatera%20Utara!5e0!3m2!1sen!2sid!4v1678444263577!5m2!1sen!2sid" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.579601644355!2d98.98105411643752!3d2.3945973539259866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3131eaa0c1a132d1%3A0x87229c590207c674!2s83J8%2BPQ6%2C%20Lumban%20Dolok%20Haume%20Bange%2C%20Balige%2C%20Toba%2C%20Sumatera%20Utara!5e0!3m2!1sen!2sid!4v1678444263577!5m2!1sen!2sid"
+                        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
@@ -15,10 +18,6 @@
                 <p>📍 83J8+PQ6, Lumban Dolok Haume Bange, Kec. Balige, Toba, Sumatera Utara</p>
                 <p>📞 +62 82268691532</p>
                 <p>✉️ jeremysmrngkr@gmail.com</p>
-                <div class="social-icons">
-                    <i class="bi bi-instagram"></i>
-                    <i class="bi bi-whatsapp"></i>
-                </div>
             </div>
 
             <div class="col-md-3">
