@@ -8,80 +8,112 @@
 @endsection
 @section('content')
 
-<section class="service-hero" data-aos="fade-down" data-aos-duration="1200">
-    <div class="service-overlay"></div>
-    <div class="service-text-container">
-        <h1 data-aos="fade-up" data-aos-delay="300">
-            Layanan >Monogram_
-        </h1>
-        <p data-aos="fade-up" data-aos-delay="500">
-            Temukan berbagai layanan fotografi profesional yang kami tawarkan untuk momen terbaik Anda.
-        </p>
-    </div>
-</section>
-
-<div class="service-section" data-aos="fade-up" data-aos-duration="800" data-aos-offset="200">
-    <div class="service-card" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
-        <img class="service-image" src="/assets/images/keuntungan2.png" alt="Studio Monogram" />
-        <div class="service-info">
-            <div class="service-description" data-aos="fade-right" data-aos-delay="600">
-                15 minutes photoshoot<br>
-                - 2 people<br>
-                - 2 photo printing (3R)<br>
-                - all soft files (Google Drive link expires in 7 days)
-            </div>
-            <div class="service-price" data-aos="fade-left" data-aos-delay="800">75K</div>
+    <section class="service-hero" data-aos="fade-down" data-aos-duration="1200">
+        <div class="service-overlay"></div>
+        <div class="service-text-container">
+            <h1 data-aos="fade-up" data-aos-delay="300">
+                Layanan >Monogram_
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="500">
+                Temukan berbagai layanan fotografi profesional yang kami tawarkan untuk momen terbaik Anda.
+            </p>
         </div>
-    </div>
-</div>
+    </section>
 
-<section class="additional-section">
-    <div class="additional-container">
-        <h2 class="section-title" data-aos="fade-up" data-aos-offset="200">Additional</h2>
-        <div class="layanan-wrapper">
-            @forelse($layanans as $layanan)
-                <div class="layanan-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $loop->index * 100 }}">
-                    <div class="layanan-card-inner">
-                        @if($layanan->gambar)
-                            <img src="{{ asset('storage/' . $layanan->gambar) }}" alt="{{ $layanan->judul }}" class="layanan-img">
-                        @else
-                            <div class="layanan-img-placeholder"></div>
-                        @endif
-                        <h3 class="layanan-title">{{ $layanan->judul }}</h3>
-                        <p class="layanan-desc">{{ $layanan->keterangan }}</p>
-                    </div>
+    <div class="service-section" data-aos="fade-up" data-aos-duration="800" data-aos-offset="200">
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+            <img class="service-image" src="/assets/images/keuntungan2.png" alt="Studio Monogram" />
+            <div class="service-info">
+                <div class="service-description" data-aos="fade-right" data-aos-delay="600">
+                    15 minutes photoshoot<br>
+                    - 2 people<br>
+                    - 2 photo printing (3R)<br>
+                    - all soft files (Google Drive link expires in 7 days)
                 </div>
-            @empty
-                <p class="no-layanan-msg" data-aos="fade-in">Belum ada layanan tersedia saat ini.</p>
-            @endforelse
+                <div class="service-price" data-aos="fade-left" data-aos-delay="800">75K</div>
+            </div>
         </div>
-        <div class="booking-btn-container" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000">
-            <a href="https://monogram.youcanbook.me/" target="_blank" class="booking-btn">Book now</a>
+    </div>
+
+    <section class="additional-section">
+        <div class="additional-container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-offset="200">Additional</h2>
+            <div class="layanan-wrapper">
+                @forelse($layanans as $layanan)
+                    <div class="layanan-card" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-delay="{{ $loop->index * 100 }}">
+                        <div class="layanan-card-inner">
+                            @if($layanan->gambar)
+                                <img src="{{ asset('storage/' . $layanan->gambar) }}" alt="{{ $layanan->judul }}"
+                                    class="layanan-img">
+                            @else
+                                <div class="layanan-img-placeholder"></div>
+                            @endif
+                            <h3 class="layanan-title">{{ $layanan->judul }}</h3>
+                            <p class="layanan-desc">{{ $layanan->keterangan }}</p>
+                        </div>
+                    </div>
+                @empty
+                    <p class="no-layanan-msg" data-aos="fade-in">Belum ada layanan tersedia saat ini.</p>
+                @endforelse
+            </div>
+            <div class="booking-btn-container" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000">
+                <a href="https://monogram.youcanbook.me/" target="_blank" class="booking-btn">Book now</a>
+            </div>
+            <div class="photo-importance" data-aos="fade-up" data-aos-offset="150" data-aos-duration="900">
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Kenapa Cetak Foto Masih Penting?</h2>
+                <p class="importance-text" data-aos="fade-up" data-aos-delay="400">
+                    Di era serba digital, foto seringkali hanya disimpan di ponsel atau cloud — dan bisa hilang kapan saja.
+                    Mencetak foto adalah cara menjaga kenangan tetap nyata.
+                    <strong>Foto cetak bisa dipajang, disimpan, atau diwariskan</strong> ke generasi berikutnya.
+                </p>
+                <p class="importance-text" data-aos="fade-up" data-aos-delay="600">
+                    Saat kamu melihat foto di dinding atau dalam album, kamu tidak hanya melihat gambar — kamu menghidupkan
+                    kembali momen spesial di dalamnya.
+                    Itulah kekuatan cetak: <em>abadi, nyata, dan penuh makna.</em>
+                </p>
+            </div>
         </div>
-        <div class="photo-importance" data-aos="fade-up" data-aos-offset="150" data-aos-duration="900">
-            <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Kenapa Cetak Foto Masih Penting?</h2>
-            <p class="importance-text" data-aos="fade-up" data-aos-delay="400">
-                Di era serba digital, foto seringkali hanya disimpan di ponsel atau cloud — dan bisa hilang kapan saja.
-                Mencetak foto adalah cara menjaga kenangan tetap nyata.
-                <strong>Foto cetak bisa dipajang, disimpan, atau diwariskan</strong> ke generasi berikutnya.
-            </p>
-            <p class="importance-text" data-aos="fade-up" data-aos-delay="600">
-                Saat kamu melihat foto di dinding atau dalam album, kamu tidak hanya melihat gambar — kamu menghidupkan kembali momen spesial di dalamnya.
-                Itulah kekuatan cetak: <em>abadi, nyata, dan penuh makna.</em>
-            </p>
+    </section>
+
+   <!-- Layanan Panggilan Fotografer -->
+<section class="fotografer-call-section" data-aos="fade-up" data-aos-offset="200" data-aos-duration="900"
+    style="background-color: rgba(0, 0, 0, 0.59); color: white; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; padding: 0; height: 338px;">
+    <div style="width: 100%; max-width: 100%; position: relative; height: 100%;">
+
+        <!-- Konten Teks -->
+        <div style="position: absolute; left: 262px; top: 54px;">
+            <h2
+                style="font-size: 24px; font-family: Inter; font-weight: 600; line-height: 28.80px; margin-bottom: 24px;">
+                Layanan Panggilan Fotografer</h2>
+            <div style="font-size: 16px; font-family: Inter; font-weight: 400; line-height: 22.40px;">
+                Kamu dapat memanggil fotografer keluar layanan yang disediakan:<br />
+                -wisuda <br />
+                -foto keluarga<br /><br />
+                'Jika berminat lanjut ke WA berikut
+            </div>
+        </div>
+
+        <!-- Image Container for Both Images Side by Side -->
+        <div style="position: absolute; right: 200px; top: 35px; display: flex; align-items: center;">
+            <!-- Gambar Fotografer -->
+            <img src="/assets/images/panggilan.png" alt="Fotografer" style="width: 261px; height: 261px;">
+            
+            <!-- Camera Image - Now Positioned Next to Panggilan Image -->
+            <img src="/assets/images/camera.png" alt="Camera" style="width: 225px; height: 225px; margin-left: 20px;">
         </div>
     </div>
 </section>
 
-<!-- Add AOS JS script and initialization -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        AOS.init({
-            easing: 'ease-out-cubic',
-            once: true,
-            duration: 800,
+    <!-- Add AOS JS script and initialization -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                easing: 'ease-out-cubic',
+                once: true,
+                duration: 800,
+            });
         });
-    });
-</script>
+    </script>
 @endsection
