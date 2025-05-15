@@ -34,9 +34,9 @@
             <div class="col-md-3">
                 <h5 class="footer-title">Informasi</h5>
                 <ul>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">Syarat & Ketentuan</a></li>
-                    <li><a href="#">Hubungi Kami</a></li>
+                    <li><a>Kebijakan Privasi</a></li>
+                    <li><a>Syarat & Ketentuan</a></li>
+
                 </ul>
             </div>
         </div>
