@@ -25,7 +25,7 @@
     <section class="news-header">
         <h2>Berita Terkini</h2>
         <p class="news-subtitle">
-            Dapatkan update harian seputar kegiatan, pengumuman, dan informasi penting kampus.
+            Dapatkan update harian seputar kegiatan, pengumuman, dan informasi penting kami.
         </p>
     </section>
 
