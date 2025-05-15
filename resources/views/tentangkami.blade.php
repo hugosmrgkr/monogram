@@ -46,12 +46,12 @@
     {{-- GALERI STUDIO --}}
     <div class="studio-gallery mb-5">
         <div class="row g-4 foot-gallery">
-            <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col-md-6">
                 <div class="gallery-item">
                     <img src="{{ asset('assets/images/Foot1.png') }}" class="img-fluid rounded">
                 </div>
             </div>
-            <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+            <div class="col-md-6">
                 <div class="gallery-item">
                     <img src="{{ asset('assets/images/Foot2.png') }}" class="img-fluid rounded">
                 </div>
@@ -71,31 +71,76 @@
             </div>
         </div>
 
-        <div class="row g-4 mt-3">
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                <div class="gallery-item">
-                    <img src="{{ asset('assets/images/tentangCard1.png') }}" class="img-fluid rounded">
-                </div>
+       <!-- KODE BLADE DENGAN INLINE UTILITY CLASSES (BOOTSTRAP) -->
+<div class="studio-gallery container py-4">
+    <div class="row g-4 mt-3">
+        <div class="col-md-4 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+            <div class="gallery-item shadow rounded overflow-hidden mb-3 position-relative">
+                <img src="{{ asset('assets/images/tentangCard1.png') }}" 
+                     class="img-fluid w-100 rounded transition-all" 
+                     style="height: 500px; object-fit: cover; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
+                     onmouseover="this.style.transform='scale(1.02)'; this.parentElement.style.boxShadow='0 6px 15px rgba(0, 0, 0, 0.2)';" 
+                     onmouseout="this.style.transform='scale(1)'; this.parentElement.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.1)';"
+                     alt="Foto Studio 1">
             </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                <div class="gallery-item">
-                    <img src="{{ asset('assets/images/tentangCard2.png') }}" class="img-fluid rounded">
-                </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+            <div class="gallery-item shadow rounded overflow-hidden mb-3 position-relative">
+                <img src="{{ asset('assets/images/tentangCard2.png') }}" 
+                     class="img-fluid w-100 rounded transition-all" 
+                     style="height: 500px; object-fit: cover; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
+                     onmouseover="this.style.transform='scale(1.02)'; this.parentElement.style.boxShadow='0 6px 15px rgba(0, 0, 0, 0.2)';" 
+                     onmouseout="this.style.transform='scale(1)'; this.parentElement.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.1)';"
+                     alt="Foto Studio 2">
             </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                <div class="gallery-item">
-                    <img src="{{ asset('assets/images/tentangCard3.png') }}" class="img-fluid rounded">
-                </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="300">
+            <div class="gallery-item shadow rounded overflow-hidden mb-3 position-relative">
+                <img src="{{ asset('assets/images/tentangCard3.png') }}" 
+                     class="img-fluid w-100 rounded transition-all" 
+                     style="height: 500px; object-fit: cover; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
+                     onmouseover="this.style.transform='scale(1.02)'; this.parentElement.style.boxShadow='0 6px 15px rgba(0, 0, 0, 0.2)';" 
+                     onmouseout="this.style.transform='scale(1)'; this.parentElement.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.1)';"
+                     alt="Foto Studio 3">
             </div>
         </div>
     </div>
+</div>
+
+<!-- TAMBAHKAN SCRIPT INI DI BAGIAN BAWAH SEBELUM CLOSING BODY TAG UNTUK RESPONSIVENESS -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustImageHeight() {
+        const width = window.innerWidth;
+        const images = document.querySelectorAll('.gallery-item img');
+        
+        let height = '500px';
+        if (width <= 1200) height = '450px';
+        if (width <= 992) height = '400px';
+        if (width <= 768) height = '350px';
+        if (width <= 576) height = '300px';
+        if (width <= 480) height = '250px';
+        if (width <= 375) height = '200px';
+        
+        images.forEach(img => {
+            img.style.height = height;
+        });
+    }
+    
+    // Jalankan saat halaman dimuat
+    adjustImageHeight();
+    
+    // Jalankan saat ukuran window berubah
+    window.addEventListener('resize', adjustImageHeight);
+});
+</script>
 
    {{-- INFORMASI TOKO --}}
 @forelse ($tentangKami as $about)
     @if (!empty($about->jam_buka_hari_biasa) || !empty($about->jam_buka_akhir_pekan))
         <div class="informasi-toko container my-5" data-aos="fade-up" data-aos-duration="1200">
             <h3 class="section-title text-center mb-4">Jam Operasional</h3>
-            <p class="section-desc text-center mb-4">Kami siap melayani Anda setiap hari...</p>
+            <p class="section-desc text-center mb-4">Kami siap melayani Anda...</p>
             <div class="table-responsive" data-aos="zoom-in" data-aos-delay="100">
                 <table class="table-jam table table-bordered text-center">
                     <thead>
