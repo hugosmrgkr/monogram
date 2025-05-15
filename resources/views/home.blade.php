@@ -22,14 +22,14 @@
     </section>
 
     <!-- Section Berita Terkini -->
-    <section class="news-header" data-aos="fade-up" data-aos-duration="800">
+    <section class="news-header">
         <h2>Berita Terkini</h2>
         <p class="news-subtitle">
             Dapatkan update harian seputar kegiatan, pengumuman, dan informasi penting kampus.
         </p>
     </section>
 
-    <div class="news-navigation" data-aos="fade-up" data-aos-delay="200">
+    <div class="news-navigation">
         {{-- Wrapper biru full width --}}
         <div class="news-wrapper" id="newsContainer">
             {{-- Tambahan kontainer untuk batasi lebar konten --}}
@@ -38,11 +38,11 @@
                     @forelse ($beritas as $index => $berita)
                         <div class="news-daily-card" data-index="{{ $index }}" style="{{ $index !== 0 ? 'display:none;' : '' }}">
                             @if($berita->gambar)
-                                <div class="news-img" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="news-img">
                                     <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
                                 </div>
                             @endif
-                            <div class="news-content" data-aos="fade-right" data-aos-delay="300">
+                            <div class="news-content">
                                 <h3>{{ $berita->judul }}</h3>
                                 <p>{{ Str::limit($berita->isi, 150, '...') }}</p>
                                 <p class="news-date">
@@ -77,11 +77,11 @@
 
 
     <!-- Benefits Section -->
-    <section class="monogram-benefits section-padding" style="background-color: rgba(0, 0, 0, 0.05); padding-top: 60px; padding-bottom: 60px;" data-aos="fade-up" data-aos-duration="1000">
+    <section class="monogram-benefits section-padding" style="background-color: rgba(0, 0, 0, 0.05); padding-top: 60px; padding-bottom: 60px;">
         <div class="container">
             <div class="row">
 
-            <div class="col-12 text-center" data-aos="fade-down" data-aos-duration="800">
+            <div class="col-12 text-center">
                 <h2 class="mb-3">Keuntungan</h2>
                 <p class="mb-5" style="color: #555; font-size: 1.05rem; max-width: 700px; margin: 0 auto;">
                     Monogram Studio memberikan berbagai keuntungan yang dapat kamu nikmati saat melakukan sesi foto.
@@ -94,7 +94,7 @@
                     ['image' => 'keuntungan2.png', 'title' => 'Warna Latar Sesuai Keinginan', 'desc' => 'Pilih warna latar sesuai keinginanmu', 'aos-delay' => '200'],
                     ['image' => 'keuntungan3.png', 'title' => 'Mode Spotlight', 'desc' => 'Foto lebih fokus dengan pencahayaan khusus', 'aos-delay' => '400']
                 ] as $benefit)
-                    <div class="col-lg-4 col-12 mb-3" data-aos="flip-up" data-aos-delay="{{ $benefit['aos-delay'] }}">
+                    <div class="col-lg-4 col-12 mb-3">
                         <div class="product-thumb">
                             <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}" class="img-fluid product-image">
                             <div class="product-info d-flex">
@@ -146,22 +146,22 @@
     </div>
 
     <!-- Komentar Section -->
-    <section class="monogram-feedback-section" data-aos="fade-up" data-aos-duration="1000">
-        <div class="monogram-feedback-form container max-w-1305 p-4 bg-white rounded-3 shadow-sm border border-light mb-5" data-aos="slide-up" data-aos-duration="800">
+    <section class="monogram-feedback-section">
+        <div class="monogram-feedback-form container max-w-1305 p-4 bg-white rounded-3 shadow-sm border border-light mb-5">
             <div id="alertSuccess" class="alert alert-success d-none"></div>
             <div id="alertError" class="alert alert-danger d-none"></div>
 
             <form id="formKomentar" action="{{ route('komentar.store') }}" method="POST">
                 @csrf
-                <div class="mb-3" data-aos="fade-right" data-aos-delay="200">
+                <div class="mb-3">
                     <label for="nama" class="form-label">Nama Pengguna<span class="text-danger">*</span></label>
                     <input type="text" name="nama" id="nama" required class="form-control" placeholder="Nama">
                 </div>
-                <div class="mb-3" data-aos="fade-right" data-aos-delay="400">
+                <div class="mb-3">
                     <label for="komentar" class="form-label">Komentar <span class="text-danger">*</span></label>
                     <textarea name="komentar" id="komentar" rows="5" required class="form-control" placeholder="Tulis komentar..."></textarea>
                 </div>
-                <div class="d-flex justify-content-start" data-aos="fade-up" data-aos-delay="600">
+                <div class="d-flex justify-content-start">
                     <button type="submit" class="btn btn-dark px-5 py-2">Kirim Komentar</button>
                 </div>
             </form>
@@ -170,16 +170,16 @@
 
     <!-- Tampilkan Komentar -->
     @if(isset($komentars) && $komentars->isNotEmpty())
-    <div class="monogram-feedbacks-container mt-5" data-aos="fade-up" data-aos-duration="800">
+    <div class="monogram-feedbacks-container mt-5">
         <div class="monogram-feedbacks">
-            <div class="text-center mb-4" data-aos="fade-down">
+            <div class="text-center mb-4">
                 <h3 class="text-2xl font-bold">Apa Kata Mereka?</h3>
                 <div class="monogram-feedbacks-line mx-auto"></div>
             </div>
             <div class="monogram-feedbacks-wrapper" id="feedbackWrapper">
                 @foreach($komentars as $index => $komentar)
                     @if($komentar->is_approve)
-                        <div class="monogram-feedback-card" data-aos="zoom-in" data-aos-delay="{{ 100 * ($index % 5) }}">
+                        <div class="monogram-feedback-card">
                             <div class="feedback-card-body">
                                 <h4 class="feedback-user-name">{{ $komentar->nama ?? 'Anonim' }}</h4>
                                 <div class="feedback-name-line"></div>

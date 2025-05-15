@@ -78,15 +78,15 @@
 
    <!-- Layanan Panggilan Fotografer -->
 <section class="fotografer-call-section" data-aos="fade-up" data-aos-offset="200" data-aos-duration="900"
-    style="background-color: rgba(0, 0, 0, 0.59); color: white; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; padding: 0; height: 338px;">
-    <div style="width: 100%; max-width: 100%; position: relative; height: 100%;">
+    style="background-color: rgba(0, 0, 0, 0.59); color: white; width: 100%; position: relative; padding: 40px 20px; min-height: 338px; box-sizing: border-box;">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; position: relative; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center;">
 
         <!-- Konten Teks -->
-        <div style="position: absolute; left: 262px; top: 54px;">
-            <h2
-                style="font-size: 24px; font-family: Inter; font-weight: 600; line-height: 28.80px; margin-bottom: 24px;">
-                Layanan Panggilan Fotografer</h2>
-            <div style="font-size: 16px; font-family: Inter; font-weight: 400; line-height: 22.40px;">
+        <div style="flex: 1; min-width: 280px; padding: 20px; box-sizing: border-box;">
+            <h2 style="font-size: 24px; font-family: Inter, sans-serif; font-weight: 600; line-height: 1.2; margin-bottom: 24px;">
+                Layanan Panggilan Fotografer
+            </h2>
+            <div style="font-size: 16px; font-family: Inter, sans-serif; font-weight: 400; line-height: 1.4;">
                 Kamu dapat memanggil fotografer keluar layanan yang disediakan:<br />
                 -wisuda <br />
                 -foto keluarga<br /><br />
@@ -95,12 +95,12 @@
         </div>
 
         <!-- Image Container for Both Images Side by Side -->
-        <div style="position: absolute; right: 200px; top: 35px; display: flex; align-items: center;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; padding: 20px; box-sizing: border-box;">
             <!-- Gambar Fotografer -->
-            <img src="/assets/images/panggilan.png" alt="Fotografer" style="width: 261px; height: 261px;">
+            <img src="/assets/images/panggilan.png" alt="Fotografer" style="width: 100%; max-width: 261px; height: auto; object-fit: contain;">
             
-            <!-- Camera Image - Now Positioned Next to Panggilan Image -->
-            <img src="/assets/images/camera.png" alt="Camera" style="width: 225px; height: 225px; margin-left: 20px;">
+            <!-- Camera Image -->
+            <img src="/assets/images/camera.png" alt="Camera" style="width: 100%; max-width: 225px; height: auto; object-fit: contain;">
         </div>
     </div>
 </section>
