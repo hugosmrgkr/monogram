@@ -52,7 +52,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}"
-                                    href="{{ route('faq') }}">FAQs</a>
+                                    href="{{ route('faq') }}">FAQ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}"
