@@ -1,6 +1,16 @@
 @extends('admin.layouts.master')
 
 @section('content')
+    <style>
+        .card-hover:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+
     <div class="row">
         <div class="col-12 mb-4">
             <h3 style="font-weight: 700; color: #212529; letter-spacing: 0.5px;">Welcome Admin</h3>
@@ -9,75 +19,82 @@
         </div>
     </div>
 
-    {{-- Statistik Ringkas --}}
     <div class="row g-3">
         {{-- Total Galeri --}}
         <div class="col-md-3">
-            <div class="card mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem; background-color:">Total Foto Galeri</h5>
-                        <i class="bi bi-images" style="font-size: 1.5rem;"></i>
+            <a href="{{ route('admin.gallery.index') }}" style="text-decoration: none;">
+                <div class="card card-hover mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer;">
+                    <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Total Foto Galeri</h5>
+                            <i class="bi bi-images" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p class="card-text" style="font-size: 2rem; font-weight: 700;">{{ $totalGaleri }}</p>
                     </div>
-                    <p class="card-text" style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">{{ $totalGaleri }}</p>
                 </div>
-            </div>
+            </a>
         </div>
 
         {{-- Total Komentar --}}
         <div class="col-md-3">
-            <div class="card mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Total Komentar</h5>
-                        <i class="bi bi-chat-square-text" style="font-size: 1.5rem;"></i>
+            <a href="{{ route('admin.komentar.index') }}" style="text-decoration: none;">
+                <div class="card card-hover mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer;">
+                    <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Total Komentar</h5>
+                            <i class="bi bi-chat-square-text" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p class="card-text" style="font-size: 2rem; font-weight: 700;">{{ $totalKomentar }}</p>
                     </div>
-                    <p class="card-text" style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">{{ $totalKomentar }}</p>
                 </div>
-            </div>
+            </a>
         </div>
 
-        {{-- Total Berita Aktif --}}
+        {{-- Total Berita --}}
         <div class="col-md-3">
-            <div class="card mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Berita Aktif</h5>
-                        <i class="bi bi-newspaper" style="font-size: 1.5rem;"></i>
+            <a href="{{ route('admin.berita.index') }}" style="text-decoration: none;">
+                <div class="card card-hover mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer;">
+                    <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Berita Aktif</h5>
+                            <i class="bi bi-newspaper" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p class="card-text" style="font-size: 2rem; font-weight: 700;">{{ $totalBerita }}</p>
                     </div>
-                    <p class="card-text" style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">{{ $totalBerita }}</p>
                 </div>
-            </div>
+            </a>
         </div>
 
         {{-- Total FAQ --}}
         <div class="col-md-3">
-            <div class="card mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">FAQ</h5>
-                        <i class="bi bi-question-circle" style="font-size: 1.5rem;"></i>
+            <a href="{{ route('admin.faq.index') }}" style="text-decoration: none;">
+                <div class="card card-hover mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer;">
+                    <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">FAQ</h5>
+                            <i class="bi bi-question-circle" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p class="card-text" style="font-size: 2rem; font-weight: 700;">{{ $totalFaq }}</p>
                     </div>
-                    <p class="card-text" style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">{{ $totalFaq }}</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 
     {{-- Total Layanan --}}
     <div class="row">
         <div class="col-md-3">
-            <div class="card mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Layanan</h5>
-                        <i class="bi bi-gear" style="font-size: 1.5rem;"></i>
+            <a href="{{ route('admin.layanan.index') }}" style="text-decoration: none;">
+                <div class="card card-hover mb-3" style="border: none; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer;">
+                    <div class="card-body text-white" style="background-color: #495057; border-radius: 10px; padding: 1.5rem;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-1 text-white" style="font-weight: 600; font-size: 1rem;">Layanan</h5>
+                            <i class="bi bi-gear" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <p class="card-text" style="font-size: 2rem; font-weight: 700;">{{ $totalLayanan }}</p>
                     </div>
-                    <p class="card-text" style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">{{ $totalLayanan }}</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
-
 @endsection
-
