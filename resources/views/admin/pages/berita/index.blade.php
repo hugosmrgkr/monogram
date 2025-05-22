@@ -52,7 +52,7 @@
                                     <td>{{ $berita->judul }}</td>
                                     <td class="text-center">
                                         @if ($berita->gambar)
-                                            <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100px; height: 80px; object-fit: contain; border-radius: 6px;">
+                                            <img src="{{ asset('storage/app/public/' . $berita->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100px; height: 80px; object-fit: contain; border-radius: 6px;">
                                         @else
                                             <span class="text-muted">Tidak ada gambar</span>
                                         @endif

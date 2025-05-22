@@ -23,7 +23,7 @@
 
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label style="font-size: 14px; color: #212529;">Gambar Lama</label><br>
-                        <img src="{{ asset('storage/' . $gallery->gambar) }}" width="100" style="border-radius: 6px; object-fit: cover;">
+                        <img src="{{ asset('storage/app/public/' . $gallery->gambar) }}" width="100" style="border-radius: 6px; object-fit: cover;">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 1.5rem;">

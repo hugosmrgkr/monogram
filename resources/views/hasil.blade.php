@@ -58,7 +58,7 @@
             @forelse($data as $item)
                 <div class="col-12 col-md-4 col-lg-3 mb-4">
                     <div class="card shadow-sm">
-                        <img src="{{ asset('storage/' . $item->gambar) }}" class="card-img-top" alt="Foto {{ $kategori }}">
+                        <img src="{{ asset('storage/app/public/' . $item->gambar) }}" class="card-img-top" alt="Foto {{ $kategori }}">
                         <div class="card-body">
                             <p class="card-text text-center fw-medium">{{ $loop->iteration }}</p>
                         </div>

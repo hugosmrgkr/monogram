@@ -44,7 +44,7 @@
                         data-aos-delay="{{ $loop->index * 100 }}">
                         <div class="layanan-card-inner">
                             @if($layanan->gambar)
-                                <img src="{{ asset('storage/' . $layanan->gambar) }}" alt="{{ $layanan->judul }}"
+                                <img src="{{ asset('storage/app/public/' . $layanan->gambar) }}" alt="{{ $layanan->judul }}"
                                     class="layanan-img">
                             @else
                                 <div class="layanan-img-placeholder"></div>
@@ -90,7 +90,7 @@
                 Kamu dapat memanggil fotografer keluar layanan yang disediakan:<br />
                 -wisuda <br />
                 -foto keluarga<br /><br />
-                'Jika berminat lanjut ke WA berikut
+                Jika berminat lanjut ke WA yang telah disediakan
             </div>
         </div>
 
