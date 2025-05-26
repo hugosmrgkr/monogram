@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -8,8 +9,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f4f4f4;
-  color: #000;
+  background-color: #f9f9f9;
+  color: #111;
 }
 
 .login-section {
@@ -17,29 +18,31 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .container-login {
   width: 100%;
-  max-width: 1000px;
+  max-width: 960px;
   background-color: #fff;
-  border-radius: 15px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   position: relative;
+  display: flex;
+  flex-direction: row;
 }
 
 .btn-close-custom {
   position: absolute;
-  top: 15px;
+  top: 16px;
   right: 20px;
   font-size: 28px;
-  text-decoration: none;
-  color: #000;
   font-weight: bold;
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s ease;
   z-index: 10;
-  transition: 0.2s;
 }
 
 .btn-close-custom:hover {
@@ -48,15 +51,15 @@ body {
 
 .login-card {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  flex: 1;
+  background-color: #fff;
 }
 
 .login-form {
   flex: 1;
-  padding: 50px;
+  padding: 50px 40px;
+  color: #111;
   background-color: #fff;
-  color: #000;
 }
 
 .logo-container {
@@ -64,14 +67,20 @@ body {
   margin-bottom: 30px;
 }
 
-.logo-container img {
-  width: 90px;
-  margin-bottom: 10px;
+.monogram-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.2rem;
+  letter-spacing: -1px;
 }
 
 .title {
-  font-size: 20px;
-  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-top: 12px;
 }
 
 .input-group {
@@ -81,45 +90,25 @@ body {
 .input-group label {
   display: block;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  color: #111;
 }
 
 .input-group input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  background-color: #fafafa;
-  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  color: #111;
+  transition: all 0.2s ease;
 }
 
 .input-group input:focus {
-  border-color: #000;
-  outline: none;
+  border-color: #111;
   background-color: #fff;
+  outline: none;
 }
-
-.btn-close-custom {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    text-decoration: none;
-    color: #fff;                /* ganti dari #000 ke #fff */
-    font-weight: bold;
-    z-index: 10;
-    transition: color 0.2s;
-    /* opsional: beri background transparan biar makin jelas */
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    padding: 2px 6px;
-  }
-
-  .btn-close-custom:hover {
-    color: #ff0;                /* contoh hover jadi kuning */
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
 
 .error {
   color: red;
@@ -128,31 +117,42 @@ body {
   display: block;
 }
 
+.alert-error {
+  background-color: #ffe6e6;
+  color: #d00;
+  padding: 10px 16px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
 .actions {
   margin-top: 30px;
   text-align: center;
 }
 
 .btn-login {
-  background-color: #000;
+  background-color: #111;
   color: #fff;
   padding: 12px 40px;
   border: none;
   border-radius: 30px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-login:hover {
-  background-color: #333;
+  background-color: #222;
+  transform: translateY(-2px);
 }
 
 .login-info {
   flex: 1;
   background-color: #000;
   color: #fff;
-  padding: 60px;
+  padding: 60px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,11 +160,13 @@ body {
 
 .info-text {
   max-width: 300px;
+  text-align: center;
 }
 
 .info-text h4 {
-  font-size: 26px;
+  font-size: 24px;
   margin-bottom: 15px;
+  font-weight: 600;
   color: #fff;
 }
 
@@ -174,8 +176,44 @@ body {
   color: #ddd;
 }
 
+/* Responsive Design */
 @media (max-width: 992px) {
+  .login-card {
+    flex-direction: column;
+  }
+
   .login-info {
     display: none;
+  }
+
+  .login-form {
+    padding: 40px 30px;
+  }
+
+  .container-login {
+    border-radius: 10px;
+  }
+
+  .btn-close-custom {
+    color: #555;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .btn-login {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
+
+  .input-group input {
+    padding: 10px;
+  }
+
+  .info-text p {
+    font-size: 14px;
   }
 }

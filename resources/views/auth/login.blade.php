@@ -9,15 +9,14 @@
     <div class="login-card" data-aos="fade-up" data-aos-duration="1000">
 
       {{-- Tombol Close --}}
-      <a href="{{ route('home') }}" class="btn-close-custom" aria-label="Close">×</a>
+    <a href="{{ route('home') }}" class="btn-close-custom" aria-label="Close">×</a>
 
       {{-- Form --}}
       <div class="login-form">
         <div class="logo-container">
-          <img src="{{ asset('assets/images/logo.png') }}" alt="Monogram Logo">
-          <h4 class="title">Monogram Admin Login</h4>
+            <h1 class="monogram-text">&lt;monogram_</h1>
+            <h4 class="title">Admin Login</h4>
         </div>
-
         {{-- Tampilkan pesan error jika login gagal --}}
         @if(session('error'))
           <div class="alert-error">
