@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+   
 @endsection
 
 @section('content')
@@ -75,19 +76,17 @@
         </div>
     </div>
 
-
     <!-- Benefits Section -->
     <section class="monogram-benefits section-padding" style="background-color: rgba(0, 0, 0, 0.05); padding-top: 60px; padding-bottom: 60px;">
         <div class="container">
             <div class="row">
-
-            <div class="col-12 text-center">
-                <h2 class="mb-3">Keuntungan</h2>
-                <p class="mb-5" style="color: #555; font-size: 1.05rem; max-width: 700px; margin: 0 auto;">
-                    Monogram Studio memberikan berbagai keuntungan yang dapat kamu nikmati saat melakukan sesi foto.
-                    Dari fleksibilitas pengaturan tata letak hingga pencahayaan eksklusif, semua kami siapkan demi hasil terbaik untukmu.
-                </p>
-            </div>
+                <div class="col-12 text-center">
+                    <h2 class="mb-3">Keuntungan</h2>
+                    <p class="mb-5" style="color: #555; font-size: 1.05rem; max-width: 700px; margin: 0 auto;">
+                        Monogram Studio memberikan berbagai keuntungan yang dapat kamu nikmati saat melakukan sesi foto.
+                        Dari fleksibilitas pengaturan tata letak hingga pencahayaan eksklusif, semua kami siapkan demi hasil terbaik untukmu.
+                    </p>
+                </div>
 
                 @foreach ([
                     ['image' => 'keuntungan1.png', 'title' => 'Tata Letak Foto', 'desc' => 'Pilih tata letak foto sesuai keinginanmu', 'aos-delay' => '0'],
@@ -124,17 +123,18 @@
             @else
                 <div class="lightbox" data-mdb-lightbox-init>
                     <div class="multi-carousel overflow-hidden" id="monogram-carousel">
-                        <div class="multi-carousel-inner d-flex" id="carousel-track">
+                        <div class="multi-carousel-inner d-flex" id="home-carousel-track">
                             @foreach ($galleries as $index => $gallery)
-                            <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
-                                <img
-                                    src="{{ asset('storage/app/public/' . $gallery->gambar) }}"
-                                    data-mdb-img="{{ asset('storage/app/public/' . $gallery->gambar) }}"
-                                    alt="Rekomendasi Foto"
-                                    class="w-100 rounded shadow-sm"
-                                />
-                            </div>
-                        @endforeach
+                                <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
+                                    <img
+                                        src="{{ asset('storage/app/public/' . $gallery->gambar) }}"
+                                        data-mdb-img="{{ asset('storage/app/public/' . $gallery->gambar) }}"
+                                        alt="Rekomendasi Foto"
+                                        class="w-100 rounded shadow-sm"
+                                        draggable="false"
+                                    />
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -256,28 +256,31 @@
             });
         });
 
-        // News Navigation Script
+        // News Navigation Script - Enhanced version
         $(document).ready(function() {
             const newsCards = $('.news-daily-card');
             const totalCards = newsCards.length;
             let currentIndex = 0;
 
+            function updateNewsView(index) {
+                newsCards.hide();
+                newsCards.eq(index).fadeIn(300);
+                $('#newsIndexDisplay').text(`${index + 1} dari ${totalCards}`);
+            }
+
             $('#nextBtn').click(function() {
-                newsCards.eq(currentIndex).hide();
                 currentIndex = (currentIndex + 1) % totalCards;
-                newsCards.eq(currentIndex).fadeIn();
-                updateIndexDisplay();
+                updateNewsView(currentIndex);
             });
 
             $('#prevBtn').click(function() {
-                newsCards.eq(currentIndex).hide();
                 currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-                newsCards.eq(currentIndex).fadeIn();
-                updateIndexDisplay();
+                updateNewsView(currentIndex);
             });
 
-            function updateIndexDisplay() {
-                $('#newsIndexDisplay').text(`${currentIndex + 1} dari ${totalCards}`);
+            // Initialize first view
+            if (totalCards > 0) {
+                updateNewsView(0);
             }
         });
     </script>

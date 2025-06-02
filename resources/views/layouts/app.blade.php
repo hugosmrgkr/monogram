@@ -113,6 +113,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Navbar scroll effect
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('nav.navbar');
             if (window.scrollY > 50) {
@@ -122,26 +123,33 @@
             }
         });
     </script>
+
     <script>
+        // Home Carousel Script - hanya untuk halaman home
         document.addEventListener('DOMContentLoaded', function () {
-            const carouselTrack = document.getElementById('carousel-track');
-            const originalContent = carouselTrack.innerHTML;
+            const homeCarouselTrack = document.getElementById('home-carousel-track');
+            
+            // Pastikan element ada dan kita di halaman home
+            if (!homeCarouselTrack) return;
+            
+            const originalContent = homeCarouselTrack.innerHTML;
 
             // Gandakan isi carousel untuk efek infinite scroll
-            carouselTrack.innerHTML += originalContent;
+            homeCarouselTrack.innerHTML += originalContent;
 
             const scrollSpeed = 0.5;
             let scrollPos = 0;
             let isDragging = false;
             let startX;
             let scrollLeft;
+            let animationId;
 
             // Hitung lebar isi asli (sebelum digandakan)
-            const itemWidth = carouselTrack.scrollWidth / 2;
+            const itemWidth = homeCarouselTrack.scrollWidth / 2;
 
             // Fungsi untuk auto scroll
             function autoScroll() {
-                if (!isDragging) {
+                if (!isDragging && homeCarouselTrack) {
                     scrollPos += scrollSpeed;
 
                     // Jika scroll sudah sejauh isi asli, reset scrollPos ke 0
@@ -149,71 +157,130 @@
                         scrollPos = 0;
                     }
 
-                    carouselTrack.style.transform = translateX(-${scrollPos}px);
+                    homeCarouselTrack.style.transform = `translateX(-${scrollPos}px)`;
                 }
 
-                requestAnimationFrame(autoScroll);
+                animationId = requestAnimationFrame(autoScroll);
             }
 
-            // Fungsi untuk memulai drag
-            carouselTrack.addEventListener('mousedown', (e) => {
+            // Event listeners untuk drag functionality
+            homeCarouselTrack.addEventListener('mousedown', (e) => {
                 isDragging = true;
-                startX = e.pageX - carouselTrack.offsetLeft;
-                scrollLeft = carouselTrack.scrollLeft;
+                startX = e.pageX - homeCarouselTrack.offsetLeft;
+                scrollLeft = scrollPos;
+                homeCarouselTrack.style.cursor = 'grabbing';
             });
 
-            // Fungsi untuk menggerakkan saat drag
-            carouselTrack.addEventListener('mousemove', (e) => {
+            homeCarouselTrack.addEventListener('mousemove', (e) => {
                 if (!isDragging) return;
                 e.preventDefault();
-                const x = e.pageX - carouselTrack.offsetLeft;
-                const walk = (x - startX) * 3; // Kecepatan geser manual
-                carouselTrack.scrollLeft = scrollLeft - walk;
+                const x = e.pageX - homeCarouselTrack.offsetLeft;
+                const walk = (x - startX) * 2;
+                scrollPos = scrollLeft - walk;
+                
+                // Pastikan scrollPos tidak negatif
+                if (scrollPos < 0) scrollPos = itemWidth + scrollPos;
+                if (scrollPos >= itemWidth) scrollPos = scrollPos - itemWidth;
+                
+                homeCarouselTrack.style.transform = `translateX(-${scrollPos}px)`;
             });
 
-            // Fungsi untuk mengakhiri drag
-            carouselTrack.addEventListener('mouseup', () => {
+            homeCarouselTrack.addEventListener('mouseup', () => {
+                isDragging = false;
+                homeCarouselTrack.style.cursor = 'grab';
+            });
+
+            homeCarouselTrack.addEventListener('mouseleave', () => {
+                isDragging = false;
+                homeCarouselTrack.style.cursor = 'grab';
+            });
+
+            // Touch events untuk mobile
+            homeCarouselTrack.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                startX = e.touches[0].clientX - homeCarouselTrack.offsetLeft;
+                scrollLeft = scrollPos;
+            });
+
+            homeCarouselTrack.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.touches[0].clientX - homeCarouselTrack.offsetLeft;
+                const walk = (x - startX) * 2;
+                scrollPos = scrollLeft - walk;
+                
+                if (scrollPos < 0) scrollPos = itemWidth + scrollPos;
+                if (scrollPos >= itemWidth) scrollPos = scrollPos - itemWidth;
+                
+                homeCarouselTrack.style.transform = `translateX(-${scrollPos}px)`;
+            });
+
+            homeCarouselTrack.addEventListener('touchend', () => {
                 isDragging = false;
             });
 
-            // Menjaga agar scroll otomatis tetap berjalan
+            // Set cursor style
+            homeCarouselTrack.style.cursor = 'grab';
+
+            // Start auto scroll
             autoScroll();
-        });
-    </script>
-    <script>
-        // Ambil elemen tombol dan kontainer
-        const scrollLeftButton = document.getElementById('scrollLeft');
-        const scrollRightButton = document.getElementById('scrollRight');
-        const scrollContainer = document.getElementById('scrollContainer');
 
-        // Event listener untuk tombol scroll kiri
-        scrollLeftButton.addEventListener('click', () => {
-            scrollContainer.scrollBy({
-                left: -300,
-                behavior: 'smooth'
+            // Clean up on page unload
+            window.addEventListener('beforeunload', () => {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
             });
         });
-
-        // Event listener untuk tombol scroll kanan
-        scrollRightButton.addEventListener('click', () => {
-            scrollContainer.scrollBy({
-                left: 300,
-                behavior: 'smooth'
-            });
-        });
-
     </script>
+
     <script>
+        // Scroll buttons script - untuk halaman lain yang mungkin membutuhkan
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollLeftButton = document.getElementById('scrollLeft');
+            const scrollRightButton = document.getElementById('scrollRight');
+            const scrollContainer = document.getElementById('scrollContainer');
+
+            if (scrollLeftButton && scrollRightButton && scrollContainer) {
+                scrollLeftButton.addEventListener('click', () => {
+                    scrollContainer.scrollBy({
+                        left: -300,
+                        behavior: 'smooth'
+                    });
+                });
+
+                scrollRightButton.addEventListener('click', () => {
+                    scrollContainer.scrollBy({
+                        left: 300,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // News navigation script
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.news-daily-card');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
+            const indexDisplay = document.getElementById('newsIndexDisplay');
+            
+            // Pastikan semua element ada
+            if (!cards.length || !prevBtn || !nextBtn) return;
+            
             let currentIndex = 0;
 
             function updateView(index) {
                 cards.forEach((card, i) => {
                     card.style.display = (i === index) ? 'flex' : 'none';
                 });
+                
+                // Update index display jika ada
+                if (indexDisplay) {
+                    indexDisplay.textContent = `${index + 1} dari ${cards.length}`;
+                }
             }
 
             prevBtn.addEventListener('click', () => {
@@ -230,23 +297,11 @@
                 }
             });
 
-            prevBtnMobile.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateView(currentIndex);
-                }
-            });
-
-            nextBtnMobile.addEventListener('click', () => {
-                if (currentIndex < cards.length - 1) {
-                    currentIndex++;
-                    updateView(currentIndex);
-                }
-            });
+            // Initialize view
+            updateView(currentIndex);
         });
     </script>
 
 </body>
-
 
 </html>
