@@ -30,6 +30,62 @@ nav.navbar {
     padding: 0;
 }
 
+/* Dropdown Gallery Styling */
+.navbar-nav .dropdown-menu {
+    background-color: #222; /* hitam gelap */
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    min-width: 200px;
+    padding: 8px 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar-nav .dropdown-menu:not(.show) {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.navbar-nav .dropdown-item {
+    color: #eee; /* putih halus */
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:focus {
+    background-color: #444; /* abu tua */
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Panah pada dropdown sudah ada di HTML, hanya styling untuk align */
+.navbar-nav .dropdown-toggle::after {
+    display: none; /* hide default bootstrap arrow */
+}
+
+/* Dropdown toggle link styling */
+.navbar-nav .nav-link.dropdown-toggle {
+    cursor: pointer;
+    color: #eee;
+    font-weight: 600;
+    user-select: none;
+}
+
+.navbar-nav .nav-link.dropdown-toggle:hover,
+.navbar-nav .nav-link.dropdown-toggle:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+
 nav.navbar .logo-text {
     font-family: 'Open Sans', sans-serif;
     color: #f4f6f7 !important;
@@ -72,7 +128,7 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     font-family: 'Open Sans', sans-serif;
     font-size: 22px;
     font-weight: 800;
-    text-transform: uppercase;
+    text-transform: none;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -262,5 +318,48 @@ nav.navbar.scrolled .navbar-link:hover {
         background-color: #333333;
         color: #f4f6f7;
         border-color: #333333;
+    }
+
+    /* Dropdown di mobile jadi full-width block */
+    .navbar-nav .dropdown-menu {
+        position: static !important;
+        box-shadow: none;
+        background-color: transparent;
+        padding-left: 20px;
+        padding-right: 0;
+        margin-top: 4px;
+        border-radius: 0;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+    }
+
+    /* Dropdown item mobile */
+    .navbar-nav .dropdown-item {
+        color: #f4f6f7 !important;
+        background-color: transparent !important;
+        padding: 8px 0 8px 15px !important;
+        font-weight: 500;
+        border-left: 3px solid transparent;
+        transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar-nav .dropdown-item:hover,
+    .navbar-nav .dropdown-item:focus {
+        background-color: transparent !important;
+        color: #fff !important;
+        border-left-color: #f4f6f7 !important;
+    }
+
+    /* Dropdown toggle link styling for mobile */
+    .navbar-nav .nav-link.dropdown-toggle {
+        color: #f4f6f7 !important;
+        font-weight: 600;
+    }
+
+    .navbar-nav .nav-link.dropdown-toggle:hover,
+    .navbar-nav .nav-link.dropdown-toggle:focus {
+        color: #fff !important;
+        text-decoration: none;
     }
 }

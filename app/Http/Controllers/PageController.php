@@ -51,17 +51,17 @@ class PageController extends Controller
         return view('service', compact('layanans'));
     }
 
-    public function hasil($kategori = 'wisuda')
+    public function hasil(Request $request, $kategori = 'wisuda')
     {
         $kategori = strtolower($kategori);
 
-        // Ambil foto berdasarkan kategori dari database
-        $data = Gallery::where('kategori', ucfirst($kategori))->get();
-
-        // Jika data kosong & kategori tidak valid, redirect ke home
-        if ($data->isEmpty() && !in_array($kategori, ['wisuda', 'pasangan', 'pertemanan', 'keluarga', 'lainnya'])) {
+        // Validasi kategori
+        if (!in_array($kategori, ['wisuda', 'pasangan', 'pertemanan', 'keluarga', 'lainnya'])) {
             return redirect()->route('home');
         }
+
+        // Ambil foto berdasarkan kategori, dengan paginasi 10 item per halaman
+        $data = Gallery::where('kategori', ucfirst($kategori))->paginate(8);
 
         return view('hasil', [
             'kategori' => $kategori,

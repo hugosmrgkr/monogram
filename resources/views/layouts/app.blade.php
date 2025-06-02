@@ -22,13 +22,13 @@
 <body class="d-flex flex-column min-vh-100">
 
     <!-- Navigation -->
-    @unless(request()->routeIs('hasil'))
+    {{-- @unless(request()->routeIs('hasil')) --}}
         <nav
             class="navbar navbar-expand-lg navbar-light navbar-custom {{ request()->routeIs('service') ? 'navbar-transparent text-white' : '' }}">
             <div class="container d-flex justify-content-between">
                 {{-- Logo di kiri --}}
                 <a class="logo-text" href="{{ route('home') }}">
-                    <span class="highlight">>MONOGRAM_</span>
+                    <span class="highlight">>monogram_</span>
                 </a>
 
                 {{-- Toggler Button --}}
@@ -45,6 +45,22 @@
                             <li class="nav-item">
                                 <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}"
                                     href="{{ route('home') }}">Beranda</a>
+                            </li>
+                            {{-- Dropdown Gallery --}}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link navbar-link d-flex align-items-center gap-1"
+                                href="#" id="navbarGalleryDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                    Gallery
+                                    <i class="bi bi-caret-down-fill" style="font-size: 0.8rem;"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('hasil', ['kategori' => 'wisuda']) }}">Wisuda</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('hasil', ['kategori' => 'pasangan']) }}">Pasangan</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('hasil', ['kategori' => 'pertemanan']) }}">Pertemanan</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('hasil', ['kategori' => 'keluarga']) }}">Keluarga</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('hasil', ['kategori' => 'lainnya']) }}">Lainnya</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link navbar-link {{ request()->routeIs('tentang-kami') ? 'active' : '' }}"
@@ -74,7 +90,7 @@
                 </div>
             </div>
         </nav>
-    @endunless
+    {{-- @endunless --}}
 
     <!-- Main Content -->
     <main class="flex-grow-1">

@@ -10,46 +10,55 @@
 @endsection
 
 @section('content')
-    <!-- Header Section -->
-    <div class="container-header">
-        <div class="logo">
-            <a href="{{ route('home') }}" class="logo-text">>MONOGRAM_</a>
-        </div>
-        <div class="nav-menu">
-            <a href="{{ route('hasil', ['kategori' => 'wisuda']) }}" class="nav-button {{ $kategori == 'wisuda' ? 'active' : '' }}">Wisuda</a>
-            <a href="{{ route('hasil', ['kategori' => 'pasangan']) }}" class="nav-button {{ $kategori == 'pasangan' ? 'active' : '' }}">Pasangan</a>
-            <a href="{{ route('hasil', ['kategori' => 'pertemanan']) }}" class="nav-button {{ $kategori == 'pertemanan' ? 'active' : '' }}">Pertemanan</a>
-            <a href="{{ route('hasil', ['kategori' => 'keluarga']) }}" class="nav-button {{ $kategori == 'keluarga' ? 'active' : '' }}">Keluarga</a>
-            <a href="{{ route('hasil', ['kategori' => 'lainnya']) }}" class="nav-button {{ $kategori == 'lainnya' ? 'active' : '' }}">Lainnya</a>
-        </div>
-        <div class="title-button">FOTO {{ strtoupper($kategori) }}</div>
-    </div>
-
-    <!-- Title & Description Section -->
-    <div class="text-center my-5">
-        <h2 class="gallery-title">Galeri Foto {{ ucfirst($kategori) }}</h2>
-        <p class="gallery-description">
+<!-- Hero Gallery Section -->
+<section class="hero-gallery" data-aos="fade-down" data-aos-duration="1200">
+    <div class="hero-gallery-overlay"></div>
+    <div class="hero-gallery-text">
+        <h1 data-aos="fade-up" data-aos-delay="300">
             @switch($kategori)
                 @case('wisuda')
-                    Abadikan momen kelulusanmu yang penuh makna bersama sahabat dan keluarga tercinta.
+                    Galeri Wisuda
                     @break
                 @case('pasangan')
-                    Tangkap kisah cinta terbaikmu dalam bidikan yang romantis dan elegan.
+                    Galeri Pasangan
                     @break
                 @case('pertemanan')
-                    Rayakan kebersamaan dan tawa bersama sahabat terbaikmu dalam bingkai kenangan.
+                    Galeri Pertemanan
                     @break
                 @case('keluarga')
-                    Potret kehangatan dan kasih sayang keluarga dalam sesi foto yang tak terlupakan.
+                    Galeri Keluarga
                     @break
                 @case('lainnya')
-                    Temukan berbagai momen spesial lainnya yang bisa dikenang melalui lensa Monogram Toba Studio.
+                    Galeri Spesial Lainnya
                     @break
                 @default
-                    Temukan momen terbaik dalam galeri pilihan Monogram Toba Studio.
+                    Galeri Foto
+            @endswitch
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="600">
+            @switch($kategori)
+                @case('wisuda')
+                    Momen wisuda yang mengesankan, penuh kebanggaan dan haru, kami abadikan dalam bingkai profesional.
+                    @break
+                @case('pasangan')
+                    Tampilkan kisah cintamu dalam potret yang elegan dan romantis, hanya di Monogram Toba Studio.
+                    @break
+                @case('pertemanan')
+                    Abadikan tawa dan kebersamaan dalam jepretan yang hangat bersama sahabat terbaikmu.
+                    @break
+                @case('keluarga')
+                    Setiap detik bersama keluarga adalah kenangan, dan kami siap mengabadikannya untukmu.
+                    @break
+                @case('lainnya')
+                    Ragam sesi foto lainnya yang tetap tak kalah spesial untuk dikenang sepanjang masa.
+                    @break
+                @default
+                    Abadikan momen terbaikmu bersama Monogram Toba Studio dengan hasil berkualitas dan penuh makna.
             @endswitch
         </p>
     </div>
+</section>
+
 
     <!-- Gallery Section -->
     <div class="gallery-container">
@@ -66,14 +75,20 @@
                 </div>
             @empty
                 <div class="no-photo text-center">
-                    <img src="{{ asset('img/empty-gallery.png') }}" alt="No photos" class="no-photo-img">
-                    <p class="no-photo-text">Belum ada foto untuk kategori ini. Yuk jadi yang pertama!</p>
+                    <p class="no-photo-text">Belum ada foto untuk kategori ini.</p>
                 </div>
             @endforelse
         </div>
 
+        <!-- Pagination Section -->
+        @if ($data->hasPages())
+            <div class="d-flex justify-content-center">
+                {{ $data->links('pagination::bootstrap-5') }}
+            </div>
+        @endif
+
         <!-- Gallery Footer -->
-        <div class="gallery-footer text-center">
+        <div class="gallery-footer text-center mt-4">
             "SIMPAN MOMENT {{ strtoupper($kategori) }} MU BERSAMA ORANG TERKASIH MELALUI LENSA MONOGRAM TOBA STUDIO"
         </div>
     </div>
