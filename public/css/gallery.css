@@ -12,7 +12,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url('../assets/images/background-login.jpg') center center / cover no-repeat;
+    background: url('../assets/images/bg-galery.jpg') center center / cover no-repeat;
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
     display: flex;
