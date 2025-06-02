@@ -14,7 +14,7 @@
       {{-- Form --}}
       <div class="login-form">
         <div class="logo-container">
-            <h1 class="monogram-text">&lt;monogram_</h1>
+            <h1 class="monogram-text">>monogram_</h1>
             <h4 class="title">Admin Login</h4>
         </div>
         {{-- Tampilkan pesan error jika login gagal --}}
