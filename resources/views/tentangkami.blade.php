@@ -15,7 +15,7 @@
         <div class="about-hero-text position-absolute top-50 start-50 translate-middle text-center text-white px-3">
             <h1 class="display-4 fw-bold mb-3" style="font-family: Inter, sans-serif;" data-aos="fade-up"
                 data-aos-delay="300">
-                Tentang >MONOGRAM_
+                Tentang Monogram Toba Studio Balige
             </h1>
             <p data-aos="fade-up" data-aos-delay="600">
                 Selami kisah, visi, dan layanan kami yang telah dipercaya banyak klien untuk momen terbaik mereka.

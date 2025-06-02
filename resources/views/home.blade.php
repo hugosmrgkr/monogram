@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-   
 @endsection
 
 @section('content')
@@ -76,17 +75,19 @@
         </div>
     </div>
 
+
     <!-- Benefits Section -->
     <section class="monogram-benefits section-padding" style="background-color: rgba(0, 0, 0, 0.05); padding-top: 60px; padding-bottom: 60px;">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
-                    <h2 class="mb-3">Keuntungan</h2>
-                    <p class="mb-5" style="color: #555; font-size: 1.05rem; max-width: 700px; margin: 0 auto;">
-                        Monogram Studio memberikan berbagai keuntungan yang dapat kamu nikmati saat melakukan sesi foto.
-                        Dari fleksibilitas pengaturan tata letak hingga pencahayaan eksklusif, semua kami siapkan demi hasil terbaik untukmu.
-                    </p>
-                </div>
+
+            <div class="col-12 text-center">
+                <h2 class="mb-3">Keuntungan</h2>
+                <p class="mb-5" style="color: #555; font-size: 1.05rem; max-width: 700px; margin: 0 auto;">
+                    Monogram Studio memberikan berbagai keuntungan yang dapat kamu nikmati saat melakukan sesi foto.
+                    Dari fleksibilitas pengaturan tata letak hingga pencahayaan eksklusif, semua kami siapkan demi hasil terbaik untukmu.
+                </p>
+            </div>
 
                 @foreach ([
                     ['image' => 'keuntungan1.png', 'title' => 'Tata Letak Foto', 'desc' => 'Pilih tata letak foto sesuai keinginanmu', 'aos-delay' => '0'],
@@ -123,25 +124,21 @@
             @else
                 <div class="lightbox" data-mdb-lightbox-init>
                     <div class="multi-carousel overflow-hidden" id="monogram-carousel">
-                        <div class="multi-carousel-inner d-flex" id="home-carousel-track">
+                        <div class="multi-carousel-inner d-flex" id="carousel-track">
                             @foreach ($galleries as $index => $gallery)
-                                <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
-                                    <img
-                                        src="{{ asset('storage/app/public/' . $gallery->gambar) }}"
-                                        data-mdb-img="{{ asset('storage/app/public/' . $gallery->gambar) }}"
-                                        alt="Rekomendasi Foto"
-                                        class="w-100 rounded shadow-sm"
-                                        draggable="false"
-                                    />
-                                </div>
-                            @endforeach
+                            <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
+                                <img
+                                    src="{{ asset('storage/app/public/' . $gallery->gambar) }}"
+                                    data-mdb-img="{{ asset('storage/app/public/' . $gallery->gambar) }}"
+                                    alt="Rekomendasi Foto"
+                                    class="w-100 rounded shadow-sm"
+                                />
+                            </div>
+                        @endforeach
                         </div>
                     </div>
                 </div>
             @endif
-            <div class="text-center mt-4">
-                <a href="{{ route('hasil') }}" class="btn btn-dark rounded-0 px-5 py-2">Lihat Hasil Foto</a>
-            </div>
         </div>
     </div>
 
@@ -160,6 +157,7 @@
                 <div class="mb-3">
                     <label for="komentar" class="form-label">Komentar <span class="text-danger">*</span></label>
                     <textarea name="komentar" id="komentar" rows="5" required class="form-control" placeholder="Tulis komentar..."></textarea>
+                    <div class="form-text text-end" id="batasInfo">0 kata / 0 karakter (maks. 50 kata / 300 karakter)</div>
                 </div>
                 <div class="d-flex justify-content-start">
                     <button type="submit" class="btn btn-dark px-5 py-2">Kirim Komentar</button>
@@ -167,6 +165,59 @@
             </form>
         </div>
     </section>
+
+    <!-- Script Validasi Gabungan -->
+    <script>
+        const komentarInput = document.getElementById('komentar');
+        const batasInfo = document.getElementById('batasInfo');
+        const formKomentar = document.getElementById('formKomentar');
+        const maxWords = 50;
+        const maxChars = 300;
+
+        function updateLimit() {
+            let text = komentarInput.value;
+            let words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            let chars = text.length;
+
+            // Jika melebihi batas karakter atau kata, potong
+            if (words.length > maxWords || chars > maxChars) {
+                // Potong berdasarkan kata
+                if (words.length > maxWords) {
+                    words = words.slice(0, maxWords);
+                }
+                // Gabungkan kembali jadi string
+                let newText = words.join(" ");
+
+                // Potong berdasarkan karakter
+                if (newText.length > maxChars) {
+                    newText = newText.slice(0, maxChars);
+                }
+
+                komentarInput.value = newText;
+            }
+
+            // Perbarui tampilan info
+            const currentWords = komentarInput.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+            const currentChars = komentarInput.value.length;
+            batasInfo.textContent = `${currentWords} kata / ${currentChars} karakter (maks. 50 kata / 300 karakter)`;
+        }
+
+        komentarInput.addEventListener('input', updateLimit);
+        komentarInput.addEventListener('paste', function (e) {
+            setTimeout(updateLimit, 10); // Tunggu teks ter-paste lalu validasi
+        });
+
+        formKomentar.addEventListener('submit', function (e) {
+            const finalWords = komentarInput.value.trim().split(/\s+/).filter(word => word.length > 0);
+            const finalChars = komentarInput.value.length;
+
+            if (finalWords.length > maxWords || finalChars > maxChars) {
+                e.preventDefault();
+                alert('Komentar melebihi batas maksimal (50 kata atau 300 karakter).');
+            }
+        });
+    </script>
+
 
     <!-- Tampilkan Komentar -->
     @if(isset($komentars) && $komentars->isNotEmpty())
@@ -256,31 +307,28 @@
             });
         });
 
-        // News Navigation Script - Enhanced version
+        // News Navigation Script
         $(document).ready(function() {
             const newsCards = $('.news-daily-card');
             const totalCards = newsCards.length;
             let currentIndex = 0;
 
-            function updateNewsView(index) {
-                newsCards.hide();
-                newsCards.eq(index).fadeIn(300);
-                $('#newsIndexDisplay').text(`${index + 1} dari ${totalCards}`);
-            }
-
             $('#nextBtn').click(function() {
+                newsCards.eq(currentIndex).hide();
                 currentIndex = (currentIndex + 1) % totalCards;
-                updateNewsView(currentIndex);
+                newsCards.eq(currentIndex).fadeIn();
+                updateIndexDisplay();
             });
 
             $('#prevBtn').click(function() {
+                newsCards.eq(currentIndex).hide();
                 currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-                updateNewsView(currentIndex);
+                newsCards.eq(currentIndex).fadeIn();
+                updateIndexDisplay();
             });
 
-            // Initialize first view
-            if (totalCards > 0) {
-                updateNewsView(0);
+            function updateIndexDisplay() {
+                $('#newsIndexDisplay').text(`${currentIndex + 1} dari ${totalCards}`);
             }
         });
     </script>

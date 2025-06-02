@@ -12,7 +12,7 @@
         <div class="service-overlay"></div>
         <div class="service-text-container">
             <h1 data-aos="fade-up" data-aos-delay="300">
-                Layanan >Monogram_
+                Layanan
             </h1>
             <p data-aos="fade-up" data-aos-delay="500">
                 Temukan berbagai layanan fotografi profesional yang kami tawarkan untuk momen terbaik Anda.
@@ -98,7 +98,7 @@
         <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; padding: 20px; box-sizing: border-box;">
             <!-- Gambar Fotografer -->
             <img src="/assets/images/panggilan.png" alt="Fotografer" style="width: 100%; max-width: 261px; height: auto; object-fit: contain;">
-            
+
             <!-- Camera Image -->
             <img src="/assets/images/camera.png" alt="Camera" style="width: 100%; max-width: 225px; height: auto; object-fit: contain;">
         </div>

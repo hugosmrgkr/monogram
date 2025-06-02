@@ -14,10 +14,10 @@
         <div class="faq-hero-overlay"></div>
         <div class="faq-hero-text">
             <h1 class="display-4 fw-bold" data-aos="fade-up" data-aos-delay="300">
-                &gt;MONOGRAM_ FAQ
+                FAQ
             </h1>
             <p data-aos="fade-up" data-aos-delay="600">
-                Temukan jawaban atas pertanyaan-pertanyaan umum seputar layanan Monogram Studio Balige.<br>
+                Temukan jawaban atas pertanyaan-pertanyaan umum seputar layanan Monogram Studio Balige.
                 Jika masih ada yang belum jelas, jangan ragu untuk menghubungi kami.
             </p>
         </div>
