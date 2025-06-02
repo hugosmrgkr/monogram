@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 /* ===== Global Styles ===== */
 body {
@@ -85,9 +86,8 @@ nav.navbar {
     text-decoration: none;
 }
 
-
 nav.navbar .logo-text {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #f4f6f7 !important;
 }
 
@@ -116,7 +116,7 @@ nav.navbar.scrolled .nav-item .nav-link.active {
 }
 
 nav.navbar.scrolled .logo-text {
-    color: #393838 !important;
+    color: #111 !important;
 }
 
 nav.navbar.scrolled .nav-item .nav-link.active::after {
@@ -124,37 +124,22 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     width: 100%;
 }
 
+/* ===== Logo Text Styling - Menggunakan style dari login.css ===== */
 .logo-text {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #f4f6f7;
+    letter-spacing: -1px;
     text-decoration: none;
     transition: color 0.3s;
-    color: white;
     position: relative;
     z-index: 10;
 }
 
-.logo-text .highlight {
-    background-color: transparent;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-right: 6px;
-    font-size: 25px;
-    font-weight: 900;
-    font-family: 'Open Sans', sans-serif;
-    transition: color 0.3s;
-    color: white;
-}
-
+/* Logo styling ketika navbar di-scroll */
 nav.navbar.scrolled .logo-text {
-    color: #393838;
-}
-
-nav.navbar.scrolled .logo-text .highlight {
-    color: #393838;
+    color: #111 !important;
 }
 
 /* ===== Navbar Links ===== */
@@ -226,13 +211,7 @@ nav.navbar.scrolled .navbar-link:hover {
     }
 
     .logo-text {
-        font-size: 18px;
-        color: #f4f6f7 !important;
-    }
-
-    .logo-text .highlight {
         font-size: 20px;
-        padding: 2px 6px;
         color: #f4f6f7 !important;
     }
 
@@ -297,8 +276,14 @@ nav.navbar.scrolled .navbar-link:hover {
         padding: 12px 20px;
     }
 
-    nav.navbar.scrolled .logo-text,
-    nav.navbar.scrolled .logo-text .highlight,
+    nav.navbar.scrolled .logo-text .monogram-text {
+        color: #111 !important;
+    }
+
+    nav.navbar.scrolled .logo-text .title {
+        color: #555 !important;
+    }
+
     nav.navbar.scrolled .navbar-nav .nav-item .nav-link,
     nav.navbar.scrolled .btn-admin {
         color: #333333 !important;
