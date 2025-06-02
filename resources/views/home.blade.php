@@ -89,26 +89,26 @@
                 </p>
             </div>
 
-                @foreach ([
-                    ['image' => 'keuntungan1.png', 'title' => 'Tata Letak Foto', 'desc' => 'Pilih tata letak foto sesuai keinginanmu', 'aos-delay' => '0'],
-                    ['image' => 'keuntungan2.png', 'title' => 'Warna Latar Sesuai Keinginan', 'desc' => 'Pilih warna latar sesuai keinginanmu', 'aos-delay' => '200'],
-                    ['image' => 'keuntungan3.png', 'title' => 'Mode Spotlight', 'desc' => 'Foto lebih fokus dengan pencahayaan khusus', 'aos-delay' => '400']
-                ] as $benefit)
-                    <div class="col-lg-4 col-12 mb-3">
-                        <div class="product-thumb">
-                            <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}" class="img-fluid product-image">
-                            <div class="product-info d-flex">
-                                <div>
-                                    <h5 class="product-title mb-0">{{ $benefit['title'] }}</h5>
-                                    <p class="product-p">{{ $benefit['desc'] }}</p>
-                                </div>
+            @foreach ([
+                ['image' => 'keuntungan1.png', 'title' => 'Tata Letak Foto', 'desc' => 'Pilih tata letak foto sesuai keinginanmu', 'aos-delay' => '0'],
+                ['image' => 'keuntungan2.png', 'title' => 'Warna Latar Sesuai Keinginan', 'desc' => 'Pilih warna latar sesuai keinginanmu', 'aos-delay' => '200'],
+                ['image' => 'keuntungan3.png', 'title' => 'Mode Spotlight', 'desc' => 'Foto lebih fokus dengan pencahayaan khusus', 'aos-delay' => '400']
+            ] as $benefit)
+                <div class="col-lg-4 col-12 mb-3">
+                    <div class="product-thumb">
+                        <img src="{{ asset('assets/images/' . $benefit['image']) }}" alt="{{ $benefit['title'] }}" class="img-fluid product-image" style="cursor: default;">
+                        <div class="product-info d-flex">
+                            <div>
+                                <h5 class="product-title mb-0">{{ $benefit['title'] }}</h5>
+                                <p class="product-p">{{ $benefit['desc'] }}</p>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Gallery Section -->
     <div class="monogram-gallery-section-wrapper position-relative py-5">
