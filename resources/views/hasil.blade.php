@@ -87,11 +87,12 @@
     </div>
 
     <!-- Pagination Section -->
-    @if ($data->hasPages())
-        <div class="d-flex justify-content-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            {{ $data->links('pagination::bootstrap-5') }}
-        </div>
-    @endif
+   @if ($data->hasPages())
+    <div class="d-flex justify-content-center pagination-wrapper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        {{ $data->links('pagination::bootstrap-5') }}
+    </div>
+@endif
+
 
     <!-- Gallery Footer -->
     <div class="gallery-footer text-center mt-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
