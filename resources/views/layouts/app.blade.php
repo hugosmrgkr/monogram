@@ -149,7 +149,7 @@
                         scrollPos = 0;
                     }
 
-                    carouselTrack.style.transform = `translateX(-${scrollPos}px)`;
+                    carouselTrack.style.transform = translateX(-${scrollPos}px);
                 }
 
                 requestAnimationFrame(autoScroll);
