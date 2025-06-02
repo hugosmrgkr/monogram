@@ -8,6 +8,53 @@ body {
     line-height: 1.6;
 }
 
+.hero-gallery {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/images/background-login.jpg') center center / cover no-repeat;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-gallery-text {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 750px;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-gallery-text h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.hero-gallery-text p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #f1f1f1;
+}
+
 /* HEADER SECTION */
 .container-header {
     background-color: #151515;
@@ -201,11 +248,33 @@ body {
 }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+    .hero-gallery {
+        height: 80vh;
+    }
+}
+
 @media (max-width: 768px) {
     .container-header {
         flex-direction: column;
         align-items: flex-start;
         padding: 1.2rem;
+    }
+
+    .hero-gallery {
+        height: 60vh;
+    }
+
+    .hero-gallery-text {
+        padding: 0 1rem;
+    }
+
+    .hero-gallery-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-gallery-text p {
+        font-size: 1.1rem;
     }
 
     .nav-menu {
@@ -219,18 +288,32 @@ body {
         width: 100%;
         text-align: center;
     }
-    
+
     .gallery-title {
         font-size: 1.8rem;
     }
-    
+
     .gallery-description {
         font-size: 1rem;
         padding: 0 1rem;
     }
-    
+
     .gallery-footer {
         font-size: 0.95rem;
         padding: 1rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-gallery {
+        height: 50vh;
+    }
+
+    .hero-gallery-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-gallery-text p {
+        font-size: 1rem;
     }
 }
