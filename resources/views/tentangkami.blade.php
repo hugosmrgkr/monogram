@@ -191,7 +191,6 @@
                         </div>
                         <div class="hubungi-kami mt-5 text-center" data-aos="fade-up" data-aos-delay="200">
                             <h3 class="section-title mb-3">Hubungi Kami</h3>
-                            <p class="section-text">+62 82268691532</p>
                             <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
                                 @if (!empty($about->kontak_wa))
                                     <a href="{{ $about->kontak_wa }}" target="_blank" class="btn btn-wa">WhatsApp</a>
