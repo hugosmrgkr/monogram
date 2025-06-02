@@ -43,7 +43,6 @@
     font-family: 'Raleway', sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
     color: #ffffff;
@@ -270,7 +269,7 @@
     .section-title {
         font-size: 1.5rem;
     }
-    
+
     .studio-gallery .foot-gallery .gallery-item img {
         height: 350px;
     }
@@ -288,13 +287,13 @@
     .about-hero-text p {
         font-size: 1rem;
     }
-    
+
     .btn-wa, .btn-ig {
         min-width: 100px;
         padding: 8px 16px;
         font-size: 0.9rem;
     }
-    
+
     .studio-gallery .foot-gallery .gallery-item img {
         height: 250px;
     }
@@ -305,7 +304,7 @@
     .studio-gallery .foot-gallery .gallery-item img {
         height: 450px;
     }
-    
+
     .studio-gallery .gallery-item {
         margin-bottom: 20px;
     }
@@ -315,7 +314,7 @@
     .studio-gallery .foot-gallery .gallery-item img {
         height: 400px;
     }
-    
+
     .studio-gallery .gallery-item {
         padding: 0 10px;
     }
@@ -325,7 +324,7 @@
     .studio-gallery .foot-gallery .gallery-item img {
         height: 300px;
     }
-    
+
     .studio-gallery .gallery-item {
         padding: 0 8px;
         margin-bottom: 15px;
@@ -336,7 +335,7 @@
     .studio-gallery .foot-gallery .gallery-item img {
         height: 200px;
     }
-    
+
     .studio-gallery .gallery-item {
         padding: 0 5px;
         margin-bottom: 10px;
