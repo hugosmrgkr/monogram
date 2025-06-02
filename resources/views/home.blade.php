@@ -23,7 +23,7 @@
 
     <!-- Section Berita Terkini -->
     <section class="news-header">
-        <h2>Berita Terkini bro</h2>
+        <h2>Berita Terkini</h2>
         <p class="news-subtitle">
             Dapatkan update harian seputar kegiatan, pengumuman, dan informasi penting kami.
         </p>
