@@ -128,10 +128,10 @@
         // Home Carousel Script - hanya untuk halaman home
         document.addEventListener('DOMContentLoaded', function () {
             const homeCarouselTrack = document.getElementById('home-carousel-track');
-            
+
             // Pastikan element ada dan kita di halaman home
             if (!homeCarouselTrack) return;
-            
+
             const originalContent = homeCarouselTrack.innerHTML;
 
             // Gandakan isi carousel untuk efek infinite scroll
@@ -177,11 +177,11 @@
                 const x = e.pageX - homeCarouselTrack.offsetLeft;
                 const walk = (x - startX) * 2;
                 scrollPos = scrollLeft - walk;
-                
+
                 // Pastikan scrollPos tidak negatif
                 if (scrollPos < 0) scrollPos = itemWidth + scrollPos;
                 if (scrollPos >= itemWidth) scrollPos = scrollPos - itemWidth;
-                
+
                 homeCarouselTrack.style.transform = `translateX(-${scrollPos}px)`;
             });
 
@@ -208,10 +208,10 @@
                 const x = e.touches[0].clientX - homeCarouselTrack.offsetLeft;
                 const walk = (x - startX) * 2;
                 scrollPos = scrollLeft - walk;
-                
+
                 if (scrollPos < 0) scrollPos = itemWidth + scrollPos;
                 if (scrollPos >= itemWidth) scrollPos = scrollPos - itemWidth;
-                
+
                 homeCarouselTrack.style.transform = `translateX(-${scrollPos}px)`;
             });
 
@@ -266,17 +266,17 @@
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const indexDisplay = document.getElementById('newsIndexDisplay');
-            
+
             // Pastikan semua element ada
             if (!cards.length || !prevBtn || !nextBtn) return;
-            
+
             let currentIndex = 0;
 
             function updateView(index) {
                 cards.forEach((card, i) => {
                     card.style.display = (i === index) ? 'flex' : 'none';
                 });
-                
+
                 // Update index display jika ada
                 if (indexDisplay) {
                     indexDisplay.textContent = `${index + 1} dari ${cards.length}`;
@@ -303,5 +303,6 @@
     </script>
 
 </body>
+
 
 </html>

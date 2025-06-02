@@ -34,7 +34,7 @@
 
                 <div class="form-group">
                     <label>Tanggal Mulai</label>
-                    <input type="date" name="tanggal_mulai" class="form-control @error('tanggal_mulai') is-invalid @enderror" value="{{ old('tanggal_mulai') }}" required>
+                    <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control @error('tanggal_mulai') is-invalid @enderror" value="{{ old('tanggal_mulai') }}" required>
                     @error('tanggal_mulai')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -42,7 +42,7 @@
 
                 <div class="form-group">
                     <label>Tanggal Habis</label>
-                    <input type="date" name="tanggal_habis" class="form-control @error('tanggal_habis') is-invalid @enderror" value="{{ old('tanggal_habis') }}" required>
+                    <input type="date" name="tanggal_habis" id="tanggal_habis" class="form-control @error('tanggal_habis') is-invalid @enderror" value="{{ old('tanggal_habis') }}" required>
                     @error('tanggal_habis')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -54,4 +54,30 @@
         </div>
     </div>
 </div>
+
+{{-- Validasi Tanggal via JavaScript --}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tanggalMulai = document.getElementById('tanggal_mulai');
+        const tanggalHabis = document.getElementById('tanggal_habis');
+
+        function validasiTanggal() {
+            const mulai = new Date(tanggalMulai.value);
+            const habis = new Date(tanggalHabis.value);
+
+            if (tanggalMulai.value && tanggalHabis.value && habis < mulai) {
+                alert("Tanggal habis tidak boleh sebelum tanggal mulai!");
+                tanggalHabis.value = '';
+                tanggalHabis.focus();
+            }
+        }
+
+        tanggalMulai.addEventListener('change', function () {
+            tanggalHabis.min = tanggalMulai.value;
+            validasiTanggal();
+        });
+
+        tanggalHabis.addEventListener('change', validasiTanggal);
+    });
+</script>
 @endsection
