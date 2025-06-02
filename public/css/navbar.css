@@ -128,7 +128,6 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     font-family: 'Open Sans', sans-serif;
     font-size: 22px;
     font-weight: 800;
-    text-transform: none;
     display: flex;
     align-items: center;
     text-decoration: none;
