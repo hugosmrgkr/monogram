@@ -354,6 +354,17 @@ nav.navbar.scrolled .nav-item .nav-link.dropdown-toggle:hover {
         border-left-color: #f4f6f7 !important;
     }
 
+    /* Default warna putih (belum scroll, termasuk saat dropdown terbuka) */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22' /%3e%3c/svg%3e") !important;
+}
+
+/* Saat navbar di-scroll (dapat class .scrolled), hamburger jadi hitam */
+.navbar.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.85%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22' /%3e%3c/svg%3e") !important;
+}
+
+
     nav.navbar.scrolled .navbar-nav .dropdown-item {
         color: #333333 !important;
         border-left-color: transparent;
