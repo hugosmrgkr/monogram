@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\PageController;
@@ -26,7 +27,7 @@ Route::post('/komentar', [KomentarController::class, 'store'])->name('komentar.s
 Route::get('/hasil/{kategori?}', [PageController::class, 'hasil'])->name('hasil');
 
 // ==========================
-// Rute Login Admin (Tanpa Secret Code)
+// Rute Login Admin
 // ==========================
 Route::get('/admin/login', function () {
     return view('auth.login');
@@ -62,5 +63,5 @@ Route::prefix('admin')->middleware([AdminMiddleware::class, PreventBackHistory::
 // Fallback Route untuk URL yang tidak ditemukan
 // ==========================
 Route::fallback(function () {
-    return redirect()->route('home');
+    abort(404); // Tampilkan error 404
 });
