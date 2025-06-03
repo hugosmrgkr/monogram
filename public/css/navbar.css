@@ -31,61 +31,7 @@ nav.navbar {
     padding: 0;
 }
 
-/* Dropdown Gallery Styling */
-.navbar-nav .dropdown-menu {
-    background-color: #222; /* hitam gelap */
-    border: none;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    min-width: 200px;
-    padding: 8px 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.navbar-nav .dropdown-menu.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.navbar-nav .dropdown-menu:not(.show) {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-}
-
-.navbar-nav .dropdown-item {
-    color: #eee; /* putih halus */
-    padding: 10px 20px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar-nav .dropdown-item:hover,
-.navbar-nav .dropdown-item:focus {
-    background-color: #444; /* abu tua */
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Panah pada dropdown sudah ada di HTML, hanya styling untuk align */
-.navbar-nav .dropdown-toggle::after {
-    display: none; /* hide default bootstrap arrow */
-}
-
-/* Dropdown toggle link styling */
-.navbar-nav .nav-link.dropdown-toggle {
-    cursor: pointer;
-    color: #eee;
-    font-weight: 600;
-    user-select: none;
-}
-
-.navbar-nav .nav-link.dropdown-toggle:hover,
-.navbar-nav .nav-link.dropdown-toggle:focus {
-    color: #fff;
-    text-decoration: none;
-}
-
+/* ===== Logo Text Styling ===== */
 nav.navbar .logo-text {
     font-family: 'Poppins', sans-serif;
     color: #f4f6f7 !important;
@@ -111,20 +57,10 @@ nav.navbar.scrolled {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-nav.navbar.scrolled .nav-item .nav-link.active {
-    color: #393838 !important;
-}
-
 nav.navbar.scrolled .logo-text {
     color: #111 !important;
 }
 
-nav.navbar.scrolled .nav-item .nav-link.active::after {
-    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
-    width: 100%;
-}
-
-/* ===== Logo Text Styling - Menggunakan style dari login.css ===== */
 .logo-text {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
@@ -137,12 +73,11 @@ nav.navbar.scrolled .nav-item .nav-link.active::after {
     z-index: 10;
 }
 
-/* Logo styling ketika navbar di-scroll */
 nav.navbar.scrolled .logo-text {
     color: #111 !important;
 }
 
-/* ===== Navbar Links ===== */
+/* ===== Navbar Links Container ===== */
 .navbar-nav {
     display: flex;
     justify-content: center;
@@ -153,7 +88,10 @@ nav.navbar.scrolled .logo-text {
     justify-content: flex-end;
 }
 
-.navbar-nav .nav-item .nav-link {
+/* ===== UNIFIED STYLING FOR ALL NAV LINKS ===== */
+/* Berlaku untuk semua nav-link: regular links, dropdown toggle, dan active states */
+.navbar-nav .nav-item .nav-link,
+.navbar-nav .nav-item .nav-link.dropdown-toggle {
     color: #ffffff !important;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -163,9 +101,18 @@ nav.navbar.scrolled .logo-text {
     padding: 10px 16px;
     transition: 0.3s ease;
     letter-spacing: 0.4px;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.navbar-nav .nav-item .nav-link::after {
+/* Unified underline effect untuk semua nav-link */
+.navbar-nav .nav-item .nav-link::after,
+.navbar-nav .nav-item .nav-link.dropdown-toggle::after {
     content: '';
     position: absolute;
     bottom: -4px;
@@ -177,33 +124,88 @@ nav.navbar.scrolled .logo-text {
     border-radius: 2px;
 }
 
+/* Unified hover effects untuk semua nav-link */
 .navbar-nav .nav-item .nav-link:hover::after,
-.navbar-nav .nav-item .nav-link.active::after {
+.navbar-nav .nav-item .nav-link.active::after,
+.navbar-nav .nav-item .nav-link.dropdown-toggle:hover::after {
     width: 100%;
 }
 
 .navbar-nav .nav-item .nav-link:hover,
-.navbar-nav .nav-item .nav-link.active {
+.navbar-nav .nav-item .nav-link.active,
+.navbar-nav .nav-item .nav-link.dropdown-toggle:hover,
+.navbar-nav .nav-item .nav-link.dropdown-toggle:focus {
     color: #ffffff !important;
+    text-decoration: none;
+}
+
+/* Hide default bootstrap dropdown arrow */
+.navbar-nav .dropdown-toggle::after {
+    display: none;
+}
+
+/* ===== Dropdown Menu Styling ===== */
+.navbar-nav .dropdown-menu {
+    background-color: #222;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    min-width: 200px;
+    padding: 8px 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar-nav .dropdown-menu:not(.show) {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.navbar-nav .dropdown-item {
+    color: #eee;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:focus {
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* ===== Scroll Effects ===== */
-nav.navbar.scrolled .logo-text,
-nav.navbar.scrolled .navbar-link,
-nav.navbar.scrolled {
+nav.navbar.scrolled .nav-item .nav-link,
+nav.navbar.scrolled .nav-item .nav-link.dropdown-toggle {
     color: #000000 !important;
-    border-color: #000000 !important;
 }
 
-nav.navbar.scrolled .nav-item .nav-link::after {
+nav.navbar.scrolled .nav-item .nav-link.active {
+    color: #393838 !important;
+}
+
+nav.navbar.scrolled .nav-item .nav-link::after,
+nav.navbar.scrolled .nav-item .nav-link.dropdown-toggle::after {
     background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
 }
 
-nav.navbar.scrolled .navbar-link:hover {
+nav.navbar.scrolled .nav-item .nav-link.active::after {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+    width: 100%;
+}
+
+nav.navbar.scrolled .nav-item .nav-link:hover,
+nav.navbar.scrolled .nav-item .nav-link.dropdown-toggle:hover {
     color: #333333 !important;
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive Mobile ===== */
 @media (max-width: 991.98px) {
     nav.navbar {
         background-color: rgba(0, 0, 0, 0.8) !important;
@@ -226,15 +228,24 @@ nav.navbar.scrolled .navbar-link:hover {
         width: 100%;
     }
 
-    .navbar-nav .nav-item .nav-link {
+    /* Mobile - Unified styling untuk semua nav-link */
+    .navbar-nav .nav-item .nav-link,
+    .navbar-nav .nav-item .nav-link.dropdown-toggle {
         width: 100%;
         padding: 10px 0;
         color: #f4f6f7 !important;
-        border-color: #f4f6f7 !important;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
         position: relative;
+        display: flex;
+        align-items: center;
+        gap: 4px;
     }
 
-    .navbar-nav .nav-item .nav-link::after {
+    .navbar-nav .nav-item .nav-link::after,
+    .navbar-nav .nav-item .nav-link.dropdown-toggle::after {
         content: '';
         position: absolute;
         bottom: -4px;
@@ -247,8 +258,17 @@ nav.navbar.scrolled .navbar-link:hover {
     }
 
     .navbar-nav .nav-item .nav-link:hover::after,
-    .navbar-nav .nav-item .nav-link.active::after {
+    .navbar-nav .nav-item .nav-link.active::after,
+    .navbar-nav .nav-item .nav-link.dropdown-toggle:hover::after {
         width: 100%;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link.active,
+    .navbar-nav .nav-item .nav-link.dropdown-toggle:hover,
+    .navbar-nav .nav-item .nav-link.dropdown-toggle:focus {
+        color: #fff !important;
+        text-decoration: none;
     }
 
     .navbar-login-wrapper {
@@ -269,32 +289,31 @@ nav.navbar.scrolled .navbar-link:hover {
         border-color: #f4f6f7;
     }
 
-    /* Navbar scrolled state for mobile */
+    /* Mobile scrolled navbar */
     nav.navbar.scrolled {
         background-color: #f4f6f7 !important;
         box-shadow: none !important;
         padding: 12px 20px;
     }
 
-    nav.navbar.scrolled .logo-text .monogram-text {
+    nav.navbar.scrolled .logo-text {
         color: #111 !important;
     }
 
-    nav.navbar.scrolled .logo-text .title {
-        color: #555 !important;
-    }
-
     nav.navbar.scrolled .navbar-nav .nav-item .nav-link,
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link.dropdown-toggle,
     nav.navbar.scrolled .btn-admin {
         color: #333333 !important;
     }
 
-    nav.navbar.scrolled .navbar-nav .nav-item .nav-link::after {
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link::after,
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link.dropdown-toggle::after {
         background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
     }
 
     nav.navbar.scrolled .navbar-nav .nav-item .nav-link:hover,
-    nav.navbar.scrolled .navbar-nav .nav-item .nav-link.active {
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link.active,
+    nav.navbar.scrolled .navbar-nav .nav-item .nav-link.dropdown-toggle:hover {
         color: #333333 !important;
     }
 
@@ -304,7 +323,7 @@ nav.navbar.scrolled .navbar-link:hover {
         border-color: #333333;
     }
 
-    /* Dropdown di mobile jadi full-width block */
+    /* Mobile dropdown menu */
     .navbar-nav .dropdown-menu {
         position: static !important;
         box-shadow: none;
@@ -318,7 +337,7 @@ nav.navbar.scrolled .navbar-link:hover {
         pointer-events: auto !important;
     }
 
-    /* Dropdown item mobile */
+    /* Mobile dropdown items */
     .navbar-nav .dropdown-item {
         color: #f4f6f7 !important;
         background-color: transparent !important;
@@ -333,17 +352,5 @@ nav.navbar.scrolled .navbar-link:hover {
         background-color: transparent !important;
         color: #fff !important;
         border-left-color: #f4f6f7 !important;
-    }
-
-    /* Dropdown toggle link styling for mobile */
-    .navbar-nav .nav-link.dropdown-toggle {
-        color: #f4f6f7 !important;
-        font-weight: 600;
-    }
-
-    .navbar-nav .nav-link.dropdown-toggle:hover,
-    .navbar-nav .nav-link.dropdown-toggle:focus {
-        color: #fff !important;
-        text-decoration: none;
     }
 }
