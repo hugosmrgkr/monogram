@@ -353,4 +353,15 @@ nav.navbar.scrolled .nav-item .nav-link.dropdown-toggle:hover {
         color: #fff !important;
         border-left-color: #f4f6f7 !important;
     }
+
+    nav.navbar.scrolled .navbar-nav .dropdown-item {
+        color: #333333 !important;
+        border-left-color: transparent;
+    }
+
+    nav.navbar.scrolled .navbar-nav .dropdown-item:hover,
+    nav.navbar.scrolled .navbar-nav .dropdown-item:focus {
+        color: #000 !important;
+        border-left-color: #333333 !important;
+    }
 }
