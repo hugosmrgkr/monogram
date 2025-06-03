@@ -246,6 +246,22 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
+/* Target pagination hanya pada halaman galeri */
+.pagination-wrapper .pagination {
+    filter: grayscale(100%);
+}
+
+.pagination-wrapper .page-link {
+    color: #000 !important;
+    border-color: #000 !important;
+    background-color: #fff !important;
+}
+
+.pagination-wrapper .page-item.active .page-link {
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
+}
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
