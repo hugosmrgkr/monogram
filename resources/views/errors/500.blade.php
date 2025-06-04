@@ -25,6 +25,6 @@
 <body>
     <h1>500</h1>
     <p>Maaf! Terjadi kesalahan pada server.</p>
-    <a href="{{ url('/500') }}">Kembali ke Beranda</a>
+    <a href="{{ route('home') }}">Kembali ke Beranda</a>
 </body>
 </html>
