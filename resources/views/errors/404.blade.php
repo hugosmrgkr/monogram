@@ -25,6 +25,6 @@
 <body>
     <h1>404</h1>
     <p>Oops! Halaman tidak ditemukan.</p>
-    <a href="{{ url('/home') }}">Kembali ke Beranda</a>
+        <a href="{{ route('home') }}">Kembali ke Beranda</a>
 </body>
 </html>
