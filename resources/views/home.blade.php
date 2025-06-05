@@ -39,7 +39,7 @@
                         <div class="news-daily-card" data-index="{{ $index }}" style="{{ $index !== 0 ? 'display:none;' : '' }}">
                             @if($berita->gambar)
                                 <div class="news-img">
-                                    <img src="{{ asset('storage/app/public/' . $berita->gambar) }}" alt="Gambar Berita">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
                                 </div>
                             @endif
                             <div class="news-content">
@@ -115,7 +115,7 @@
         <div class="gallery-background"></div>
 
         <div class="monogram-gallery-section container mb-5">
-            <h2 class="monogram-gallery-title fw-bold mb-4">Recommended Foto</h2>
+            <h2 class="monogram-gallery-title fw-bold mb-4">Rekomendasi Foto</h2>
 
             @if($galleries->isEmpty())
                 <div class="alert alert-warning text-center" role="alert" data-aos="zoom-in">
@@ -128,8 +128,8 @@
                             @foreach ($galleries as $index => $gallery)
                             <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
                                 <img
-                                    src="{{ asset('storage/app/public/' . $gallery->gambar) }}"
-                                    data-mdb-img="{{ asset('storage/app/public/' . $gallery->gambar) }}"
+                                    src="{{ asset('storage/' . $gallery->gambar) }}"
+                                    data-mdb-img="{{ asset('storage/' . $gallery->gambar) }}"
                                     alt="Rekomendasi Foto"
                                     class="w-100 rounded shadow-sm"
                                 />

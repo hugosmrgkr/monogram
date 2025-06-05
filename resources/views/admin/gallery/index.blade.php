@@ -65,7 +65,7 @@
                                 <tr>
                                     <td class="text-center">{{ $key + 1 }}</td>
                                     <td class="text-center">
-                                        <img src="{{ asset('storage/app/public/' . $gallery->gambar) }}" style="width: 120px; height: 180px; object-fit: cover; border-radius: 8px;">
+                                        <img src="{{ asset('storage/' . $gallery->gambar) }}" style="width: 120px; height: 180px; object-fit: cover; border-radius: 8px;">
                                     </td>
                                     <td class="text-center">{{ $gallery->kategori }}</td>
                                     <td class="text-center">

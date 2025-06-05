@@ -22,7 +22,7 @@
                     <div class="form-group">
                         <label>Gambar Saat Ini</label><br>
                         @if($layanan->gambar)
-                            <img src="{{ asset('storage/app/public/'.$layanan->gambar) }}" width="150"><br><br>
+                            <img src="{{ asset('storage/'.$layanan->gambar) }}" width="150"><br><br>
                         @else
                             <span class="text-muted">Tidak ada gambar</span><br><br>
                         @endif

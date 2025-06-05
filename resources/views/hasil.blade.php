@@ -71,7 +71,7 @@
                  data-aos-duration="600" 
                  data-aos-delay="{{ ($loop->index % 12) * 100 }}">
                 <div class="card shadow-sm">
-                    <img src="{{ asset('storage/app/public/' . $item->gambar) }}" 
+                    <img src="{{ asset('storage/' . $item->gambar) }}" 
                          class="card-img-top" 
                          alt="Foto {{ $kategori }}">
                     <div class="card-body">

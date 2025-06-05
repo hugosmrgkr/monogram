@@ -51,7 +51,7 @@
                                 <a class="nav-link navbar-link d-flex align-items-center gap-1"
                                 href="#" id="navbarGalleryDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                    Gallery
+                                    Galeri
                                     <i class="bi bi-caret-down-fill" style="font-size: 0.8rem;"></i>
                                 </a>
                                 <ul class="dropdown-menu">
