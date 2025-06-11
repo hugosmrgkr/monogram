@@ -50,7 +50,7 @@
                         data-aos-delay="{{ $loop->index * 100 }}">
                         <div class="layanan-card-inner">
                             @if($layanan->gambar)
-                                <img src="{{ asset('storage/' . $layanan->gambar) }}" alt="{{ $layanan->judul }}"
+                                <img src="{{ asset('storage/app/public/' . $layanan->gambar) }}" alt="{{ $layanan->judul }}"
                                     class="layanan-img">
                             @else
                                 <div class="layanan-img-placeholder"></div>

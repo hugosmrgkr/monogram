@@ -39,7 +39,7 @@
                         <div class="news-daily-card" data-index="{{ $index }}" style="{{ $index !== 0 ? 'display:none;' : '' }}">
                             @if($berita->gambar)
                                 <div class="news-img">
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita">
+                                    <img src="{{ asset('storage/app/public/' . $berita->gambar) }}" alt="Gambar Berita">
                                 </div>
                             @endif
                             <div class="news-content">
@@ -128,8 +128,8 @@
                             @foreach ($galleries as $index => $gallery)
                             <div class="multi-carousel-item me-2" style="flex: 0 0 auto; width: 300px;">
                                 <img
-                                    src="{{ asset('storage/' . $gallery->gambar) }}"
-                                    data-mdb-img="{{ asset('storage/' . $gallery->gambar) }}"
+                                    src="{{ asset('storage/app/public/' . $gallery->gambar) }}"
+                                    data-mdb-img="{{ asset('storage/app/public/' . $gallery->gambar) }}"
                                     alt="Rekomendasi Foto"
                                     class="w-100 rounded shadow-sm"
                                 />
