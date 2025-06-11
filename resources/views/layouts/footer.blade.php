@@ -18,7 +18,7 @@
         <p class="mb-2">📍 Lumban Dolok Haume Bange, Balige, Toba, Sumatera Utara</p>
         <p class="mb-2">📞 +62 822 6869 1532</p>
         <p class="mb-2">✉️ jeremysmrngkr@gmail.com</p>
-        <p class="mb-0">📷 Ikuti kami di Instagram: <a href="https://instagram.com/monogramtoba" target="_blank">@monogramtoba</a></p>
+        <p class="mb-0">📷 Ikuti kami di Instagram: <a href="https://www.instagram.com/monogram.toba?igsh=MTAzdzloMW13NzVncw==" target="_blank">@monogramtoba</a></p>
       </div>
 
       <!-- Jam Operasional -->

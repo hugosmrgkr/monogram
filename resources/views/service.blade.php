@@ -35,6 +35,12 @@
         </div>
     </div>
 
+     <div class="booking-btn-container" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000">
+                <a href="https://monogram.youcanbook.me/" target="_blank" class="booking-btn">Book now</a>
+            </div>
+            <br>
+            <br>
+
     <section class="additional-section">
         <div class="additional-container">
             <h2 class="section-title" data-aos="fade-up" data-aos-offset="200">Additional</h2>
@@ -57,9 +63,7 @@
                     <p class="no-layanan-msg" data-aos="fade-in">Belum ada layanan tersedia saat ini.</p>
                 @endforelse
             </div>
-            <div class="booking-btn-container" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000">
-                <a href="https://monogram.youcanbook.me/" target="_blank" class="booking-btn">Book now</a>
-            </div>
+           
             <div class="photo-importance" data-aos="fade-up" data-aos-offset="150" data-aos-duration="900">
                 <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Kenapa Cetak Foto Masih Penting?</h2>
                 <p class="importance-text" data-aos="fade-up" data-aos-delay="400">

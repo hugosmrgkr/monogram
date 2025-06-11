@@ -46,6 +46,11 @@
                                 <a class="nav-link navbar-link {{ request()->routeIs('home') ? 'active' : '' }}"
                                     href="{{ route('home') }}">Beranda</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}"
+                                    href="{{ route('service') }}">Pilihan Layanan</a>
+                            </li>
                             {{-- Dropdown Gallery --}}
                             <li class="nav-item dropdown">
                                 <a class="nav-link navbar-link d-flex align-items-center gap-1"
@@ -70,10 +75,7 @@
                                 <a class="nav-link navbar-link {{ request()->routeIs('faq') ? 'active' : '' }}"
                                     href="{{ route('faq') }}">FAQ</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-link {{ request()->routeIs('service') ? 'active' : '' }}"
-                                    href="{{ route('service') }}">Pilihan Layanan</a>
-                            </li>
+                            
                         </ul>
                     </div>
 
